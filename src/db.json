@@ -1,0 +1,33 @@
+[        
+    {
+        "id": 1, 
+        "city": "Addis Ababa", 
+        "name": " Entoto",
+        "link": "/trips"
+    },
+    { 
+        "id": 3, 
+        "city": "Hawassa",
+        "name": " Hayk " ,
+        "link": "/trips"
+    },
+    { 
+        "id": 4, 
+        "city": "Afar", 
+        "name": " Denakil ",
+        "link": "/trips"
+    },
+    { 
+        "id": 5, 
+        "city": "Gonder", 
+        "name": " Lalibela ",
+        "link": "/trips"
+    },
+    { 
+        "id": 2, 
+        "city": "Arbaminch", 
+        "name": " Abaya ",
+        "link": "/trips"
+    }
+    
+]

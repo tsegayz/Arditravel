@@ -1,0 +1,32 @@
+[        
+  {
+    "id": 1,
+    "city": "Entoto",
+    "location": "6 Kilo",
+    "image": "./assets/entoto.jpg"
+  },
+  {
+    "id": 2,
+    "city": "Nechsar National Park",
+    "location": "Sikela",
+    "image": "./assets/nech.jpg"
+  },
+  {
+    "id": 3,
+    "city": "Hawassa Lake",
+    "location": "Piassa",
+    "image": "./assets/omo.jpg"
+  },
+  {
+    "id": 4,
+    "city": "Denakil",
+    "location": "Afar Triangle",
+    "image": "./assets/dallol.jpg"
+  },
+  {
+    "id": 5,
+    "city": "Lalibela",
+    "location": "Gonder",
+    "image": "./assets/rock.jpg"
+  }
+]
