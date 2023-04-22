@@ -5,7 +5,7 @@ It helps make tourists journey easier and enjoyable by taking care of most of th
 
 # Features in the webapp
 
-* Tourists can 
+*Tourists can :- 
 
 - look for cities to begin their journey with.
 - seek for attractio placeses found in a city.
