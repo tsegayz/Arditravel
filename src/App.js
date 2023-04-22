@@ -18,7 +18,8 @@ function App() {
       {/* <NavBar/> */}
       {/* <Hotels/> */}
       {/* <HotelEach/> */}
-      <City/>
+      {/* <City/> */}
+      <SignIn/>
       {/* <div className='content'>
           <Switch>
           <Route exact path='/'>
