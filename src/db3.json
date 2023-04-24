@@ -1,0 +1,28 @@
+[        
+    { 
+        "id": 2, 
+        "title": " About Ardi", 
+        "list": " Press ",
+        "listT": " Resources and Policies",
+        "listTh": "Contact us",
+        "listF": "Guide"
+        
+    },
+    { 
+        "id": 3, 
+        "title": "Explore",
+        "list": "  Write a review ",
+        "listT": "Join",
+        "listTh": "Travelers' Choice",
+        "listF": "Travel Articles"
+    },
+    { 
+        "id": 4, 
+        "title": "Spring Destinations", 
+        "list": "  Cherry Blossoms ",
+        "listT": " Lewis Ginter Botanical Garden",
+        "listTh": "Tuscany Wine Tours",
+        "listF": "Amsterdam Canal Cruises "
+    }
+    
+]

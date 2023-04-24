@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import demoImage from "../assets/log.jpg";
+import demoImage from "../assets/log2.jpg";
 import {BsPersonCircle} from "react-icons/bs";
 import {HiLockClosed} from "react-icons/hi";
 import {MdOutlineAlternateEmail} from "react-icons/md";
@@ -44,12 +44,12 @@ function SignIn() {
           <div>
             <h1>Login</h1>
             <form>
-              <div>
+              <div className="input">
                 <BsPersonCircle/>
                 <input placeholder="Username" type="text" id="username" name="username"/>
               </div>
               <br />
-              <div>
+              <div className="input">
                 <HiLockClosed/>
                 <input placeholder="Password" type="password" id="password" name="password" />
               </div>
@@ -62,17 +62,17 @@ function SignIn() {
           <div>
             <h1>Signup</h1>
             <form>
-              <div>
+              <div className="input">
                 <BsPersonCircle/>
                 <input placeholder="Username" type="text" id="username" name="username"/>
               </div>
               <br/>
-              <div>
+              <div className="input">
                 <MdOutlineAlternateEmail/>
                 <input placeholder="Email" type="email" id="email" name="email" />
               </div>
               <br />
-              <div>
+              <div className="input">
                 <HiLockClosed/>
                 <input placeholder="Password" type="password" id="password" name="password" />
               </div>

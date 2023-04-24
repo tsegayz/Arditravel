@@ -9,21 +9,21 @@ import Places from './db.json'
 import Hotels from './components/Hotels';
 import HotelEach from './components/HotelEach';
 import City from './components/City';
-
+import footerList from './db3.json';
+import whatNeed from './db4.json';
 
 function App() {
   return (
     <div className="App">
       <Router>
-      {/* <NavBar/> */}
-      {/* <Hotels/> */}
-      {/* <HotelEach/> */}
-      {/* <City/> */}
-      <SignIn/>
-      {/* <div className='content'>
+        <div className='content'>
           <Switch>
           <Route exact path='/'>
-              <Home data={Places}  />
+              <NavBar/>
+              <Home data={Places} footer={footerList} explore={whatNeed}/>
+            </Route>
+            <Route exact path='/city'>
+              <City/>
             </Route>
             <Route exact path='/trips'>
               <Trips/>
@@ -41,7 +41,7 @@ function App() {
               <HotelEach/>
             </Route>
           </Switch>
-        </div> */}
+        </div>
       </Router>
     </div>
   );
