@@ -1,4 +1,5 @@
 
+
 * {
   
 	box-sizing: border-box;
@@ -463,6 +464,7 @@ body {
 }
 
 
+
 /* //////////    hotels page  */
 
 .hotels {
@@ -760,7 +762,7 @@ body {
   width: 100%;
   position: relative;
   z-index: 1;
-  top: 25%;
+  top: 5%;
 }
 .hotels-footer-one {
   display: flex;
@@ -832,13 +834,15 @@ body {
   text-align: center;
 }
 
+/* ////////////////////// each hotel //////////// */
+
 .each-hotel{
   background-image: url('./assets/hotelo.jpg');
   background-size:cover;
 	background-repeat: no-repeat;
   background-position: center;
   height: 100vh;
-  width: 91.2em;
+  width: 89em;
 }
 .each-hotel .hotel-nav{
   margin-left: 8px;
@@ -848,7 +852,7 @@ body {
   position: absolute;
   top: 0;
   left: 0;
-  width: 76%;
+  width: 74.2%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.945);
   opacity: 0.5; 
@@ -872,15 +876,20 @@ body {
 }
 
 .sidebar {
-  background-size: 80%;
+  background-size: 50%;
   background-repeat: no-repeat;
   background-position: center right;
-  width: 23%;
+  width: 24%;
   height: 100%;
   position: fixed;
   top: 0;
   right: 0;
   overflow-y: scroll;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+.sidebar::-webkit-scrollbar {
+  display: none;
 }
 .container-list {
   list-style: none;

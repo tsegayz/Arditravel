@@ -11,6 +11,8 @@ import HotelEach from './components/HotelEach';
 import City from './components/City';
 import footerList from './db3.json';
 import whatNeed from './db4.json';
+import hotels from './db6.json';
+import eachHotels from './db7.json';
 
 function App() {
   return (
@@ -35,10 +37,10 @@ function App() {
               <SignIn/>
             </Route>
             <Route exact path='/hotels'>
-              <Hotels/>
+              <Hotels items={hotels}/>
             </Route>
             <Route exact path='/eachhotel'>
-              <HotelEach/>
+              <HotelEach items={eachHotels}/>
             </Route>
           </Switch>
         </div>

@@ -19,7 +19,7 @@ function SignIn() {
   };
 
   return (
-    <div className="container">
+    <div className="signin">
       <div className="left-container">
         <div className="image-container">
           <img src={demoImage} alt="demo" />

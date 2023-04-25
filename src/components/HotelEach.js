@@ -4,7 +4,8 @@ import { RiFacebookFill, RiLinkedinFill, RiInstagramFill} from "react-icons/ri";
 import { SiTwitter} from "react-icons/si";
 import { MdFavorite,MdEmail } from "react-icons/md";
 import img from '../assets/hotelo.png';
-function HotelEach() {
+
+function HotelEach({items}) {
   return (
 
     <div className='each-hotel'>
@@ -23,36 +24,21 @@ function HotelEach() {
                 <h4> One of the top hotel in the city </h4>
             </div>
         </div>
+
         <div className='sidebar'>
             <ul className='container-list'>
-                <li className='container'>
-                    <div className="sidebar-box">
-                        <div className="sidebar-img">
-                            <img src={img}alt="" className="img-fluid"/>
-                        </div>                    
-                    </div>
-                    <h3> Room type </h3>
-                    <p> One line description of Container 1 </p>
-                </li>
-                <li className='container'>
-                    <div className="sidebar-box">
-                        <div className="sidebar-img">
-                            <img src={img}alt="" className="img-fluid"/>
-                        </div>                    
-                    </div>
-                    <h3> Room type </h3>
-                    <p> One line description of Container 1 </p>
-                </li>
-                <li className='container'>
-                    <div className="sidebar-box">
-                        <div className="sidebar-img">
-                            <img src={img}alt="" className="img-fluid"/>
-                        </div>                    
-                    </div>
-                    <h3> Room type </h3>
-                    <p> One line description of Container 1 </p>
-                </li>
-                
+                {
+                    items.map((item) => (
+                        <li className='container'>
+                        <div className='sidebar-box'>
+                            <div className='sidebar-img'>
+                            <img src={img} alt='' className='img-fluid' />
+                            </div>
+                        </div>
+                        <h3>{item.roomtype}</h3>
+                        <p>{item.descr}</p>
+                        </li>
+                ))}
             </ul>
         </div>
         <div>
