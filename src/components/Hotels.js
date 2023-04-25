@@ -3,7 +3,7 @@ import { RiFacebookFill, RiLinkedinFill, RiInstagramFill} from "react-icons/ri";
 import { SiTwitter} from "react-icons/si";
 import { MdFavorite,MdEmail } from "react-icons/md";
 
-function Hotels() {
+function Hotels( {items}) {
 
   const hotels = [ 'All', 'Nature', 'Forest', 'Man-made', 'Villages', 'Animals']
 
@@ -25,13 +25,9 @@ function Hotels() {
                 <h6> All your needs in one place  </h6>
                 <p> One of the top hotel in the city </p>
             </div>
-            
         </div>
 
         <div >
-            <a href=''>
-
-            </a>
             <ul className='hotel-home'>
                 <li className='hotel-home-list'> <a> Meals </a>  </li>
                 <li className='hotel-home-list'> <a> Booking </a>  </li>
@@ -53,98 +49,42 @@ function Hotels() {
                 </li>
             </ul>
         </form>
-
-        <div className='hotel-card' >
-            <ul className='hotel-card-list'>
-                <li className='hotel-item'> <button> <MdFavorite style={{color:"rgb(247, 235, 221)"}} /> </button> </li>
-                <div className='hotel-name'>
-                    <li className='hotel-item'> Inter continental Hotel </li>
-                    <li className='hotel-item'> 
+        
+        <div className='hotel-card'>
+            
+            {items.map((item) => {
+                return (
+                <div className='hotel-card-list' key={item.id}>
+                    <div className='hotel-item'>
+                    <button>
+                        <MdFavorite style={{ color: 'rgb(247, 235, 221)' }} />
+                    </button>
+                    </div>
+                    <div className='hotel-name'>
+                    <li className='hotel-item'>{item.name}</li>
+                    <li className='hotel-item'>
                         <div className='hotel-row'>
-                            <p> Addis Ababa </p>  
-                            <HiLocationMarker style={{fontSize:'33px'}}/>      
+                        <p>{item.cityName}</p>
+                        <HiLocationMarker style={{ fontSize: '33px' }} />
                         </div>
                     </li>
-                </div>
-                <div className='hotel-hover'>                    
-                    <li >  <button> Details </button>  </li>
-                    <div className='hotel-hover-item'> 
-                        <li > Room </li>
-                        <li > Rating </li>
-                        <li > Room No </li>
                     </div>
-                </div>                
-            </ul>
-        </div>
-
-        <div className='hotel-card' >
-            <ul className='hotel-card-list'>
-                <li className='hotel-item'> <button> <MdFavorite style={{color:"rgb(247, 235, 221)"}} /> </button> </li>
-                <div className='hotel-name'>
-                    <li className='hotel-item'> Inter continental Hotel </li>
-                    <li className='hotel-item'> 
-                        <div className='hotel-row'>
-                            <p> Addis Ababa </p>  
-                            <HiLocationMarker style={{fontSize:'33px'}}/>      
+                        <div className='hotel-hover'>
+                        <li>
+                            <a href={item.link}>
+                             <button>Details</button>
+                            </a>
+                        </li>
+                        <div className='hotel-hover-item'>
+                            <li>{item.room}</li>
+                            <li>{item.rating}</li>
+                            <li>{item.roomSize}</li>
                         </div>
-                    </li>
-                </div>
-                <div className='hotel-hover'>                    
-                    <li >  <button> Details </button>  </li>
-                    <div className='hotel-hover-item'> 
-                        <li > Room </li>
-                        <li > Rating </li>
-                        <li > Room No </li>
                     </div>
-                </div>                
-            </ul>
-        </div>
-
-
-        <div className='hotel-card' >
-            <ul className='hotel-card-list'>
-                <li className='hotel-item'> <button> <MdFavorite style={{color:"rgb(247, 235, 221)"}} /> </button> </li>
-                <div className='hotel-name'>
-                    <li className='hotel-item'> Inter continental Hotel </li>
-                    <li className='hotel-item'> 
-                        <div className='hotel-row'>
-                            <p> Addis Ababa </p>  
-                            <HiLocationMarker style={{fontSize:'33px'}}/>      
-                        </div>
-                    </li>
+                    
                 </div>
-                <div className='hotel-hover'>                    
-                    <li >  <button> Details </button>  </li>
-                    <div className='hotel-hover-item'> 
-                        <li > Room </li>
-                        <li > Rating </li>
-                        <li > Room No </li>
-                    </div>
-                </div>                
-            </ul>
-        </div>
-
-        <div className='hotel-card' >
-            <ul className='hotel-card-list'>
-                <li className='hotel-item'> <button> <MdFavorite style={{color:"rgb(247, 235, 221)"}} /> </button> </li>
-                <div className='hotel-name'>
-                    <li className='hotel-item'> Inter continental Hotel </li>
-                    <li className='hotel-item'> 
-                        <div className='hotel-row'>
-                            <p> Addis Ababa </p>  
-                            <HiLocationMarker style={{fontSize:'33px'}}/>      
-                        </div>
-                    </li>
-                </div>
-                <div className='hotel-hover'>                    
-                    <li >  <button> Details </button>  </li>
-                    <div className='hotel-hover-item'> 
-                        <li > Room </li>
-                        <li > Rating </li>
-                        <li > Room No </li>
-                    </div>
-                </div>                
-            </ul>
+                );
+            })}
         </div>
 
         <footer className='hotels-footer'>
