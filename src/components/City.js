@@ -1,8 +1,10 @@
 import { FiBookmark, FiChevronLeft, FiChevronRight } from "react-icons/fi";
 import { HiLocationMarker } from "react-icons/hi";
+import { MdFavorite,MdEmail } from "react-icons/md";
+
 import img from '../assets/hotelo.png';
 
-function City() {
+function City( {items }) {
   return (
 
     <div className='city'>
@@ -21,67 +23,42 @@ function City() {
             <div className="city-homepage">
                 <div className='city-name'>
                     <div className='city-name-descr'>
-                        <h2> Addis Ababa  </h2>
-                        <p> Splended weekend on splended city </p>
+                    <h2> Addis Ababa  </h2>
+                    <p> Splendid weekend on splendid city </p>
                     </div>
                 </div>
 
-                <div className="city-card-list">
-                    <ul className="city-card-list-content">
-                        <li className="city-card-item">
-                            <div className="city-card">
-                                <div  className='city-card-attraction'>
-                                    <div className='city-card-icon' >
-                                        <a> <FiBookmark/> </a>
-                                    </div>
-
-                                    <div className='city-card-detail'>
-                                        <ul className='city-attraction'>
-                                            <li className='city-attraction-item'> Attraction name </li>
-                                            <li className='city-attraction-item'>
-                                                <div className="city-attraction-icon">
-                                                    <HiLocationMarker style={{fontSize:'27px'}}/> 
-                                                    <p> Around Bole </p>                                            
+                <div className="city-card-list-container">
+                    <div className="city-card-list">
+                        <ul className="city-card-list-content">
+                            {
+                                items.map((item) => (
+                                    <li className="city-card-item">
+                                        <div className="city-card">
+                                            <div className='city-card-attraction'>
+                                                <div className='city-card-icon' >
+                                                    <a> <FiBookmark/> </a>
                                                 </div>
-                                            </li>
-                                                                                        
-                                        </ul>                          
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
 
-                        <li className="city-card-item">
-                            <div className="city-card">
-                                <div  className='city-card-attraction'>
-                                    <div className='city-card-icon' >
-                                        <a> <FiBookmark/> </a>
-                                    </div>
-
-                                    <div className='city-card-detail'>
-                                        <ul className='city-attraction'>
-                                            <li className='city-attraction-item'> Attraction name </li>
-                                            <li className='city-attraction-item'>
-                                                <div className="city-attraction-icon">
-                                                    <HiLocationMarker style={{fontSize:'27px'}}/> 
-                                                    <p> Around Bole </p>                                            
+                                                <div className='city-card-detail'>
+                                                    <ul className='city-attraction'>
+                                                        <li className='city-attraction-item'> <h2> {item.name}</h2> </li>
+                                                        <li className='city-attraction-item'>
+                                                            <div className="city-attraction-icon">
+                                                            <HiLocationMarker style={{fontSize:'23px'}}/> 
+                                                            <p> {item.location} </p>                                            
+                                                            </div>
+                                                        </li>                                                                                                                     
+                                                    </ul>                          
                                                 </div>
-                                            </li>
-                                                                                        
-                                        </ul>                          
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        
-                    </ul>
+                                            </div>
+                                        </div>
+                                    </li>
+                                ))
+                            }
+                        </ul>
+                    </div>
                 </div>
-
-            </div>            
-
-            <div className='card-arrows'>
-                <a> <FiChevronLeft/> </a> 
-                <a> <FiChevronRight/> </a> 
             </div>
     
         </div>
@@ -109,68 +86,96 @@ function City() {
                 Donec lectus lorem, rhoncus vitae quam eget, vulputate gravida elit. Praesent ultricies
                 eros id velit condimentum, eu ultrices nisl consequat."
             </p>
-
         </div>
-
-        <div className='city-things'>
+        
+        <div className='city-things-container'>
             <h2> Things to do </h2>
-            
-            <div>
-                <div className='city-things-card'>
-                    <p> <a> like icon </a> </p>
-
- 
-                    <div className='city-things-desc-card'>
-                        <ul className='city-things-desc'>
-                            <li className='city-things-item'> Hiking </li>
-                            <li className='city-things-item'> location </li>
-                            <li className='city-things-item'> review </li>
-                        </ul>
-                    </div>
-                </div>
-
-            </div>
-        </div>  
-
-
-        <div className='city-hotels'>
-            <h2> Hotels </h2>
-            <p> description </p>
-            
-            <div className='city-hotel-card'>
-                <p> <a> like icon </a> </p>
-                <ul className='city-hotel-desc'>
-                    <li className='city-hotel-item'> Hiking </li>
-                    <li className='city-hotel-item'> location </li>
-                    <li className='city-hotel-item'> review </li>
+            <div className="city-things-list">
+                <ul className='city-things-content'>
+                    {
+                        items.map( (item) => (
+                            <li>
+                                <div className='city-things-card'>
+                                    <button>
+                                        <MdFavorite style={{ color: 'rgb(247, 23, 2)' }} />
+                                    </button>
+                                    <ul className='city-things-desc'>
+                                        <li className='city-things-item'> {item.name} </li>
+                                        <li className='city-things-item'> {item.location} 
+                                            <HiLocationMarker style={{fontSize:'20px', color:'grey'}}/> 
+                                        </li>
+                                        <li className='city-things-item'> {item.review} </li>
+                                    </ul>
+                                </div>
+                            </li>
+                        ))
+                    }
                 </ul>
             </div>
-        </div>  
+        </div>
+
+        <div className='city-hotels-container'>
+            <h2> Hotels </h2>
+            <h3> Calling you to luxury </h3>
+            <div className="city-hotels-list">
+                <ul className='city-hotels-content'>
+                    {
+                        items.map( (item) => (
+                            <li>
+                                <div className='city-hotels-card'>
+                                    <button>
+                                        <MdFavorite style={{ color: 'rgb(247, 23, 2)' }} />
+                                    </button>
+                                    <ul className='city-hotels-desc'>
+                                        <li className='city-hotels-item'> {item.name} </li>
+                                        <li className='city-hotels-item'> {item.location} 
+                                            <HiLocationMarker style={{fontSize:'20px', color:'grey'}}/> 
+                                        </li>
+                                        <li className='city-hotels-item'> {item.review} </li>
+                                    </ul>
+                                </div>
+                            </li>
+                        ))
+                    }
+                </ul>
+            </div>
+        </div>
 
         <div className='city-footer'>
-
             <footer>
-                <div>
-                    <ul className='city-footer-list'>
-                        <li className='city-footer-item' > About </li>
-                        <li className='city-footer-item' > Attractions </li>
-                        <li className='city-footer-item' > Hotel </li>
-                        <li className='city-footer-item' > Things to do </li>
-                    </ul>
-                </div>
+                <div className='city-footer-content'>
+                    <div className='city-footer-content-list'>
+                        <h2> Explore the city </h2>
+                        <ul className='city-footer-list'>
+                            <li className='city-footer-item' > About </li>
+                            <li className='city-footer-item' > Attractions </li>
+                            <li className='city-footer-item' > Hotel </li>
+                            <li className='city-footer-item' > Things to do </li>
+                        </ul>
+                    </div>
 
-                <div>
-                    <h2> contact us </h2>
-                    <div className='city-footer-contact'>
-                        <ul className='city-footer-contact-list'>
-                            <li className='city-footer-contact-item'> telegram </li>
-                            <li className='city-footer-contact-item'> facebook </li>
-                            <li className='city-footer-contact-item'> twitter </li>
+                    <div className='city-footer-content-list'>
+                        <h2> More info on </h2>
+                        <ul className='city-footer-list'>
+                            <li className='city-footer-item' > Facebook </li>
+                            <li className='city-footer-item' > Telegram </li>
+                            <li className='city-footer-item' > Instagram </li>
+                            <li className='city-footer-item' > Twitter </li>
+                        </ul>
+                    </div>
+
+                    <div className='city-footer-content-list'>
+                        <h2> connect with us </h2>
+                        <ul className='city-footer-list'>
+                            <li className='city-footer-item' > Facebook </li>
+                            <li className='city-footer-item' > Telegram </li>
+                            <li className='city-footer-item' > Instagram </li>
+                            <li className='city-footer-item' > Twitter </li>
                         </ul>
                     </div>
                 </div>
 
-                <div class="city-center-text">
+                <div class="center-text">
                     Copyright &copy; Web Coding Pro. All Rights Reserved
                 </div>
             </footer>

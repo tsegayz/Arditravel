@@ -1,0 +1,56 @@
+[  
+    {    
+        "id": 1,    
+        "name": "Attraction Name",
+        "review": "10k",
+        "image": "url('../assets/image1.jpg')",    
+        "location": "Around Bole"
+    },  
+    {    
+        "id": 2,    
+        "name": "Haile Resort",
+        "review": "10k",
+        "image": "url('../assets/image2.jpg')",   
+        "location": "Around piassa"
+ 
+    },  
+    {    
+        "id": 3,    
+        "name": "Jupiter Hotel",
+        "review": "10k",
+        "image": "url('../assets/image3.jpg')",    
+        "location": "Around laphto"
+
+    },
+    {    
+        "id": 4,    
+        "name": "Lewi Resort",
+        "review": "10k",
+        "image": "url('../assets/image3.jpg')",    
+        "location": "Around entoto"
+    },  
+    {    
+        "id": 3,    
+        "name": "Jupiter Hotel",
+        "review": "10k",
+        "image": "url('../assets/image3.jpg')",    
+        "location": "Around laphto"
+
+    },  
+    {    
+        "id": 3,    
+        "name": "Jupiter Hotel",
+        "review": "10k",
+        "image": "url('../assets/image3.jpg')",    
+        "location": "Around laphto"
+
+    }, 
+    {    
+        "id": 3,    
+        "name": "Jupiter Hotel",
+        "review": "10k",
+        "image": "url('../assets/image3.jpg')",    
+        "location": "Around laphto"
+
+    }
+]

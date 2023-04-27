@@ -13,6 +13,7 @@ import footerList from './db3.json';
 import whatNeed from './db4.json';
 import hotels from './db6.json';
 import eachHotels from './db7.json';
+import attractions from './db5.json';
 
 function App() {
   return (
@@ -25,7 +26,7 @@ function App() {
               <Home data={Places} footer={footerList} explore={whatNeed}/>
             </Route>
             <Route exact path='/city'>
-              <City/>
+              <City items={attractions}/>
             </Route>
             <Route exact path='/trips'>
               <Trips/>

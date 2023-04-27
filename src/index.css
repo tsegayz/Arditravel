@@ -970,10 +970,7 @@ body {
 }
 
 
-
-
 /* //////////// city style ///////// */
-
 
 .city {
   background-image: url("./assets/addis2.jpg");
@@ -983,46 +980,68 @@ body {
   height: 100vh;
 }
 
-.city-homepage{
+.city-homepage {
   display: flex;
   justify-content: space-between;
 }
+
 .city-name {
-  color: white;
-  display: flex;
-  justify-content: flex-start;
+  flex:1.1;
 }
 
-.city-name-descr { 
-  margin-top: 50px;
+.city-name-descr {
+  color: white;
+  margin-top: 10em;
   margin-left: 200px;
 }
-.city-name-descr h2{
-  font-family: 'Pacifico', cursive;
+
+.city-name-descr h2 {
   margin-bottom: 0px;
-  font-size: 100px;
+  font-size: 120px;
+  font-family: 'Lobster', cursive;
 }
-.city-name-descr p{
+
+.city-name-descr p {
   font-size: 40px;
   margin-top: 0px;
   margin-left: 30px;
   font-family: 'Pacifico', cursive;
+  color: antiquewhite;
 }
 
-.city-card-list-content{
-  display: flex;
-  justify-content: space-around;
-}
-
-.city-card-list-content .city-card-item{
+.city-card-list-container {
+  flex: 1;
+  height: 100%;
+  width: 800px;
+  overflow-y: auto;
   padding-right: 60px;
 }
-.city-card-attraction{
-  background-image: url('./assets/addis2.jpg');
-  background-repeat: no-repeat;
-  background-size: cover;
+
+.city-card-list {
+  height: 100%;
+}
+
+.city-card-list-content {
+  list-style: none;
+  display: flex;
+  overflow-x: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  margin-right: 100px;
+  margin-left: 60px;
+}
+
+.city-card-list-content::-webkit-scrollbar {
+  display: none;
+}
+
+.city-card-list-content .city-card-item {
+  padding-right: 60px;
+}
+
+.city-card-attraction {
   background-color: #ccccccd2;
-  margin-top:5em;
+  margin-top: 5em;
   width: 19em;
   height: 33em;
   color: white;
@@ -1034,9 +1053,26 @@ body {
   justify-content: space-between;
 }
 
+.city-card-attraction .city-card-icon {
+  font-size: 30px;
+  margin-left: 8.5em;
+}
+
+.city-card-attraction .city-attraction {
+  list-style: none;
+  font-size: 23px;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+
+.city-attraction-item h2 {
+  font-size: 20px;
+ 
+}
 .city-card-attraction .city-card-icon{
-  font-size: 38px;
-  margin-left: 6.5em;
+  font-size: 30px;
+  margin-left: 8.5em;
 }
 
 .city-card-attraction .city-attraction{
@@ -1044,31 +1080,32 @@ body {
   font-size: 23px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   align-items: start;
+}
+.city-attraction-item h2{
+  font-size: 20px;
+  margin-bottom: 0px;
 }
 .city-attraction .city-attraction-icon{
   display: flex;
   align-items: center;
   font-size: 17px;
 }
-.card-arrows{
-  display: flex;
-  justify-content: space-around;
-  padding: 6px 180px;
-  margin-left:28em;
-  color: white;
-  font-size: 40px;
-}
+
+
+/* ///////////////////// */
+
 .about-city{
   display: flex;
   margin: 150px 250px 50px 250px;
   width: 90em;
+  
 }
 .about-city h2{
-  font-size: 40px ;
+  font-family: 'Lobster', cursive;
+  font-size: 45px ;
   width: 9em;
-  padding-left: 100px;
+  padding-left: 40px;
 }
 .about-city p{
   padding: 50px 50px 40px 50px;
@@ -1077,6 +1114,171 @@ body {
   margin-left: 20em;
 }
 
+
+.city-things-container h2{
+  font-family: 'Lobster', cursive;
+  font-size: 45px ;
+  padding-left: 6em;
+}
+
+.city-things-list{
+  height: 100%;
+}
+.city-things-container {
+  height: 70%;
+  width: 115em;
+  padding-right: 60px;
+}
+
+.city-things-content{
+  list-style: none;
+  display: flex;
+  overflow-x: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  margin-right: 100px;
+  margin-left: 20em;
+}
+
+.city-things-content::-webkit-scrollbar {
+  display: none;
+}
+
+.city-things-card {
+  border-radius: 20px;
+  display: inline-block;
+  height: 450px; 
+  width: 20em;
+  background-color: rgba(201, 195, 187, 0.548); 
+  box-sizing: border-box; 
+  padding: 10px; 
+  padding-left: 0px;
+  margin-right: 1.4em;
+}
+
+.city-things-card button {
+  border: solid transparent;
+  font-size: 31px;
+  background: transparent;
+  margin-left: 8em;
+}
+.city-things-desc{
+  margin-top: 18em;
+  list-style:none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-left: 0px;
+}
+.city-things-item{
+  padding: 3px;
+}
+
+
+/* // */
+
+
+.city-hotels-list{
+  height: 100%;
+}
+.city-hotels-container h2{
+  font-family: 'Lobster', cursive;
+  font-size: 45px ;
+  padding-left: 6em;
+  margin-bottom: 0px;
+}
+.city-hotels-container h3{
+  font-family: 'Lobster', cursive;
+  font-size: 27px ;
+  padding-left: 12em;
+  font-weight: 100;
+}
+
+.city-hotels-container {
+  height: 70%;
+  width: 115em;
+  padding-right: 60px;
+}
+
+.city-hotels-content{
+  list-style: none;
+  display: flex;
+  overflow-x: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  margin-right: 100px;
+  margin-left: 20em;
+}
+
+.city-hotels-content::-webkit-scrollbar {
+  display: none;
+}
+
+.city-hotels-card {
+  border-radius: 20px;
+  display: inline-block;
+  height: 450px; 
+  width: 20em;
+  background-color: rgba(201, 195, 187, 0.548); 
+  box-sizing: border-box; 
+  padding: 10px; 
+  padding-left: 0px;
+  margin-right: 1.4em;
+}
+
+.city-hotels-card button {
+  border: solid transparent;
+  font-size: 31px;
+  background: transparent;
+  margin-left: 8em;
+}
+.city-hotels-desc{
+  margin-top: 18em;
+  list-style:none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-left: 0px;
+}
+.city-hotels-item{
+  padding: 3px;
+}
+
+.city-footer footer{
+	margin: 0;
+	padding: 0;
+	background-color:rgba(211, 209, 209, 0.226) ;
+	color: rgb(0, 0, 0);
+	font-size: 23px;
+	display: flex;
+  flex-direction: column;
+	align-items: start;
+	padding-left: 15%;
+  margin-top: 5em;
+}
+
+.city-footer-content{
+  margin-top: 20px;
+  font-size: 25px;
+  display: flex;
+  color: #423838ea;
+}
+.city-footer-content-list{
+  padding: 0px 160px;
+}
+.city-footer-content-list h2{
+  font-size: 25px;
+}
+.city-footer-list{
+  list-style: none;
+  font-size: 20px;
+}
+.city-footer .center-text{
+  margin: 0;
+  font-size: 18px;
+  margin-left: 30%;
+  margin-top: 70px;
+}
 
 
 /* ////////////////// SIGNIN ////////////// */
