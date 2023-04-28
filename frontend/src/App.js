@@ -1,3 +1,5 @@
+import { useState, useEffect} from 'react';
+
 import './App.css';
 import Home from './components/Home';
 import Trips from './components/Trips'
@@ -16,8 +18,35 @@ import eachHotels from './db7.json';
 import attractions from './db5.json';
 
 function App() {
+
+  const [backendData, setbackendData] = useState ([{}])
+
+  useEffect (() => {
+    fetch("/api")
+    .then(
+      response => response.json()
+    )
+    .then(
+      data => {
+        setbackendData( data);
+      }
+    )
+    .catch(error => {
+      this.setbackendData({ 
+          error: 'Error retrieving data'})
+    })
+  }, [])
   return (
     <div className="App">
+      { console.log("clg")}
+      
+       {(typeof backendData.users === 'undefined') ? ( 
+          <h2> Loading </h2> 
+          ): (
+              backendData.users.map( (user, i) => (
+              <h2 key={i}> {user} </h2>
+              ))
+        )}
       <Router>
         <div className='content'>
           <Switch>

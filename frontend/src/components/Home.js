@@ -50,7 +50,7 @@ function Home({data, footer, explore}) {
               {
                 filteredPlaces.map( (value, key ) => {
                   return ( 
-                    <a className="search-item" target=" " href={value.link}> 
+                    <a className="search-item" target=" " href={value.link} key={value.id}> 
                       <p> {value.city} </p>   
                     </a>
                   )
@@ -99,7 +99,7 @@ function Home({data, footer, explore}) {
         <h1> Popular places </h1>
         <div className="catagory" >
           { catagory.map( (value, key) => {
-            return <p className="catagory-items"> {value} </p>
+            return <p className="catagory-items" key={value.id}> {value} </p>
               }
           )}          
         </div>
