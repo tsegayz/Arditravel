@@ -4,9 +4,14 @@ const app = express();
 
 // routing 
 app.get("/api", (req, res) => {
-    res.json( { "users": [ "hana", "mike", "elena" ]} )
+    res
+    .status(200)
+    .json( { "users": [ "hana", "mike", "elena" ]} )
 })
 
+// app.post ('/', (req, res) => {
+//     res.send('you can post this end point')
+// })
 
 const port = 5000;
 app.listen( port, () => {
