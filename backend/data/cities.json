@@ -1,0 +1,170 @@
+{
+    "cities": [
+      {
+        "id": 1,
+        "name": "Addis Ababa",
+        "attractions": ["National Museum of Ethiopia", "Ethiopian National Theatre", "Addis Mercato"],
+        "hotels": ["Sheraton Addis", "Hilton Addis Ababa", "Radisson Blu Hotel, Addis Ababa", "Jupiter International Hotel", "Capital Hotel and Spa", "Marriott Executive Apartments Addis Ababa", "Golden Tulip Addis Ababa", "Hyatt Regency Addis Ababa", "Babogaya Lake Viewpoint Lodge", "Cinnamon Hotel"],
+        "restaurants": ["Yod Abyssinia Cultural Restaurant", "Kategna Restaurant", "Mama's Kitchen", "Rehoboth Ethiopian Traditional Restaurant", "Gursha Ethiopian Restaurant", "La Mandoline", "Castelli Restaurant", "Fendika Azmari Bet", "2000 Habesha Cultural Restaurant", "Ambassel Traditional Ethiopian Restaurant"],
+        "travel_means": ["taxi", "bus", "light rail"],
+        "description": "Addis Ababa is the capital city of Ethiopia and is home to various cultural and historical landmarks, as well as bustling markets and lively nightlife.",
+        "images": [
+          "https://www.ethiopianairlines.com/-/media/Images/Ethiopian/Social/EO_Media_Center/Social_Media_Images/City_Photo/Addis_Ababa_SocialMedia.jpg",
+          "https://www.telegraph.co.uk/content/dam/Travel/Destinations/Africa/Ethiopia/Addis%20Ababa/addis-ababa-lead-guide.jpg",
+          "https://www.ethiopianairlines.com/-/media/Images/Ethiopian/Social/EO_Media_Center/Social_Media_Images/City_Photo/Addis-Ababa-UNESCO.jpg"
+        ]
+      },
+      {
+        "id": 2,
+        "name": "Gondar",
+        "attractions": ["Fasil Ghebbi", "Debre Birhan Selassie Church", "Bath of Fasiladas"],
+        "hotels": ["Gondar Hills Resort", "Goha Hotel", "Gondar Backpackers Hostel", "Taye Belay Hotel", "Goha Tsion Hotel", "Quara Hotel Gondar", "Florida International Hotel", "Jolly Hotel", "Amet Palace Hotel", "Africanos Hotel"],
+        "restaurants": ["Four Sisters Restaurant", "Four Seasons Restaurant", "Balageru Restaurant", "Lalibela Restaurant", "Lomina Ethiopian Restaurant", "Ambasha Cafe", "Bel Air Hotel", "Tana Ethiopian Cuisine", "Tana Hotel", "Goha Hotel"],
+        "travel_means": ["bus", "car"],
+        "description": "Gondar is a historic city in Ethiopia, known for its well-preserved 17th-century castles and churches.",
+        "images": [
+          "https://www.ethiopianairlines.com/-/media/Images/Ethiopian/Social/EO_Media_Center/Social_Media_Images/City_Photo/Gondar_SocialMedia.jpg",
+          "https://media.gettyimages.com/photos/debre-berhan-selassie-church-in-gondar-ethiopia-picture-id1162619262?s=612x612",
+          "https://www.roughguides.com/wp-content/uploads/2020/02/GettyImages-502836946-1400"
+        ]
+      },
+      {
+        "id": 3,
+        "name": "Bahir Dar",
+        "attractions": ["Lake Tana", "Blue Nile Falls", "Bahir Dar Market"],
+        "hotels": ["Kuriftu Resort and Spa", "Avanti Blue Nile Hotel", "Abay Minch Lodge", "Papyrus Hotel", "Wude International Hotel"],
+        "restaurants": ["Cafe Bahir Dar", "Ambasel Restaurant", "Mama's Kitchen", "Blue Nile Restaurant", "Abbay Minch Lodge Restaurant"],
+        "travel_means": ["taxi", "bus"],
+        "description": "Bahir Dar is a city in northern Ethiopia, situated on the southern shore of Lake Tana, which is the source of the Blue Nile river.",
+        "images": [
+          "https://www.ethiopianairlines.com/-/media/Images/Ethiopian/Social/EO_Media_Center/Social_Media_Images/City_Photo/Bahir_Dar_SocialMedia.jpg",
+          "https://www.nilebasin.org/sites/default/files/styles/slider_full/public/2021-01/Bahir-Dar.png?itok=EUPQ9XhE",
+          "https://www.hollandafrika.nl/wp-content/uploads/2019/12/bahir-dar-ethiopia-2.jpg"
+        ]
+      },
+      {
+        "id": 4,
+        "name": "Axum",
+        "description": "Axum is an ancient city in northern Ethiopia, known for its rich history and cultural heritage. It was once the capital of the Axumite Kingdom and is now a UNESCO World Heritage site.",
+        "attractions": [ "Stelae Park", "Church of Our Lady Mary of Zion", "The Obelisk of Axum", "Queen of Sheba's Palace", "The Tomb of Kaleb and Gebre Meskel" ],
+        "hotels": [ "Sabean International Hotel", "Axum Zion Hotel", "Consolar Hotel", "Africa Hotel Axum", "Brana Hotel" ],
+        "restaurants": [ "Haptom's Kitchen", "Yordanos Restaurant", "Tibebu Moges Restaurant", "Bilen Restaurant", "Adwa Restaurant" ],
+        "travel_means": [ "Axum Airport", "Public buses", "Taxis", "Private car hire" ],
+        "images": [ 
+          "https://i.imgur.com/U2xBJwI.jpg",
+          "https://www.ethiopianairlines.com/-/media/Images/Ethiopian/destination-guide/Axum/Attractions-in-Axum.jpg?h=660&w=1170&la=en&hash=5F5E5A7EF74A73A198CCB9B55CFCDDBD5A2B5F5A",
+          "https://i.imgur.com/AM2a6eO.jpg"
+        ]
+      },
+      {
+        "id": 5,
+        "name": "Lalibela",
+        "attractions": [
+          "Church of St. George",
+          "Bet Medhane Alem",
+          "Bet Maryam",
+          "Bet Abba Libanos",
+          "Yemrehanna Kristos"
+        ],
+        "hotels": [
+          "Mezena Lodge",
+          "Lal Hotel & Spa",
+          "Tukul Village",
+          "Mountain View Hotel",
+          "Roha Hotel"
+        ],
+        "restaurants": [
+          "Ben Abeba Restaurant",
+          "Seven Olives Hotel Restaurant",
+          "Rohobot Restaurant",
+          "Hallelujah Ethiopian Restaurant",
+          "Lalibela Restaurant"
+        ],
+        "travel_means": [
+          "Airplane",
+          "Minibus",
+          "Bus"
+        ],
+        "description": "Lalibela is a town in northern Ethiopia known for its rock-cut monolithic churches, which are UNESCO World Heritage Sites. The churches were carved out of the red volcanic rock in the 12th and 13th centuries, and are considered to be some of the finest examples of Ethiopian architecture and engineering."
+      },
+      {    
+        "id": 6,    
+        "name": "Harar",    
+        "description": "Harar is a city in eastern Ethiopia, known for its ancient walled city, which has been designated a UNESCO World Heritage site.",    "images": [      "https://example.com/harar-1.jpg",      "https://example.com/harar-2.jpg",      "https://example.com/harar-3.jpg"    ],
+        "attractions": [
+        "Harar Jugol - ancient walled city",
+        "Rimbaud's House - former home of French poet Arthur Rimbaud",
+        "Hyena feeding - experience feeding wild hyenas by hand"
+        ],
+        "hotels": [
+        "Heritage Plaza Hotel",
+        "Harar Ras Hotel",
+        "Wonderland Hotel"
+        ],
+        "restaurants": [
+        "Babile Restaurant",
+        "Tewodros Restaurant",
+        "Tana Ethiopian Cuisine"
+        ],
+        "travel_means": [
+        "By air - via Dire Dawa International Airport",
+        "By bus - from Addis Ababa or other major cities in Ethiopia",
+        "By car - self-drive or hire a driver"
+        ]
+      },
+      {    
+        "id": 7,    
+        "name": "Awasa/Hawassa",    
+        "description": "Awasa/Hawassa is a city in southern Ethiopia, located on the shores of Lake Awasa. It is known for its natural beauty and cultural heritage.",    "images": [      "https://example.com/awasa-1.jpg",      "https://example.com/awasa-2.jpg",      "https://example.com/awasa-3.jpg"    ],
+        "attractions": [
+        "Lake Awasa - scenic lake with boat rides and fishing",
+        "African Union Monument - tribute to African unity",
+        "Awasa Aquarium - home to various fish species found in Ethiopia's lakes and rivers",
+        "Senkele Wildlife Sanctuary - protected area for endangered animals such as the Swayne's hartebeest and the white-tailed rat"
+        ],
+        "hotels": [
+        "Haile Resort Awasa",
+        "Lewi Resort and Spa",
+        "South Star International Hotel"
+        ],
+        "restaurants": [
+        "Fisshale Restaurant",
+        "Kaleb's Kitchen",
+        "Nati's Kitchen"
+        ],
+        "travel_means": [
+        "By air - via Awasa Airport",
+        "By bus - from Addis Ababa or other major cities in Ethiopia",
+        "By car - self-drive or hire a driver"
+        ]
+      },
+      {    
+        "id": 8,    
+        "name": "Arba Minch",    
+        "description": "Arba Minch is a city in southern Ethiopia, located at the foothills of the Gamo Highlands. It is known for its natural beauty and diverse cultural heritage.",    "images": [      "https://example.com/arbaminch-1.jpg",      "https://example.com/arbaminch-2.jpg",      "https://example.com/arbaminch-3.jpg"    ],
+        "attractions": [
+        "Nechisar National Park - home to zebras, gazelles, crocodiles and over 300 bird species",
+        "Lake Chamo - scenic lake with boat rides and fishing",
+        "Dorze Village - cultural village known for its unique bamboo houses and traditional weaving",
+        "Arba Minch Textile Museum - museum showcasing the history and techniques of Ethiopian weaving"
+        ],
+        "hotels": [
+        "Paradise Lodge Arba Minch",
+        "Emerald Resort Arba Minch",
+        "Swaynes Hotel Arba Minch"
+        ],
+        "restaurants": [
+        "Sof Omar Restaurant",
+        "Hawassa Restaurant",
+        "Kanta Lodge Restaurant"
+        ],
+        "travel_means": [
+        "By air - via Arba Minch Airport",
+        "By bus - from Addis Ababa or other major cities in Ethiopia",
+        "By car - self-drive or hire a driver"
+        ]
+      } 
+    ]
+}
+        
+  

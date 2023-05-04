@@ -1,0 +1,280 @@
+{
+    "hotels": [
+      {
+        "id": 1,
+        "name": "Sheraton Addis",
+        "location": "Addis Ababa",
+        "review": "4.5",
+        "meals": ["breakfast", "lunch", "dinner"],
+        "description": "Luxurious 5-star hotel in the heart of Addis Ababa",
+        "services": ["spa", "fitness center", "outdoor pool"],
+        "rooms": {
+          "total": 293,
+          "types": [
+            {
+              "id": 1,
+              "name": "Deluxe Room",
+              "price": 200
+            },
+            {
+              "id": 2,
+              "name": "Junior Suite",
+              "price": 400
+            },
+            {
+              "id": 3,
+              "name": "Executive Suite",
+              "price": 600
+            }
+          ]
+        }
+      },
+      {
+        "id": 2,
+        "name": "Hilton Addis Ababa",
+        "location": "Addis Ababa",
+        "review": "4.3",
+        "meals": ["breakfast", "lunch", "dinner"],
+        "description": "Upscale hotel in the diplomatic district of Addis Ababa",
+        "services": ["spa", "fitness center", "outdoor pool"],
+        "rooms": {
+          "total": 372,
+          "types": [
+            {
+              "id": 1,
+              "name": "Guest Room",
+              "price": 150
+            },
+            {
+              "id": 2,
+              "name": "Junior Suite",
+              "price": 350
+            },
+            {
+              "id": 3,
+              "name": "Executive Suite",
+              "price": 550
+            }
+          ]
+        }
+      },
+      {
+        "id": 3,
+        "name": "Radisson Blu Hotel",
+        "location": "Addis Ababa",
+        "review": "4.1",
+        "meals": ["breakfast", "lunch", "dinner"],
+        "description": "Contemporary hotel in the city center of Addis Ababa",
+        "services": ["spa", "fitness center", "indoor pool"],
+        "rooms": {
+          "total": 204,
+          "types": [
+            {
+              "id": 1,
+              "name": "Standard Room",
+              "price": 120
+            },
+            {
+              "id": 2,
+              "name": "Superior Room",
+              "price": 180
+            },
+            {
+              "id": 3,
+              "name": "Business Class Room",
+              "price": 240
+            }
+          ]
+        }
+      },
+      {
+        "id": 4,
+        "name": "InterContinental Addis Ababa",
+        "location": "Kazanchis, Addis Ababa",
+        "review": 4.3,
+        "meals": ["Breakfast", "Lunch", "Dinner"],
+        "description": "A sophisticated hotel with a scenic view of the city",
+        "services": ["Swimming pool", "Spa", "Fitness center", "Free parking"],
+        "rooms": {
+          "total": 244,
+          "types": [
+            {
+              "id": 1,
+              "name": "Standard Room",
+              "price": 180
+            },
+            {
+              "id": 2,
+              "name": "Junior Suite",
+              "price": 180
+            },
+            {
+              "id": 3,
+              "name": "Business Class Room",
+              "price": 240
+            }
+          ]
+        }
+      },
+      {
+        "id": 5,
+        "name": "Jupiter International Hotel - Cazanchise",
+        "location": "Kazanchis, Addis Ababa",
+        "review": 4.2,
+        "meals": ["Breakfast", "Lunch", "Dinner"],
+        "description": "A modern hotel with exceptional customer service",
+        "services": ["Fitness center", "Free parking"],
+        "rooms": {
+          "total": 114,
+          "types": [
+            {
+              "id": 1,
+              "name": "Standard Room",
+              "price": 120
+            },
+            {
+              "id": 2,
+              "name": "Junior Suite",
+              "price": 280
+            },
+            {
+              "id": 3,
+              "name": "Business Class Room",
+              "price": 240
+            }
+          ]
+        }
+      },
+      {
+        "id": 6,
+        "name": "Sora Lodge Lalibela",
+        "location": "Lalibela",
+        "review": 4.8,
+        "meals": ["Breakfast", "Lunch", "Dinner"],
+        "description": "Boutique lodge in the heart of Lalibela",
+        "services": ["Free Wi-Fi", "Airport Shuttle", "Tour Desk"],
+        "rooms": {
+          "total": 200,
+          "types": [
+            {
+              "id": 1,
+              "name": "Standard Room",
+              "price": 80
+            },
+            {
+              "id": 2,
+              "name": "Deluxe",
+              "price": 180
+            },
+            {
+              "id": 3,
+              "name": "Suite",
+              "price": 250
+            }
+          ]
+        }
+      },
+      {
+        "id": 7,
+        "name": "Haile Resort Hawassa",
+        "location": "Hawassa",
+        "review": 4.4,
+        "meals": ["Breakfast", "Lunch", "Dinner"],
+        "description": "Resort on the shores of Lake Hawassa",
+        "services": ["Free Wi-Fi", "Swimming Pool", "Spa"],
+        "rooms": {
+          "total": 200,
+          "types": [
+            {
+              "id": 1,
+              "name": "Standard Room",
+              "price": 180
+            },
+            {
+              "id": 2,
+              "name": "Deluxe",
+              "price": 200
+            },
+            {
+              "id": 3,
+              "name": "Suite",
+              "price": 300
+            }
+          ]
+        }
+      },
+      {    
+        "id": "8",    
+        "name": "Kuriftu Resort & Spa",    
+        "location": "Bahir Dar",    
+        "review": 4.7,    
+        "meals": ["Breakfast", "Lunch", "Dinner"],
+        "description": "Kuriftu Resort & Spa is a luxurious hotel located in Bahir Dar, with stunning views of Lake Tana and the surrounding mountains.",
+        "services": ["Spa", "Swimming Pool", "Fitness Center"],
+        "rooms": {
+          "total": 100,
+          "types": [
+            {
+              "id": "1",
+              "type": "Deluxe Room",
+              "price": 200
+            },
+            {
+              "id": "2",
+              "type": "Suite",
+              "price": 300
+            }
+          ]
+        }
+      },
+      {
+        "id": "9",
+        "name": "Elilly International Hotel",
+        "location": "Addis Ababa",
+        "review": 4.6,
+        "meals": ["Breakfast", "Lunch", "Dinner"],
+        "description": "Elilly International Hotel is located in the heart of Addis Ababa, offering a luxurious experience with modern amenities.",
+        "services": ["Spa", "Swimming Pool", "Fitness Center"],
+        "rooms": {
+          "total": 160,
+          "types": [
+            {
+              "id": "1",
+              "type": "Executive Room",
+              "price": 250
+            },
+            {
+              "id": "2",
+              "type": "Presidential Suite",
+              "price": 800
+            }
+          ]
+        }
+      },
+      {
+        "id": "10",
+        "name": "Safar Lodge",
+        "location": "Arba Minch",
+        "review": 4.4,
+        "meals": ["Breakfast", "Lunch", "Dinner"],
+        "description": "Safar Lodge is a unique eco-friendly hotel located in Arba Minch, surrounded by stunning views of the Chamo and Abaya lakes.",
+        "services": ["Restaurant", "Bar", "Gym"],
+        "rooms": {
+          "total": 90,
+          "types": [
+            {
+              "id": "1",
+              "type": "Standard Room",
+              "price": 100
+            },
+            {
+              "id": "2",
+              "type": "Luxury Suite",
+              "price": 250
+            }
+          ]
+        }
+      }    
+    ]
+}
+  
