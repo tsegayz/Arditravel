@@ -1,0 +1,122 @@
+[
+	{
+		"id": 1,
+		"name": "Injera",
+		"price": 5.99,
+		"restaurant_id": 1
+	},
+	{
+		"id": 2,
+		"name": "Kitfo",
+		"price": 9.99,
+		"restaurant_id": 1
+	},
+	{
+		"id": 3,
+		"name": "Doro Wat",
+		"price": 8.99,
+		"restaurant_id": 1
+	},
+	{
+		"id": 4,
+		"name": "Tibs",
+		"price": 10.99,
+		"restaurant_id": 2
+	},
+	{
+		"id": 5,
+		"name": "Shiro",
+		"price": 7.99,
+		"restaurant_id": 2
+	},
+	{
+		"id": 6,
+		"name": "Gomen",
+		"price": 6.99,
+		"restaurant_id": 2
+	},
+	{
+		"id": 7,
+		"name": "Zigni",
+		"price": 8.99,
+		"restaurant_id": 3
+	},
+	{
+		"id": 8,
+		"name": "Key Wot",
+		"price": 7.99,
+		"restaurant_id": 3
+	},
+	{
+		"id": 9,
+		"name": "Afar-style beef tibs",
+		"price": 11.99,
+		"restaurant_id": 4
+	},
+	{
+		"id": 10,
+		"name": "Kurkufa bread",
+		"price": 3.99,
+		"restaurant_id": 4
+	},
+	{
+		"id": 11,
+		"name": "Shahan ful",
+		"price": 5.99,
+		"restaurant_id": 4
+	},
+	{
+		"id": 12,
+		"name": "Café touba",
+		"price": 4.99,
+		"restaurant_id": 4
+	},
+	{
+		"id": 13,
+		"name": "Danakil-style goat stew",
+		"price": 12.99,
+		"restaurant_id": 5
+	},
+	{
+		"id": 14,
+		"name": "Gomen kitfo",
+		"price": 9.99,
+		"restaurant_id": 5
+	},
+	{
+		"id": 15,
+		"name": "Coffee",
+		"price": 2.99,
+		"restaurant_id": 6
+	},
+	{
+		"id": 16,
+		"name": "Tea",
+		"price": 1.99,
+		"restaurant_id": 6
+	},
+	{
+		"id": 17,
+		"name": "Pastries",
+		"price": 3.99,
+		"restaurant_id": 6
+	},
+	{
+		"id": 18,
+		"name": "Doro Wat",
+		"price": 7.99,
+		"restaurant_id": 7
+	},
+	{
+		"id": 19,
+		"name": "Kitfo",
+		"price": 10.99,
+		"restaurant_id": 7
+	},
+	{
+		"id": 20,
+		"name": "Injera",
+		"price": 4.99,
+		"restaurant_id": 7
+	}
+]

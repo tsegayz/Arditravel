@@ -1,0 +1,254 @@
+[
+	{
+		"id": 1,
+		"name": "Addis Ababa Bole International Airport",
+		"description": "The main international gateway to Ethiopia",
+		"latitude": 8.9759,
+		"longtiude": 38.7992,
+		"location_type_id": 1,
+		"parent_id": null,
+		"review": {
+			"like": 50,
+			"rating": 4.5,
+			"description": "Nice airport, good service"
+		}
+	},
+	{
+		"id": 2,
+		"name": "National Museum of Ethiopia",
+		"description": "Museum showcasing Ethiopian history, art & culture, including Lucy, the 3.2 million-year-old hominid",
+		"latitude": 9.0188,
+		"longtiude": 38.7463,
+		"location_type_id": 2,
+		"parent_id": null,
+		"review": {
+			"like": 20,
+			"rating": 4.2,
+			"description": "Great museum, lots of interesting exhibits"
+		}
+	},
+	{
+		"id": 3,
+		"name": "Mercato",
+		"description": "One of the largest open-air markets in Africa, with vendors selling a wide range of goods",
+		"latitude": 9.0272,
+		"longtiude": 38.7436,
+		"location_type_id": 3,
+		"parent_id": null,
+		"review": {
+			"like": 15,
+			"rating": 4.0,
+			"description": "Colorful market, lots of things to see"
+		}
+	},
+	{
+		"id": 4,
+		"name": "Danakil Depression",
+		"description": "One of the hottest and driest places on Earth, Danakil Depression is known for its colorful hydrothermal fields, acid ponds and salt formations.",
+		"latitude": "14.2414° N",
+		"longtiude": "40.3024° E",
+		"location_type_id": 1,
+		"parent_id": 5,
+		"review": {
+			"like": 500,
+			"rating": 4.5,
+			"description": "A must-visit place for anyone visiting Afar region."
+		}
+	},
+	{
+		"id": 5,
+		"name": "Erta Ale",
+		"description": "Erta Ale is an active shield volcano in the Afar Region of northeastern Ethiopia, known for its lava lake.",
+		"latitude": "13.6° N",
+		"longtiude": "40.67° E",
+		"location_type_id": 1,
+		"parent_id": 5,
+		"review": {
+			"like": 250,
+			"rating": 4.0,
+			"description": "Amazing natural wonder, but requires a challenging hike to reach."
+		}
+	},
+	{
+		"id": 6,
+		"name": "Asayta",
+		"description": "A historical town in the Afar Region known for its ancient ruins and the nearby Asayta Salt Pans.",
+		"latitude": "10.7° N",
+		"longtiude": "40.65° E",
+		"location_type_id": 2,
+		"parent_id": 5,
+		"review": {
+			"like": 100,
+			"rating": 3.5,
+			"description": "Interesting historical site, but not much else to do in the area."
+		}
+	},
+	{
+		"id": 7,
+		"name": "Dallol",
+		"description": "A ghost town in the Danakil Depression known for its unique geological formations, including hot springs, geysers, and acid pools.",
+		"latitude": "14.24° N",
+		"longtiude": "40.3° E",
+		"location_type_id": 1,
+		"parent_id": 5,
+		"review": {
+			"like": 350,
+			"rating": 4.2,
+			"description": "Unforgettable experience, but be prepared for extreme heat and harsh conditions."
+		}
+	},
+	{
+		"id": 8,
+		"name": "Afar Triangle",
+		"description": "A geological depression caused by the intersection of three tectonic plates, located in the Afar Region.",
+		"latitude": "12.5° N",
+		"longtiude": "40.5° E",
+		"location_type_id": 1,
+		"parent_id": 5,
+		"review": {
+			"like": 200,
+			"rating": 3.8,
+			"description": "Interesting place to visit for geology enthusiasts, but not much else to do in the area."
+		}
+	},
+	{
+		"id": 9,
+		"name": "Lake Tana",
+		"description": "The largest lake in Ethiopia and the source of the Blue Nile river.",
+		"latitude": "12° 0' 0\" N",
+		"longtiude": "37° 15' 0\" E",
+		"location_type_id": 1,
+		"parent_id": 2,
+		"review": {
+			"like": 152,
+			"rating": 4.5,
+			"description": "Beautiful lake with scenic views."
+		}
+	},
+	{
+		"id": 10,
+		"name": "Blue Nile Falls",
+		"description": "A waterfall on the Blue Nile river, with a height of about 45 meters.",
+		"latitude": "11° 53' 12\" N",
+		"longtiude": "37° 22' 48\" E",
+		"location_type_id": 1,
+		"parent_id": 2,
+		"review": {
+			"like": 88,
+			"rating": 4.2,
+			"description": "Spectacular waterfall with amazing views."
+		}
+	},
+	{
+		"id": 11,
+		"name": "Bahir Dar University",
+		"description": "A renowned university located in Bahir Dar.",
+		"latitude": "11° 35' 48\" N",
+		"longtiude": "37° 24' 26\" E",
+		"location_type_id": 2,
+		"parent_id": 2,
+		"review": {
+			"like": 13,
+			"rating": 3.8,
+			"description": "A great institution of higher learning."
+		}
+	},
+	{
+		"id": 12,
+		"name": "Bezawit Hill",
+		"description": "A scenic viewpoint in Bahir Dar that offers views of the city and Lake Tana.",
+		"latitude": "11° 36' 56\" N",
+		"longtiude": "37° 24' 35\" E",
+		"location_type_id": 1,
+		"parent_id": 2,
+		"review": {
+			"like": 29,
+			"rating": 4.1,
+			"description": "Great place to take in the views of Bahir Dar."
+		}
+	},
+	{
+		"id": 13,
+		"name": "Tis Abay Bridge",
+		"description": "A bridge that crosses the Blue Nile river near the Blue Nile Falls.",
+		"latitude": "11° 50' 50\" N",
+		"longtiude": "37° 22' 55\" E",
+		"location_type_id": 3,
+		"parent_id": 2,
+		"review": {
+			"like": 6,
+			"rating": 3.5,
+			"description": "Interesting engineering feat, but not much else to see."
+		}
+	},
+	{
+		"id": 1,
+		"name": "Nech Sar National Park",
+		"description": "A national park with a variety of wildlife and scenic views.",
+		"latitude": "6° 24' 36.5\" N",
+		"longtiude": "37° 55' 17.3\" E",
+		"location_type_id": 1,
+		"parent_id": 7,
+		"review": {
+			"like": 25,
+			"rating": 4.5,
+			"description": "Great place to see animals in their natural habitat!"
+		}
+	},
+	{
+		"id": 2,
+		"name": "Arbaminch Zuria",
+		"description": "A district with many coffee farms and beautiful landscapes.",
+		"latitude": "6° 07' 39.6\" N",
+		"longtiude": "37° 33' 53.4\" E",
+		"location_type_id": 2,
+		"parent_id": 7,
+		"review": {
+			"like": 10,
+			"rating": 4.0,
+			"description": "Lovely views of the countryside and a great place to taste local coffee!"
+		}
+	},
+	{
+		"id": 3,
+		"name": "Dorze Village",
+		"description": "A traditional village famous for its weaving and unique architecture.",
+		"latitude": "6° 50' 59.5\" N",
+		"longtiude": "37° 36' 43.7\" E",
+		"location_type_id": 3,
+		"parent_id": 7,
+		"review": {
+			"like": 15,
+			"rating": 4.5,
+			"description": "Fascinating to see the local culture and crafts up close!"
+		}
+	},
+	{
+		"id": 4,
+		"name": "Lake Chamo",
+		"description": "A large lake known for its crocodiles and hippos.",
+		"latitude": "6° 10' 02.2\" N",
+		"longtiude": "37° 59' 57.6\" E",
+		"location_type_id": 4,
+		"parent_id": 7,
+		"review": {
+			"like": 20,
+			"rating": 4.0,
+			"description": "Great boat tour with amazing wildlife sightings!"
+		}
+	},
+	{
+		"id": 5,
+		"name": "Crocodile Ranch",
+		"description": "A farm that raises and sells crocodiles and crocodile products.",
+		"latitude": "6° 03' 10.1\" N",
+		"longtiude": "37° 35' 33.3\" E",
+		"location_type_id": 5,
+		"parent_id": 7,
+		"review": {
+			"like": 5,
+			"rating": 3.5,
+			"description": "Interesting to learn about crocodile farming and see the animals up close!"
+		}
+	}
+]

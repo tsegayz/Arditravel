@@ -1,5 +1,7 @@
 const express = require("express");
-const tourGuideController = require("../controllers/tourGuideController");
+const tourGuide = require("../controllers/tourGuideController");
+const authController = require('../controllers/authController')
+
 
 // ////// TOURS router
 const router = express.Router();
@@ -7,12 +9,12 @@ const router = express.Router();
 // CHAINING different middlewares
 router
 	.route("/")
-	.get(tourGuideController.getAllTour)
-	.post(tourGuideController.createTour);
+	.get(tourGuide.getAllTourGuide)
+	.post(authController.protect, tourGuide.createTourGuide);
 router
 	.route("/:id")
-	.get(tourGuideController.getTour)
-	.patch(tourGuideController.updateTour)
-	.delete(tourGuideController.deleteTour);
+	.get(tourGuide.getTourGuide)
+	.patch(authController.protect, tourGuide.updateTourGuide)
+	.delete(authController.protect, tourGuide.deleteTourGuide);
 
 module.exports = router;

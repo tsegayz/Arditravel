@@ -10,7 +10,7 @@ import NavBar from './components/NavBar';
 import Places from './db.json'
 import Hotels from './components/Hotels';
 import HotelEach from './components/HotelEach';
-import City from './components/City';
+import Location from './components/Location';
 import footerList from './db3.json';
 import whatNeed from './db4.json';
 import hotels from './db6.json';
@@ -22,7 +22,7 @@ function App() {
   const [backendData, setbackendData] = useState ([{}])
 
   useEffect (() => {
-    fetch("/api")
+    fetch("/")
     .then(
       response => response.json()
     )
@@ -38,7 +38,7 @@ function App() {
   }, [])
   return (
     <div className="App">
-      { console.log("clg")}
+      {/* { console.log("clg")}
       
        {(typeof backendData.users === 'undefined') ? ( 
           <h2> Loading </h2> 
@@ -46,7 +46,7 @@ function App() {
               backendData.users.map( (user, i) => (
               <h2 key={i}> {user} </h2>
               ))
-        )}
+        )} */}
       <Router>
         <div className='content'>
           <Switch>
@@ -54,8 +54,8 @@ function App() {
               <NavBar/>
               <Home data={Places} footer={footerList} explore={whatNeed}/>
             </Route>
-            <Route exact path='/city'>
-              <City items={attractions}/>
+            <Route exact path='/Location'>
+              <Location items={attractions}/>
             </Route>
             <Route exact path='/trips'>
               <Trips/>

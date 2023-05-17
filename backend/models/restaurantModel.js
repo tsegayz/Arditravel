@@ -1,32 +1,26 @@
 const mongoose = require("mongoose");
 
-// CRARING A MODEL AND SCHEMA FOR THE TOUR
-// SCHEMA THAT CAN BE USED TO CREATE A MODEL
 const restaurantSchema = new mongoose.Schema({
 	name: {
 		type: String,
-		required: [true, 'a restaurant must have a name'],
-		unique: true,
-		trim: true
+		required: [true, "a role must have a name"],
 	},
-    location:{
-        type: String,
-        required: [true, "the location for the restaurant must be specified"]
-    },
-	summary: {
+	description: String,
+	latitude: {
 		type: String,
-		required: true
-	},    
-	review: Number,
-    meals:String,
-	imageCover: {
+		required: true,
+	},
+	longitude: {
 		type: String,
-		required: true
-	}
+		required: true,
+	},
+	location_id: {
+		type: Number,
+		required: true,
+	},
 });
 
 // THE MODEL
-
 const Restaurant = mongoose.model("Restaurant", restaurantSchema);
 
-module.exports = Restaurant 
+module.exports = Restaurant;

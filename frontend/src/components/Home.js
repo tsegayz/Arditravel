@@ -13,7 +13,7 @@ function Home({data, footer, explore}) {
 
   const catagory = [ 'All', 'Nature', 'Forest', 'Man-made', 'Villages', 'Animals'];
   const needs = [
-    { title: 'City', link: '/city' },
+    { title: 'Location', link: '/location' },
     { title: 'Hotels', link: '/hotels' },
     { title: 'Things to do', link: '/things-to-do' },
     { title: 'Car Rental', link: '/car-rental' },
@@ -69,7 +69,7 @@ function Home({data, footer, explore}) {
             <li key={need.title}>
               <a href={need.link}>
                 <span className="icons">
-                  {need.title === 'City' && <GiModernCity />}
+                  {need.title === 'Location' && <GiModernCity />}
                   {need.title === 'Hotels' && <RiHotelBedFill />}
                   {need.title === 'Things to do' && <RiCalendarTodoFill />}
                   {need.title === 'Car Rental' && <RiCarFill />}

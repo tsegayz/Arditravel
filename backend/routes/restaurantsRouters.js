@@ -1,18 +1,18 @@
 const express = require("express");
-const restaurant = require("../controllers/restaurant");
+const restaurantController = require("../controllers/restaurantController");
+const authController = require("../controllers/authController");
 
-// ////// TOURS router
 const router = express.Router();
 
 // CHAINING different middlewares
 router
 	.route("/")
-	.get(restaurant.getAllTour)
-	.post(restaurant.createTour);
+	.get(restaurantController.getAllRestaurant)
+	.post(authController.protect, restaurantController.createRestaurant);
 router
 	.route("/:id")
-	.get(restaurant.getTour)
-	.patch(restaurant.updateTour)
-	.delete(restaurant.deleteTour);
+	.get(restaurantController.getRestaurant)
+	.patch(authController.protect, restaurantController.updateRestaurant)
+	.delete(authController.protect, restaurantController.deleteRestaurant);
 
 module.exports = router;

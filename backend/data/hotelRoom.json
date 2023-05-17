@@ -1,0 +1,52 @@
+[
+	{ 
+        "id": "1", 
+        "type": "Standard", 
+        "price": 100 
+    },
+	{ 
+        "id": "2", 
+        "type": "Deluxe", 
+        "price": 150 
+    },
+	{ 
+        "id": "3", 
+        "type": "Executive", 
+        "price": 200 
+    },
+	{ 
+        "id": "4", 
+        "type": "Suite", 
+        "price": 250 
+    },
+	{ 
+        "id": "5", 
+        "type": "Standard", 
+        "price": 100 
+    },
+	{ 
+        "id": "6", 
+        "type": "Deluxe", 
+        "price": 150 
+    },
+	{ 
+        "id": "7", 
+        "type": "Executive", 
+        "price": 200 
+    },
+	{ 
+        "id": "8", 
+        "type": "Suite", 
+        "price": 250 
+    },
+	{ 
+        "id": "9", 
+        "type": "Standard", 
+        "price": 100 
+    },
+	{ 
+        "id": "10", 
+        "type": "Deluxe", 
+        "price": 150 
+    }
+]

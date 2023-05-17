@@ -1,82 +1,122 @@
-[  
-  {    
-    "id": 1,    
-    "name": "Yod Abyssinia Cultural Restaurant",    
-    "location": "Addis Ababa, Ethiopia",    
-    "description": "Yod Abyssinia Cultural Restaurant is a popular restaurant in Addis Ababa that offers traditional Ethiopian food and live music performances. It has a vibrant atmosphere and is a great place to experience Ethiopian culture.",    
-    "review": "4.5 stars",    
-    "meals": ["Injera and Wot", "Tibs", "Kitfo"]
-  },
-  {
-    "id": 2,
-    "name": "Jupiter International Hotel - Cazanchis Restaurant",
-    "location": "Addis Ababa, Ethiopia",
-    "description": "Jupiter International Hotel - Cazanchis Restaurant is located in the heart of Addis Ababa and offers a variety of international cuisine as well as Ethiopian dishes. It has a modern and elegant atmosphere.",
-    "review": "4 stars",
-    "meals": ["Pizza", "Burger", "Injera and Wot"]
-  },
-  {
-    "id": 3,
-    "name": "7 Olives Restaurant",
-    "location": "Dire Dawa, Ethiopia",
-    "description": "7 Olives Restaurant is a popular restaurant in Dire Dawa that offers Ethiopian and international cuisine. It has a casual and relaxed atmosphere and is a great place to enjoy a meal with friends or family.",
-    "review": "4.2 stars",
-    "meals": ["Injera and Wot", "Burger", "Pasta"]
-  },
-  {
-    "id": 4,
-    "name": "Fasika Ethiopian Restaurant",
-    "location": "Hawassa, Ethiopia",
-    "description": "Fasika Ethiopian Restaurant is a family-owned restaurant in Hawassa that offers traditional Ethiopian food in a cozy and intimate setting. It has a warm and welcoming atmosphere and is known for its injera and wot dishes.",
-    "review": "4.3 stars",
-    "meals": ["Injera and Wot", "Kitfo", "Tibs"]
-  },
-  {
-    "id": 5,
-    "name": "Café Chocolatta",
-    "location": "Gondar, Ethiopia",
-    "description": "Café Chocolatta is a popular café in Gondar that serves a variety of coffee drinks, teas, pastries, and light meals. It has a relaxed and cozy atmosphere and is a great place to relax and unwind.",
-    "review": "4.6 stars",
-    "meals": ["Coffee", "Tea", "Pastries"]
-  },
-  {
-    "id": 6,
-    "name": "Kategna Restaurant",
-    "location": "Addis Ababa",
-    "review": 4.3,
-    "meals": ["Ethiopian", "African"],
-    "description": "Kategna Restaurant is one of the top-rated restaurants in Addis Ababa. They serve traditional Ethiopian food in a cozy and inviting atmosphere."
-  },
-  {
-    "id": 7,
-    "name": "Four Sisters Restaurant",
-    "location": "Gondar",
-    "review": 4.6,
-    "meals": ["Ethiopian", "African"],
-    "description": "Four Sisters Restaurant is a family-owned business that has been serving traditional Ethiopian cuisine for over 20 years. They offer a variety of dishes that are sure to satisfy any appetite."
-  },
-  {
-    "id": 8,
-    "name": "Belegez Restaurant",
-    "location": "Bahir Dar",
-    "review": 4.2,
-    "meals": ["Ethiopian", "African"],
-    "description": "Belegez Restaurant is located in the heart of Bahir Dar and offers a wide selection of Ethiopian dishes. They also have a bar that serves local and imported drinks."
-  },
-  {
-    "id": 9,
-    "name": "7 Olives Restaurant",
-    "location": "Dire Dawa",
-    "review": 4.4,
-    "meals": ["Ethiopian", "African"],
-    "description": "7 Olives Restaurant is a popular spot in Dire Dawa that offers traditional Ethiopian dishes as well as some international options. They also have a coffee shop and a bar."
-  },
-  {
-    "id": 10,
-    "name": "Lalibela Restaurant",
-    "location": "Lalibela",
-    "review": 4.7,
-    "meals": ["Ethiopian", "African"],
-    "description": "Lalibela Restaurant is located in the historic town of Lalibela and offers a unique dining experience. They serve traditional Ethiopian food and have a great view of the surrounding mountains."
-  }
+[
+	{
+		"id": 1,
+		"name": "Yod Abyssinia Cultural Restaurant",
+		"location_id": 1,
+		"description": "A cultural restaurant that serves Ethiopian cuisine and has live music performances.",
+		"latitude": 9.0238,
+		"longitude": 38.7612
+	},
+	{
+		"id": 2,
+		"name": "Kategna Ethiopian Restaurant",
+		"location_id": 2,
+		"description": "A cozy restaurant that serves traditional Ethiopian dishes and has outdoor seating.",
+		"latitude": 9.0169,
+		"longitude": 38.7608
+	},
+	{
+		"id": 3,
+		"name": "2000 Habesha Cultural Restaurant",
+		"location_id": 3,
+		"description": "A cultural restaurant that serves Ethiopian and Eritrean cuisine and has traditional seating.",
+		"latitude": 9.0084,
+		"longitude": 38.7693
+	},
+	{
+		"id": 4,
+		"name": "Afar Cuisine Restaurant",
+		"location_id": 1,
+		"description": "Enjoy traditional Afar dishes in a modern setting.",
+		"latitude": 9.0306,
+		"longitude": 38.7375
+	},
+	{
+		"id": 5,
+		"name": "Danakil Restaurant",
+		"location_id": 2,
+		"description": "Taste the flavors of the Danakil region.",
+		"latitude": 9.0094,
+		"longitude": 38.7485
+	},
+	{
+		"id": 6,
+		"name": "Hadar Café",
+		"location_id": 3,
+		"description": "Relax with a cup of coffee and enjoy the view of Hadar.",
+		"latitude": 8.9961,
+		"longitude": 38.7739
+	},
+	{
+		"id": 7,
+		"name": "Walia Ethiopian Restaurant",
+		"location_id": 12,
+		"descr": "Authentic Ethiopian cuisine with a lake view.",
+		"latitude": 11.5773,
+		"longitude": 37.3793
+	},
+	{
+		"id": 8,
+		"name": "Fisherman's Delight",
+		"location_id": 13,
+		"descr": "Fresh fish and seafood dishes.",
+		"latitude": 11.6734,
+		"longitude": 37.4435
+	},
+	{
+		"id": 9,
+		"name": "Kaffa House",
+		"location_id": 14,
+		"descr": "Cozy cafe serving coffee, tea, and light meals.",
+		"latitude": 8.9829,
+		"longitude": 38.7988
+	},
+	{
+		"id": 10,
+		"name": "Zamzam Fast Food",
+		"location_id": 15,
+		"descr": "Quick bites and fast food.",
+		"latitude": 9.0036,
+		"longitude": 38.7411
+	},
+	{
+		"id": 11,
+		"name": "Blue Nile Restaurant",
+		"location_id": 101,
+		"description": "A cozy restaurant with a view of Lake Tana",
+		"latitude": 9.0036,
+		"longitude": 38.7411
+	},
+	{
+		"id": 12,
+		"name": "Hodam Ethiopian Restaurant",
+		"location_id": 102,
+		"description": "A traditional Ethiopian restaurant with live music",
+		"latitude": 9.0036,
+		"longitude": 38.7411
+	},
+	{
+		"id": 13,
+		"name": "Abay Minch Restaurant",
+		"location_id": 103,
+		"description": "A lakeside restaurant with fresh fish",
+		"latitude": 9.0036,
+		"longitude": 38.7411
+	},
+	{
+		"id": 14,
+		"name": "Ye Fasil Traditional Restaurant",
+		"location_id": 104,
+		"description": "A restaurant serving traditional Amhara cuisine",
+		"latitude": 9.0036,
+		"longitude": 38.7411
+	},
+	{
+		"id": 15,
+		"name": "Lalibela Ethiopian Restaurant",
+		"location_id": 105,
+		"description": "A restaurant with a variety of Ethiopian dishes",
+		"latitude": 9.0036,
+		"longitude": 38.7411
+	}
 ]

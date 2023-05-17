@@ -1,27 +1,21 @@
 const mongoose = require("mongoose");
 
-// CRARING A MODEL AND SCHEMA FOR THE TOUR
-// SCHEMA THAT CAN BE USED TO CREATE A MODEL
-
-const mealsSchema = new mongoose.Schema({
+const mealSchema = new mongoose.Schema({
 	name: {
 		type: String,
-		required: true,
+		required: [true, "a meal must have a name"],
 	},
-    price: Number,
-	summary: {
-		type: String,
-		required: true,
-	},
-	imageCover: {
-		type: String,
-		required: true
-	}
-
+    price: {
+        type: Number,
+        required: true
+    },
+    restaurant_id: {
+        type: Number,
+        required: true
+    }
 });
 
 // THE MODEL
+const Meal = mongoose.model("Meal", mealSchema);
 
-const Meals = mongoose.model("Meals", mealsSchema);
-
-module.exports = Meals;
+module.exports = Meal;

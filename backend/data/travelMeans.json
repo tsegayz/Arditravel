@@ -1,0 +1,14 @@
+[
+	{ "id": 1, "type": "Taxi", "location_id": 1 },
+	{ "id": 2, "type": "Bus", "location_id": 1 },
+	{ "id": 3, "type": "Minibus", "location_id": 1 },
+	{ "id": 4, "type": "Light Rail", "location_id": 1 },
+	{ "id": 5, "type": "Bajaj", "location_id": 1 },
+	{ "id": 6, "type": "Car Rental", "location_id": 1 },
+	{ "id": 7, "type": "Bicycle Rental", "location_id": 1 },
+	{ "id": 8, "type": "Motorcycle Rental", "location_id": 1 },
+	{ "id": 9, "type": "Scooter Rental", "location_id": 1 },
+	{ "id": 10, "type": "Segway Rental", "location_id": 1 },
+	{ "id": 11, "type": "Train", "location_id": 2 },
+	{ "id": 12, "type": "Airplane", "location_id": 3 }
+]

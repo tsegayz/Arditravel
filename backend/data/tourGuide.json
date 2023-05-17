@@ -1,0 +1,86 @@
+[
+	{
+		"id": 1,
+		"name": "Alex",
+		"location_id": 1,
+		"featuring": "Historical sites",
+		"rating": 4.5
+	},
+	{
+		"id": 2,
+		"name": "Helen",
+		"location_id": 2,
+		"featuring": "Hiking trails",
+		"rating": 4.8
+	},
+	{
+		"id": 3,
+		"name": "Mark",
+		"location_id": 3,
+		"featuring": "Wildlife tours",
+		"rating": 4.7
+	},
+	{
+		"id": 4,
+		"name": "Sara",
+		"location_id": 4,
+		"featuring": "Cultural experiences",
+		"rating": 4.6
+	},
+	{
+		"id": 5,
+		"name": "Peter",
+		"location_id": 5,
+		"featuring": "Safari tours",
+		"rating": 4.9
+	},
+	{
+		"id": 6,
+		"name": "Sophie",
+		"location_id": 6,
+		"featuring": "Adventure tours",
+		"rating": 4.3
+	},
+	{
+		"id": 7,
+		"name": "John",
+		"location_id": 7,
+		"featuring": "Beach tours",
+		"rating": 4.2
+	},
+	{
+		"id": 8,
+		"name": "Lisa",
+		"location_id": 8,
+		"featuring": "City tours",
+		"rating": 4.4
+	},
+	{
+		"id": 9,
+		"name": "David",
+		"location_id": 9,
+		"featuring": "Food tours",
+		"rating": 4.5
+	},
+	{
+		"id": 10,
+		"name": "Maria",
+		"location_id": 10,
+		"featuring": "Photography tours",
+		"rating": 4.7
+	},
+	{
+		"id": 11,
+		"name": "Daniel",
+		"location_id": 11,
+		"featuring": "Nature tours",
+		"rating": 4.6
+	},
+	{
+		"id": 12,
+		"name": "Julia",
+		"location_id": 12,
+		"featuring": "Camping tours",
+		"rating": 4.8
+	}
+]

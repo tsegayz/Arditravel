@@ -12,15 +12,25 @@ const tourSchema = new mongoose.Schema({
 	},
 	location: {
 		type: String,
-		required: true,
+		// required: true,
 	},
-	travelMeans: String,
+	travelMeans: {
+		type: String,
+	},
 	summary: {
 		type: String,
 		required: true,
 	},
-	type: String,
-	review: Number,
+	type: {
+		type: String,
+	},
+	rating: {
+		type: Number,
+	},
+	price: {
+		type:Number,
+		required: [true, "a tour must have a name"],
+	},
 	imageCover: {
 		type: String,
 		required: true,

@@ -1,0 +1,107 @@
+[
+	{
+		"id": 1,
+		"country": "Ethiopia",
+		"region": "Amhara",
+		"zone": "South Wollo",
+		"woreda": "Dessie Zuria"
+	},
+	{
+		"id": 2,
+		"country": "Ethiopia",
+		"region": "Tigray",
+		"zone": "Eastern Tigray",
+		"woreda": "Wukro"
+	},
+	{
+		"id": 3,
+		"country": "Ethiopia",
+		"region": "Oromia",
+		"zone": "East Hararghe",
+		"woreda": "Meta"
+	},
+	{
+		"id": 4,
+		"country": "Ethiopia",
+		"region": "Southern Nations, Nationalities, and Peoples' Region",
+		"zone": "Sidama",
+		"woreda": "Dale"
+	},
+	{
+		"id": 5,
+		"country": "Ethiopia",
+		"region": "Afar",
+		"zone": "Zone 2",
+		"woreda": "Dubti"
+	},
+	{
+		"id": 6,
+		"country": "Ethiopia",
+		"region": "Somali",
+		"zone": "Sitti",
+		"woreda": "Harshin"
+	},
+	{
+		"id": 7,
+		"country": "Ethiopia",
+		"region": "Benishangul-Gumuz",
+		"zone": "Metekel",
+		"woreda": "Mao-Komo"
+	},
+	{
+		"id": 8,
+		"country": "Ethiopia",
+		"region": "Afar",
+		"zone": "Zone 3",
+		"woreda": "Elidar"
+	},
+	{
+		"id": 9,
+		"country": "Ethiopia",
+		"region": "Oromia",
+		"zone": "West Guji",
+		"woreda": "Kercha"
+	},
+	{
+		"id": 10,
+		"country": "Ethiopia",
+		"region": "Tigray",
+		"zone": "Central Tigray",
+		"woreda": "Adwa"
+	},
+	{
+		"id": 11,
+		"country": "Ethiopia",
+		"region": "Southern Nations, Nationalities, and Peoples' Region",
+		"zone": "Gamo Gofa",
+		"woreda": "Arba Minch Zuria"
+	},
+	{
+		"id": 12,
+		"country": "Ethiopia",
+		"region": "Afar",
+		"zone": "Zone 1",
+		"woreda": "Erebti"
+	},
+	{
+		"id": 13,
+		"country": "Ethiopia",
+		"region": "Oromia",
+		"zone": "West Shewa",
+		"woreda": "Ambo"
+	},
+	{
+		"id": 14,
+		"country": "Ethiopia",
+		"region": "Tigray",
+		"zone": "Western Tigray",
+		"woreda": "Humera"
+	},
+	{
+		"id": 15,
+		"country": "Ethiopia",
+		"region": "Amhara",
+		"zone": "South Wollo",
+		"woreda": "Woldia"
+	}
+]

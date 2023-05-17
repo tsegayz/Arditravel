@@ -9,7 +9,7 @@ const DB = process.env.DATABASE.replace(
 	process.env.DATABASE_PASSWORD
 );
 
-// ///////////////////////////////////////////////////
+//////////////////////////////////////////////////
 mongoose
 	.connect(process.env.DATABASE_LOCAL, {
 		useNewUrlParser: true, // corrected option name
@@ -18,7 +18,6 @@ mongoose
 	})
 	.then(() => console.log("DB connection successful"))
 	.catch((err) => console.error("DB connection error:", err));
-
 const app = require("./app");
 
 const port = process.env.PORT || 5000;

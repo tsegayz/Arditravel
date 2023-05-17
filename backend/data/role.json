@@ -1,0 +1,52 @@
+[
+	{
+		"id": 1,
+		"name": "Admin",
+		"description": "Full access to all system functionality"
+	},
+	{
+		"id": 2,
+		"name": "Manager",
+		"description": "Can manage users and projects"
+	},
+	{
+		"id": 3,
+		"name": "Developer",
+		"description": "Can create and modify code"
+	},
+	{
+		"id": 4,
+		"name": "Tester",
+		"description": "Can test and verify functionality"
+	},
+	{
+		"id": 5,
+		"name": "Analyst",
+		"description": "Can analyze and design system requirements"
+	},
+	{
+		"id": 6,
+		"name": "Designer",
+		"description": "Can design user interfaces and system architecture"
+	},
+	{
+		"id": 7,
+		"name": "Support",
+		"description": "Can provide customer support and troubleshoot issues"
+	},
+	{
+		"id": 8,
+		"name": "Marketing",
+		"description": "Can manage marketing campaigns and promotions"
+	},
+	{
+		"id": 9,
+		"name": "Sales",
+		"description": "Can manage sales leads and opportunities"
+	},
+	{
+		"id": 10,
+		"name": "Intern",
+		"description": "Entry-level role with limited access to system functionality"
+	}
+]
