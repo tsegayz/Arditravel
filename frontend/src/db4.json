@@ -30,5 +30,12 @@
         "title": "Sky dive",    
         "desc": "at the top of mountain everest"
  
+    },
+    {    
+        "id": 6,    
+        "image": "url('../assets/image3.jpg')",    
+        "title": "Sky dive",    
+        "desc": "at the top of mountain everest"
+ 
     }
 ]

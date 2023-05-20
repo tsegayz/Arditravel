@@ -1,33 +1,28 @@
 [        
-    {
-        "id": 1, 
-        "city": "Addis Ababa", 
-        "name": " Entoto",
-        "link": "/trips"
+    { 
+        "id": 2, 
+        "title": " About Ardi", 
+        "list": " Press ",
+        "listT": " Resources and Policies",
+        "listTh": "Contact us",
+        "listF": "Guide"
+        
     },
     { 
         "id": 3, 
-        "city": "Hawassa",
-        "name": " Hayk " ,
-        "link": "/trips"
+        "title": "Explore",
+        "list": "  Write a review ",
+        "listT": "Join",
+        "listTh": "Travelers' Choice",
+        "listF": "Travel Articles"
     },
     { 
         "id": 4, 
-        "city": "Afar", 
-        "name": " Denakil ",
-        "link": "/trips"
-    },
-    { 
-        "id": 5, 
-        "city": "Gonder", 
-        "name": " Lalibela ",
-        "link": "/trips"
-    },
-    { 
-        "id": 2, 
-        "city": "Arbaminch", 
-        "name": " Abaya ",
-        "link": "/trips"
+        "title": "Spring Destinations", 
+        "list": "  Cherry Blossoms ",
+        "listT": " Lewis Ginter Botanical Garden",
+        "listTh": "Tuscany Wine Tours",
+        "listF": "Amsterdam Canal Cruises "
     }
     
 ]

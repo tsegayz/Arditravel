@@ -3,7 +3,7 @@ function NavBar() {
   return (
     <div className="navbar">
       <div className="logo">
-        <h1> Ardi </h1>
+        <h1> A<span>rdi travel</span> </h1>
       </div>
       <div >
         <ul className="menu">
