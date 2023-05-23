@@ -10,7 +10,7 @@ exports.getAllLocation = async (req, res) => {
 			.filter()
 			.sort()
 			.limitFields()
-			.pagination();
+			// .pagination();
 		// EXECUTING QUERY
 		const locations = await features.query;
 
@@ -22,7 +22,7 @@ exports.getAllLocation = async (req, res) => {
 			data: {
 				locations,
 			},
-		});
+		}); 
 	} catch (err) {
 		res.status(404).json({
 			data: {

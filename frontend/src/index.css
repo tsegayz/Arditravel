@@ -144,6 +144,69 @@ body {
 	padding-bottom: 30px;
 	border-bottom: rgba(250, 235, 215, 0.932) 0.1em solid;
 }
+
+/* //////////////responsive */
+@media screen and (max-width: 768px) {
+	.navbar {
+		flex-direction: column;
+		height: auto;
+		padding: 2em;
+	}
+
+	.menu li {
+		margin: 0.5em 0;
+		padding: 0.5em;
+		padding-top: 2em;
+	}
+
+	.menu {
+		justify-content: center;
+	}
+
+	.logo {
+		margin-left: 0;
+		justify-content: center;
+	}
+
+	.logo h1 {
+		font-size: 4em;
+	}
+
+	.background {
+		margin-left: 0;
+		margin-right: 0;
+	}
+
+	.search-bar {
+		margin-bottom: 4em;
+		padding: 0 0.5em;
+	}
+
+	.search-bar input {
+		font-size: 1.2em;
+	}
+
+	.search-bar button {
+		width: 3em;
+		height: 3em;
+	}
+
+	.search-results {
+		margin-top: 2em;
+		top: 60%;
+		max-width: 90%;
+		height: 10em;
+	}
+
+	.search-item {
+		padding-left: 0.5em;
+		padding-top: 0.75em;
+		font-size: 1.2em;
+		padding-bottom: 0.75em;
+	}
+}
+
+/* //////////////////// */
 .activity {
 	margin: 10px 280px;
 	margin-bottom: 0px;
@@ -211,18 +274,17 @@ body {
 }
 
 .container-grid .container .text-overlay h2 {
-	background-color: #1a37419c;
+	background-color: #1a37415d;
 	margin: 0;
 	padding: 10px;
 	padding-top: 0;
 	width: 100%;
 	margin-top: 120px;
 	font-size: 18px;
-	/* display: flex; */
 }
 
 .container-grid .container .text-overlay p {
-	background-color: #1a37419c;
+	background-color: #1a37415d;
 	margin: 0;
 	padding: 10px;
 	padding-top: 0;
@@ -230,52 +292,51 @@ body {
 	font-size: 14px;
 }
 .container-grid .item1 {
-	width: 400px;
-	height: 200px;
+	width: 430px;
+	height: 220px;
 }
 
 .container-grid .item2 {
-	width: 360px;
-	height: 260px;
+	width: 375px;
+	height: 250px;
 }
 
 .container-grid .item3 {
-
 	width: 500px;
 	height: 260px;
 }
 
 .container-grid .item4 {
-	width: 400px;
+	width: 450px;
 	height: 300px;
 }
 
 .container-grid .item5 {
-	width: 370px;
+	width: 400px;
 	height: 275px;
 }
 
 .container-grid .item6 {
-	width: 320px;
-	height: 220px;
+	width: 390px;
+	height: 250px;
 }
 
 /* ////////////// */
 .explore {
-	background-color: rgba(209, 206, 201, 0.137);
-	margin: 0 13em;
+	background-color: rgba(177, 177, 177, 0.096);
+	margin: 0 6em;
 	margin-bottom: 50px;
 }
 .explore .title-container {
 	display: flex;
 	align-items: center;
-	margin-bottom: 20px;
+	margin-bottom: -20px;
 }
 
 .explore .title-container h1 {
 	margin: 0;
 	color: #25434d;
-	margin-left: 1.7em;
+	margin-left: 4em;
 	width: 100%;
 	font-family: "Lobster", cursive;
 	font-size: 42px;
@@ -297,10 +358,10 @@ body {
 
 .explore .container {
 	position: relative;
-	margin: 90px;
+	margin: 80px;
 }
 .explore .main-container .box {
-	width: 300px;
+	width: 260px;
 	height: 400px;
 	display: flex;
 	flex-direction: column;
@@ -308,12 +369,12 @@ body {
 	justify-content: center;
 }
 .explore .main-container .box1 {
-	background: linear-gradient(90deg, #0d3f2228, #c99b7d09);
+	background: linear-gradient(90deg, #0d3f2211, #c99b7d09);
 	z-index: 2;
 }
 
 .explore .main-container .box2 {
-	background: linear-gradient(120deg, #0d3f2218, #b9aaa010);
+	background: linear-gradient(120deg, #0d3f2217, #b9aaa010);
 	position: absolute;
 	top: 50px;
 	left: 50px;
@@ -344,15 +405,13 @@ body {
 	font-size: 17px;
 	font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
-.catagory {
-	display: flex;
-	margin-left: 300px;
-}
 
 .card-wrapper {
+	position: relative;
 	margin-left: 30px;
 	display: flex;
 	overflow-x: auto;
+	align-items: center;
 	width: 110em;
 	padding: 20px 0px;
 }
@@ -360,7 +419,7 @@ body {
 .card-wrapper > .category-card {
 	display: flex;
 	overflow-x: scroll;
-	width: 100%;
+	width: max-content;
 	-ms-overflow-style: none;
 	scrollbar-width: none; /* for Firefox */
 }
@@ -371,7 +430,7 @@ body {
 
 .category-card {
 	display: flex;
-	margin: 20px 300px 80px 300px;
+	margin: 20px 250px 80px 280px;
 }
 
 .card-items {
@@ -412,6 +471,41 @@ body {
 	font-size: 30px;
 	margin-right: 10px;
 }
+
+.scroll-icon {
+	position: absolute;
+	top: 38%;
+	transform: translateY(-50%);
+	z-index: 1;
+	background-color: #8cbec042;
+	color: #167c80e3;
+	width: 50px;
+	height: 50px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 50%;
+	padding: 15px;
+	cursor: pointer;
+  }
+  
+  .scroll-icon:hover {
+	background-color: #167c8042;
+	color: white;
+  }
+  
+  .scroll-icon svg {
+	font-size: 18px; /* Adjust the font size to decrease the icon size */
+  }
+  
+  .scroll-icon-left {
+	left: 12em;
+  }
+  
+  .scroll-icon-right {
+	right: 10em;
+  }
+  
 
 /* ////////////////// */
 .footer {

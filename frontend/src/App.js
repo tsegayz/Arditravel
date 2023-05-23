@@ -3,7 +3,7 @@ import { useState, useEffect} from 'react';
 import './App.css';
 import Home from './components/Home';
 import Trips from './components/Trips'
-import Review from './components/Review'
+import TourGuide from './components/TourGuide';
 import SignIn from './components/SignIn'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import NavBar from './components/NavBar';
@@ -11,7 +11,6 @@ import Hotels from './components/Hotels';
 import HotelEach from './components/HotelEach';
 import Location from './components/Location';
 import footerList from './db.json';
-import whatNeed from './db4.json';
 import hotels from './db6.json';
 import eachHotels from './db7.json';
 import attractions from './db5.json';
@@ -73,8 +72,8 @@ function App() {
             <Route exact path='/trips'>
               <Trips/>
             </Route>
-            <Route exact path='/review'>
-              <Review/>
+            <Route exact path='/tourGuides'>
+              <TourGuide/>
             </Route>
             <Route exact path='/signin'>
               <SignIn/>

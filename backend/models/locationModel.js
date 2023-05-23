@@ -10,7 +10,7 @@ const locationSchema = new mongoose.Schema({
 		type: String,
 		required: true,
 	},
-	longtiude: {
+	longitude: {
 		type: String,
 		required: true,
 	},
@@ -20,6 +20,7 @@ const locationSchema = new mongoose.Schema({
 	},
 	parent_id: Number,
 	review: Object,
+	image: String
 });
 
 // THE MODEL

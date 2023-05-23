@@ -1,5 +1,6 @@
 const express = require("express");
 const morgan = require("morgan");
+const path = require('path');
 const app = express();
 
 console.log(process.env.NODE_ENV);
@@ -7,7 +8,9 @@ console.log(process.env.NODE_ENV);
 if (process.env.NODE_ENV === "development") {
 	app.use(morgan("dev"));
 }
+
 app.use(express.json());
+app.use("/images", express.static(path.join(__dirname, "images")));
 
 const tourRouter = require("./routes/tourRouters");
 const userRouter = require("./routes/userRouters");
