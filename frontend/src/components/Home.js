@@ -1,5 +1,4 @@
-import { useState, useEffect } from "react";
-import React, { useRef } from 'react';
+import { useState } from "react";
 import {
 	RiSearch2Line,
 	RiFacebookFill,
@@ -8,7 +7,7 @@ import {
 } from "react-icons/ri";
 import { SiTwitter } from "react-icons/si";
 import { IoShieldCheckmarkSharp } from "react-icons/io5";
-import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
 function Home({ data, explore, popular, footer }) {
 	const popularSlice = popular.slice(0, 4);
@@ -29,38 +28,24 @@ function Home({ data, explore, popular, footer }) {
 		}
 	};
 
-	const cardWrapperRef = useRef(null);
+	const scrollLeft = () => {
+		let slider = document.getElementById("slider");
+		const scrollAmount = slider.scrollLeft - 330;
+		slider.scrollTo({
+			left: scrollAmount,
+			behavior: "smooth", // Add smooth scrolling effect
+		});
+	};
 
 	const scrollRight = () => {
-	  cardWrapperRef.current.scrollBy({
-		left: 300, // Adjust this value based on the scroll distance you want
-		behavior: 'smooth', // Add smooth scrolling effect
-	  });
+		let slider = document.getElementById("slider");
+		const scrollAmount = slider.scrollLeft + 330;
+		slider.scrollTo({
+			left: scrollAmount,
+			behavior: "smooth", // Add smooth scrolling effect
+		});
 	};
-  
-	const scrollLeft = () => {
-	  cardWrapperRef.current.scrollBy({
-		left: -300, // Adjust this value based on the scroll distance you want
-		behavior: 'smooth', // Add smooth scrolling effect
-	  });
-	};
-  
-	useEffect(() => {
-	  // Attach scroll functions to the click event of the icons
-	  const scrollRightIcon = document.querySelector('.scroll-icon-right');
-	  const scrollLeftIcon = document.querySelector('.scroll-icon-left');
-  
-	  scrollRightIcon.addEventListener('click', scrollRight);
-	  scrollLeftIcon.addEventListener('click', scrollLeft);
-  
-	  // Cleanup event listeners on component unmount
-	  return () => {
-		scrollRightIcon.removeEventListener('click', scrollRight);
-		scrollLeftIcon.removeEventListener('click', scrollLeft);
-	  };
-	}, []);
-  
-  
+
 	return (
 		<div className='home'>
 			<div className='background'>
@@ -156,22 +141,26 @@ function Home({ data, explore, popular, footer }) {
 					mi ut elit tempor aliquam eget eget enim. Proin cursus eleifend
 					pretium. Aliquam cursus "
 				</div>
-				<div className='card-wrapper' ref={cardWrapperRef}>
-					<FaChevronLeft className='scroll-icon scroll-icon-left' onClick={scrollLeft} />
-					<div className='category-card'>
-					{explore.map((value) => (
+				<div className='card-wrapper'>
+					<FaChevronLeft
+						className='scroll-icon scroll-icon-left'
+						onClick={scrollLeft}
+					/>
+					<div className='category-card' id='slider'>
+						{explore.map((value) => (
 							<div className='card-items' key={value._id}>
 								<img src={value.image} alt='' />
 								<div className='card-item-one'>
 									<h2>{value.name}</h2>
-									<p>
-										{value.description}
-									</p>
+									<p>{value.description}</p>
 								</div>
 							</div>
 						))}
 					</div>
-					<FaChevronRight className='scroll-icon scroll-icon-right' onClick={scrollRight} />
+					<FaChevronRight
+						className='scroll-icon scroll-icon-right'
+						onClick={scrollRight}
+					/>
 				</div>
 			</div>
 			<footer>
