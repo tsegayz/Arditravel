@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 
 const mealSchema = new mongoose.Schema({
+	_id: { type: Number, required: true },
 	name: {
 		type: String,
 		required: [true, "a meal must have a name"],
@@ -12,7 +13,8 @@ const mealSchema = new mongoose.Schema({
     restaurant_id: {
         type: Number,
         required: true
-    }
+    },
+	image: String,
 });
 
 // THE MODEL

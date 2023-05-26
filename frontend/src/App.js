@@ -1,22 +1,24 @@
 import { useState, useEffect} from 'react';
-
+import axios from "axios";
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.css';
+
 import Home from './components/Home';
 import Trips from './components/Trips'
 import TourGuide from './components/TourGuide';
 import SignIn from './components/SignIn'
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import SignUp from './components/SignUp';
 import NavBar from './components/NavBar';
 import Hotels from './components/Hotels';
 import HotelEach from './components/HotelEach';
 import Location from './components/Location';
+
+
 import footerList from './db.json';
 import hotels from './db6.json';
 import eachHotels from './db7.json';
 import attractions from './db5.json';
-import axios from "axios";
 
-import SignUp from './components/SignUp';
 
 function App() {
 
@@ -24,7 +26,10 @@ function App() {
   const [hotel, setHotel] = useState([]);
   const [location, setLocation] = useState([]);
   const [activity, setActivity] = useState([]);
-
+  const [restaurant, setRestaurant] = useState([]);
+  const [hotelRoom, setHotelRoom] = useState([]);
+  
+  
   // Fetching data from the database
   const fetchLocationType = async () => {
     try {
@@ -40,11 +45,21 @@ function App() {
       const {hotels} = response3.data.data;
       setHotel(hotels)
 
-      const response4 = await axios.get('/api/v1/activities');
-      const {activities} = response4.data.data;
+      const response4 = await axios.get('/api/v1/hotelRoom');
+      const {hotelRooms} = response4.data.data;
+      setHotelRoom(hotelRooms);
+
+
+      const response5 = await axios.get('/api/v1/activities');
+      const {activities} = response5.data.data;
       setActivity(activities)
 
-      // console.log(activities)
+      const response6 = await axios.get('/api/v1/restaurants');
+      const {restaurants} = response6.data.data;
+      setRestaurant(restaurants)
+
+
+      // console.log(hotelRooms)
     } catch (error) {
       console.error('Error fetching location types:', error);
     }
@@ -70,7 +85,7 @@ function App() {
               <Location items={attractions}/>
             </Route>
             <Route exact path='/trips'>
-              <Trips/>
+              <Trips data={locationType} hotels={hotel} hotelRooms={hotelRoom} restaurants={restaurant} />
             </Route>
             <Route exact path='/tourGuides'>
               <TourGuide/>

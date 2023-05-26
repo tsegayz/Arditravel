@@ -11,7 +11,7 @@ exports.getAllHotel = async (req, res) => {
 			.filter()
 			.sort()
 			.limitFields()
-			.pagination();
+			// .pagination();
 		// EXECUTING QUERY
 		const hotels = await features.query;
 

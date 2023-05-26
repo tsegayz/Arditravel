@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 
 const locationTypeSchema = new mongoose.Schema({
+	_id: { type: Number, required: true },
 	country: String,
 	region: {
 		type: String,
@@ -13,7 +14,9 @@ const locationTypeSchema = new mongoose.Schema({
 	woreda: {
 		type: String,
 		required: true,
-	}
+	},
+	image: String,
+	description: String
 });
 
 // THE MODEL

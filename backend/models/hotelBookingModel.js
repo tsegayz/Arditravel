@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 
 const hotelBookingSchema = new mongoose.Schema({
+	_id: { type: Number, required: true },
 	user_id: {
 		type: Number,
 		required: [true, "the userId must be provided"],
@@ -23,6 +24,7 @@ const hotelBookingSchema = new mongoose.Schema({
 	},
 	status: Boolean,
 	review: Object,
+
 });
 
 // THE MODEL

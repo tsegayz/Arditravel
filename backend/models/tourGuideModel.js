@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 
 const tourGuideSchema = new mongoose.Schema({
+	_id: { type: Number, required: true },
 	name: {
 		type: String,
 		required: true,
@@ -11,6 +12,8 @@ const tourGuideSchema = new mongoose.Schema({
 	},
 	featuring: String,
 	rating: Number,
+	image: String,
+
 });
 
 // THE MODEL

@@ -9,7 +9,7 @@ exports.getAllLocationType = async (req, res) => {
 			.filter()
 			.sort()
 			.limitFields()
-			.pagination();
+			// .pagination();
 		// EXECUTING QUERY
 		const locationTypes = await features.query;
 

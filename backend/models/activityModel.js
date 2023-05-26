@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 
 const activitySchema = new mongoose.Schema({
+	_id: { type: Number, required: true },
 	name: {
 		type: String,
 		required: [true, "a activity must have a name"],
@@ -11,7 +12,8 @@ const activitySchema = new mongoose.Schema({
 		required: true
 	},
     rating: Number,
-    price: Number
+    price: Number,
+	image:String
 });
 
 // THE MODEL

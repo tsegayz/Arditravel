@@ -9,17 +9,17 @@ exports.getAllHotelRoom = async (req, res) => {
 			.filter()
 			.sort()
 			.limitFields()
-			.pagination();
+			// .pagination();
 		// EXECUTING QUERY
-		const hotelRoom = await features.query;
+		const hotelRooms = await features.query;
 
 		// SENDING RESPONSE
 		res.status(200).json({
 			status: "success",
 			responseTime: req.requestTime,
-			results: hotelRoom.length,
+			results: hotelRooms.length,
 			data: {
-				hotelRoom,
+				hotelRooms,
 			},
 		});
 	} catch (err) {

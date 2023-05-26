@@ -31,7 +31,6 @@ body {
 }
 .menu a {
 	color: #25434d;
-	font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 	text-decoration: none;
 	text-align: center;
 	font-size: 24px;
@@ -487,25 +486,24 @@ body {
 	border-radius: 50%;
 	padding: 15px;
 	cursor: pointer;
-  }
-  
-  .scroll-icon:hover {
+}
+
+.scroll-icon:hover {
 	background-color: #167c8042;
 	color: white;
-  }
-  
-  .scroll-icon svg {
+}
+
+.scroll-icon svg {
 	font-size: 18px; /* Adjust the font size to decrease the icon size */
-  }
-  
-  .scroll-icon-left {
+}
+
+.scroll-icon-left {
 	left: 12em;
-  }
-  
-  .scroll-icon-right {
+}
+
+.scroll-icon-right {
 	right: 10em;
-  }
-  
+}
 
 /* ////////////////// */
 .footer {
@@ -1623,3 +1621,355 @@ body {
 }
 
 /* ////////////////////////////// */
+
+/* ///////  TRIPS PAGE /////////*/
+
+.trips .navbar {
+	height: 100px;
+	padding-top: 30px;
+	padding-right: 150px;
+}
+
+.trips .logo {
+	margin-left: 2.5em;
+	font-size: 55px;
+	color: #25434d;
+	font-weight: bold;
+}
+
+.trips .logo span {
+	font-size: 36px;
+}
+
+.trips .nav-links {
+	list-style: none;
+	display: flex;
+	gap: 10px;
+	margin-left: -50em; /* Adjust the margin as needed */
+}
+
+.trips .nav-links li {
+	position: relative;
+	padding: 10px 25px;
+}
+
+.trips .nav-links a {
+	font-size: 22px;
+	color: #070707;
+	text-decoration: none;
+	position: relative;
+}
+
+.trips .nav-links a::after {
+	content: "";
+	position: absolute;
+	bottom: -3px;
+	left: 0;
+	width: 0;
+	height: 2px;
+	background-color: #25434d;
+	transition: width 0.3s ease;
+}
+
+.trips .nav-links a:hover::after {
+	width: 100%;
+}
+
+.trips .login-btn {
+	background-color: transparent;
+	font-size: 18px;
+	color: #000000;
+	border: none;
+	padding: 8px 16px;
+	border-radius: 4px;
+	cursor: pointer;
+}
+
+.trips .signup-btn {
+	background-color: #25434d;
+	font-size: 17px;
+	color: #ffffff;
+	border: none;
+	padding: 8px 16px;
+	border-radius: 24px;
+	cursor: pointer;
+}
+
+.country-trips {
+	display: flex;
+	overflow-x: hidden;
+	padding: 10px;
+	scroll-snap-type: x mandatory;
+}
+
+.trip-item {
+	position: relative;
+	flex: 0 0 100%;
+	scroll-snap-align: start;
+	margin-right: 10px;
+}
+
+.trip-image-container {
+	position: relative;
+	height: 40em;
+	width: 100%;
+	overflow: hidden;
+	padding: 10px 180px;
+}
+
+.trip-image-container::after {
+	content: "";
+	position: absolute;
+	top: 9px;
+	left: 180px;
+	width: 81%;
+	height: 97%;
+	background-color: rgba(0, 0, 0, 0.315);
+	border-radius: 30px;
+}
+
+.trip-image {
+	height: 100%;
+	width: 100%;
+	object-fit: cover;
+	border-radius: 30px;
+}
+
+.trip-content {
+	position: absolute;
+	top: 0;
+	left: 16em;
+	right: 0;
+	bottom: 0;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: start;
+	z-index: 1;
+	text-align: center;
+	color: #ffffff;
+}
+
+.trip-content p {
+	color: white;
+	font-size: 25px;
+	padding: 5px 10px;
+	border-radius: 20px;
+}
+.trip-content-text {
+	display: flex;
+	align-items: center;
+}
+
+.horizontal-line {
+	width: 80px;
+	height: 2px;
+	background-color: white;
+	margin-right: 10px;
+}
+
+.trip-content-text p {
+	margin: 0;
+}
+
+.trip-content h1 {
+	color: white;
+	margin-top: 0px;
+	font-size: 7.4em;
+	margin-bottom: 20px;
+	font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+.trip-content .scroll-icons {
+	width: auto;
+	margin-top: 4em;
+	margin-left: 2em;
+}
+
+.trip-content-second {
+	display: flex;
+}
+
+.left-content,
+.right-content {
+	display: flex;
+	align-items: start;
+}
+
+.right-content {
+	margin-top: 50px;
+	margin-left: 40em;
+	margin-right: 13em;
+	border-radius: 10px;
+	background-color: #21232441;
+}
+.right-content p {
+	font-size: 17px;
+}
+
+.category .category-one,
+.hotel-one,
+.restaurant-one,
+.travel-means-one,
+.tour-guide-one {
+	font-size: 19px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+	margin: 40px 230px 0 140px;
+}
+.category .category-one p,
+.hotel-one p,
+.restaurant-one p,
+.travel-means-one p,
+.tour-guide-one p {
+	font-size: 17px;
+	margin-top: -10px;
+}
+
+.category-scroll .scroll-trip,
+.hotel-scroll .scroll-trip,
+.restaurant-scroll .scroll-trip,
+.travel-means-scroll .scroll-trip ,
+.tour-guide-scroll .scroll-trip {
+	height: 40px;
+	width: 40px;
+	padding: 12px;
+	border: 1px solid rgba(173, 172, 172, 0.788);
+}
+
+.category-scroll .scroll-trip:hover,
+.hotel-scroll .scroll-trip:hover,
+.restaurant-scroll .scroll-trip:hover,
+.travel-means-scroll .scroll-trip:hover,
+.tour-guide-scroll .scroll-trip:hover {
+	border: rgb(54, 136, 132);
+	background-color: #167c80;
+}
+
+.category-card {
+	display: flex;
+	overflow-x: scroll;
+	padding: 10px;
+	margin-left: 170px;
+}
+
+.card-list {
+	display: flex;
+	flex-direction: column;
+	align-items: start;
+	justify-content: center;
+	width: 280px; /* Adjust the width as desired */
+	height: 200px; /* Adjust the height as desired */
+	padding: 22px;
+	padding-top: 80px;
+	background-color: #ffffff;
+	border-radius: 10px;
+	margin-right: 20px;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add slight shadow effect */
+	flex-shrink: 0; /* Prevent shrinking of cards */
+}
+.card-icon {
+	font-size: 40px;
+	color: #167c80;
+}
+
+.card-title {
+	font-size: 20px;
+	margin-top: 0;
+	margin-bottom: 5px;
+}
+
+.card-phrase {
+	margin-top: 0;
+	font-size: 14px;
+	color: #555555;
+}
+
+.category-card::-webkit-scrollbar {
+	display: none; /* Hide scrollbar */
+}
+
+/* //// hotel */
+
+.hotel-card-container {
+	display: flex;
+	padding-bottom: 20px;
+	margin: 30px 200px 0px 180px;
+	overflow: auto;
+	-ms-overflow-style: none; /* Internet Explorer 10+ */
+	scrollbar-width: none; /* Firefox */
+}
+
+.hotel-card-container::-webkit-scrollbar {
+	display: none; /* Safari and Chrome */
+}
+
+.hotel-card {
+	display: flex;
+	flex-direction: row;
+}
+
+.hotel-card .card {
+	width: 300px;
+	background-color: white;
+	border-radius: 8px;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+	/* padding: 10px; */
+	margin-right: 30px;
+}
+
+.image-container {
+	position: relative;
+}
+
+.image-container .hotel-image {
+	width: 100%;
+	height: 150px;
+	object-fit: cover;
+	border-radius: 8px;
+}
+
+.label-icon {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	background-color: lightpink;
+	padding: 2px 5px;
+	border-radius: 20px;
+}
+
+.hotel-card .card .label {
+	color: rgb(231, 107, 126);
+	font-size: 10px;
+	font-weight: bold;
+}
+
+.hotel-card .card .title-container {
+	font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin-top: 10px;
+	height: 40px;
+	margin-bottom: 20px;
+	padding: 10px;
+}
+
+.hotel-card .card h3 {
+	padding-top: 10px;
+	font-size: 17px;
+	font-weight: 100;
+	margin-right: 20px;
+	height: 50px;
+}
+
+.hotel-card .card .favorite-icon {
+	font-size: 20px;
+	color: grey;
+}
+
+.hotel-room{
+	color: #000000;
+}

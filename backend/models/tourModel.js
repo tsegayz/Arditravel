@@ -4,6 +4,7 @@ const mongoose = require("mongoose");
 // SCHEMA THAT CAN BE USED TO CREATE A MODEL
 
 const tourSchema = new mongoose.Schema({
+	_id: { type: Number, required: true },
 	name: {
 		type: String,
 		required: [true, "a tour must have a name"],

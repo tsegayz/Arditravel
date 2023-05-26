@@ -1,52 +1,73 @@
 [
-	{ 
-        "id": "1", 
-        "type": "Standard", 
-        "price": 100 
+    {
+      "id": "1",
+      "type": "Standard",
+      "price": 100,
+      "image": "/images/hotels/standard-room.jpg",
+      "hotel_id":1
     },
-	{ 
-        "id": "2", 
-        "type": "Deluxe", 
-        "price": 150 
+    {
+      "id": "2",
+      "type": "Deluxe",
+      "price": 150,
+      "image": "/images/hotels/deluxe-room.jpg",
+      "hotel_id":2
     },
-	{ 
-        "id": "3", 
-        "type": "Executive", 
-        "price": 200 
+    {
+      "id": "3",
+      "type": "Executive",
+      "price": 200,
+      "image": "/images/hotels/executive-room.jpg",
+      "hotel_id":3
     },
-	{ 
-        "id": "4", 
-        "type": "Suite", 
-        "price": 250 
+    {
+      "id": "4",
+      "type": "Suite",
+      "price": 250,
+      "image": "/images/hotels/suite-room.jpg",
+      "hotel_id": 4
     },
-	{ 
-        "id": "5", 
-        "type": "Standard", 
-        "price": 100 
+    {
+      "id": "5",
+      "type": "Standard",
+      "price": 100,
+      "image": "/images/hotels/standard-room.jpg",
+      "hotel_id":5
     },
-	{ 
-        "id": "6", 
-        "type": "Deluxe", 
-        "price": 150 
+    {
+      "id": "6",
+      "type": "Deluxe",
+      "price": 150,
+      "image": "/images/hotels/deluxe-room.jpg",
+      "hotel_id":6
     },
-	{ 
-        "id": "7", 
-        "type": "Executive", 
-        "price": 200 
+    {
+      "id": "7",
+      "type": "Executive",
+      "price": 200,
+      "image": "/images/hotels/executive-room.jpg",
+      "hotel_id": 7
     },
-	{ 
-        "id": "8", 
-        "type": "Suite", 
-        "price": 250 
+    {
+      "id": "8",
+      "type": "Suite",
+      "price": 250,
+      "image": "/images/hotels/suite-room.jpg",
+      "hotel_id": 8
     },
-	{ 
-        "id": "9", 
-        "type": "Standard", 
-        "price": 100 
+    {
+      "id": "9",
+      "type": "Standard",
+      "price": 100,
+      "image": "/images/hotels/standard-room.jpg",
+      "hotel_id": 9
     },
-	{ 
-        "id": "10", 
-        "type": "Deluxe", 
-        "price": 150 
+    {
+      "id": "10",
+      "type": "Deluxe",
+      "price": 150,
+      "image": "/images/hotels/deluxe-room.jpg",
+      "hotel_id":10
     }
-]
+  ]
+  
