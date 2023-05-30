@@ -9,8 +9,7 @@ import { SiTwitter } from "react-icons/si";
 import { MdFavorite, MdEmail } from "react-icons/md";
 
 function Hotels({ hotels, hotelRooms }) {
-	// const hotels = ["All", "Nature", "Forest", "Man-made", "Villages", "Animals"];
-
+	const hotelsSlice = hotels.slice(1, 8);
 	const [filteredHotels, setfilteredHotels] = useState([]);
 	const filterHandler = (e) => {
 		const searchWord = e.target.value;
@@ -47,20 +46,18 @@ function Hotels({ hotels, hotelRooms }) {
 					<p> All of the top hotel in the city </p>
 				</div>
 			</div>
-				<div className='search-bar'>
-					<input
-						className='input-field'
-						type='text'
-						placeholder='Search for hotels ....'
-						onChange={filterHandler}
-					/>
-					<button className='search-icon'>
-						{" "}
-						<RiSearch2Line
-							style={{ color: "#16494b", fontSize: "37px" }}
-						/>
-					</button>
-				</div>
+			<div className='search-bar'>
+				<input
+					className='input-field'
+					type='text'
+					placeholder='Search for hotels ....'
+					onChange={filterHandler}
+				/>
+				<button className='search-icon'>
+					{" "}
+					<RiSearch2Line style={{ color: "#16494b", fontSize: "37px" }} />
+				</button>
+			</div>
 
 			<div>
 				{filteredHotels.length !== 0 && (
@@ -93,17 +90,23 @@ function Hotels({ hotels, hotelRooms }) {
 			</form>
 
 			<div className='hotel-card-wrapper'>
-				{hotels.map((hotel) => (
+				{hotelsSlice.map((hotel) => (
 					<div className='hotel-card' key={hotel._id}>
 						<div className='hotel-details'>
-							<div className="image-contaienr"> 
+							<div className='image-contaienr'>
 								<img src={hotel.image} alt={hotel.name} />
 							</div>
-							<div className="hotel-details-name">
-								<h2 className="hotel-name">{hotel.name}</h2>
-								<p>{hotel.description} "Lorem dolor sit amet, consectetur adipiscing elit. Pellentesque vel mi ut elit tempor aliquam eget eget enim. Proin cursus eleifend pretium. Aliquam cursus "Lorem dolor sit amet, consectetur adipiscing elit. Pellentesque vel mi ut elit tempor aliquam eget eget enim. Proin cursus eleifend pretium. Aliquam cursus lorem</p>
+							<div className='hotel-details-name'>
+								<h2 className='hotel-name'>{hotel.name}</h2>
+								<p>
+									{hotel.description} "Lorem dolor sit amet, consectetur
+									adipiscing elit. Pellentesque vel mi ut elit tempor aliquam
+									eget eget enim. Proin cursus eleifend pretium. Aliquam cursus
+									"Lorem dolor sit amet, consectetur adipiscing elit.
+									Pellentesque vel mi ut elit tempor aliquam eget eget enim.
+									Proin cursus eleifend pretium. Aliquam cursus lorem
+								</p>
 							</div>
-							
 						</div>
 						<p> The Splended rooms of the hotels </p>
 						<div className='hotel-rooms'>
@@ -112,10 +115,10 @@ function Hotels({ hotels, hotelRooms }) {
 									.filter((room) => room.hotel_id === hotel._id)
 									.map((room) => (
 										<div className='room-card' key={room._id}>
-											<div className="room-card-scroll">
+											<div className='room-card-scroll'>
 												<img src={room.image} alt={room.type} />
-												<p>{room.type } Room </p>
-											</div>											
+												<p>{room.type} Room </p>
+											</div>
 										</div>
 									))}
 							</div>
@@ -128,9 +131,7 @@ function Hotels({ hotels, hotelRooms }) {
 				<div className='hotels-footer-one'>
 					<h2> Welcome Home</h2>
 					<p className='footer-title'> All your need </p>
-					<div className="hotels-search">
-						
-					</div>
+					<div className='hotels-search'></div>
 					<div>
 						<ul className='footer-nav-socials'>
 							<li class='hotel-social'>

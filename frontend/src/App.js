@@ -12,7 +12,7 @@ import NavBar from './components/NavBar';
 import Hotels from './components/Hotels';
 import HotelEach from './components/HotelEach';
 import Location from './components/Location';
-
+import Restaurant from './components/Restaurant'
 
 import footerList from './db.json';
 import hotels from './db6.json';
@@ -112,6 +112,9 @@ function App() {
             </Route>
             <Route exact path='/eachhotel'>
               <HotelEach items={eachHotels} />
+            </Route>
+            <Route exact path='/restaurant'>
+              <Restaurant/>
             </Route>
           </Switch>
         </div>

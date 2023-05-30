@@ -86,13 +86,13 @@ function Trips({ data, hotels, hotelRooms, restaurants, travels, tourGuides }) {
 				</div>
 				<ul class='nav-links'>
 					<li>
-						<a href='#'>Restaurants</a>
+						<a href='/restaurant'>Restaurants</a>
 					</li>
 					<li>
 						<a href='/hotels'>Hotels</a>
 					</li>
 					<li>
-						<a href='#'>About</a>
+						<a href='/'>Home</a>
 					</li>
 				</ul>
 				<div>

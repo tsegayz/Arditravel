@@ -406,15 +406,11 @@ body {
 	font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.carousel-wrapper {
-  width: 100%;
-  overflow: hidden;
-}
-
 .card-items {
+
   display: inline-block;
   width: 250px;
-  margin-right: 10px;
+  position: relative;
 }
 
 .card-image {
@@ -423,6 +419,35 @@ body {
   object-fit: cover;
 }
 
+.carousel-prev-button,
+.carousel-next-button {
+  background-color: #167c80;
+  position: absolute;
+  top: 44%;
+  transform: translateY(-50%);
+  color: white;
+  padding: 14px 16px;
+  border: none;
+  cursor: pointer;
+  border-radius: 50%;
+  z-index: 2; /* Increase the z-index to position the buttons above the cards */
+}
+
+.carousel-prev-button {
+  left: 0px; /* Adjust the value to move the button to the left */
+}
+
+.carousel-next-button {
+  right: 0px; /* Adjust the value to move the button to the right */
+}
+
+.category-card {
+  position: relative;
+  overflow-x: auto;
+  padding: 60px 40px;
+  margin-left: 90px;
+}
+  
 /* 
 .popular-places .card-wrapper {
 	position: relative;
@@ -704,7 +729,7 @@ body {
 }
 .hotels .search-bar {
 	position: absolute;
-	top: 30em;
+	top: 40em;
 	left: 40em;
 	background-color: #d3fff5;
 }

@@ -9,8 +9,8 @@ import { SiTwitter } from "react-icons/si";
 import { IoShieldCheckmarkSharp } from "react-icons/io5";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
-import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 function Home({ data, explore, popular, footer }) {
 	const popularSlice = popular.slice(0, 4);
@@ -29,22 +29,6 @@ function Home({ data, explore, popular, footer }) {
 		} else {
 			setfilteredPlaces(newFilter);
 		}
-	};
-
-	const scrollLeft = () => {
-		let slider = document.getElementById("slide");
-		slider.scrollBy({
-			left: -430,
-			behavior: "smooth",
-		});
-	};
-
-	const scrollRight = () => {
-		let slider = document.getElementById("slide");
-		slider.scrollBy({
-			left: 430,
-			behavior: "smooth",
-		});
 	};
 
 	return (
@@ -108,6 +92,65 @@ function Home({ data, explore, popular, footer }) {
 					})}
 				</div>
 			</div>
+			<div className='popular-places'>
+				<h1>Most popular places to visit</h1>
+				<div className='popular-descr'>
+					"Lorem dolor sit amet, consectetur adipiscing elit. Pellentesque vel
+					mi ut elit tempor aliquam eget eget enim. Proin cursus eleifend
+					pretium. Aliquam cursus " "Lorem dolor sit amet, consectetur
+					adipiscing elit. Pellentesque vel mi ut elit tempor aliquam eget eget
+					enim. Proin cursus eleifend pretium. Aliquam cursus " Pellentesque vel
+					mi ut elit tempor aliquam eget eget enim. Proin cursus eleifend
+					pretium. Aliquam cursus "
+				</div>
+				<div className='category-card'>
+					<Carousel
+						showStatus={false}
+						showThumbs={false}
+						showArrows={true}
+						showIndicators={false}
+						infiniteLoop={true}
+						swipeable={true}
+						emulateTouch={true}
+						centerMode={true}
+						centerSlidePercentage={20}
+						renderArrowPrev={(onClickHandler, hasPrev, label) =>
+							hasPrev && (
+								<button
+									type='button'
+									onClick={onClickHandler}
+									title={label}
+									className='carousel-prev-button'
+								>
+									<FaChevronLeft />
+								</button>
+							)
+						}
+						renderArrowNext={(onClickHandler, hasNext, label) =>
+							hasNext && (
+								<button
+									type='button'
+									onClick={onClickHandler}
+									title={label}
+									className='carousel-next-button'
+								>
+									<FaChevronRight />
+								</button>
+							)
+						}
+					>
+						{explore.map((value) => (
+							<div className='card-items' key={value._id}>
+								<img className='card-image' src={value.image} alt='' />
+								<div className='card-item-one'>
+									<h2>{value.name}</h2>
+									<p>{value.description}</p>
+								</div>
+							</div>
+						))}
+					</Carousel>
+				</div>
+			</div>
 			<div className='explore'>
 				<div className='title-container'>
 					<h1>Explore the beauty of Ethiopia</h1>
@@ -131,62 +174,6 @@ function Home({ data, explore, popular, footer }) {
 				</div>
 			</div>
 
-			<div className='popular-places'>
-				<h1> Most popular places to visit </h1>
-				<div className='popular-descr'>
-					"Lorem dolor sit amet, consectetur adipiscing elit. Pellentesque vel
-					mi ut elit tempor aliquam eget eget enim. Proin cursus eleifend
-					pretium. Aliquam cursus " "Lorem dolor sit amet, consectetur
-					adipiscing elit. Pellentesque vel mi ut elit tempor aliquam eget eget
-					enim. Proin cursus eleifend pretium. Aliquam cursus " Pellentesque vel
-					mi ut elit tempor aliquam eget eget enim. Proin cursus eleifend
-					pretium. Aliquam cursus "
-				</div>
-				<div className='card-wrapper'>
-					<Carousel
-						showStatus={false}
-						showIndicators={false}
-						showThumbs={false}
-						className='my-carousel'
-						centerMode={true}
-						infiniteLoop={true}
-						renderArrowPrev={(onClickHandler, hasPrev, label) =>
-							hasPrev && (
-								<button
-									type='button'
-									onClick={onClickHandler}
-									title={label}
-									className='carousel-arrow-prev'
-								>
-									Previous
-								</button>
-							)
-						}
-						renderArrowNext={(onClickHandler, hasNext, label) =>
-							hasNext && (
-								<button
-									type='button'
-									onClick={onClickHandler}
-									title={label}
-									className='carousel-arrow-next'
-								>
-									Next
-								</button>
-							)
-						}
-					>
-						{explore.map((value) => (
-							<div className='card-items' key={value._id}>
-								<img src={value.image} alt='' />
-								<div className='card-item-one'>
-									<h2>{value.name}</h2>
-									<p>{value.description}</p>
-								</div>
-							</div>
-						))}
-					</Carousel>
-				</div>
-			</div>
 			<footer>
 				<div className='logo-bottom'>
 					<div className='logo-bottom-one'>
