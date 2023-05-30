@@ -1,5 +1,6 @@
-import { HiLocationMarker } from "react-icons/hi";
+import { useState } from "react";
 import {
+	RiSearch2Line,
 	RiFacebookFill,
 	RiLinkedinFill,
 	RiInstagramFill,
@@ -7,9 +8,22 @@ import {
 import { SiTwitter } from "react-icons/si";
 import { MdFavorite, MdEmail } from "react-icons/md";
 
-function Hotels({ items }) {
-	const hotels = ["All", "Nature", "Forest", "Man-made", "Villages", "Animals"];
+function Hotels({ hotels, hotelRooms }) {
+	// const hotels = ["All", "Nature", "Forest", "Man-made", "Villages", "Animals"];
 
+	const [filteredHotels, setfilteredHotels] = useState([]);
+	const filterHandler = (e) => {
+		const searchWord = e.target.value;
+		const newFilter = hotels.filter((value) => {
+			return value.name.toLowerCase().includes(searchWord.toLowerCase());
+		});
+
+		if (searchWord === "") {
+			setfilteredHotels([]);
+		} else {
+			setfilteredHotels(newFilter);
+		}
+	};
 	return (
 		<div className='hotels'>
 			<nav className='hotels-nav'>
@@ -21,11 +35,7 @@ function Hotels({ items }) {
 					</li>
 					<li className='hotel-nav'>
 						{" "}
-						<a> Room </a>{" "}
-					</li>
-					<li className='hotel-nav'>
-						{" "}
-						<a> Gallery </a>
+						<a> Rooms </a>{" "}
 					</li>
 					<button> Book Now </button>
 				</ul>
@@ -34,26 +44,38 @@ function Hotels({ items }) {
 			<div className='hotel-descr'>
 				<div className='hotel-descr-item'>
 					<h6> All your needs in one place </h6>
-					<p> One of the top hotel in the city </p>
+					<p> All of the top hotel in the city </p>
 				</div>
 			</div>
+				<div className='search-bar'>
+					<input
+						className='input-field'
+						type='text'
+						placeholder='Search for hotels ....'
+						onChange={filterHandler}
+					/>
+					<button className='search-icon'>
+						{" "}
+						<RiSearch2Line
+							style={{ color: "#16494b", fontSize: "37px" }}
+						/>
+					</button>
+				</div>
 
 			<div>
-				<ul className='hotel-home'>
-					<li className='hotel-home-list'>
-						{" "}
-						<a> Meals </a>{" "}
-					</li>
-					<li className='hotel-home-list'>
-						{" "}
-						<a> Booking </a>{" "}
-					</li>
-					<li className='hotel-home-list'>
-						{" "}
-						<a> Services </a>{" "}
-					</li>
-				</ul>
+				{filteredHotels.length !== 0 && (
+					<div className='search-results'>
+						{filteredHotels.map((value) => {
+							return (
+								<a className='search-item' target='' key={value.id}>
+									{value.name}
+								</a>
+							);
+						})}
+					</div>
+				)}
 			</div>
+
 			<form className='hotel-form'>
 				<ul className='hotel-book-form'>
 					<li className='hotel-book'>
@@ -70,68 +92,44 @@ function Hotels({ items }) {
 				</ul>
 			</form>
 
-			<div className='hotel-card'>
-				{items.map((item) => {
-					return (
-						<div className='hotel-card-list' key={item.id}>
-							<div className='hotel-item'>
-								<button>
-									<MdFavorite style={{ color: "rgb(247, 235, 221)" }} />
-								</button>
+			<div className='hotel-card-wrapper'>
+				{hotels.map((hotel) => (
+					<div className='hotel-card' key={hotel._id}>
+						<div className='hotel-details'>
+							<div className="image-contaienr"> 
+								<img src={hotel.image} alt={hotel.name} />
 							</div>
-							<div className='hotel-name'>
-								<li className='hotel-item'>{item.name}</li>
-								<li className='hotel-item'>
-									<div className='hotel-row'>
-										<p>{item.cityName}</p>
-										<HiLocationMarker style={{ fontSize: "33px" }} />
-									</div>
-								</li>
+							<div className="hotel-details-name">
+								<h2 className="hotel-name">{hotel.name}</h2>
+								<p>{hotel.description} "Lorem dolor sit amet, consectetur adipiscing elit. Pellentesque vel mi ut elit tempor aliquam eget eget enim. Proin cursus eleifend pretium. Aliquam cursus "Lorem dolor sit amet, consectetur adipiscing elit. Pellentesque vel mi ut elit tempor aliquam eget eget enim. Proin cursus eleifend pretium. Aliquam cursus lorem</p>
 							</div>
-							<div className='hotel-hover'>
-								<li>
-									<a href={item.link}>
-										<button>Details</button>
-									</a>
-								</li>
-								<div className='hotel-hover-item'>
-									<li>{item.room}</li>
-									<li>{item.rating}</li>
-									<li>{item.roomSize}</li>
-								</div>
+							
+						</div>
+						<p> The Splended rooms of the hotels </p>
+						<div className='hotel-rooms'>
+							<div className='rooms-container'>
+								{hotelRooms
+									.filter((room) => room.hotel_id === hotel._id)
+									.map((room) => (
+										<div className='room-card' key={room._id}>
+											<div className="room-card-scroll">
+												<img src={room.image} alt={room.type} />
+												<p>{room.type } Room </p>
+											</div>											
+										</div>
+									))}
 							</div>
 						</div>
-					);
-				})}
+					</div>
+				))}
 			</div>
 
 			<footer className='hotels-footer'>
 				<div className='hotels-footer-one'>
 					<h2> Welcome Home</h2>
 					<p className='footer-title'> All your need </p>
-					<div>
-						<ul className='footer-nav'>
-							<li className='footer-nav-list'>
-								{" "}
-								<a> Meals </a>{" "}
-							</li>
-							<li className='footer-nav-list'>
-								{" "}
-								<a> Booking </a>{" "}
-							</li>
-							<li className='footer-nav-list'>
-								{" "}
-								<a> Services </a>{" "}
-							</li>
-							<li className='footer-nav-list'>
-								{" "}
-								<a> Booking </a>{" "}
-							</li>
-							<li className='footer-nav-list'>
-								{" "}
-								<a> Services </a>{" "}
-							</li>
-						</ul>
+					<div className="hotels-search">
+						
 					</div>
 					<div>
 						<ul className='footer-nav-socials'>

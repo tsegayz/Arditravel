@@ -14,7 +14,7 @@ exports.getAllRestaurant = async (req, res) => {
 			.filter()
 			.sort()
 			.limitFields()
-			.pagination();
+			// .pagination();
 		// EXECUTING QUERY
 		const restaurants = await features.query;
 

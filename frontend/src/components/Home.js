@@ -9,6 +9,9 @@ import { SiTwitter } from "react-icons/si";
 import { IoShieldCheckmarkSharp } from "react-icons/io5";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { Carousel } from "react-responsive-carousel";
+
 function Home({ data, explore, popular, footer }) {
 	const popularSlice = popular.slice(0, 4);
 	const exploreSlice = explore.slice(9, 15);
@@ -29,20 +32,18 @@ function Home({ data, explore, popular, footer }) {
 	};
 
 	const scrollLeft = () => {
-		let slider = document.getElementById("slider");
-		const scrollAmount = slider.scrollLeft - 330;
-		slider.scrollTo({
-			left: scrollAmount,
-			behavior: "smooth", // Add smooth scrolling effect
+		let slider = document.getElementById("slide");
+		slider.scrollBy({
+			left: -430,
+			behavior: "smooth",
 		});
 	};
 
 	const scrollRight = () => {
-		let slider = document.getElementById("slider");
-		const scrollAmount = slider.scrollLeft + 330;
-		slider.scrollTo({
-			left: scrollAmount,
-			behavior: "smooth", // Add smooth scrolling effect
+		let slider = document.getElementById("slide");
+		slider.scrollBy({
+			left: 430,
+			behavior: "smooth",
 		});
 	};
 
@@ -142,11 +143,38 @@ function Home({ data, explore, popular, footer }) {
 					pretium. Aliquam cursus "
 				</div>
 				<div className='card-wrapper'>
-					<FaChevronLeft
-						className='scroll-icon scroll-icon-left'
-						onClick={scrollLeft}
-					/>
-					<div className='category-card' id='slider'>
+					<Carousel
+						showStatus={false}
+						showIndicators={false}
+						showThumbs={false}
+						className='my-carousel'
+						centerMode={true}
+						infiniteLoop={true}
+						renderArrowPrev={(onClickHandler, hasPrev, label) =>
+							hasPrev && (
+								<button
+									type='button'
+									onClick={onClickHandler}
+									title={label}
+									className='carousel-arrow-prev'
+								>
+									Previous
+								</button>
+							)
+						}
+						renderArrowNext={(onClickHandler, hasNext, label) =>
+							hasNext && (
+								<button
+									type='button'
+									onClick={onClickHandler}
+									title={label}
+									className='carousel-arrow-next'
+								>
+									Next
+								</button>
+							)
+						}
+					>
 						{explore.map((value) => (
 							<div className='card-items' key={value._id}>
 								<img src={value.image} alt='' />
@@ -156,11 +184,7 @@ function Home({ data, explore, popular, footer }) {
 								</div>
 							</div>
 						))}
-					</div>
-					<FaChevronRight
-						className='scroll-icon scroll-icon-right'
-						onClick={scrollRight}
-					/>
+					</Carousel>
 				</div>
 			</div>
 			<footer>

@@ -1,21 +1,21 @@
 [
 	{
-		"id": 1,
+		"_id": 1,
 		"name": "Create",
 		"url": "/api/create"
 	},
 	{
-		"id": 2,
+		"_id": 2,
 		"name": "Read",
 		"url": "/api/read"
 	},
 	{
-		"id": 3,
+		"_id": 3,
 		"name": "Update",
 		"url": "/api/update"
 	},
 	{
-		"id": 4,
+		"_id": 4,
 		"name": "Delete",
 		"url": "/api/delete"
 	}

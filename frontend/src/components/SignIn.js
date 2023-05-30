@@ -11,7 +11,7 @@ function SignIn() {
 	const submit = async (e) => {
 		e.preventDefault();
 		try {
-			const response = await axios.post(`${process.env.PUBLIC_URL}/api/v1/users/login`,{
+			const response = await axios.post(`/api/v1/users/login`,{
 			email,
 			password,
 		  });

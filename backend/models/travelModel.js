@@ -11,6 +11,7 @@ const travelSchema = new mongoose.Schema({
 		type: Number,
 		required: true,
 	},
+	description: String,
 	image: String,
 });
 

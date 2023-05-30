@@ -9,7 +9,7 @@ exports.getAllTravel = async (req, res) => {
 			.filter()
 			.sort()
 			.limitFields()
-			.pagination();
+			// .pagination();
 		// EXECUTING QUERY
 		const travels = await features.query;
 

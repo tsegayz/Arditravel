@@ -9,7 +9,7 @@ exports.getAllTourGuide = async (req, res) => {
 			.filter()
 			.sort()
 			.limitFields()
-			.pagination();
+			// .pagination();
 		// EXECUTING QUERY
 		const tourGuides = await features.query;
 

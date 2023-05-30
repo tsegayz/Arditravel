@@ -1,4 +1,4 @@
-import { FaChevronLeft, FaChevronRight, FaHeart } from "react-icons/fa";
+import { FaChevronLeft, FaChevronRight, FaBed,FaHotel } from "react-icons/fa";
 import {
 	GiBinoculars,
 	GiCampCookingPot,
@@ -6,26 +6,49 @@ import {
 	GiSupersonicBullet,
 } from "react-icons/gi";
 import { SiHotelsdotcom } from "react-icons/si";
-import { GrFavorite } from "react-icons/gr";
+import { GrFavorite, GrLike } from "react-icons/gr";
 import { IoRestaurantOutline } from "react-icons/io5";
-
 import {
 	BsArrowRightCircle,
 	BsArrowLeftCircle,
 	BsInfoCircleFill,
 } from "react-icons/bs";
 
-function Trips({ data, hotels, hotelRooms }) {
+function Trips({ data, hotels, hotelRooms, restaurants, travels, tourGuides }) {
 	const dataSlice = data.slice(3, 11);
 
-	// const mergedData = hotels.map((hotel) => {
-	// 	const hotelRoom = hotelRooms.find((room) => room.hotel_id === hotel.id);
-	// 	return {
-	// 	  ...hotel,
-	// 	  room: hotelRoom || null,
-	// 	  roomImage: hotelRoom ? hotelRoom.image : null,
-	// 	};
-	//   });
+	const columnsData = [
+		{
+			title: "Things to Do",
+			rows: [
+				"Explore Local Attractions",
+				"Discover Hidden Gems",
+				"Experience Adventure Sports",
+				"Indulge in Local Cuisine",
+				"Relax on Beautiful Beaches",
+			],
+		},
+		{
+			title: "Popular Destinations",
+			rows: [
+				"Paris, France",
+				"Bali, Indonesia",
+				"New York City, USA",
+				"Rome, Italy",
+				"Tokyo, Japan",
+			],
+		},
+		{
+			title: "Travel Tips",
+			rows: [
+				"Packing Essentials",
+				"Safety Precautions",
+				"Budget Planning",
+				"Local Customs and Etiquette",
+				"Language Basics",
+			],
+		},
+	];
 
 	const category = [
 		{ title: "Refreshing Activities", icon: <GiBinoculars /> },
@@ -36,23 +59,23 @@ function Trips({ data, hotels, hotelRooms }) {
 		{ title: "Travel Means", icon: <GiAirplaneDeparture /> },
 	];
 
-	const scrollLeft = () => {
-		const slider = document.getElementById("slider");
+	const scrollLeft = (sliderId) => {
+		const slider = document.getElementById(sliderId);
 		const scrollAmount = slider.scrollLeft - window.innerWidth;
 		slider.scrollTo({
-			left: scrollAmount,
-			behavior: "smooth",
+		  left: scrollAmount,
+		  behavior: "smooth",
 		});
-	};
-
-	const scrollRight = () => {
-		const slider = document.getElementById("slider");
+	  };
+	  
+	  const scrollRight = (sliderId) => {
+		const slider = document.getElementById(sliderId);
 		const scrollAmount = slider.scrollLeft + window.innerWidth;
 		slider.scrollTo({
-			left: scrollAmount,
-			behavior: "smooth",
+		  left: scrollAmount,
+		  behavior: "smooth",
 		});
-	};
+	  };
 
 	return (
 		<div className='trips'>
@@ -66,10 +89,10 @@ function Trips({ data, hotels, hotelRooms }) {
 						<a href='#'>Restaurants</a>
 					</li>
 					<li>
-						<a href='#'>Hotels</a>
+						<a href='/hotels'>Hotels</a>
 					</li>
 					<li>
-						<a href='#'>Activities</a>
+						<a href='#'>About</a>
 					</li>
 				</ul>
 				<div>
@@ -106,7 +129,7 @@ function Trips({ data, hotels, hotelRooms }) {
 												color: "white",
 												marginRight: "20px",
 											}}
-											onClick={scrollLeft}
+											onClick={ () => scrollLeft("slider")}
 										/>
 										<BsArrowRightCircle
 											className='scroll-trip scroll-icon-right'
@@ -115,7 +138,7 @@ function Trips({ data, hotels, hotelRooms }) {
 												color: "white",
 												marginLeft: "10px",
 											}}
-											onClick={scrollRight}
+											onClick={() => scrollRight("slider")}
 										/>
 									</div>
 									<div className='right-content'>
@@ -135,7 +158,7 @@ function Trips({ data, hotels, hotelRooms }) {
 				))}
 			</div>
 
-			<div className='category'>
+			<div className='category' id='slider2'>
 				<div className='category-one'>
 					<div className='description'>
 						<h2> Select Category</h2>
@@ -150,7 +173,7 @@ function Trips({ data, hotels, hotelRooms }) {
 								borderRadius: "50%",
 								marginRight: "8px",
 							}}
-							onClick={scrollLeft}
+							onClick={ () => scrollLeft("slider2")}
 						/>
 						<FaChevronRight
 							className='scroll-trip scroll-icon-right'
@@ -160,12 +183,12 @@ function Trips({ data, hotels, hotelRooms }) {
 								color: "rgba(173, 172, 172, 0.788)",
 								marginLeft: "10px",
 							}}
-							onClick={scrollRight}
+							onClick={ () => scrollRight("slider2")}
 						/>
 					</div>
 				</div>
 
-				<div className='category-card' id='slider'>
+				<div className='category-card' >
 					{category.map((item, index) => (
 						<div className='card-list' key={index}>
 							<div className='card-icon'>{item.icon}</div>
@@ -176,7 +199,7 @@ function Trips({ data, hotels, hotelRooms }) {
 				</div>
 			</div>
 
-			<div className='hotels-category'>
+			<div className='hotels-category' id='slider3'>
 				<div className='hotel-one'>
 					<div className='description'>
 						<h2> Top luxury hotels </h2>
@@ -191,7 +214,7 @@ function Trips({ data, hotels, hotelRooms }) {
 								borderRadius: "50%",
 								marginRight: "8px",
 							}}
-							onClick={scrollLeft}
+							onClick={ () => scrollLeft("slider3")}
 						/>
 						<FaChevronRight
 							className='scroll-trip scroll-icon-right'
@@ -201,7 +224,7 @@ function Trips({ data, hotels, hotelRooms }) {
 								color: "rgba(173, 172, 172, 0.788)",
 								marginLeft: "10px",
 							}}
-							onClick={scrollRight}
+							onClick={ () => scrollRight("slider3")}
 						/>
 					</div>
 				</div>
@@ -209,9 +232,11 @@ function Trips({ data, hotels, hotelRooms }) {
 				<div className='hotel-card-container'>
 					<div className='hotel-card'>
 						{hotels.map((hotel) => {
-
+							const hotelRoom = hotelRooms.filter(
+								(room) => room.hotel_id === hotel._id
+							);
 							return (
-								<div key={hotel.id} className='card'>
+								<div key={hotel._id} className='card'>
 									<div className='image-container'>
 										<img
 											src={hotel.image}
@@ -223,9 +248,48 @@ function Trips({ data, hotels, hotelRooms }) {
 										</div>
 									</div>
 									<div className='title-container'>
-										<h3 className='title'>{hotel.name}</h3>
+										<h3 className='title'>{hotel.name} </h3>
 										<GrFavorite className='favorite-icon' />
 									</div>
+									{hotelRoom.length > 0 && (
+										<div className='room-info'>
+											<div className='room-info-one'>
+												<div>
+													<p>Room type: {hotelRoom[0].type}</p>
+													<h4>${hotelRoom[0].price}.00</h4>
+												</div>
+												<p className='room-info-p'>
+													<GrLike
+														style={{
+															fontSize: "22px",
+															marginRight: "4px",
+														}}
+													/>
+													{hotel.rating} likes
+												</p>
+											</div>
+											<div className='room-number'>
+												<FaBed
+													style={{
+														color: "#3ba0a3",
+														fontSize: "18px",
+														marginTop: "15px",
+													}}
+												/>{" "}
+												<p> {hotelRoom.length} Rooms </p>
+											</div>
+											<div className='room-bottom'>
+												<FaHotel
+													style={{
+														color: "#3ba0a3",
+														fontSize: "18px",
+														marginTop: "15px",
+													}}
+												/>
+												<p>Luxury hotels to enjoy</p>
+											</div>
+										</div>
+									)}
 								</div>
 							);
 						})}
@@ -233,7 +297,7 @@ function Trips({ data, hotels, hotelRooms }) {
 				</div>
 			</div>
 
-			<div className='restaurants'>
+			<div className='restaurants' id='slider4'>
 				<div className='restaurant-one'>
 					<div className='description'>
 						<h2> Splended Restaurants </h2>
@@ -248,7 +312,7 @@ function Trips({ data, hotels, hotelRooms }) {
 								borderRadius: "50%",
 								marginRight: "8px",
 							}}
-							onClick={scrollLeft}
+							onClick={ () => scrollLeft("slider4")}
 						/>
 						<FaChevronRight
 							className='scroll-trip scroll-icon-right'
@@ -258,15 +322,80 @@ function Trips({ data, hotels, hotelRooms }) {
 								color: "rgba(173, 172, 172, 0.788)",
 								marginLeft: "10px",
 							}}
-							onClick={scrollRight}
+							onClick={ () => scrollRight("slider4")}
 						/>
 					</div>
 				</div>
-
-				<div className='restaurant-card'></div>
+				<div className='scrollable-container'>
+					{restaurants.map((restaurant, index) => {
+						if (index % 6 === 0) {
+							return (
+								<div className='single-column-container' key={restaurant._id}>
+									<div className='restaurant-card'>
+										<div className='label'>Label</div>
+										<img src={restaurant.image} alt={restaurant.name} />
+										<p>{restaurant.name}</p>
+									</div>
+									{restaurants[index + 1] && (
+										<div className='restaurant-card'>
+											<div className='label'>Label</div>
+											<img
+												src={restaurants[index + 1].image}
+												alt={restaurants[index + 1].name}
+											/>
+											<p>{restaurants[index + 1].name}</p>
+										</div>
+									)}
+								</div>
+							);
+						} else if (index % 6 === 2) {
+							return (
+								<div className='column-container' key={restaurant._id}>
+									<div className='restaurant-card third-card'>
+										<div className='label'>Label</div>
+										<img src={restaurant.image} alt={restaurant.name} />
+										<p>{restaurant.name}</p>
+									</div>
+								</div>
+							);
+						} else if (index % 6 === 5) {
+							return (
+								<div className='column-container' key={restaurant._id}>
+									<div className='restaurant-card fourth-card'>
+										<div className='label'>Label</div>
+										<img src={restaurant.image} alt={restaurant.name} />
+										<p>{restaurant.name}</p>
+									</div>
+									{restaurants[index - 2] && restaurants[index - 1] && (
+										<div className='row-container'>
+											<div className='restaurant-card'>
+												<div className='label'>Label</div>
+												<img
+													src={restaurants[index - 2].image}
+													alt={restaurants[index - 2].name}
+												/>
+												<p>{restaurants[index - 2].name}</p>
+											</div>
+											<div className='restaurant-card'>
+												<div className='label'>Label</div>
+												<img
+													src={restaurants[index - 1].image}
+													alt={restaurants[index - 1].name}
+												/>
+												<p>{restaurants[index - 1].name}</p>
+											</div>
+										</div>
+									)}
+								</div>
+							);
+						} else {
+							return null;
+						}
+					})}
+				</div>
 			</div>
 
-			<div className='travel-means'>
+			<div className='travel-means' id='slider5'>
 				<div className='travel-means-one'>
 					<div className='description'>
 						<h2> Travel with </h2>
@@ -281,7 +410,7 @@ function Trips({ data, hotels, hotelRooms }) {
 								borderRadius: "50%",
 								marginRight: "8px",
 							}}
-							onClick={scrollLeft}
+							onClick={ () => scrollLeft("slider5")}
 						/>
 						<FaChevronRight
 							className='scroll-trip scroll-icon-right'
@@ -291,15 +420,28 @@ function Trips({ data, hotels, hotelRooms }) {
 								color: "rgba(173, 172, 172, 0.788)",
 								marginLeft: "10px",
 							}}
-							onClick={scrollRight}
+							onClick={ () => scrollRight("slider5")}
 						/>
 					</div>
 				</div>
 
-				<div className='travel-means-card'></div>
+				<div className='travelmeans-container'>
+					{travels.map((mean) => (
+						<div className='travel-means-card' key={mean.id}>
+							<div className='card-image'>
+								<img src={mean.image} alt={mean.name} />
+								<div className='price'> ${mean.price}</div>
+							</div>
+							<div className='content'>
+								<h3>{mean.type}</h3>
+								<p>{mean.description}</p>
+							</div>
+						</div>
+					))}
+				</div>
 			</div>
 
-			<div className='tour-guides'>
+			<div className='tour-guides' id='slider6'>
 				<div className='tour-guide-one'>
 					<div className='description'>
 						<h2> Tour Guides </h2>
@@ -314,7 +456,7 @@ function Trips({ data, hotels, hotelRooms }) {
 								borderRadius: "50%",
 								marginRight: "8px",
 							}}
-							onClick={scrollLeft}
+							onClick={ () => scrollLeft("slider6")}
 						/>
 						<FaChevronRight
 							className='scroll-trip scroll-icon-right'
@@ -324,12 +466,64 @@ function Trips({ data, hotels, hotelRooms }) {
 								color: "rgba(173, 172, 172, 0.788)",
 								marginLeft: "10px",
 							}}
-							onClick={scrollRight}
+							onClick={ () => scrollRight("slider6")}
 						/>
 					</div>
 				</div>
 
-				<div className='tour-guide-card'></div>
+				<div className='tour-guide-container'>
+					{tourGuides.map((guide, index) => (
+						<div
+							className={`tour-guide-card ${index % 2 === 0 ? "reverse" : ""}`}
+							key={guide.id}
+						>
+							<div className='content'>
+								<h3>{guide.name}</h3>
+								<p>{guide.featuring}</p>
+								<span>
+									{" "}
+									<GrLike /> Rating {guide.rating}
+								</span>
+							</div>
+							<div className='image'>
+								<img src={guide.image} alt={guide.name} />
+							</div>
+						</div>
+					))}
+				</div>
+
+				<div className='trips-footer'>
+					<div className='footer-title'>
+						<h3>Adventure Calling You Guys!</h3>
+						<hr className='title-line' />
+					</div>
+
+					<div className='footer-columns'>
+						{columnsData.map((column, index) => (
+							<div className='footer-column' key={index}>
+								<h4>{column.title}</h4>
+								<ul>
+									{column.rows.map((row, rowIndex) => (
+										<li key={rowIndex}>{row}</li>
+									))}
+								</ul>
+							</div>
+						))}
+						<div className='footer-column contact-column'>
+							<h4>Get in Touch</h4>
+							<p>
+								Let's talk <span className='arrow'>&rarr;</span>
+							</p>
+							<div className='input-container'>
+								<input type='text' placeholder='Your message' />
+								<button type='submit'>Submit</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class='center-text'>
+					Copyright &copy; Web Coding Pro. All Rights Reserved
+				</div>
 			</div>
 		</div>
 	);

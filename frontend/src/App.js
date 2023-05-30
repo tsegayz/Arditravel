@@ -28,6 +28,11 @@ function App() {
   const [activity, setActivity] = useState([]);
   const [restaurant, setRestaurant] = useState([]);
   const [hotelRoom, setHotelRoom] = useState([]);
+  const [travel, setTravel] = useState([]);
+  const [tourGuide, setTourGuide] = useState([]);
+  
+  
+  
   
   
   // Fetching data from the database
@@ -58,8 +63,15 @@ function App() {
       const {restaurants} = response6.data.data;
       setRestaurant(restaurants)
 
+      const response7 = await axios.get('/api/v1/travel');
+      const {travels} = response7.data.data;
+      setTravel(travels)
 
-      // console.log(hotelRooms)
+      const response8 = await axios.get('/api/v1/tourGuides');
+      const {tourGuides} = response8.data.data;
+      setTourGuide(tourGuides)
+      
+      console.log(hotelRooms)
     } catch (error) {
       console.error('Error fetching location types:', error);
     }
@@ -68,7 +80,6 @@ function App() {
   useEffect(() => {
     fetchLocationType();
   }, []);
-  
   
 
   return (
@@ -85,7 +96,7 @@ function App() {
               <Location items={attractions}/>
             </Route>
             <Route exact path='/trips'>
-              <Trips data={locationType} hotels={hotel} hotelRooms={hotelRoom} restaurants={restaurant} />
+              <Trips data={locationType} hotels={hotel} hotelRooms={hotelRoom} restaurants={restaurant} travels={travel} tourGuides={tourGuide}/>
             </Route>
             <Route exact path='/tourGuides'>
               <TourGuide/>
@@ -97,10 +108,10 @@ function App() {
               <SignUp/>
             </Route>
             <Route exact path='/hotels'>
-              <Hotels items={hotels}/>
+              <Hotels hotels={hotel} hotelRooms={hotelRoom}/>
             </Route>
             <Route exact path='/eachhotel'>
-              <HotelEach items={eachHotels}/>
+              <HotelEach items={eachHotels} />
             </Route>
           </Switch>
         </div>

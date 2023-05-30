@@ -15,7 +15,7 @@ const restaurantSchema = new mongoose.Schema({
 		type: String,
 		required: true,
 	},
-	location_id: {
+	locationtype_id: {
 		type: Number,
 		required: true,
 	},
