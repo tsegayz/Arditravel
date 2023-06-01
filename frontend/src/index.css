@@ -24,53 +24,53 @@ body {
 	align-items: center;
 	justify-content: space-between;
 	padding: 0 130px 0 0;
+	margin-bottom: -60px;
+}
+.menu {
+	list-style: none;
+	display: flex;
 }
 .menu li {
 	margin: 0 20px;
 	padding: 25px 10px;
-	padding-top: 90px;
+	padding-top: 20px;
 }
-.menu a {
+.menu li a {
 	color: #25434d;
 	text-decoration: none;
 	text-align: center;
 	font-size: 24px;
+	position: relative;
 }
-
-.menu a span {
+.menu li a span {
 	padding: 10px 35px;
 	color: white;
 	font-size: 20px;
 	background-color: #25434d;
 	border-radius: 30px;
 }
-.menu a span:hover {
+.menu li a span:hover {
 	color: rgb(29, 28, 28);
 	transition: all 0.4s;
 	background-color: #25434dc7;
-}
-.menu li a {
-	position: relative;
-}
-.menu {
-	list-style: none;
-	display: flex;
 }
 .logo {
 	display: flex;
 	align-items: center;
 	margin-left: 140px;
 	font-family: "Lobster", cursive;
+	padding: 0;
+	margin-top: -60px;
 }
 .logo h1 {
-	font-size: 140px;
+	font-size: 100px;
 	color: #25434d;
 }
 .logo h1 span {
 	font-size: 73px;
 }
 
-.background {
+.home .background {
 	width: 94em;
 	height: 36em;
 	margin-left: 13em;
@@ -121,7 +121,7 @@ body {
 	overflow: hidden;
 	overflow-y: auto;
 	position: absolute;
-	top: 345px;
+	top: 285px;
 	left: 665px;
 	border-radius: 6px;
 	padding-top: 20px;
@@ -324,7 +324,7 @@ body {
 /* ////////////// */
 .explore {
 	background-color: rgba(230, 229, 229, 0.096);
-	margin: 0 ;
+	margin: 0;
 	margin-bottom: 50px;
 }
 .explore .title-container {
@@ -407,135 +407,45 @@ body {
 }
 
 .card-items {
-
-  display: inline-block;
-  width: 250px;
-  position: relative;
+	display: inline-block;
+	width: 250px;
+	position: relative;
 }
 
 .card-image {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
+	width: 100%;
+	height: 200px;
+	object-fit: cover;
 }
 
 .carousel-prev-button,
 .carousel-next-button {
-  background-color: #167c80;
-  position: absolute;
-  top: 44%;
-  transform: translateY(-50%);
-  color: white;
-  padding: 14px 16px;
-  border: none;
-  cursor: pointer;
-  border-radius: 50%;
-  z-index: 2; /* Increase the z-index to position the buttons above the cards */
+	background-color: #167c80;
+	position: absolute;
+	top: 44%;
+	transform: translateY(-50%);
+	color: white;
+	padding: 14px 16px;
+	border: none;
+	cursor: pointer;
+	border-radius: 50%;
+	z-index: 2; /* Increase the z-index to position the buttons above the cards */
 }
 
 .carousel-prev-button {
-  left: 0px; /* Adjust the value to move the button to the left */
+	left: 0px; /* Adjust the value to move the button to the left */
 }
 
 .carousel-next-button {
-  right: 0px; /* Adjust the value to move the button to the right */
+	right: 0px; /* Adjust the value to move the button to the right */
 }
 
 .category-card {
-  position: relative;
-  overflow-x: auto;
-  padding: 60px 40px;
-  margin-left: 90px;
-}
-  
-/* 
-.popular-places .card-wrapper {
 	position: relative;
-	margin-left: 230px;
-	display: flex;
-	overflow-x: auto;
-	align-items: center;
-	width: 95em;
-	-ms-overflow-style: none;
-	scrollbar-width: none;
+	padding: 60px 40px;
+	margin-left: 90px;
+	overflow: hidden; /* Hide the default scrollbar */
 }
-.popular-places .card-wrapper::-webkit-scrollbar {
-	display: none;
-}
-.popular-places .category-card {
-	display: flex;
-	margin: 20px 40px 50px 40px;
-}
-
-.popular-places .card-items {
-	width: 300px;
-	margin: 10px;
-	border: 1px solid #ccc;
-	border-radius: 2px;
-	flex: 0 0 auto;
-	margin-right: 20px;
-}
-
-.popular-places .card-items img {
-	width: 100%;
-	height: 280px;
-	object-fit: cover;
-}
-.popular-places .card-items .card-item-one {
-	display: flex;
-	flex-direction: column;
-}
-.popular-places .card-items h2 {
-	margin: 10px;
-	font-family: "Lobster", cursive;
-	font-size: 22px;
-	font-weight: 100;
-}
-
-.popular-places .card-items p {
-	margin: 15px;
-	display: flex;
-	align-items: center;
-	margin-top: 0px;
-}
-
-.popular-places .card-items svg {
-	font-size: 30px;
-	margin-right: 10px;
-}
-
-.popular-places .card-wrapper .scroll-icon {
-	position: absolute;
-	top: 43%;
-	transform: translateY(-50%);
-	background-color: #8cbec042;
-	color: #167c80e3;
-	width: 50px;
-	height: 50px;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	border-radius: 50%;
-	padding: 15px;
-	cursor: pointer;
-}
-
-.popular-places .card-wrapper .scroll-icon:hover {
-	background-color: #167c8042;
-	color: white;
-}
-
-.popular-places .card-wrapper .scroll-icon svg {
-	font-size: 18px;
-}
-
-.popular-places .card-wrapper .scroll-icon-left {
-	left: 2em;
-}
-
-.popular-places .card-wrapper  .scroll-icon-right {
-	right: 2em;
-} */
 
 /* ////////////////// */
 .footer {
@@ -971,8 +881,10 @@ body {
 	height: 100vh;
 	width: 89em;
 }
-.each-hotel .hotel-nav {
-	margin-left: 8px;
+
+.each-hotel .hotels-nav h1 {
+	margin-left: -20px;
+	color: #167c80;
 }
 .each-hotel::before {
 	content: "";
@@ -1096,16 +1008,51 @@ body {
 /* //////////// city style ///////// */
 
 .city {
-	background-image: url("./assets/addis2.jpg");
-	background-size: cover;
-	background-position: center;
-	background-repeat: no-repeat;
 	height: 100vh;
+}
+
+.city .hotels-nav {
+	padding-right: 150px;
+}
+.city .hotels-nav h1 {
+	margin-bottom: 20px;
+	padding-top: 0px;
+	font-size: 55px;
+	color: #25434d;
+}
+
+.city .hotels-nav li a {
+	color: #1f343b;
+	font-size: 20px;
+	text-decoration: none;
+	position: relative;
+}
+
+.city .hotels-nav li a::after {
+	content: "";
+	position: absolute;
+	bottom: -3px;
+	left: 0;
+	width: 0;
+	height: 2px;
+	background-color: #25434d;
+	transition: width 0.3s ease;
+}
+
+.city .hotels-nav a:hover::after {
+	width: 100%;
 }
 
 .city-homepage {
 	display: flex;
+	background-image: url("./assets/addis2.jpg");
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
 	justify-content: space-between;
+	margin: 0 190px;
+	padding: 100px 0;
+	border-radius: 20px;
 }
 
 .city-name {
@@ -1114,13 +1061,13 @@ body {
 
 .city-name-descr {
 	color: white;
-	margin-top: 10em;
-	margin-left: 200px;
+	margin-top: 4em;
+	margin-left: 100px;
 }
 
 .city-name-descr h2 {
 	margin-bottom: 0px;
-	font-size: 120px;
+	font-size: 90px;
 	font-family: "Lobster", cursive;
 }
 
@@ -1135,9 +1082,9 @@ body {
 .city-card-list-container {
 	flex: 1;
 	height: 100%;
-	width: 800px;
+	width: 500px;
 	overflow-y: auto;
-	padding-right: 60px;
+	padding-right: 0px;
 }
 
 .city-card-list {
@@ -1164,9 +1111,9 @@ body {
 
 .city-card-attraction {
 	background-color: #ccccccd2;
-	margin-top: 5em;
-	width: 19em;
-	height: 33em;
+	margin-top: 4em;
+	width: 16em;
+	height: 24em;
 	color: white;
 	border-radius: 30px;
 	border: 2px rgba(255, 255, 255, 0.507) solid;
@@ -1176,9 +1123,9 @@ body {
 	justify-content: space-between;
 }
 
-.city-card-attraction .city-card-icon {
+.city-card-attraction .city-card-icon a {
 	font-size: 30px;
-	margin-left: 8.5em;
+	margin-left: -49px;
 }
 
 .city-card-attraction .city-attraction {
@@ -1218,14 +1165,24 @@ body {
 
 .about-city {
 	display: flex;
-	margin: 150px 250px 50px 250px;
+	margin: 150px 220px 50px 220px;
 	width: 90em;
 }
 .about-city h2 {
 	font-family: "Lobster", cursive;
 	font-size: 45px;
+	font-weight: 100;
+	width: 9em;
+	padding-left: 0px;
+}
+
+.about-city h3 {
+	font-family: "Lobster", cursive;
+	font-weight: 100;
+	font-size: 30px;
 	width: 9em;
 	padding-left: 40px;
+	margin-top: -20px;
 }
 .about-city p {
 	padding: 50px 50px 40px 50px;
@@ -1236,15 +1193,17 @@ body {
 
 .city-things-container h2 {
 	font-family: "Lobster", cursive;
+	font-weight: 100;
 	font-size: 45px;
-	padding-left: 6em;
+	padding-left: 4.7em;
+	font-weight: 100;
 }
 
 .city-things-list {
 	height: 100%;
 }
 .city-things-container {
-	height: 70%;
+	height: 60%;
 	width: 115em;
 	padding-right: 60px;
 }
@@ -1256,7 +1215,7 @@ body {
 	-ms-overflow-style: none;
 	scrollbar-width: none;
 	margin-right: 100px;
-	margin-left: 20em;
+	margin-left: 14em;
 }
 
 .city-things-content::-webkit-scrollbar {
@@ -1266,13 +1225,13 @@ body {
 .city-things-card {
 	border-radius: 20px;
 	display: inline-block;
-	height: 450px;
-	width: 20em;
+	height: 380px;
+	width: 19em;
 	background-color: rgba(128, 128, 128, 0.233);
 	box-sizing: border-box;
 	padding: 10px;
 	padding-left: 0px;
-	margin-right: 1.4em;
+	margin-right: 3em;
 }
 
 .city-things-card button {
@@ -1282,7 +1241,7 @@ body {
 	margin-left: 8em;
 }
 .city-things-desc {
-	margin-top: 18em;
+	margin-top: 15em;
 	list-style: none;
 	display: flex;
 	flex-direction: column;
@@ -1299,20 +1258,21 @@ body {
 	height: 100%;
 }
 .city-hotels-container h2 {
+	font-weight: 100;
 	font-family: "Lobster", cursive;
 	font-size: 45px;
-	padding-left: 6em;
+	padding-left: 4.6em;
 	margin-bottom: 0px;
 }
 .city-hotels-container h3 {
 	font-family: "Lobster", cursive;
 	font-size: 27px;
-	padding-left: 12em;
+	padding-left: 9em;
 	font-weight: 100;
 }
 
 .city-hotels-container {
-	height: 70%;
+	height: 60%;
 	width: 115em;
 	padding-right: 60px;
 }
@@ -1324,7 +1284,7 @@ body {
 	-ms-overflow-style: none;
 	scrollbar-width: none;
 	margin-right: 100px;
-	margin-left: 20em;
+	margin-left: 14em;
 }
 
 .city-hotels-content::-webkit-scrollbar {
@@ -1334,13 +1294,13 @@ body {
 .city-hotels-card {
 	border-radius: 20px;
 	display: inline-block;
-	height: 450px;
-	width: 20em;
+	height: 380px;
+	width: 19em;
 	background-color: rgba(128, 128, 128, 0.233);
 	box-sizing: border-box;
 	padding: 10px;
 	padding-left: 0px;
-	margin-right: 1.4em;
+	margin-right: 3em;
 }
 
 .city-hotels-card button {
@@ -1350,7 +1310,7 @@ body {
 	margin-left: 8em;
 }
 .city-hotels-desc {
-	margin-top: 18em;
+	margin-top: 15em;
 	list-style: none;
 	display: flex;
 	flex-direction: column;
@@ -1633,9 +1593,11 @@ body {
 	height: 100px;
 	padding-top: 30px;
 	padding-right: 150px;
+	margin-bottom: -25px;
 }
 
 .trips .logo {
+	margin-top: 0px;
 	margin-left: 2.5em;
 	font-size: 55px;
 	color: #25434d;
@@ -1655,6 +1617,7 @@ body {
 
 .trips .nav-links li {
 	position: relative;
+	margin-bottom: 0px;
 	padding: 10px 25px;
 }
 
@@ -1665,7 +1628,7 @@ body {
 	position: relative;
 }
 
-.trips .nav-links a::after {
+.trips .nav-links li a::after {
 	content: "";
 	position: absolute;
 	bottom: -3px;
@@ -1680,7 +1643,7 @@ body {
 	width: 100%;
 }
 
-.trips .login-btn {
+.trips .navbar .login-btn {
 	background-color: transparent;
 	font-size: 18px;
 	color: #000000;
@@ -1688,9 +1651,10 @@ body {
 	padding: 8px 16px;
 	border-radius: 4px;
 	cursor: pointer;
+	margin-bottom: 20px;
 }
 
-.trips .signup-btn {
+.trips .navbar .signup-btn {
 	background-color: #25434d;
 	font-size: 17px;
 	color: #ffffff;
@@ -1698,6 +1662,11 @@ body {
 	padding: 8px 16px;
 	border-radius: 24px;
 	cursor: pointer;
+}
+
+.trips .navbar .signup-btn:hover {
+	background-color: #25434d8f;
+	color: #1c485a;
 }
 
 .trips .country-trips {
@@ -1720,15 +1689,16 @@ body {
 	width: 100%;
 	overflow: hidden;
 	padding: 10px 180px;
+	padding-top: 60px;
 }
 
 .trip-image-container::after {
 	content: "";
 	position: absolute;
-	top: 9px;
+	top: 59px;
 	left: 180px;
 	width: 81%;
-	height: 97%;
+	height: 89%;
 	background-color: rgba(0, 0, 0, 0.315);
 	border-radius: 30px;
 }
@@ -1795,24 +1765,24 @@ body {
 	display: flex;
 }
 
-.trips .trip-content-second  .left-content,
-.trips .trip-content-second  .right-content {
+.trips .trip-content-second .left-content,
+.trips .trip-content-second .right-content {
 	display: flex;
 	align-items: start;
 }
 
-.trips .trip-content-second  .right-content {
+.trips .trip-content-second .right-content {
 	margin-top: 50px;
 	margin-left: 40em;
 	margin-right: 13em;
 	border-radius: 10px;
 	background-color: #21232441;
 }
-.trips .trip-content-second  .right-content p {
+.trips .trip-content-second .right-content p {
 	font-size: 17px;
 }
 
-.category .category-one,
+.trips .category .category-one,
 .hotel-one,
 .restaurant-one,
 .travel-means-one,
@@ -1824,7 +1794,7 @@ body {
 	font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 	margin: 40px 230px 0 140px;
 }
-.category .category-one p,
+.trips .category .category-one p,
 .hotel-one p,
 .restaurant-one p,
 .travel-means-one p,
@@ -1833,7 +1803,7 @@ body {
 	margin-top: -10px;
 }
 
-.category-scroll .scroll-trip,
+.trips .category-scroll .scroll-trip,
 .hotel-scroll .scroll-trip,
 .restaurant-scroll .scroll-trip,
 .travel-means-scroll .scroll-trip,
@@ -1844,7 +1814,7 @@ body {
 	border: 1px solid rgba(173, 172, 172, 0.788);
 }
 
-.category-scroll .scroll-trip:hover,
+.trips .category-scroll .scroll-trip:hover,
 .hotel-scroll .scroll-trip:hover,
 .restaurant-scroll .scroll-trip:hover,
 .travel-means-scroll .scroll-trip:hover,
@@ -2017,35 +1987,35 @@ body {
 }
 
 /* ///// restaurants /// */
-.restaurants .scrollable-container {
+.trips .restaurants .scrollable-container {
 	display: flex;
 	overflow-x: scroll;
 	margin: 0 170px;
 	-ms-overflow-style: none; /* Internet Explorer 10+ */
 	scrollbar-width: none; /* Firefox */
 }
-.restaurants .scrollable-container::-webkit-scrollbar {
+.trips .restaurants .scrollable-container::-webkit-scrollbar {
 	display: none; /* Safari and Chrome */
 }
-.restaurants .column-container {
+.trips .restaurants .column-container {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	flex: 1;
 }
 
-.restaurants .single-column-container {
+.trips .restaurants .single-column-container {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	flex: 1;
 }
 
-.restaurants .row-container {
+.trips .restaurants .row-container {
 	display: flex;
 }
 
-.restaurants .restaurant-card {
+.trips .restaurants .restaurant-card {
 	position: relative;
 	width: 340px;
 	height: 220px;
@@ -2054,12 +2024,12 @@ body {
 	overflow: hidden;
 }
 
-.restaurants .restaurant-card img {
+.trips .restaurants .restaurant-card img {
 	width: 100%;
 	height: 100%;
 	object-fit: cover;
 }
-.restaurants .restaurant-card::before {
+.trips .restaurants .restaurant-card::before {
 	content: "";
 	position: absolute;
 	top: 0;
@@ -2069,7 +2039,7 @@ body {
 	background-color: rgba(0, 0, 0, 0.349);
 	z-index: 1;
 }
-.restaurants .restaurant-card p {
+.trips .restaurants .restaurant-card p {
 	position: absolute;
 	font-size: 14px;
 	width: 100px;
@@ -2079,7 +2049,7 @@ body {
 	font-weight: bold;
 	z-index: 2;
 }
-.restaurants .restaurant-card .label {
+.trips .restaurants .restaurant-card .label {
 	position: absolute;
 	top: 10px;
 	left: 10px;
@@ -2090,15 +2060,15 @@ body {
 	border-radius: 15px;
 	z-index: 2;
 }
-.restaurants .third-card {
+.trips .restaurants .third-card {
 	height: 460px;
 }
 
-.restaurants .fourth-card {
+.trips .restaurants .fourth-card {
 	width: 690px;
 }
 
-.restaurants .single-column-container {
+.trips .restaurants .single-column-container {
 	display: flex;
 	flex-direction: column;
 }
@@ -2334,4 +2304,510 @@ body {
 }
 .trips {
 	margin: 0 -14px;
+}
+
+/* ///////// restaurants page */
+.restaurants .hotels-nav {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 1;
+}
+
+.restaurants .hotels-nav h1 {
+	color: #1c2f35;
+	font-size: 52px;
+}
+
+.restaurants .hotels-nav .hotel-nav a {
+	color: #007e7e17;
+}
+
+.restaurants .hotels-nav button {
+	background-color: #1c333a;
+}
+
+.restaurants .hotels-nav button:hover {
+	border-color: #1a3741c2;
+	background-color: #1a3741c2;
+}
+
+.restaurant-home {
+	position: relative;
+	padding: 0;
+	height: 40em;
+	width: 100%;
+}
+
+.restaurant-home::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.39); /* Adjust the opacity as desired */
+}
+
+.restaurant-home img {
+	display: block;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+.restaurant-home > div {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	text-align: center;
+	font-family: "Lobster", cursive;
+	color: rgb(245, 245, 245);
+}
+.restaurant-home > div h2 {
+	font-weight: 100;
+	font-size: 85px;
+}
+.restaurant-home > div h3 {
+	font-weight: 100;
+	margin-top: -60px;
+	font-size: 44px;
+}
+.restaurant-title {
+	text-align: center;
+	margin-bottom: 20px;
+}
+
+.restaurant-title h2 {
+	font-size: 24px;
+}
+
+.restaurant-title p {
+	font-size: 16px;
+}
+
+.restaurant-card-container {
+	position: relative;
+	margin: 40px 120px;
+	width: calc(100% - 230px);
+	overflow: auto;
+	scrollbar-width: none;
+	-ms-overflow-style: none;
+}
+
+.restaurant-card-container::-webkit-scrollbar {
+	display: none;
+}
+
+.restaurant-card-container::-webkit-scrollbar {
+	display: none;
+}
+
+.card-scroll-wrapper {
+	display: inline-flex;
+	overflow-x: auto;
+	scroll-behavior: smooth;
+	scroll-snap-type: x mandatory;
+}
+
+.restaurant-card {
+	width: 310px;
+	/* margin-right: 0 50px; */
+	color: #fff;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 0 25px;
+}
+
+.card-image {
+	width: 100%;
+	height: 200px; /* Adjust the height as desired */
+	object-fit: cover;
+}
+
+.restaurant-card-container .scroll-button {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	width: 40px;
+	height: 40px;
+	background-color: rgba(0, 0, 0, 0.5);
+	color: #fff;
+	border: none;
+	font-size: 20px;
+	cursor: pointer;
+}
+
+.restaurant-card-container .scroll-left {
+	left: 10px;
+}
+
+.restaurant-card-container .scroll-right {
+	right: 10px;
+}
+
+.restaurant-card-content {
+	margin-left: 50px;
+	padding: 0 10px;
+	margin-top: -50px;
+	background-color: rgba(0, 0, 0, 0.849);
+	width: 90%;
+}
+
+.restaurant-card-content h3 {
+	font-size: 20px;
+	margin-bottom: 10px;
+}
+
+.restaurant-card-content p {
+	font-size: 16px;
+}
+
+
+.reservation {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: 60px 350px;
+}
+
+.reserve-one,
+.reserve-two {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.reserve-one {
+	max-width: 500px;
+}
+.reserve-image {
+	width: 100%;
+	height: 400px;
+	object-fit: cover;
+	margin-top: 20px;
+}
+.reserve-one p{
+	width: 450px;
+}
+
+.reserve-two {
+	height: 575px;
+	border-top-right-radius: 25px;
+	border-bottom-right-radius: 25px;
+	background-color: rgba(255, 248, 239, 0.616);
+	display: flex;
+	align-items: start;
+	padding-left: 50px;
+	padding-right: 15px;
+}
+
+.reserve-two h2{
+	margin-top: 20px;
+	margin-left: 150px;
+	margin-bottom: 12px;
+	font-size: 30px;
+	color: rgb(68, 68, 68);
+	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.reserve-two p{
+	color: rgb(134, 134, 134);
+	font-family: "Lobster", cursive;
+	font-weight: 100;
+	margin: 0;
+	font-size: 18px;
+	padding: 2px;
+	margin-left: 140px;
+}
+.reserve-two .number {
+	margin-left: 170px;
+
+}
+
+.reserve-two .input-container {
+	display: flex;
+	align-items: center;
+}
+
+.reserve-two .input-container label{
+	font-size: 20px;
+	padding-right: 20px;
+	padding-top: 30px;
+}
+
+.reserve-two .input-container input {
+	flex-grow: 1;
+	padding: 12px;
+	font-size: 17px;
+	border: 1px solid #ccc;
+	box-shadow: 0 3px 7px rgba(0, 0, 0, 0.1);
+	margin-top: 30px;
+	background-color: transparent;
+	margin-right: 8px;
+}
+.reserve-two .input-container .person-label{
+	padding-left: 50px;
+}
+.reserve-two .input-container .person{
+	width: 100px;
+}
+.reserve-two .input-container input:focus {
+	outline: none;
+	border-bottom-color: transparent;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.reserve-two .input-container input::placeholder {
+	font-size: 17px;
+}
+
+.reserve-two  button {
+	padding: 15px 180px;
+	font-size: 16px;
+	border: none;
+	border-radius: 6px;
+	background-color: #2a4244;
+	color: white;
+	transition: background-color 0.3s ease;
+	cursor: pointer;
+	margin-top: 50px;
+	margin-left: 100px;
+}
+
+.reserve-two button:hover {
+	background-color: #2a4244;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.restaurant-footer {
+	width: 100%;
+	height: 35em;
+	position: relative;
+}
+
+.restaurant-footer .image-overlay {
+	position: relative;
+	width: 100%;
+	height: 100%;
+}
+
+.restaurant-footer .footer-image {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.restaurant-footer .overlay {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(18, 18, 22, 0.849);
+}
+
+.restaurant-footer .main-container {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 100%;
+	transform: translate(-50%, -50%);
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	padding: 0px 10px;
+	padding-bottom: 50px;
+}
+.main-container .container-one .container-about h3 {
+	font-size: 20px;
+	color: rgb(233, 188, 76);
+}
+
+.main-container .container-one .container-about p {
+	color: rgb(190, 190, 190);
+	width: 250px;
+}
+
+.main-container .container-one h2 {
+	font-size: 50px;
+	font-family: "Lobster", cursive;
+	color: #255768;
+	margin-left: 20px;
+	font-weight: 100;
+}
+.main-container .container-two h3 {
+	font-size: 20px;
+	color: rgb(233, 188, 76);
+}
+.main-container .container-two p{
+	color: rgb(190, 190, 190);
+
+}
+.weeks {
+	margin-top: 30px;
+	color: white;
+	margin-left: 30px;
+}
+
+.day-hours {
+	width: 280px;
+	display: flex;
+	align-items: start;
+	justify-content: space-between;
+	padding-bottom: 20px;
+}
+.hours{
+	color: rgb(190, 190, 190);
+}
+.main-container .container-three{
+	display: flex;
+}
+
+.main-container .container-three h3{
+	color: rgb(233, 188, 76);
+}
+.main-container .container-three h4{
+	color: white;
+}
+.main-container .container-three p{
+	color: rgb(190, 190, 190);
+}
+
+.main-container .container-three .contact-one{
+	margin-right: 70px;
+}
+.main-container .container-three .contact-two p {
+	font-size: 25px;
+}
+.contact-two .input-container input,
+.contact-two .input-container button {
+	margin-top: 10px;
+}
+.contact-two .input-container input {
+	background-color: white;
+}
+
+.contact-two .input-container {
+	display: flex;
+	align-items: center;
+}
+
+.contact-two .input-container input {
+	flex-grow: 1;
+	padding: 12px;
+	font-size: 17px;
+	border: none;
+	border-bottom: 1px solid #ccc;
+	box-shadow: 0 6px 8px rgba(0, 0, 0, 0.1);
+}
+
+.contact-two .input-container input:focus {
+	outline: none;
+	border-bottom-color: transparent;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.contact-two .input-container input::placeholder {
+	font-size: 17px;
+}
+.contact-two .input-container button {
+	padding: 15px 20px;
+	font-size: 16px;
+	border: none;
+	background-color: #1a797c;
+	color: white;
+	transition: background-color 0.3s ease;
+	cursor: pointer;
+}
+
+.contact-two .input-container button:hover {
+	background-color: #1a797cb6;
+}
+
+.contact-twos .arrow {
+	font-size: 50px;
+	margin-left: 5px;
+}
+
+.restaurant-footer .footer-links {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	text-align: center;
+	padding: 10px 0;
+}
+
+.restaurant-footer .footer-links ul {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+.restaurant-footer .footer-links ul li {
+	display: inline-block;
+	margin-right: 10px;
+	margin-bottom: 8px;
+}
+
+.restaurant-footer .footer-links ul li:last-child {
+	margin-right: 0;
+}
+
+.restaurant-footer .footer-links ul li a {
+	font-size: 20px;
+	padding: 5px 25px;
+	text-decoration: none;
+	color: #ffffff;
+}
+
+.restaurant-footer .footer-links ul li a:hover {
+	text-decoration: underline;
+}
+
+.restaurant-footer .footer-links p {
+	font-size: 14px;
+	color: #ffffff;
 }

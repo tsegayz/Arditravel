@@ -9,6 +9,7 @@ import { SiTwitter } from "react-icons/si";
 import { MdFavorite, MdEmail } from "react-icons/md";
 
 function Hotels({ hotels, hotelRooms }) {
+
 	const hotelsSlice = hotels.slice(1, 8);
 	const [filteredHotels, setfilteredHotels] = useState([]);
 	const filterHandler = (e) => {
@@ -64,7 +65,7 @@ function Hotels({ hotels, hotelRooms }) {
 					<div className='search-results'>
 						{filteredHotels.map((value) => {
 							return (
-								<a className='search-item' target='' key={value.id}>
+								<a className='search-item' target='' key={value.id} href='/eachhotel'>
 									{value.name}
 								</a>
 							);

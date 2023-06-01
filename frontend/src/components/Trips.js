@@ -81,7 +81,6 @@ function Trips({ data, hotels, hotelRooms, restaurants, travels, tourGuides }) {
 		<div className='trips'>
 			<nav class='navbar'>
 				<div class='logo'>
-					{" "}
 					A<span>rdi travel</span>
 				</div>
 				<ul class='nav-links'>
@@ -97,12 +96,10 @@ function Trips({ data, hotels, hotelRooms, restaurants, travels, tourGuides }) {
 				</ul>
 				<div>
 					<a href='/signin'>
-						{" "}
-						<button class='login-btn'>Login</button>{" "}
+						<button class='login-btn'>Login</button>
 					</a>
 					<a href='/signup'>
-						{" "}
-						<button class='signup-btn'>Sign Up</button>{" "}
+						<button class='signup-btn'>Sign Up</button>
 					</a>
 				</div>
 			</nav>

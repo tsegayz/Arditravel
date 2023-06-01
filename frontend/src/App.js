@@ -15,7 +15,6 @@ import Location from './components/Location';
 import Restaurant from './components/Restaurant'
 
 import footerList from './db.json';
-import hotels from './db6.json';
 import eachHotels from './db7.json';
 import attractions from './db5.json';
 
@@ -27,16 +26,16 @@ function App() {
   const [location, setLocation] = useState([]);
   const [activity, setActivity] = useState([]);
   const [restaurant, setRestaurant] = useState([]);
+  const [restaurantBook, setRestaurantBook] = useState([]);  
+  const [meal, setMeal] = useState([]);  
   const [hotelRoom, setHotelRoom] = useState([]);
   const [travel, setTravel] = useState([]);
   const [tourGuide, setTourGuide] = useState([]);
-  
-  
-  
-  
-  
+  const [signup, setSignup] = useState([]);  
+  const [login, setLogin] = useState([]);
+ 
   // Fetching data from the database
-  const fetchLocationType = async () => {
+  const fetchData = async () => {
     try {
       const response = await axios.get('/api/v1/locationtype');
       const { locationTypes } = response.data.data;
@@ -63,6 +62,10 @@ function App() {
       const {restaurants} = response6.data.data;
       setRestaurant(restaurants)
 
+      // const response9 = await axios.post('/api/v1/restaurantBooking');
+      // const {restaurantBook} = response9.data.data;
+      // setRestaurantBook(restaurantBook)      
+
       const response7 = await axios.get('/api/v1/travel');
       const {travels} = response7.data.data;
       setTravel(travels)
@@ -70,15 +73,27 @@ function App() {
       const response8 = await axios.get('/api/v1/tourGuides');
       const {tourGuides} = response8.data.data;
       setTourGuide(tourGuides)
+
+      // const response10 = await axios.post('/api/v1/users/signup');
+      // const {signup} = response10.data.data;
+      // setSignup(signup)
+
+      // const response11 = await axios.post('/api/v1/users/login');
+      // const {login} = response11.data.data;
+      // setLogin(login)   
       
-      console.log(hotelRooms)
+      const response12 = await axios.get('/api/v1/meals/');
+      const {meals} = response12.data.data;
+      setMeal(meals)
+     
+      // console.log(restaurants)
     } catch (error) {
       console.error('Error fetching location types:', error);
     }
   };
   
   useEffect(() => {
-    fetchLocationType();
+    fetchData();
   }, []);
   
 
@@ -92,7 +107,7 @@ function App() {
               <NavBar/>
               <Home data={locationType} explore={location} popular={activity} footer={footerList}/>
             </Route>
-            <Route exact path='/Location'>
+            <Route exact path='/location'>
               <Location items={attractions}/>
             </Route>
             <Route exact path='/trips'>
@@ -114,7 +129,7 @@ function App() {
               <HotelEach items={eachHotels} />
             </Route>
             <Route exact path='/restaurant'>
-              <Restaurant/>
+              <Restaurant restaurants={restaurant} meals={meal} />
             </Route>
           </Switch>
         </div>

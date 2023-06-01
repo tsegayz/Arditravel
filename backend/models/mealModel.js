@@ -15,6 +15,7 @@ const mealSchema = new mongoose.Schema({
         required: true
     },
 	image: String,
+    description:  String
 });
 
 // THE MODEL

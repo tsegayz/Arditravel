@@ -9,8 +9,6 @@ import { SiTwitter } from "react-icons/si";
 import { IoShieldCheckmarkSharp } from "react-icons/io5";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
-import { Carousel } from "react-responsive-carousel";
-import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 function Home({ data, explore, popular, footer }) {
 	const popularSlice = popular.slice(0, 4);
@@ -54,7 +52,7 @@ function Home({ data, explore, popular, footer }) {
 					<div className='search-results'>
 						{filteredPlaces.map((value) => {
 							return (
-								<a className='search-item' target='' key={value.id}>
+								<a className='search-item' target='' key={value.id} href='/location'>
 									{value.region},{value.zone}
 								</a>
 							);
