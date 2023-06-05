@@ -8,11 +8,23 @@ const router = express.Router();
 router
 	.route("/")
 	.get(hotelRoomController.getAllHotelRoom)
-	.post(authController.protect, hotelRoomController.createHotelRoom);
+	.post(
+		authController.protect,
+		authController.restrictTo(1),
+		hotelRoomController.createHotelRoom
+	);
 router
 	.route("/:id")
 	.get(hotelRoomController.getHotelRoom)
-	.patch(authController.protect, hotelRoomController.updateHotelRoom)
-	.delete(authController.protect, hotelRoomController.deleteHotelRoom);
+	.patch(
+		authController.protect,
+		authController.restrictTo(1),
+		hotelRoomController.updateHotelRoom
+	)
+	.delete(
+		authController.protect,
+		authController.restrictTo(1),
+		hotelRoomController.deleteHotelRoom
+	);
 
 module.exports = router;

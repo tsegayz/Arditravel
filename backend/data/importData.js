@@ -1,7 +1,7 @@
 const fs = require("fs");
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
-const Tour = require("./../models/mealModel");
+const Tour = require("./../models/activityModel");
 
 dotenv.config({ path: "./../config.env" });
 
@@ -16,7 +16,7 @@ mongoose
 	.then(() => console.log("DB connection successful"));
 
 const tours = JSON.parse(
-	fs.readFileSync(`${__dirname}/meals.json`, "utf-8")
+	fs.readFileSync(`${__dirname}/activity.json`, "utf-8")
 );
 
 // import data

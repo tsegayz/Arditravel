@@ -6,47 +6,12 @@
 	},
 	{
 		"_id": 2,
-		"name": "Manager",
-		"description": "Can manage users and projects"
+		"name": "User",
+		"description": "Can create and modify bookings"
 	},
 	{
 		"_id": 3,
-		"name": "Developer",
-		"description": "Can create and modify code"
-	},
-	{
-		"_id": 4,
-		"name": "Tester",
-		"description": "Can test and verify functionality"
-	},
-	{
-		"_id": 5,
-		"name": "Analyst",
-		"description": "Can analyze and design system requirements"
-	},
-	{
-		"_id": 6,
-		"name": "Designer",
-		"description": "Can design user interfaces and system architecture"
-	},
-	{
-		"_id": 7,
-		"name": "Support",
-		"description": "Can prov_ide customer support and troubleshoot issues"
-	},
-	{
-		"_id": 8,
-		"name": "Marketing",
-		"description": "Can manage marketing campaigns and promotions"
-	},
-	{
-		"_id": 9,
-		"name": "Sales",
-		"description": "Can manage sales leads and opportunities"
-	},
-	{
-		"_id": 10,
-		"name": "Intern",
-		"description": "Entry-level role with limited access to system functionality"
+		"name": "Tour Guide",
+		"description": "Can manage their profile"
 	}
 ]

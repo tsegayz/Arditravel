@@ -13,11 +13,11 @@ router
 router
 	.route("/")
 	.get(activityController.getAllActivity)
-	.post(authController.protect, activityController.createActivity);
+	.post(authController.protect, authController.restrictTo(1), activityController.createActivity);
 router
 	.route("/:id")
 	.get(activityController.getActivity)
-	.patch(authController.protect, activityController.updateActivity)
-	.delete(authController.protect, activityController.deleteActivity);
+	.patch(authController.protect, authController.restrictTo(1), activityController.updateActivity)
+	.delete(authController.protect, authController.restrictTo(1), activityController.deleteActivity);
 
 module.exports = router;

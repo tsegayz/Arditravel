@@ -8,11 +8,23 @@ const router = express.Router();
 router
 	.route("/")
 	.get(restaurantController.getAllRestaurant)
-	.post(authController.protect, restaurantController.createRestaurant);
+	.post(
+		authController.protect,
+		authController.restrictTo(1),
+		restaurantController.createRestaurant
+	);
 router
 	.route("/:id")
 	.get(restaurantController.getRestaurant)
-	.patch(authController.protect, restaurantController.updateRestaurant)
-	.delete(authController.protect, restaurantController.deleteRestaurant);
+	.patch(
+		authController.protect,
+		authController.restrictTo(1),
+		restaurantController.updateRestaurant
+	)
+	.delete(
+		authController.protect,
+		authController.restrictTo(1),
+		restaurantController.deleteRestaurant
+	);
 
 module.exports = router;

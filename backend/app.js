@@ -12,7 +12,6 @@ if (process.env.NODE_ENV === "development") {
 app.use(express.json());
 app.use("/images", express.static(path.join(__dirname, "images")));
 
-const tourRouter = require("./routes/tourRouters");
 const userRouter = require("./routes/userRouters");
 const activityRouter = require("./routes/activityRouters");
 const hotelRouter = require("./routes/hotelRouters");
@@ -31,7 +30,6 @@ const travelRouter = require("./routes/travelRouters");
 const travelBookingRouter = require("./routes/travelBookingRouters");
 
 // we used it as a middleware to attach it to the main route which is also called mounting
-app.use("/api/v1/tours", tourRouter);
 app.use("/api/v1/users", userRouter);
 app.use("/api/v1/activities", activityRouter);
 app.use("/api/v1/hotels", hotelRouter);

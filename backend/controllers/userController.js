@@ -1,18 +1,16 @@
-const User = require ("./../models/userModel")
-
-
+const User = require("./../models/userModel");
 // ////// user route handler function
 exports.getAllUsers = async (req, res, next) => {
-	const users = await User.find()
+	const users = await User.find();
 
 	res.status(200).json({
 		status: "sucess",
-		results : users.length,
+		results: users.length,
 		data: {
-			users
-		}
+			users,
+		},
 	});
-	next()
+	next();
 };
 
 exports.getUser = (req, res) => {

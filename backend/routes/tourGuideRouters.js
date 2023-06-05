@@ -10,11 +10,11 @@ const router = express.Router();
 router
 	.route("/")
 	.get(tourGuide.getAllTourGuide)
-	.post(authController.protect, tourGuide.createTourGuide);
+	.post(authController.protect, authController.restrictTo(1), tourGuide.createTourGuide);
 router
 	.route("/:id")
 	.get(tourGuide.getTourGuide)
-	.patch(authController.protect, tourGuide.updateTourGuide)
-	.delete(authController.protect, tourGuide.deleteTourGuide);
+	.patch(authController.protect, authController.restrictTo(1), tourGuide.updateTourGuide)
+	.delete(authController.protect, authController.restrictTo(1), tourGuide.deleteTourGuide);
 
 module.exports = router;

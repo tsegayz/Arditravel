@@ -17,17 +17,18 @@ exports.signup = async (req, res, next) => {
 			passwordConfirm: req.body.passwordConfirm,
 		});
 
-		// automatically loggin when the user opens the page by sending the token to the user
-
+		// automatically logging in when the user opens the page by sending the token to the user
 		const token = signinToken(newUser._id);
 
 		res.status(201).json({
-			status: "sucess",
+			status: "success",
 			token,
 			data: {
 				user: newUser,
 			},
 		});
+
+		next(); // Move the next() function call here
 	} catch (err) {
 		res.status(404).json({
 			data: {
@@ -35,8 +36,8 @@ exports.signup = async (req, res, next) => {
 				message: err,
 			},
 		});
+		next(err); // Pass the error to the next middleware or error handler
 	}
-	next();
 };
 
 /// logging in user
@@ -122,4 +123,18 @@ exports.protect = async (req, res, next) => {
 	}
 	req.user = currentUser;
 	next();
+};
+
+exports.restrictTo = (...roles) => {
+	return (req, res, next) => {
+		if (!roles.includes(req.user.role_id)) {
+			return res.status(403).json({
+				data: {
+					status: "fail",
+					message: "You do not have permission to perform this action",
+				},
+			});
+		}
+		next();
+	};
 };

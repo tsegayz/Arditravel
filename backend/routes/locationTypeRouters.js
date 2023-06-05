@@ -9,11 +9,11 @@ const router = express.Router();
 router
 	.route("/")
 	.get(locationTypeController.getAllLocationType)
-	.post(authController.protect, locationTypeController.createLocationType);
+	.post(authController.protect, authController.restrictTo(1),  locationTypeController.createLocationType);
 router
 	.route("/:id")
 	.get(locationTypeController.getLocationType)
-	.patch(authController.protect, locationTypeController.updateLocationType)
-	.delete(authController.protect, locationTypeController.deleteLocationType);
+	.patch(authController.protect, authController.restrictTo(1), locationTypeController.updateLocationType)
+	.delete(authController.protect, authController.restrictTo(1), locationTypeController.deleteLocationType);
 
 module.exports = router;

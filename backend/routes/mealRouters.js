@@ -10,11 +10,11 @@ const router = express.Router();
 router
 	.route("/")
 	.get(mealController.getAllMeal)
-	.post(authController.protect, mealController.createMeal);
+	.post(authController.protect, authController.restrictTo(1), mealController.createMeal);
 router
 	.route("/:id")
 	.get(mealController.getMeal)
-	.patch(authController.protect, mealController.updateMeal)
-	.delete(authController.protect, mealController.deleteMeal);
+	.patch(authController.protect, authController.restrictTo(1),  mealController.updateMeal)
+	.delete(authController.protect, authController.restrictTo(1), mealController.deleteMeal);
 
 module.exports = router;

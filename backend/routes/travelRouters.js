@@ -9,11 +9,11 @@ const router = express.Router();
 router
 	.route("/")
 	.get(travel.getAllTravel)
-	.post(authController.protect, travel.createTravel);
+	.post(authController.protect, authController.restrictTo(1), travel.createTravel);
 router
 	.route("/:id")
 	.get(travel.getTravel)
-	.patch(authController.protect, travel.updateTravel)
-	.delete(authController.protect, travel.deleteTravel);
+	.patch(authController.protect, authController.restrictTo(1), travel.updateTravel)
+	.delete(authController.protect, authController.restrictTo(1), travel.deleteTravel);
 
 module.exports = router;

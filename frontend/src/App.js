@@ -107,8 +107,8 @@ function App() {
               <NavBar/>
               <Home data={locationType} explore={location} popular={activity} footer={footerList}/>
             </Route>
-            <Route exact path='/location'>
-              <Location items={attractions}/>
+            <Route exact path="/location/:itemId" >
+              <Location locations={location}  activities={activity}  restaurants={restaurant} hotels={hotel}/>
             </Route>
             <Route exact path='/trips'>
               <Trips data={locationType} hotels={hotel} hotelRooms={hotelRoom} restaurants={restaurant} travels={travel} tourGuides={tourGuide}/>

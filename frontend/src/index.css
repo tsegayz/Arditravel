@@ -641,14 +641,14 @@ body {
 	position: absolute;
 	top: 40em;
 	left: 40em;
-	background-color: #d3fff5;
+	background-color: #ffffff;
 }
 .hotels .search-bar input::placeholder {
 	font-size: 20px;
 }
 .hotels .search-results {
 	width: 34em;
-	background-color: #d3fff5;
+	background-color: #ffffff;
 	position: absolute;
 	top: 26.4em;
 	left: 42em;
@@ -1045,7 +1045,6 @@ body {
 
 .city-homepage {
 	display: flex;
-	background-image: url("./assets/addis2.jpg");
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
@@ -1053,9 +1052,21 @@ body {
 	margin: 0 190px;
 	padding: 100px 0;
 	border-radius: 20px;
+	position: relative;
+}
+.overlay {
+	border-radius: 20px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.39);
+	z-index: 1;
 }
 
 .city-name {
+	z-index: 2;
 	flex: 1.1;
 }
 
@@ -1074,12 +1085,13 @@ body {
 .city-name-descr p {
 	font-size: 40px;
 	margin-top: 0px;
-	margin-left: 30px;
+	margin-left: 20px;
 	font-family: "Pacifico", cursive;
-	color: antiquewhite;
+	color: rgb(255, 255, 255);
 }
 
 .city-card-list-container {
+	z-index: 2;
 	flex: 1;
 	height: 100%;
 	width: 500px;
@@ -1110,22 +1122,37 @@ body {
 }
 
 .city-card-attraction {
-	background-color: #ccccccd2;
+	position: relative;
 	margin-top: 4em;
 	width: 16em;
 	height: 24em;
 	color: white;
 	border-radius: 30px;
-	border: 2px rgba(255, 255, 255, 0.507) solid;
+	border: none;
 	padding: 20px 25px 0px 0px;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
 }
 
+.city-card-attraction::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.384);
+	border-radius: 30px;
+	z-index: 1;
+  }
+
 .city-card-attraction .city-card-icon a {
 	font-size: 30px;
 	margin-left: -49px;
+	color: white;
+	position: relative;
+	z-index: 2;
 }
 
 .city-card-attraction .city-attraction {
@@ -1134,10 +1161,10 @@ body {
 	display: flex;
 	flex-direction: column;
 	align-items: start;
-}
+	position: relative;
+	z-index: 2;
+	margin-left: -25px;
 
-.city-attraction-item h2 {
-	font-size: 20px;
 }
 .city-card-attraction .city-card-icon {
 	font-size: 30px;
@@ -1151,9 +1178,17 @@ body {
 	flex-direction: column;
 	align-items: start;
 }
+.city-attraction-item {
+	margin-top: -20px;
+}
 .city-attraction-item h2 {
 	font-size: 20px;
 	margin-bottom: 0px;
+	color: white;
+}
+.city-attraction-item p {
+	font-size: 22px;
+	margin-left: 10px;
 }
 .city-attraction .city-attraction-icon {
 	display: flex;
@@ -1181,14 +1216,14 @@ body {
 	font-weight: 100;
 	font-size: 30px;
 	width: 9em;
-	padding-left: 40px;
+	padding-left: 45px;
 	margin-top: -20px;
 }
 .about-city p {
 	padding: 50px 50px 40px 50px;
 	background-color: rgba(216, 215, 215, 0.308);
 	border-radius: 20px;
-	margin-left: 20em;
+	margin-left: 10em;
 }
 
 .city-things-container h2 {
@@ -1221,8 +1256,8 @@ body {
 .city-things-content::-webkit-scrollbar {
 	display: none;
 }
-
 .city-things-card {
+	position: relative;
 	border-radius: 20px;
 	display: inline-block;
 	height: 380px;
@@ -1232,26 +1267,61 @@ body {
 	padding: 10px;
 	padding-left: 0px;
 	margin-right: 3em;
-}
-
-.city-things-card button {
+  }
+  
+  .city-things-card::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.5);
+	border-radius: 20px;
+  }
+  
+  .city-things-card button {
 	border: solid transparent;
 	font-size: 31px;
 	background: transparent;
 	margin-left: 8em;
-}
-.city-things-desc {
-	margin-top: 15em;
+	position: relative;
+	z-index: 2;
+  }
+  
+  .city-things-desc {
+	color: white;
 	list-style: none;
 	display: flex;
 	flex-direction: column;
-	align-items: center;
+	align-items: flex-start;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	padding: 20px;
 	padding-left: 0px;
-}
-.city-things-item {
+	z-index: 2;
+  }
+  
+  .city-things-item {
 	padding: 3px;
-}
-
+  }
+  
+  .city-things-desc h2 {
+	padding: 0;
+	font-size: 25px;
+	margin-bottom: 10px;
+	margin-left: 14px;
+  }
+  
+  .city-things-desc h3 {
+	display: flex;
+	align-items: center;
+	margin: 0;
+	margin-left: 14px;
+  }
+  
 /* // */
 
 .city-hotels-list {
@@ -1301,26 +1371,169 @@ body {
 	padding: 10px;
 	padding-left: 0px;
 	margin-right: 3em;
-}
+	position: relative;
+  }
+  
+  .city-hotels-card::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.288);
+	border-radius: 20px;
+	z-index: 1;
+  }
 
 .city-hotels-card button {
 	border: solid transparent;
 	font-size: 31px;
 	background: transparent;
 	margin-left: 8em;
+	position: relative;
+	z-index: 2;
 }
 .city-hotels-desc {
-	margin-top: 15em;
+	color: white;
 	list-style: none;
 	display: flex;
 	flex-direction: column;
-	align-items: center;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
 	padding-left: 0px;
+	z-index: 2;
 }
 .city-hotels-item {
+	display: flex;
+	align-items: start;
+	font-size: 24px;
 	padding: 3px;
+	padding-left: 20px;
+}
+.city-hotels-desc h2 {
+	padding: 0;
+	font-size: 25px;
+	margin-bottom: 0;
+	margin-left: 14px;
+  }
+  
+.city-hotels-desc h3{
+	font-weight: bold;
+	font-family: 'Times New Roman', Times, serif;
+	margin-top: 0;
+	margin-left: -180px;
+	font-size: 22px;
 }
 
+/* ////// city restaurant /// */
+
+.city-restaurants-container h2 {
+	font-family: "Lobster", cursive;
+	font-weight: 100;
+	font-size: 45px;
+	padding-left: 4.7em;
+	font-weight: 100;
+}
+.city-restaurants-container h3 {
+	font-family: "Lobster", cursive;
+	font-size: 27px;
+	padding-left: 9em;
+	font-weight: 100;
+}
+
+
+.city-restaurants-list {
+	height: 100%;
+}
+.city-restaurants-container {
+	height: 60%;
+	width: 115em;
+	padding-right: 60px;
+}
+
+.city-restaurants-content {
+	list-style: none;
+	display: flex;
+	overflow-x: scroll;
+	-ms-overflow-style: none;
+	scrollbar-width: none;
+	margin-right: 100px;
+	margin-left: 14em;
+}
+
+.city-restaurants-content::-webkit-scrollbar {
+	display: none;
+}
+.city-restaurants-card {
+	position: relative;
+	border-radius: 20px;
+	display: inline-block;
+	height: 380px;
+	width: 19em;
+	background-color: rgba(128, 128, 128, 0.233);
+	box-sizing: border-box;
+	padding: 10px;
+	padding-left: 0px;
+	margin-right: 3em;
+  }
+  
+  .city-restaurants-card::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.5);
+	border-radius: 20px;
+  }
+  
+  .city-restaurants-card button {
+	border: solid transparent;
+	font-size: 31px;
+	background: transparent;
+	margin-left: 8em;
+	position: relative;
+	z-index: 2;
+  }
+  
+  .city-restaurants-desc {
+	color: white;
+	list-style: none;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	padding: 20px;
+	padding-left: 0px;
+	z-index: 2;
+  }
+  
+  .city-restaurants-item {
+	padding: 3px;
+  }
+  
+  .city-restaurants-desc h2 {
+	padding: 0;
+	font-size: 25px;
+	margin-bottom: 10px;
+	margin-left: 14px;
+  }
+  
+  .city-restaurants-desc h3 {
+	display: flex;
+	align-items: center;
+	margin: 0;
+	margin-left: 14px;
+  }
+
+/* //// city footer */
 .city-footer footer {
 	margin: 0;
 	padding: 0;
@@ -2465,7 +2678,6 @@ body {
 	font-size: 16px;
 }
 
-
 .reservation {
 	display: flex;
 	justify-content: center;
@@ -2490,7 +2702,7 @@ body {
 	object-fit: cover;
 	margin-top: 20px;
 }
-.reserve-one p{
+.reserve-one p {
 	width: 450px;
 }
 
@@ -2498,23 +2710,23 @@ body {
 	height: 575px;
 	border-top-right-radius: 25px;
 	border-bottom-right-radius: 25px;
-	background-color: rgba(255, 248, 239, 0.616);
+	background-color: #1a374125;
 	display: flex;
 	align-items: start;
 	padding-left: 50px;
 	padding-right: 15px;
 }
 
-.reserve-two h2{
+.reserve-two h2 {
 	margin-top: 20px;
 	margin-left: 150px;
 	margin-bottom: 12px;
 	font-size: 30px;
 	color: rgb(68, 68, 68);
-	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+	font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
 
-.reserve-two p{
+.reserve-two p {
 	color: rgb(134, 134, 134);
 	font-family: "Lobster", cursive;
 	font-weight: 100;
@@ -2525,7 +2737,6 @@ body {
 }
 .reserve-two .number {
 	margin-left: 170px;
-
 }
 
 .reserve-two .input-container {
@@ -2533,7 +2744,7 @@ body {
 	align-items: center;
 }
 
-.reserve-two .input-container label{
+.reserve-two .input-container label {
 	font-size: 20px;
 	padding-right: 20px;
 	padding-top: 30px;
@@ -2549,10 +2760,10 @@ body {
 	background-color: transparent;
 	margin-right: 8px;
 }
-.reserve-two .input-container .person-label{
+.reserve-two .input-container .person-label {
 	padding-left: 50px;
 }
-.reserve-two .input-container .person{
+.reserve-two .input-container .person {
 	width: 100px;
 }
 .reserve-two .input-container input:focus {
@@ -2565,7 +2776,7 @@ body {
 	font-size: 17px;
 }
 
-.reserve-two  button {
+.reserve-two button {
 	padding: 15px 180px;
 	font-size: 16px;
 	border: none;
@@ -2581,45 +2792,6 @@ body {
 .reserve-two button:hover {
 	background-color: #2a4244;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 .restaurant-footer {
 	width: 100%;
@@ -2681,9 +2853,8 @@ body {
 	font-size: 20px;
 	color: rgb(233, 188, 76);
 }
-.main-container .container-two p{
+.main-container .container-two p {
 	color: rgb(190, 190, 190);
-
 }
 .weeks {
 	margin-top: 30px;
@@ -2698,24 +2869,24 @@ body {
 	justify-content: space-between;
 	padding-bottom: 20px;
 }
-.hours{
+.hours {
 	color: rgb(190, 190, 190);
 }
-.main-container .container-three{
+.main-container .container-three {
 	display: flex;
 }
 
-.main-container .container-three h3{
+.main-container .container-three h3 {
 	color: rgb(233, 188, 76);
 }
-.main-container .container-three h4{
+.main-container .container-three h4 {
 	color: white;
 }
-.main-container .container-three p{
+.main-container .container-three p {
 	color: rgb(190, 190, 190);
 }
 
-.main-container .container-three .contact-one{
+.main-container .container-three .contact-one {
 	margin-right: 70px;
 }
 .main-container .container-three .contact-two p {

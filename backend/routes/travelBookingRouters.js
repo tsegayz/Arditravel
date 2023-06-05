@@ -7,12 +7,12 @@ const router = express.Router();
 // CHAINING different middlewares
 router
 	.route("/")
-	.get(authController.protect, travelBooking.getAllTravelBooking)
-	.post(travelBooking.createTravelBooking);
+	.get(authController.protect, authController.restrictTo(1), travelBooking.getAllTravelBooking)
+	.post(authController.protect, travelBooking.createTravelBooking);
 router
 	.route("/:id")
-	.get(travelBooking.getTravelBooking)
-	.patch(travelBooking.updateTravelBooking)
-	.delete(travelBooking.deleteTravelBooking);
+	.get(authController.protect, travelBooking.getTravelBooking)
+	.patch(authController.protect, travelBooking.updateTravelBooking)
+	.delete(authController.protect, travelBooking.deleteTravelBooking);
 
 module.exports = router;

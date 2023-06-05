@@ -10,11 +10,11 @@ const router = express.Router();
 router
 	.route("/")
 	.get(locationController.getAllLocation)
-	.post(authController.protect, locationController.createLocation);
+	.post(authController.protect, authController.restrictTo(1), locationController.createLocation);
 router
 	.route("/:id")
 	.get(locationController.getLocation)
-	.patch(authController.protect, locationController.updateLocation)
-	.delete(authController.protect, locationController.deleteLocation);
+	.patch(authController.protect, authController.restrictTo(1), locationController.updateLocation)
+	.delete(authController.protect, authController.restrictTo(1), locationController.deleteLocation);
 
 module.exports = router;

@@ -3,38 +3,46 @@ const validator = require("validator");
 const bcrypt = require("bcryptjs");
 
 const userSchema = new mongoose.Schema({
+	_id: {
+		type: Number,
+		required: true,
+	},
 	name: {
 		type: String,
-		required: [true, "please provide your name"],
+		required: [true, "Please provide your name"],
 		trim: true,
 	},
 	password: {
 		type: String,
-		required: [true, "please provide a password"],
+		required: [true, "Please provide a password"],
 		minlength: 8,
 		select: false,
 	},
 	email: {
 		type: String,
-		required: [true, "please provide your email"],
+		required: [true, "Please provide your email"],
 		unique: true,
-		lowerCase: true,
-		validate: [validator.isEmail, "please provide a valid email"],
+		lowercase: true,
+		validate: [validator.isEmail, "Please provide a valid email"],
 	},
 	imageCover: String,
 	passwordConfirm: {
 		type: String,
-		required: [true, "please provide a password"],
-		// wors on create and save
+		required: [true, "Please provide a password"],
 		validate: {
 			validator: function (el) {
 				return el === this.password;
 			},
-			message: "the password doesn't match",
+			message: "The password doesn't match",
 		},
 	},
 	passwordChangedAt: Date,
 	active: Boolean,
+	role_id: {
+		type: Number,
+		default: 2,
+		required: [true, "Please provide a password"],
+	},
 });
 
 // password encryption
@@ -42,13 +50,11 @@ userSchema.pre("save", async function (next) {
 	if (!this.isModified("password")) return next();
 
 	this.password = await bcrypt.hash(this.password, 12);
-
-	// we only need to persist the password in the data base not the confirm password too
 	this.passwordConfirm = undefined;
 	next();
 });
 
-// a function to check the users password is valid by comparing the hashed password when user logs in
+// a function to check the user's password is valid by comparing the hashed password when the user logs in
 userSchema.methods.correctPassword = async function (
 	candidatePassword,
 	userPassword
@@ -56,7 +62,7 @@ userSchema.methods.correctPassword = async function (
 	return await bcrypt.compare(candidatePassword, userPassword);
 };
 
-// a function to check if the users password is changed after the token was issued
+// a function to check if the user's password has changed after the token was issued
 userSchema.methods.changedPasswordAfter = function (JWTTimestamp) {
 	if (this.passwordChangedAt) {
 		const changedTimeStamp = parseInt(
@@ -65,7 +71,6 @@ userSchema.methods.changedPasswordAfter = function (JWTTimestamp) {
 		);
 		return JWTTimestamp < passwordChangedAt;
 	}
-	// means there was no change of the password after the token is issued
 	return false;
 };
 
