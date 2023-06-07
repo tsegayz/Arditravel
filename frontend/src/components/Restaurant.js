@@ -54,14 +54,6 @@ function Restaurants({ restaurants, meals }) {
 				</div>
 
 				<div className='restaurant-card-container'>
-					{/* <div className='scroll-button-container'>
-						<button
-							className='scroll-button scroll-left'
-							onClick={() => scrollContainer(-1)}
-						>
-							&lt;
-						</button>
-					</div> */}
 					<div className='card-scroll-wrapper'>
 						{meals.map((value, index) => (
 							<div key={index} className='restaurant-card'>
@@ -77,14 +69,6 @@ function Restaurants({ restaurants, meals }) {
 							</div>
 						))}
 					</div>
-					{/* <div className='scroll-button-container'>
-						<button
-							className='scroll-button scroll-right'
-							onClick={() => scrollContainer(1)}
-						>
-							&gt;
-						</button>
-					</div> */}
 				</div>
 			</div>
 
@@ -101,7 +85,7 @@ function Restaurants({ restaurants, meals }) {
 				<div className='reserve-two'>
 					<h2> RESERVATION </h2>
 					<p> for futrher support please call </p>
-					<p className="number"> +1 (555) 123-4567 </p>
+					<p className='number'> +1 (555) 123-4567 </p>
 					<div className='input-container one'>
 						<label> Date :</label>
 						<input type='text' placeholder='12 Decemner 2022' />
@@ -109,8 +93,8 @@ function Restaurants({ restaurants, meals }) {
 					<div className='input-container two'>
 						<label> Time :</label>
 						<input type='text' placeholder='11:00' />
-						<label className="person-label"> Persons :</label>
-						<input type='text' placeholder='12'  className="person"/>
+						<label className='person-label'> Persons :</label>
+						<input type='text' placeholder='12' className='person' />
 					</div>
 					<div className='input-container one'>
 						<label> Name :</label>
