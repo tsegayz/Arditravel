@@ -1,40 +1,43 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
+import { useHistory } from "react-router-dom";
 
 import { HiChevronLeft } from "react-icons/hi";
 import { FaLock } from "react-icons/fa";
 
 function SignIn() {
+	const history = useHistory();
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 	const [responseMessage, setResponseMessage] = useState("");
 
-	  const submit = async (e) => {
+	const submit = async (e) => {
 		e.preventDefault();
-	  
+
 		// Basic validation
-		if ( !email || !password ) {
-		  setResponseMessage('Please fill in all the fields');
-		  return;
+		if (!email || !password) {
+			setResponseMessage("Please fill in all the fields");
+			return;
 		}
-	  
+
 		try {
-		  const response = await axios.post(
-			"http://localhost:5000/api/v1/users/login",
-			{
-			  email,
-			  password,
-			}
-		  );
-	  
-		  setResponseMessage(response.data);
-		  alert('you have logged in')
+			const response = await axios.post(
+				"http://localhost:5000/api/v1/users/login",
+				{
+					email,
+					password,
+				}
+			);
+
+			setResponseMessage(response.data);
+			alert("You have logged in");
+			history.push("/"); // Redirect to the home page after successful login
 		} catch (error) {
-		  console.error(error);
-		  setResponseMessage("An error occurred");
+			console.error(error);
+			setResponseMessage("An error occurred");
 		}
-	  };
-	  
+	};
+
 	return (
 		<div className='sign'>
 			<header className='header'>
@@ -65,7 +68,7 @@ function SignIn() {
 							<input
 								id='email-input'
 								type='email'
-								autocomplete="off"
+								autocomplete='off'
 								placeholder='Enter your email'
 								onChange={(e) => {
 									setEmail(e.target.value);
@@ -81,7 +84,7 @@ function SignIn() {
 							<input
 								id='password-input'
 								type='password'
-								autocomplete="off"
+								autocomplete='off'
 								placeholder='Enter your password'
 								onChange={(e) => {
 									setPassword(e.target.value);
@@ -90,7 +93,9 @@ function SignIn() {
 							<FaLock className='lock-icon' />
 						</div>
 					</div>
-					<button type='submit' onClick={submit} >Login</button>
+					<button type='submit' onClick={submit}>
+						Login
+					</button>
 				</form>
 			</div>
 		</div>

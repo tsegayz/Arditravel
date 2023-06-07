@@ -1,10 +1,12 @@
 import axios from "axios";
-import { useState, useEffect } from "react";
+import { useState } from "react";
+import { useHistory } from "react-router-dom";
 
 import { HiChevronLeft } from "react-icons/hi";
 import { FaLock } from "react-icons/fa";
 
 function SignUp() {
+	const history = useHistory();
 	const [name, setName] = useState("");
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
@@ -14,32 +16,32 @@ function SignUp() {
 
 	const submit = async (e) => {
 		e.preventDefault();
-	  
+
 		// Basic validation
 		if (!name || !email || !password || !passwordConfirm) {
-		  setResponseMessage('Please fill in all the fields');
-		  return;
+			setResponseMessage("Please fill in all the fields");
+			return;
 		}
-	  
+
 		try {
-		  const response = await axios.post(
-			"http://localhost:5000/api/v1/users/signup",
-			{
-			  name,
-			  email,
-			  password,
-			  passwordConfirm, // Pass passwordConfirm instead of passwordConfirm
-			}
-		  );
-	  
-		  setResponseMessage(response.data);
-		  alert('you have signed up')
+			const response = await axios.post(
+				"http://localhost:5000/api/v1/users/signup",
+				{
+					name,
+					email,
+					password,
+					passwordConfirm,
+				}
+			);
+
+			setResponseMessage(response.data);
+			alert("You have signed up");
+			history.push("/"); // Redirect to the home page after successful signup
 		} catch (error) {
-		  console.error(error);
-		  setResponseMessage("An error occurred");
+			console.error(error);
+			setResponseMessage("An error occurred");
 		}
-	  };
-	  
+	};
 
 	return (
 		<div className='sign'>
