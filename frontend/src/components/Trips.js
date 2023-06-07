@@ -1,4 +1,4 @@
-import { FaChevronLeft, FaChevronRight, FaBed,FaHotel } from "react-icons/fa";
+import { FaChevronLeft, FaChevronRight, FaBed, FaHotel } from "react-icons/fa";
 import {
 	GiBinoculars,
 	GiCampCookingPot,
@@ -13,9 +13,38 @@ import {
 	BsArrowLeftCircle,
 	BsInfoCircleFill,
 } from "react-icons/bs";
+import { useRef } from "react";
 
 function Trips({ data, hotels, hotelRooms, restaurants, travels, tourGuides }) {
 	const dataSlice = data.slice(3, 11);
+
+	const hotelsSectionRef = useRef(null);
+	const activitiesSectionRef = useRef(null);
+	const restaurantsSectionRef = useRef(null);
+	const tourGuidesSectionRef = useRef(null);
+	const travelMeansSectionRef = useRef(null);
+
+
+	const handleHotelsClick = () => {
+		hotelsSectionRef.current.scrollIntoView({ behavior: "smooth" });
+	};
+
+	const handleActivitiesClick = () => {
+		activitiesSectionRef.current.scrollIntoView({ behavior: "smooth" });
+	};
+
+	const handleTourGuidesClick = () => {
+		tourGuidesSectionRef.current.scrollIntoView({ behavior: "smooth" });
+	};
+
+	const handleRestaurantsClick = () => {
+		restaurantsSectionRef.current.scrollIntoView({ behavior: "smooth" });
+	};
+
+	const handleTravelMeansClick = () => {
+		travelMeansSectionRef.current.scrollIntoView({ behavior: "smooth" });
+	};
+
 
 	const columnsData = [
 		{
@@ -51,31 +80,31 @@ function Trips({ data, hotels, hotelRooms, restaurants, travels, tourGuides }) {
 	];
 
 	const category = [
-		{ title: "Refreshing Activities", icon: <GiBinoculars /> },
-		{ title: "Explended Restaurants", icon: <IoRestaurantOutline /> },
-		{ title: "Luxury Hotels", icon: <SiHotelsdotcom /> },
-		{ title: "Traditional Food", icon: <GiCampCookingPot /> },
-		{ title: "Tour Guides", icon: <GiSupersonicBullet /> },
-		{ title: "Travel Means", icon: <GiAirplaneDeparture /> },
+		{ title: "Refreshing Activities", icon: <GiBinoculars />, ref: handleActivitiesClick },
+		{ title: "Explended Restaurants", icon: <IoRestaurantOutline />, ref: handleRestaurantsClick},
+		{ title: "Luxury Hotels", icon: <SiHotelsdotcom />, ref: handleHotelsClick },
+		{ title: "Tour Guides", icon: <GiSupersonicBullet />, ref: handleTourGuidesClick },
+		{ title: "Travel Means", icon: <GiAirplaneDeparture />, ref: handleTravelMeansClick },
+		{ title: "Traditions", icon: <GiCampCookingPot />, },
 	];
 
 	const scrollLeft = (sliderId) => {
 		const slider = document.getElementById(sliderId);
 		const scrollAmount = slider.scrollLeft - window.innerWidth;
 		slider.scrollTo({
-		  left: scrollAmount,
-		  behavior: "smooth",
+			left: scrollAmount,
+			behavior: "smooth",
 		});
-	  };
-	  
-	  const scrollRight = (sliderId) => {
+	};
+
+	const scrollRight = (sliderId) => {
 		const slider = document.getElementById(sliderId);
 		const scrollAmount = slider.scrollLeft + window.innerWidth;
 		slider.scrollTo({
-		  left: scrollAmount,
-		  behavior: "smooth",
+			left: scrollAmount,
+			behavior: "smooth",
 		});
-	  };
+	};
 
 	return (
 		<div className='trips'>
@@ -126,7 +155,7 @@ function Trips({ data, hotels, hotelRooms, restaurants, travels, tourGuides }) {
 												color: "white",
 												marginRight: "20px",
 											}}
-											onClick={ () => scrollLeft("slider")}
+											onClick={() => scrollLeft("slider")}
 										/>
 										<BsArrowRightCircle
 											className='scroll-trip scroll-icon-right'
@@ -170,7 +199,7 @@ function Trips({ data, hotels, hotelRooms, restaurants, travels, tourGuides }) {
 								borderRadius: "50%",
 								marginRight: "8px",
 							}}
-							onClick={ () => scrollLeft("slider2")}
+							onClick={() => scrollLeft("slider2")}
 						/>
 						<FaChevronRight
 							className='scroll-trip scroll-icon-right'
@@ -180,23 +209,23 @@ function Trips({ data, hotels, hotelRooms, restaurants, travels, tourGuides }) {
 								color: "rgba(173, 172, 172, 0.788)",
 								marginLeft: "10px",
 							}}
-							onClick={ () => scrollRight("slider2")}
+							onClick={() => scrollRight("slider2")}
 						/>
 					</div>
 				</div>
 
-				<div className='category-card' >
+				<div className='category-card'>
 					{category.map((item, index) => (
-						<div className='card-list' key={index}>
+						<a className='card-list' onClick={item.ref}>
 							<div className='card-icon'>{item.icon}</div>
 							<h1 className='card-title'>{item.title}</h1>
 							<p className='card-phrase'>Begin your jounrney</p>
-						</div>
+						</a>
 					))}
 				</div>
 			</div>
 
-			<div className='hotels-category' id='slider3'>
+			<div className='hotels-category' id='slider3'  ref={hotelsSectionRef}>
 				<div className='hotel-one'>
 					<div className='description'>
 						<h2> Top luxury hotels </h2>
@@ -211,7 +240,7 @@ function Trips({ data, hotels, hotelRooms, restaurants, travels, tourGuides }) {
 								borderRadius: "50%",
 								marginRight: "8px",
 							}}
-							onClick={ () => scrollLeft("slider3")}
+							onClick={() => scrollLeft("slider3")}
 						/>
 						<FaChevronRight
 							className='scroll-trip scroll-icon-right'
@@ -221,7 +250,7 @@ function Trips({ data, hotels, hotelRooms, restaurants, travels, tourGuides }) {
 								color: "rgba(173, 172, 172, 0.788)",
 								marginLeft: "10px",
 							}}
-							onClick={ () => scrollRight("slider3")}
+							onClick={() => scrollRight("slider3")}
 						/>
 					</div>
 				</div>
@@ -294,7 +323,7 @@ function Trips({ data, hotels, hotelRooms, restaurants, travels, tourGuides }) {
 				</div>
 			</div>
 
-			<div className='restaurants' id='slider4'>
+			<div className='restaurants' id='slider4' ref={restaurantsSectionRef}>
 				<div className='restaurant-one'>
 					<div className='description'>
 						<h2> Splended Restaurants </h2>
@@ -309,7 +338,7 @@ function Trips({ data, hotels, hotelRooms, restaurants, travels, tourGuides }) {
 								borderRadius: "50%",
 								marginRight: "8px",
 							}}
-							onClick={ () => scrollLeft("slider4")}
+							onClick={() => scrollLeft("slider4")}
 						/>
 						<FaChevronRight
 							className='scroll-trip scroll-icon-right'
@@ -319,7 +348,7 @@ function Trips({ data, hotels, hotelRooms, restaurants, travels, tourGuides }) {
 								color: "rgba(173, 172, 172, 0.788)",
 								marginLeft: "10px",
 							}}
-							onClick={ () => scrollRight("slider4")}
+							onClick={() => scrollRight("slider4")}
 						/>
 					</div>
 				</div>
@@ -392,7 +421,7 @@ function Trips({ data, hotels, hotelRooms, restaurants, travels, tourGuides }) {
 				</div>
 			</div>
 
-			<div className='travel-means' id='slider5'>
+			<div className='travel-means' id='slider5' ref={travelMeansSectionRef}>
 				<div className='travel-means-one'>
 					<div className='description'>
 						<h2> Travel with </h2>
@@ -407,7 +436,7 @@ function Trips({ data, hotels, hotelRooms, restaurants, travels, tourGuides }) {
 								borderRadius: "50%",
 								marginRight: "8px",
 							}}
-							onClick={ () => scrollLeft("slider5")}
+							onClick={() => scrollLeft("slider5")}
 						/>
 						<FaChevronRight
 							className='scroll-trip scroll-icon-right'
@@ -417,7 +446,7 @@ function Trips({ data, hotels, hotelRooms, restaurants, travels, tourGuides }) {
 								color: "rgba(173, 172, 172, 0.788)",
 								marginLeft: "10px",
 							}}
-							onClick={ () => scrollRight("slider5")}
+							onClick={() => scrollRight("slider5")}
 						/>
 					</div>
 				</div>
@@ -438,7 +467,7 @@ function Trips({ data, hotels, hotelRooms, restaurants, travels, tourGuides }) {
 				</div>
 			</div>
 
-			<div className='tour-guides' id='slider6'>
+			<div className='tour-guides' id='slider6' ref={tourGuidesSectionRef}>
 				<div className='tour-guide-one'>
 					<div className='description'>
 						<h2> Tour Guides </h2>
@@ -453,7 +482,7 @@ function Trips({ data, hotels, hotelRooms, restaurants, travels, tourGuides }) {
 								borderRadius: "50%",
 								marginRight: "8px",
 							}}
-							onClick={ () => scrollLeft("slider6")}
+							onClick={() => scrollLeft("slider6")}
 						/>
 						<FaChevronRight
 							className='scroll-trip scroll-icon-right'
@@ -463,7 +492,7 @@ function Trips({ data, hotels, hotelRooms, restaurants, travels, tourGuides }) {
 								color: "rgba(173, 172, 172, 0.788)",
 								marginLeft: "10px",
 							}}
-							onClick={ () => scrollRight("slider6")}
+							onClick={() => scrollRight("slider6")}
 						/>
 					</div>
 				</div>

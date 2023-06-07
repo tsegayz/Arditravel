@@ -125,8 +125,8 @@ function App() {
             <Route exact path='/hotels'>
               <Hotels hotels={hotel} hotelRooms={hotelRoom}/>
             </Route>
-            <Route exact path='/eachhotel'>
-              <HotelEach items={eachHotels} />
+            <Route exact path='/eachhotel/:itemId'>
+              <HotelEach items={eachHotels} hotelRooms={hotelRoom} />
             </Route>
             <Route exact path='/restaurant'>
               <Restaurant restaurants={restaurant} meals={meal} />

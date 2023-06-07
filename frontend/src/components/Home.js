@@ -1,4 +1,9 @@
 import { useState } from "react";
+import { useHistory } from "react-router-dom";
+
+import { Carousel } from "react-responsive-carousel";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+
 import {
 	RiSearch2Line,
 	RiFacebookFill,
@@ -8,11 +13,6 @@ import {
 import { SiTwitter } from "react-icons/si";
 import { IoShieldCheckmarkSharp } from "react-icons/io5";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
-
-import { Carousel } from "react-responsive-carousel";
-import "react-responsive-carousel/lib/styles/carousel.min.css";
-
-import { useHistory } from "react-router-dom";
 
 function Home({ data, explore, popular, footer }) {
 	const popularSlice = popular.slice(0, 4);
@@ -64,7 +64,7 @@ function Home({ data, explore, popular, footer }) {
 							<a
 								className='search-item'
 								target=''
-								key={value.id}
+								key={value._id}
 								onClick={() => handleItemClick(value)} // Call the handleItemClick function when the item is clicked
 							>
 								{value.region}, {value.zone}

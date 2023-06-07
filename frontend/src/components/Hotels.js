@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { useHistory } from "react-router-dom";
+
 import {
 	RiSearch2Line,
 	RiFacebookFill,
@@ -6,10 +8,9 @@ import {
 	RiInstagramFill,
 } from "react-icons/ri";
 import { SiTwitter } from "react-icons/si";
-import { MdFavorite, MdEmail } from "react-icons/md";
+import { MdEmail } from "react-icons/md";
 
 function Hotels({ hotels, hotelRooms }) {
-
 	const hotelsSlice = hotels.slice(1, 8);
 	const [filteredHotels, setfilteredHotels] = useState([]);
 	const filterHandler = (e) => {
@@ -24,6 +25,14 @@ function Hotels({ hotels, hotelRooms }) {
 			setfilteredHotels(newFilter);
 		}
 	};
+
+	const history = useHistory();
+
+	const handleItemClick = (item) => {
+		// Navigate to the location page and pass the selected item's data
+		history.push(`/eachhotel/${item._id}`, { itemData: item });
+	};
+
 	return (
 		<div className='hotels'>
 			<nav className='hotels-nav'>
@@ -65,7 +74,12 @@ function Hotels({ hotels, hotelRooms }) {
 					<div className='search-results'>
 						{filteredHotels.map((value) => {
 							return (
-								<a className='search-item' target='' key={value.id} href='/eachhotel'>
+								<a
+									className='search-item'
+									target=''
+									key={value._id}
+									onClick={() => handleItemClick(value)} // Call the handleItemClick function when the item is clicked
+								>
 									{value.name}
 								</a>
 							);
@@ -73,22 +87,6 @@ function Hotels({ hotels, hotelRooms }) {
 					</div>
 				)}
 			</div>
-
-			<form className='hotel-form'>
-				<ul className='hotel-book-form'>
-					<li className='hotel-book'>
-						<p> Check-in date </p>
-						<input placeholder='01/01/2000' />
-					</li>
-					<li className='hotel-book'>
-						<p> Check-out date </p>
-						<input placeholder='01/01/2000' />
-					</li>
-					<li className='hotel-book'>
-						<button> Book Now </button>
-					</li>
-				</ul>
-			</form>
 
 			<div className='hotel-card-wrapper'>
 				{hotelsSlice.map((hotel) => (
