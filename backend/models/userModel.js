@@ -5,8 +5,8 @@ const bcrypt = require("bcryptjs");
 const userSchema = new mongoose.Schema({
 	_id: {
 		type: Number,
-		required: true,
-	},
+		unique: true,
+	  },
 	name: {
 		type: String,
 		required: [true, "Please provide your name"],
@@ -40,10 +40,10 @@ const userSchema = new mongoose.Schema({
 	active: Boolean,
 	role_id: {
 		type: Number,
-		default: 2,
+		default:2, 
 		required: [true, "Please provide a password"],
 	},
-});
+},   { _id: false, autoCreate: false });
 
 // password encryption
 userSchema.pre("save", async function (next) {

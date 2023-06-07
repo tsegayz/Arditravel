@@ -14,7 +14,7 @@ exports.getAllActivity = async (req, res) => {
 			.filter()
 			.sort()
 			.limitFields()
-			.pagination();
+			// .pagination();
 		// EXECUTING QUERY
 		const activities = await features.query;
 

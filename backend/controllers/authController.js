@@ -11,10 +11,12 @@ const signinToken = (id) => {
 exports.signup = async (req, res, next) => {
 	try {
 		const newUser = await User.create({
+			_id: req.body._id,
 			name: req.body.name,
 			email: req.body.email,
 			password: req.body.password,
 			passwordConfirm: req.body.passwordConfirm,
+			role_id: req.body.role_id,
 		});
 
 		// automatically logging in when the user opens the page by sending the token to the user
