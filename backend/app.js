@@ -1,6 +1,7 @@
 const express = require("express");
 const morgan = require("morgan");
-const path = require('path');
+const cors = require("cors");
+const path = require("path");
 const app = express();
 
 console.log(process.env.NODE_ENV);
@@ -10,6 +11,11 @@ if (process.env.NODE_ENV === "development") {
 }
 
 app.use(express.json());
+const corsOptions = {
+	origin: "http://localhost:3000", // Replace with your frontend origin
+};
+
+app.use(cors(corsOptions));
 app.use("/images", express.static(path.join(__dirname, "images")));
 
 const userRouter = require("./routes/userRouters");

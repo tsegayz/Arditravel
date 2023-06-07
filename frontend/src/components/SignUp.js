@@ -8,26 +8,38 @@ function SignUp() {
 	const [name, setName] = useState("");
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
-	const [confirmPassword, setConfirmPassword] = useState("");
-	
+	const [passwordConfirm, setpasswordConfirm] = useState("");
+
 	const [responseMessage, setResponseMessage] = useState("");
 
 	const submit = async (e) => {
-	  e.preventDefault();
-	  try {
-		const response = await axios.post('/api/v1/users/signup', {
-		  name,
-		  email,
-		  password,
-		  confirmPassword,
-		});
-		setResponseMessage(response); // Set the response message
-	  } catch (error) {
-		console.error(error);
-		setResponseMessage("An error occurred"); // Set a generic error message
-	  }
-	};
-	
+		e.preventDefault();
+	  
+		// Basic validation
+		if (!name || !email || !password || !passwordConfirm) {
+		  setResponseMessage('Please fill in all the fields');
+		  return;
+		}
+	  
+		try {
+		  const response = await axios.post(
+			"http://localhost:5000/api/v1/users/signup",
+			{
+			  name,
+			  email,
+			  password,
+			  passwordConfirm, // Pass passwordConfirm instead of passwordConfirm
+			}
+		  );
+	  
+		  setResponseMessage(response.data);
+		  alert('you have signed up')
+		} catch (error) {
+		  console.error(error);
+		  setResponseMessage("An error occurred");
+		}
+	  };
+	  
 
 	return (
 		<div className='sign'>
@@ -46,14 +58,14 @@ function SignUp() {
 				</div>
 				<form className='form'>
 					<div className='name-input-container'>
-						<label className='input-label' htmlFor='name-input' >
+						<label className='input-label' htmlFor='name-input'>
 							Full Name
 						</label>
 						<div>
 							<input
 								id='name-input'
 								type='text'
-								autoComplete="off"
+								autoComplete='off'
 								placeholder='enter your full name'
 								onChange={(e) => {
 									setName(e.target.value);
@@ -69,7 +81,7 @@ function SignUp() {
 							<input
 								id='email-input'
 								type='email'
-								autoComplete="off"
+								autoComplete='off'
 								placeholder='enter your email'
 								onChange={(e) => {
 									setEmail(e.target.value);
@@ -85,7 +97,7 @@ function SignUp() {
 							<input
 								id='password-input'
 								type='password'
-								autoComplete="off"
+								autoComplete='off'
 								placeholder='enter your password'
 								onChange={(e) => {
 									setPassword(e.target.value);
@@ -99,17 +111,18 @@ function SignUp() {
 						</label>
 						<div className='password-input-wrapper'>
 							<input
-								id='conformPassword-input'
+								id='passwordConfirm-input' // Make sure the id matches
 								type='password'
-								autoComplete="off"
+								autoComplete='off'
 								placeholder='confirm your password'
 								onChange={(e) => {
-									setConfirmPassword(e.target.value);
+									setpasswordConfirm(e.target.value); // Make sure this is correctly assigned
 								}}
 							/>
 							<FaLock className='lock-icon' />
 						</div>
 					</div>
+
 					<button type='submit' onClick={submit}>
 						Signup
 					</button>

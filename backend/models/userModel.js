@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 const validator = require("validator");
 const bcrypt = require("bcryptjs");
+const AutoIncrement = require("mongoose-sequence")(mongoose);
 
 const userSchema = new mongoose.Schema({
 	_id: {
@@ -28,7 +29,7 @@ const userSchema = new mongoose.Schema({
 	imageCover: String,
 	passwordConfirm: {
 		type: String,
-		required: [true, "Please provide a password"],
+		required: [true, "Please provide matching password"],
 		validate: {
 			validator: function (el) {
 				return el === this.password;
@@ -40,13 +41,32 @@ const userSchema = new mongoose.Schema({
 	active: Boolean,
 	role_id: {
 		type: Number,
-		default:2, 
-		required: [true, "Please provide a password"],
+		default:2,
+		required: [true, "Please provide a role_id"],
 	},
 },   { _id: false, autoCreate: false });
 
+
 // password encryption
 userSchema.pre("save", async function (next) {
+	if (this.isNew) {
+		const highestId = await this.constructor.aggregate()
+		  .group({
+			_id: null,
+			maxId: { $max: '$_id' },
+		  })
+		  .project({
+			_id: { $add: ['$maxId', 1] },
+		  });
+	
+		if (highestId.length > 0) {
+		  this._id = highestId[0]._id;
+		} else {
+		  this._id = 1; // If no documents exist, start with 1
+		}
+	  }
+
+
 	if (!this.isModified("password")) return next();
 
 	this.password = await bcrypt.hash(this.password, 12);
