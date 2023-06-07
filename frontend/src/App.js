@@ -22,13 +22,10 @@ function App() {
 	const [location, setLocation] = useState([]);
 	const [activity, setActivity] = useState([]);
 	const [restaurant, setRestaurant] = useState([]);
-	const [restaurantBook, setRestaurantBook] = useState([]);
 	const [meal, setMeal] = useState([]);
 	const [hotelRoom, setHotelRoom] = useState([]);
 	const [travel, setTravel] = useState([]);
 	const [tourGuide, setTourGuide] = useState([]);
-	const [signup, setSignup] = useState([]);
-	const [login, setLogin] = useState([]);
 
 	// Fetching data from the database
 	const fetchData = async () => {
@@ -57,10 +54,6 @@ function App() {
 			const { restaurants } = response6.data.data;
 			setRestaurant(restaurants);
 
-			// const response9 = await axios.post('/api/v1/restaurantBooking');
-			// const {restaurantBook} = response9.data.data;
-			// setRestaurantBook(restaurantBook)
-
 			const response7 = await axios.get("/api/v1/travel");
 			const { travels } = response7.data.data;
 			setTravel(travels);
@@ -69,13 +62,6 @@ function App() {
 			const { tourGuides } = response8.data.data;
 			setTourGuide(tourGuides);
 
-			// const response10 = await axios.post('/api/v1/users/signup');
-			// const {signup} = response10.data.data;
-			// setSignup(signup)
-
-			// const response11 = await axios.post('/api/v1/users/login');
-			// const {login} = response11.data.data;
-			// setLogin(login)
 
 			const response12 = await axios.get("/api/v1/meals/");
 			const { meals } = response12.data.data;

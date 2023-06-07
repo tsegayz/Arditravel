@@ -7,17 +7,31 @@ import { FaLock } from "react-icons/fa";
 function SignIn() {
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
-	
-	const submit = async (e) => {
+	const [responseMessage, setResponseMessage] = useState("");
+
+	  const submit = async (e) => {
 		e.preventDefault();
+	  
+		// Basic validation
+		if ( !email || !password ) {
+		  setResponseMessage('Please fill in all the fields');
+		  return;
+		}
+	  
 		try {
-			const response = await axios.post(`/api/v1/users/login`,{
-			email,
-			password,
-		  });
-		  console.log(response.data);
+		  const response = await axios.post(
+			"http://localhost:5000/api/v1/users/login",
+			{
+			  email,
+			  password,
+			}
+		  );
+	  
+		  setResponseMessage(response.data);
+		  alert('you have logged in')
 		} catch (error) {
-		  console.log(error);
+		  console.error(error);
+		  setResponseMessage("An error occurred");
 		}
 	  };
 	  
