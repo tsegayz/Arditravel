@@ -38,7 +38,7 @@ function SignUp() {
 			alert("You have signed up");
 			history.push("/"); // Redirect to the home page after successful signup
 		} catch (error) {
-			console.error(error);
+			console.log(error);
 			setResponseMessage("An error occurred");
 		}
 	};

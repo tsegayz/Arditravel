@@ -226,15 +226,15 @@ body {
 	padding-right: 120px;
 	font-size: 17px;
 }
-.container-grid {
+.activity .container-grid {
 	margin-top: 20px;
 }
 
-.container-grid .container {
+.activity .container-grid .container {
 	background-color: #102830;
 	margin-left: 150px;
 	float: left;
-	margin-top: -10px;
+	margin-top: 20px;
 	box-shadow: 4px 0 10px #23424da1;
 	position: relative;
 	overflow: hidden;
@@ -242,21 +242,21 @@ body {
 	height: 200px; /* Adjust the height as needed */
 }
 
-.container-grid .container:hover .text-overlay {
+.activity .container-grid .container:hover .text-overlay {
 	opacity: 1;
 }
 
-.container-grid .container img {
+.activity .container-grid .container img {
 	width: 100%;
 	height: auto;
 	transition: transform 0.5s; /* Add transition property */
 }
 
-.container-grid .container:hover img {
+.activity .container-grid .container:hover img {
 	transform: scale(1.1); /* Apply scaling effect on hover */
 }
 
-.container-grid .container .text-overlay {
+.activity .container-grid .container .text-overlay {
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -273,7 +273,7 @@ body {
 	background-color: rgba(0, 0, 0, 0.582);
 }
 
-.container-grid .container .text-overlay h2 {
+.activity .container-grid .container .text-overlay h2 {
 	background-color: #1a37415d;
 	margin: 0;
 	padding: 10px;
@@ -283,7 +283,7 @@ body {
 	font-size: 18px;
 }
 
-.container-grid .container .text-overlay p {
+.activity .container-grid .container .text-overlay p {
 	background-color: #1a37415d;
 	margin: 0;
 	padding: 10px;
@@ -291,32 +291,32 @@ body {
 	width: 100%;
 	font-size: 14px;
 }
-.container-grid .item1 {
+.activity .container-grid .item1 {
 	width: 430px;
 	height: 220px;
 }
 
-.container-grid .item2 {
+.activity .container-grid .item2 {
 	width: 375px;
 	height: 250px;
 }
 
-.container-grid .item3 {
+.activity .container-grid .item3 {
 	width: 500px;
 	height: 260px;
 }
 
-.container-grid .item4 {
+.activity .container-grid .item4 {
 	width: 450px;
 	height: 300px;
 }
 
-.container-grid .item5 {
+.activity .container-grid .item5 {
 	width: 400px;
 	height: 275px;
 }
 
-.container-grid .item6 {
+.activity .container-grid .item6 {
 	width: 390px;
 	height: 250px;
 }
@@ -535,7 +535,6 @@ body {
 }
 
 /* //////////    hotels page  */
-
 .hotels {
 	margin: 50px 150px;
 	background-image: url("./assets/hotelsback.jpg");
@@ -837,7 +836,7 @@ body {
 
 .each-hotel .hotels-nav h1 {
 	margin-left: -20px;
-	color: #167c80;
+	color: #2a7072;
 }
 .each-hotel::before {
 	content: "";
@@ -871,8 +870,8 @@ body {
 	position: relative;
 	border-radius: 8px;
 	font-size: 20px;
-	background-color: #25434dfa;
-	margin: 0 9em;
+	background-color: #25434dbd;
+	margin: 0 8em;
 	margin-top: 15.6em;
 }
 .each-hotel .hotel-book-form {
@@ -893,12 +892,12 @@ body {
 	border-radius: 10px;
 	background-color: white;
 	height: 38px;
-	width: 7em;
+	width: 8em;
 	margin-left: 15px;
 	font-size: 20px;
 	align-items: center;
 	color: rgb(107, 107, 107);
-	padding-left: 17px;
+	padding-left: 5px;
 }
 .each-hotel .hotel-book input::placeholder {
 	font-size: 20px;
@@ -910,7 +909,8 @@ body {
 	border-radius: 13px;
 	background-color: rgba(255, 255, 255, 0.288);
 	color: white;
-	padding: 8px 14px;
+	padding: 8px 24px;
+	margin-left: 10px;
 }
 .each-hotel .hotel-book button:hover {
 	background-color: rgba(250, 235, 215, 0.39);
@@ -936,19 +936,19 @@ body {
 .sidebar::-webkit-scrollbar {
 	display: none;
 }
-.container-list {
+.sidebar .container-list {
 	list-style: none;
 	margin: 0;
 	padding: 0;
 }
 
-.container {
+.sidebar .container {
 	display: flex;
 	flex-direction: column;
 	align-items: start;
 	margin: 0px 35px 0px 0px;
 }
-.container img {
+.sidebar .container img {
 	width: 100%;
 	height: auto;
 	object-fit: cover;
@@ -968,14 +968,14 @@ body {
 .sidebar-img img {
 	transition: all 1s;
 }
-.container h3 {
+.sidebar .container h3 {
 	margin-top: 10px;
 	margin-bottom: 0px;
 	font-size: 20px;
 	font-weight: bold;
 }
 
-.container p {
+.sidebar .container p {
 	margin-top: 5px;
 	font-size: 16px;
 }
@@ -986,7 +986,7 @@ body {
 	font-size: 30px;
 	top: 0;
 	margin-left: 30em;
-	margin-top: 80px;
+	margin-top: 170px;
 	margin-right: 40px;
 	display: flex;
 	justify-content: space-around;

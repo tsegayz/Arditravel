@@ -31,13 +31,18 @@ function SignIn() {
 
 			setResponseMessage(response.data);
 			alert("You have logged in");
+
+
+			localStorage.setItem("user_id", response.data.user._id);
+			localStorage.setItem("token", response.data.token);
+			// console.log(response.data.token)
+
 			history.push("/"); // Redirect to the home page after successful login
 		} catch (error) {
-			console.error(error);
+			console.log(error);
 			setResponseMessage("An error occurred");
 		}
 	};
-
 	return (
 		<div className='sign'>
 			<header className='header'>

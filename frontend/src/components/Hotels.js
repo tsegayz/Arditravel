@@ -39,11 +39,9 @@ function Hotels({ hotels, hotelRooms }) {
 				<h1> Ardi Travel </h1>
 				<ul className='hotel-list'>
 					<li className='hotel-nav'>
-						{" "}
 						<a> Contact us</a>{" "}
 					</li>
 					<li className='hotel-nav'>
-						{" "}
 						<a> Rooms </a>{" "}
 					</li>
 					<button> Book Now </button>
