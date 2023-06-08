@@ -13,17 +13,43 @@ import {
 	BsArrowLeftCircle,
 	BsInfoCircleFill,
 } from "react-icons/bs";
+
+import { RiSearch2Line } from "react-icons/ri";
 import { useRef } from "react";
+
+import { useState } from "react";
+import { useHistory } from "react-router-dom";
 
 function Trips({ data, hotels, hotelRooms, restaurants, travels, tourGuides }) {
 	const dataSlice = data.slice(3, 11);
+
+	const [filteredRestaurants, setfilteredRestaurants] = useState([]);
+
+	const filterHandler = (e) => {
+		const searchWord = e.target.value;
+		const newFilter = restaurants.filter((value) => {
+			return value.name.toLowerCase().includes(searchWord.toLowerCase());
+		});
+
+		if (searchWord === "") {
+			setfilteredRestaurants([]);
+		} else {
+			setfilteredRestaurants(newFilter);
+		}
+	};
+
+	const history = useHistory();
+
+	const handleItemClick = (item) => {
+		// Navigate to the location page and pass the selected item's data
+		history.push(`/restaurant/${item._id}`, { itemData: item });
+	};
 
 	const hotelsSectionRef = useRef(null);
 	const activitiesSectionRef = useRef(null);
 	const restaurantsSectionRef = useRef(null);
 	const tourGuidesSectionRef = useRef(null);
 	const travelMeansSectionRef = useRef(null);
-
 
 	const handleHotelsClick = () => {
 		hotelsSectionRef.current.scrollIntoView({ behavior: "smooth" });
@@ -44,7 +70,6 @@ function Trips({ data, hotels, hotelRooms, restaurants, travels, tourGuides }) {
 	const handleTravelMeansClick = () => {
 		travelMeansSectionRef.current.scrollIntoView({ behavior: "smooth" });
 	};
-
 
 	const columnsData = [
 		{
@@ -80,12 +105,32 @@ function Trips({ data, hotels, hotelRooms, restaurants, travels, tourGuides }) {
 	];
 
 	const category = [
-		{ title: "Refreshing Activities", icon: <GiBinoculars />, ref: handleActivitiesClick },
-		{ title: "Explended Restaurants", icon: <IoRestaurantOutline />, ref: handleRestaurantsClick},
-		{ title: "Luxury Hotels", icon: <SiHotelsdotcom />, ref: handleHotelsClick },
-		{ title: "Tour Guides", icon: <GiSupersonicBullet />, ref: handleTourGuidesClick },
-		{ title: "Travel Means", icon: <GiAirplaneDeparture />, ref: handleTravelMeansClick },
-		{ title: "Traditions", icon: <GiCampCookingPot />, },
+		{
+			title: "Refreshing Activities",
+			icon: <GiBinoculars />,
+			ref: handleActivitiesClick,
+		},
+		{
+			title: "Explended Restaurants",
+			icon: <IoRestaurantOutline />,
+			ref: handleRestaurantsClick,
+		},
+		{
+			title: "Luxury Hotels",
+			icon: <SiHotelsdotcom />,
+			ref: handleHotelsClick,
+		},
+		{
+			title: "Tour Guides",
+			icon: <GiSupersonicBullet />,
+			ref: handleTourGuidesClick,
+		},
+		{
+			title: "Travel Means",
+			icon: <GiAirplaneDeparture />,
+			ref: handleTravelMeansClick,
+		},
+		{ title: "Traditions", icon: <GiCampCookingPot /> },
 	];
 
 	const scrollLeft = (sliderId) => {
@@ -225,7 +270,7 @@ function Trips({ data, hotels, hotelRooms, restaurants, travels, tourGuides }) {
 				</div>
 			</div>
 
-			<div className='hotels-category' id='slider3'  ref={hotelsSectionRef}>
+			<div className='hotels-category' id='slider3' ref={hotelsSectionRef}>
 				<div className='hotel-one'>
 					<div className='description'>
 						<h2> Top luxury hotels </h2>
@@ -328,6 +373,36 @@ function Trips({ data, hotels, hotelRooms, restaurants, travels, tourGuides }) {
 					<div className='description'>
 						<h2> Splended Restaurants </h2>
 						<p> A jounrney is not fullfilled with out the foods </p>
+					</div>
+					<div className='search-bar'>
+						<input
+							className='input-field'
+							type='text'
+							placeholder='Search for hotels ....'
+							onChange={filterHandler}
+						/>
+						<button className='search-icon'>
+							<RiSearch2Line style={{ color: "#16494b", fontSize: "37px" }} />
+						</button>
+					</div>
+
+					<div>
+						{filteredRestaurants.length !== 0 && (
+							<div className='search-results'>
+								{filteredRestaurants.map((value) => {
+									return (
+										<a
+											className='search-item'
+											target=''
+											key={value._id}
+											onClick={() => handleItemClick(value)} // Call the handleItemClick function when the item is clicked
+										>
+											{value.name}
+										</a>
+									);
+								})}
+							</div>
+						)}
 					</div>
 					<div className='restaurant-scroll'>
 						<FaChevronLeft

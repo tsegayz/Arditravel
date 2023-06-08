@@ -62,7 +62,6 @@ function Hotels({ hotels, hotelRooms }) {
 					onChange={filterHandler}
 				/>
 				<button className='search-icon'>
-					{" "}
 					<RiSearch2Line style={{ color: "#16494b", fontSize: "37px" }} />
 				</button>
 			</div>

@@ -1,5 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
+import Modal from "react-modal";
+
 import { useHistory } from "react-router-dom";
 
 import { HiChevronLeft } from "react-icons/hi";
@@ -11,6 +13,7 @@ function SignUp() {
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 	const [passwordConfirm, setpasswordConfirm] = useState("");
+	const [showModal, setShowModal] = useState(false);
 
 	const [responseMessage, setResponseMessage] = useState("");
 
@@ -35,12 +38,17 @@ function SignUp() {
 			);
 
 			setResponseMessage(response.data);
-			alert("You have signed up");
-			history.push("/"); // Redirect to the home page after successful signup
+			setShowModal(true);
+
 		} catch (error) {
 			console.log(error);
 			setResponseMessage("An error occurred");
 		}
+	};
+
+	const closeModal = () => {
+		setShowModal(false);
+		history.push(`/`); // Redirect to the home page after the modal is closed
 	};
 
 	return (
@@ -130,6 +138,21 @@ function SignUp() {
 					</button>
 				</form>
 			</div>
+			<Modal
+				isOpen={showModal}
+				onRequestClose={closeModal}
+				contentLabel='Booking Confirmation'
+				className='modal'
+				overlayClassName='modal-overlay'
+			>
+				<div className='modal-content'>
+					<h2>Sign up Confirmation</h2>
+					<p>You have successfully signed up</p>
+					<button className='modal-button' onClick={closeModal}>
+						Close
+					</button>
+				</div>
+			</Modal>
 		</div>
 	);
 }

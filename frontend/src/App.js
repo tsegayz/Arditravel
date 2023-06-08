@@ -124,7 +124,7 @@ function App() {
 						<Route exact path='/eachhotel/:itemId'>
 							<HotelEach hotelRooms={hotelRoom} />
 						</Route>
-						<Route exact path='/restaurant'>
+						<Route exact path='/restaurant/:itemId'>
 							<Restaurant restaurants={restaurant} meals={meal} />
 						</Route>
 					</Switch>

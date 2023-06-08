@@ -1,5 +1,7 @@
 import axios from "axios";
-import { useState, useEffect } from "react";
+import { useState } from "react";
+import Modal from "react-modal";
+
 import { useHistory } from "react-router-dom";
 
 import { HiChevronLeft } from "react-icons/hi";
@@ -9,6 +11,8 @@ function SignIn() {
 	const history = useHistory();
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
+	const [showModal, setShowModal] = useState(false);
+
 	const [responseMessage, setResponseMessage] = useState("");
 
 	const submit = async (e) => {
@@ -19,7 +23,6 @@ function SignIn() {
 			setResponseMessage("Please fill in all the fields");
 			return;
 		}
-
 		try {
 			const response = await axios.post(
 				"http://localhost:5000/api/v1/users/login",
@@ -28,21 +31,22 @@ function SignIn() {
 					password,
 				}
 			);
-
 			setResponseMessage(response.data);
-			alert("You have logged in");
-
 
 			localStorage.setItem("user_id", response.data.user._id);
 			localStorage.setItem("token", response.data.token);
-			// console.log(response.data.token)
-
-			history.push("/"); // Redirect to the home page after successful login
+			setShowModal(true);
 		} catch (error) {
 			console.log(error);
 			setResponseMessage("An error occurred");
 		}
 	};
+
+	const closeModal = () => {
+		setShowModal(false);
+		history.push(`/`); // Redirect to the home page after the modal is closed
+	};
+
 	return (
 		<div className='sign'>
 			<header className='header'>
@@ -103,6 +107,21 @@ function SignIn() {
 					</button>
 				</form>
 			</div>
+			<Modal
+				isOpen={showModal}
+				onRequestClose={closeModal}
+				contentLabel='Booking Confirmation'
+				className='modal'
+				overlayClassName='modal-overlay'
+			>
+				<div className='modal-content'>
+					<h2>Log in Confirmation</h2>
+					<p>You have successfully logged in</p>
+					<button className='modal-button' onClick={closeModal}>
+						Close
+					</button>
+				</div>
+			</Modal>
 		</div>
 	);
 }

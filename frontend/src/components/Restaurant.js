@@ -1,15 +1,76 @@
+import { useState } from "react";
+import { useLocation, useHistory } from "react-router-dom";
+import axios from "axios";
+import Modal from "react-modal";
+
 import image from "../assets/restaurantback.jpg";
 
-function Restaurants({ restaurants, meals }) {
-	// function scrollContainer(direction) {
-	// 	const container = document.querySelector(".restaurant-card-container");
-	// 	const scrollAmount = 300; // Adjust the scroll amount as desired
+function Restaurants({ meals }) {
+	const location = useLocation();
+	const history = useHistory();
+	const [checkin, setCheckin] = useState("");
+	const [checkout, setCheckout] = useState("");
+	const [name, setName] = useState("");
+	const [date, setDate] = useState("");
+	const [phonenumber, setPhonenumber] = useState("");
 
-	// 	container.scrollBy({
-	// 		left: direction * scrollAmount,
-	// 		behavior: "smooth",
-	// 	});
-	// }
+	const [responseMessage, setResponseMessage] = useState("");
+	const [showModal, setShowModal] = useState(false);
+	const { itemData } = location.state;
+	const { _id: restaurant_id } = itemData;
+
+	const mealsData = meals.filter(
+		(item) => item.restaurant_id === restaurant_id
+	);
+
+	const submit = async (e) => {
+		e.preventDefault();
+
+		// Basic validation
+		if (!checkin || !checkout || !name || !date || !phonenumber) {
+			setResponseMessage("Please fill in all the fields");
+			return;
+		}
+
+		try {
+			const user_id = localStorage.getItem("user_id");
+			const token = localStorage.getItem("token"); // Retrieve the token from local storage
+
+			console.log(user_id);
+			// const restaurant_id = location.state.itemData._id; // Assuming there's only one room available for the specified criteria
+
+			const axiosConfig = {
+				headers: {
+					Authorization: `Bearer ${token}`, // Include the token in the Authorization header
+				},
+			};
+
+			const response = await axios.post(
+				"http://localhost:5000/api/v1/restaurantBooking",
+				{
+					restaurant_id: location.state.itemData._id,
+					user_id: user_id,
+					name: name,
+					date: date,
+					phonenumber,
+					checkin: checkin,
+					checkout: checkout,
+				},
+				axiosConfig // Pass the axiosConfig object as the third parameter
+			);
+
+			setResponseMessage(response.data);
+			setShowModal(true);
+		} catch (error) {
+			console.log(error);
+			setResponseMessage("An error occurred");
+		}
+	};
+
+	const closeModal = () => {
+		setShowModal(false);
+		history.push(`/trips`); // Redirect to the home page after the modal is closed
+	};
 
 	const daysOfWeek = [
 		{ day: "Monday", hours: "Closed" },
@@ -36,9 +97,9 @@ function Restaurants({ restaurants, meals }) {
 				</ul>
 			</nav>
 			<div className='restaurant-home'>
-				<img src={image} alt='' className='img-fluid' />
+				<img src={itemData.image} alt='' className='img-fluid' />
 				<div>
-					<h2>Restaurante</h2>
+					<h2>{itemData.name}</h2>
 					<h3>Your number one choices</h3>
 				</div>
 			</div>
@@ -55,7 +116,7 @@ function Restaurants({ restaurants, meals }) {
 
 				<div className='restaurant-card-container'>
 					<div className='card-scroll-wrapper'>
-						{meals.map((value, index) => (
+						{mealsData.map((value, index) => (
 							<div key={index} className='restaurant-card'>
 								<img
 									src={value.image}
@@ -80,7 +141,11 @@ function Restaurants({ restaurants, meals }) {
 						mi ut elit tempor aliquam eget eget enim. Proin cursus eleifend
 						pretium. Aliquam cursus "
 					</p>
-					<img src={image} alt='Footer Image' className='reserve-image' />
+					<img
+						src={itemData.image}
+						alt='Footer Image'
+						className='reserve-image'
+					/>
 				</div>
 				<div className='reserve-two'>
 					<h2> RESERVATION </h2>
@@ -88,23 +153,65 @@ function Restaurants({ restaurants, meals }) {
 					<p className='number'> +1 (555) 123-4567 </p>
 					<div className='input-container one'>
 						<label> Date :</label>
-						<input type='text' placeholder='12 Decemner 2022' />
+						<input
+							type='date'
+							className='checkin'
+							id='date-input'
+							autoComplete='off'
+							onChange={(e) => {
+								setDate(e.target.value);
+							}}
+						/>
 					</div>
 					<div className='input-container two'>
-						<label> Time :</label>
-						<input type='text' placeholder='11:00' />
-						<label className='person-label'> Persons :</label>
-						<input type='text' placeholder='12' className='person' />
+						<label className='checkin-label'> Time: Checkin </label>
+						<input
+							type='time'
+							className='checkin'
+							id='date-input'
+							autoComplete='off'
+							onChange={(e) => {
+								setCheckin(e.target.value);
+							}}
+						/>
+						<label className='checkout-label'> Checkout:</label>
+						<input
+							className='checkout'
+							id='date-input'
+							type='time'
+							autoComplete='off'
+							onChange={(e) => {
+								setCheckout(e.target.value);
+							}}
+						/>
 					</div>
 					<div className='input-container one'>
 						<label> Name :</label>
-						<input type='text' placeholder='Full Name' />
+						<input
+							type='text'
+							placeholder='Full Name'
+							id='name-input'
+							autoComplete='off'
+							onChange={(e) => {
+								setName(e.target.value); // Update the roomtype state instead of checkout
+							}}
+						/>
 					</div>
 					<div className='input-container one'>
 						<label> Phone Number :</label>
-						<input type='text' placeholder='+1 (555) 123-4567' />
+						<input
+							type='text'
+							placeholder='+1 (555) 123-4567'
+							id='number-input'
+							autoComplete='off'
+							onChange={(e) => {
+								setPhonenumber(e.target.value); // Update the roomtype state instead of checkout
+							}}
+						/>
 					</div>
-					<button type='submit'> Book Now </button>
+					<button type='submit' onClick={submit}>
+						Book Now
+					</button>
 				</div>
 			</div>
 
@@ -124,7 +231,7 @@ function Restaurants({ restaurants, meals }) {
 							</p>
 						</div>
 						<div className='name'>
-							<h2>Restaurante</h2>
+							<h2>{itemData.name}</h2>
 						</div>
 					</div>
 					<div className='container-two'>
@@ -195,6 +302,21 @@ function Restaurants({ restaurants, meals }) {
 					</p>
 				</div>
 			</div>
+			<Modal
+				isOpen={showModal}
+				onRequestClose={closeModal}
+				contentLabel='Booking Confirmation'
+				className='modal'
+				overlayClassName='modal-overlay'
+			>
+				<div className='modal-content'>
+					<h2>Booking Confirmation</h2>
+					<p>You have a reservation under your name.</p>
+					<button className='modal-button' onClick={closeModal}>
+						Close
+					</button>
+				</div>
+			</Modal>
 		</div>
 	);
 }

@@ -18,7 +18,6 @@ function HotelEach({ hotelRooms }) {
 	const { _id: hotel_id } = itemData; // Access the hotel ID from itemData
 
 	const hotelRoomData = hotelRooms.filter((item) => item.hotel_id === hotel_id);
-
 	const submit = async (e) => {
 		e.preventDefault();
 
@@ -72,7 +71,7 @@ function HotelEach({ hotelRooms }) {
 
 	const closeModal = () => {
 		setShowModal(false);
-		history.push("/"); // Redirect to the home page after the modal is closed
+		history.push(`/hotels`); // Redirect to the home page after the modal is closed
 	};
 
 	return (
