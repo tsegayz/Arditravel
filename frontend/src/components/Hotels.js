@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { useHistory } from "react-router-dom";
 
 import {
@@ -12,6 +12,18 @@ import { MdEmail } from "react-icons/md";
 
 function Hotels({ hotels, hotelRooms }) {
 	const hotelsSlice = hotels.slice(1, 8);
+
+	const footerSectionRef = useRef(null);
+	const roomSectionRef = useRef(null);
+
+	const handleFooterClick = () => {
+		footerSectionRef.current.scrollIntoView({ behavior: "smooth" });
+	};
+
+	const handleRoomClick = () => {
+		roomSectionRef.current.scrollIntoView({ behavior: "smooth" });
+	};
+
 	const [filteredHotels, setfilteredHotels] = useState([]);
 	const filterHandler = (e) => {
 		const searchWord = e.target.value;
@@ -39,12 +51,14 @@ function Hotels({ hotels, hotelRooms }) {
 				<h1> Ardi Travel </h1>
 				<ul className='hotel-list'>
 					<li className='hotel-nav'>
-						<a> Contact us</a>{" "}
+						<a onClick={handleFooterClick}>About </a>
 					</li>
 					<li className='hotel-nav'>
-						<a> Rooms </a>{" "}
+						<a onClick={handleRoomClick}> Rooms </a>
 					</li>
-					<button> Book Now </button>
+					<li className='hotel-nav'>
+						<a onClick={handleFooterClick}> Contact us </a>
+					</li>
 				</ul>
 			</nav>
 
@@ -84,12 +98,15 @@ function Hotels({ hotels, hotelRooms }) {
 					</div>
 				)}
 			</div>
+			<h5> explore the hotels of your choice</h5>
 
-			<div className='hotel-card-wrapper'>
-				{hotelsSlice.map((hotel) => (
+			<div className='hotel-card-wrapper' ref={roomSectionRef}>
+				{hotelsSlice.map((hotel, index) => (
 					<div className='hotel-card' key={hotel._id}>
-						<div className='hotel-details'>
-							<div className='image-contaienr'>
+						<div
+							className={`hotel-details ${index % 2 === 0 ? "reverse" : ""}`}
+						>
+							<div className='image-container'>
 								<img src={hotel.image} alt={hotel.name} />
 							</div>
 							<div className='hotel-details-name'>
@@ -99,12 +116,10 @@ function Hotels({ hotels, hotelRooms }) {
 									adipiscing elit. Pellentesque vel mi ut elit tempor aliquam
 									eget eget enim. Proin cursus eleifend pretium. Aliquam cursus
 									"Lorem dolor sit amet, consectetur adipiscing elit.
-									Pellentesque vel mi ut elit tempor aliquam eget eget enim.
-									Proin cursus eleifend pretium. Aliquam cursus lorem
 								</p>
 							</div>
-						</div>
-						<p> The Splended rooms of the hotels </p>
+						</div> 
+						<h2 className="h2arrow"> The Splended rooms of the hotels  <span className='arrow'>&rarr;</span></h2>
 						<div className='hotel-rooms'>
 							<div className='rooms-container'>
 								{hotelRooms
@@ -123,50 +138,68 @@ function Hotels({ hotels, hotelRooms }) {
 				))}
 			</div>
 
-			<footer className='hotels-footer'>
+			<footer className='hotels-footer' ref={footerSectionRef}>
 				<div className='hotels-footer-one'>
-					<h2> Welcome Home</h2>
+					<h2> Welcome services</h2>
 					<p className='footer-title'> All your need </p>
 					<div className='hotels-search'></div>
+					<div class='hotel-container'>
+						<p class='footer-para'>
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+							eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+							enim ad minim veniam
+						</p>
+					</div>
+					<div className='contact'>
+						<h2>Get in Touch</h2>
+						<div className='input-container'>
+							<input type='text' placeholder='Your message' />
+							<button type='submit'>Submit</button>
+						</div>
+					</div>
+				</div>
+				<div className='hotels-footer-two'>
+					<h2> Contact </h2>
+					<div className='contact-one'>
+						<h3>Find us on:</h3>
+						<div className='first'>
+							<h4>Address</h4>
+							<p>"Lorem dolor Aliquam cursus</p>
+						</div>
+						<div className='second'>
+							<h4>Phone</h4>
+							<p>+1 (555) 123-4567</p>
+						</div>
+						<div className='third'>
+							<h4>Email</h4>
+							<p>resto67@gmail.com</p>
+						</div>
+					</div>
 					<div>
 						<ul className='footer-nav-socials'>
 							<li class='hotel-social'>
 								<a href='#in'>
 									<i>
-										{" "}
-										<RiFacebookFill style={{ color: "rgb(32, 32, 73)" }} />{" "}
-									</i>{" "}
+										<RiFacebookFill style={{ color: "white" }} />
+									</i>
 								</a>
 							</li>
 							<li class='hotel-social'>
 								<a href='#in'>
-									<SiTwitter style={{ color: "rgb(32, 32, 73)" }} />
+									<SiTwitter style={{ color: "white" }} />
 								</a>
 							</li>
 							<li class='hotel-social'>
 								<a href='#in'>
-									<RiLinkedinFill style={{ color: "rgb(32, 32, 73)" }} />
+									<RiInstagramFill style={{ color: "white" }} />
 								</a>
 							</li>
 							<li class='hotel-social'>
 								<a href='#in'>
-									<RiInstagramFill style={{ color: "rgb(32, 32, 73)" }} />
-								</a>
-							</li>
-							<li class='hotel-social'>
-								<a href='#in'>
-									<MdEmail style={{ color: "rgb(32, 32, 73)" }} />
+									<MdEmail style={{ color: "white" }} />
 								</a>
 							</li>
 						</ul>
-					</div>
-					<div class='hotel-container'>
-						<p class='footer-para'>
-							{" "}
-							Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-							eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-							enim ad minim veniam
-						</p>
 					</div>
 				</div>
 			</footer>

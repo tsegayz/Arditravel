@@ -102,7 +102,6 @@ function Location({ locations, activities, restaurants, hotels }) {
 					<div className='overlay'></div>
 					<div className='city-name'>
 						<div className='city-name-descr'>
-							<h2> {console.log(cityActivityData)}</h2>
 							<h2>
 								{itemData.zone}, {itemData.region}
 							</h2>

@@ -15,9 +15,10 @@ import { IoShieldCheckmarkSharp } from "react-icons/io5";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
 function Home({ data, explore, popular, footer }) {
-	const popularSlice = popular.slice(0, 4);
-	const exploreSlice = explore.slice(9, 15);
+	const exploreSlice = popular.slice(0, 4);
+	const activitySlice = explore.slice(5, 11);
 
+	const filterExplore = explore.filter((item) => item.review.rating > 4.2);
 	// filter method for the search bar
 	const [filteredPlaces, setFilteredPlaces] = useState([]);
 	const filterHandler = (e) => {
@@ -87,7 +88,7 @@ function Home({ data, explore, popular, footer }) {
 					cursus "
 				</p>
 				<div className='container-grid'>
-					{exploreSlice.map((value, index) => {
+					{activitySlice.map((value, index) => {
 						const itemClassName = `item${index + 1}`; // Generate the CSS class name based on the index
 						return (
 							<div key={value._id} className={`container ${itemClassName}`}>
@@ -150,7 +151,7 @@ function Home({ data, explore, popular, footer }) {
 							)
 						}
 					>
-						{explore.map((value) => (
+						{filterExplore.map((value) => (
 							<div className='card-items' key={value._id}>
 								<img className='card-image' src={value.image} alt='' />
 								<div className='card-item-one'>
@@ -173,7 +174,7 @@ function Home({ data, explore, popular, footer }) {
 				</div>
 
 				<div className='main-container'>
-					{popularSlice.map((item) => (
+					{exploreSlice.map((item) => (
 						<div className='container' key={item._id}>
 							<div className='box box1'></div>
 							<div className='box box2'>
@@ -189,7 +190,6 @@ function Home({ data, explore, popular, footer }) {
 				<div className='logo-bottom'>
 					<div className='logo-bottom-one'>
 						<h1>
-							{" "}
 							A<span>rdi travel</span>
 						</h1>
 						<p> Land of origin, Ethiopia </p>

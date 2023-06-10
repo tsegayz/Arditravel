@@ -82,13 +82,13 @@ function HotelEach({ hotelRooms }) {
 			<nav className='hotels-nav'>
 				<h1>Ardi Travel</h1>
 				<ul className='hotel-list'>
-					<li className='hotel-nav'>
+					<li className='hotel-nav-list'>
 						<a>Contact us</a>
 					</li>
-					<li className='hotel-nav'>
+					<li className='hotel-nav-list'>
 						<a>Room</a>
 					</li>
-					<li className='hotel-nav'>
+					<li className='hotel-nav-list'>
 						<a>Gallery</a>
 					</li>
 				</ul>

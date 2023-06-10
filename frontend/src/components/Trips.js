@@ -159,7 +159,7 @@ function Trips({ data, hotels, hotelRooms, restaurants, travels, tourGuides }) {
 				</div>
 				<ul class='nav-links'>
 					<li>
-						<a href='/restaurant'>Restaurants</a>
+						<a onClick={handleRestaurantsClick}>Restaurants</a>
 					</li>
 					<li>
 						<a href='/hotels'>Hotels</a>
