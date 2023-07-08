@@ -87,7 +87,7 @@ function App() {
 							<Home
 								data={locationType}
 								explore={location}
-								popular={activity}
+								activities={activity}
 								footer={footerList}
 							/>
 						</Route>

@@ -16,6 +16,11 @@ function Hotels({ hotels, hotelRooms }) {
 	const footerSectionRef = useRef(null);
 	const roomSectionRef = useRef(null);
 
+
+	const handleHotelClick = (item) => {
+		// Navigate to the hotel page and pass the selected item's data
+		history.push(`/eachhotel/${item._id}`, { itemData: item });
+	};
 	const handleFooterClick = () => {
 		footerSectionRef.current.scrollIntoView({ behavior: "smooth" });
 	};
@@ -51,10 +56,10 @@ function Hotels({ hotels, hotelRooms }) {
 				<h1> Ardi Travel </h1>
 				<ul className='hotel-list'>
 					<li className='hotel-nav'>
-						<a onClick={handleFooterClick}>About </a>
+						<a onClick={handleRoomClick}> Rooms </a>
 					</li>
 					<li className='hotel-nav'>
-						<a onClick={handleRoomClick}> Rooms </a>
+						<a onClick={handleFooterClick}>About </a>
 					</li>
 					<li className='hotel-nav'>
 						<a onClick={handleFooterClick}> Contact us </a>
@@ -102,7 +107,7 @@ function Hotels({ hotels, hotelRooms }) {
 
 			<div className='hotel-card-wrapper' ref={roomSectionRef}>
 				{hotelsSlice.map((hotel, index) => (
-					<div className='hotel-card' key={hotel._id}>
+					<a className='hotel-card' key={hotel._id} onClick={() => handleHotelClick(hotel)}>
 						<div
 							className={`hotel-details ${index % 2 === 0 ? "reverse" : ""}`}
 						>
@@ -134,7 +139,7 @@ function Hotels({ hotels, hotelRooms }) {
 									))}
 							</div>
 						</div>
-					</div>
+					</a>
 				))}
 			</div>
 

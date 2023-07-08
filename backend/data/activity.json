@@ -4,7 +4,7 @@
 		"name": "Boat Tour on Lake Chamo",
 		"description": "Take a scenic boat tour of Lake Chamo and see hippos, crocodiles, and birds.",
 		"location_id": 1,
-		"image": "/images/hotels/hyatt-regency.jpg",
+		"image": "/images/activity/boat-ride.jpg",
 		"rating": 4.5,
 		"price": 25.0
 	},
@@ -13,7 +13,7 @@
 		"name": "Hiking in Nechisar National Park",
 		"description": "Explore the beauty of Nechisar National Park on a guided hiking tour.",
 		"location_id": 1,
-		"image": "/images/hotels/hyatt-regency.jpg",
+		"image": "/images/activity/nechsar.jpg",
 		"rating": 4.2,
 		"price": 30.0
 	},
@@ -22,7 +22,7 @@
 		"name": "Visit to Dorze Village",
 		"description": "Experience the unique culture and lifestyle of the Dorze people in their village.",
 		"location_id": 1,
-		"image": "/images/hotels/hyatt-regency.jpg",
+		"image": "/images/activity/dorze.jpg",
 		"rating": 4.8,
 		"price": 20.0
 	},
@@ -31,7 +31,7 @@
 		"name": "Crocodile Market Visit",
 		"description": "Visit the colorful and lively Crocodile Market, where locals buy and sell livestock.",
 		"location_id": 1,
-		"image": "/images/hotels/hyatt-regency.jpg",
+		"image": "/images/activity/crocodile.jpg",
 		"rating": 3.9,
 		"price": 10.0
 	},
@@ -40,7 +40,7 @@
 		"name": "Visit to Arba Minch Market",
 		"description": "Explore the vibrant and bustling Arba Minch Market and buy souvenirs and local products.",
 		"location_id": 1,
-		"image": "/images/hotels/hyatt-regency.jpg",
+		"image": "/images/activity/market.jpg",
 		"rating": 4.1,
 		"price": 5.0
 	},
@@ -49,7 +49,7 @@
 		"name": "Visit the Royal Enclosure",
 		"description": "Explore the impressive ruins of the ancient Gondarine royal compound.",
 		"location_id": 1,
-		"image": "/images/hotels/hyatt-regency.jpg",
+		"image": "/images/activity/royal.jpeg",
 		"rating": 4.8,
 		"price": 250
 	},
@@ -58,7 +58,7 @@
 		"name": "Tour the Fasil Ghebbi",
 		"description": "Discover the history of the former fortress-city of the Ethiopian emperor Fasil_ides.",
 		"location_id": 1,
-		"image": "/images/hotels/hyatt-regency.jpg",
+		"image": "/images/activity/fasil.jpg",
 		"rating": 4.5,
 		"price": 300
 	},
@@ -67,7 +67,7 @@
 		"name": "Hike in the Simien Mountains",
 		"description": "Take a guided hike through the stunning mountain range and spot rare wildlife.",
 		"location_id": 1,
-		"image": "/images/hotels/hyatt-regency.jpg",
+		"image": "/images/activity/Simien.jpg",
 		"rating": 4.9,
 		"price": 500
 	},
@@ -76,7 +76,7 @@
 		"name": "Visit Debre Berhan Selassie Church",
 		"description": "Admire the magnificent murals and ceiling artwork of this historic Ethiopian Orthodox church.",
 		"location_id": 1,
-		"image": "/images/hotels/hyatt-regency.jpg",
+		"image": "/images/activity/debre.jpg",
 		"rating": 4.7,
 		"price": 150
 	},
@@ -85,34 +85,34 @@
 		"name": "Attend the Timkat Festival",
 		"description": "Experience the Ethiopian Orthodox celebration of Epiphany with vibrant processions and ceremonies.",
 		"location_id": 1,
-		"image": "/images/hotels/hyatt-regency.jpg",
+		"image": "/images/activity/timket.jpg",
 		"rating": 5.0,
 		"price": 0
 	},
 	{
 		"_id": 11,
-		"name": "National Museum of Ethiopia",
+		"name": "National Museum of Ethiopia visit",
 		"description": "The National Museum of Ethiopia is a museum in Addis Ababa, Ethiopia. It houses important archaeological finds such as the fossilized remains of early homin_ids and the oldest known human ancestor, Ardipithecus ram_idus.",
 		"location_id": 1,
-		"image": "/images/hotels/hyatt-regency.jpg",
+		"image": "/images/activity/museum.jpeg",
 		"rating": 4.5,
 		"price": 200
 	},
 	{
 		"_id": 12,
-		"name": "Mount Entoto",
+		"name": "Mount Entoto visit",
 		"description": "Mount Entoto is the highest peak overlooking Addis Ababa, with an elevation of 3,200 meters. It is a popular destination for hiking and offers breathtaking views of the city.",
 		"location_id": 1,
-		"image": "/images/hotels/hyatt-regency.jpg",
+		"image": "/images/activity/entoto.jpeg",
 		"rating": 4.2,
 		"price": 0
 	},
 	{
 		"_id": 13,
-		"name": "Addis Mercato",
+		"name": "Addis Mercato visit",
 		"description": "Addis Mercato is the largest open-air market in Africa. It is a bustling hub of activity where visitors can find everything from clothing and jewelry to spices and electronics.",
 		"location_id": 1,
-		"image": "/images/hotels/hyatt-regency.jpg",
+		"image": "/images/activity/mercato.jpg",
 		"rating": 3.9,
 		"price": 0
 	},
@@ -121,7 +121,7 @@
 		"name": "Holy Trinity Cathedral",
 		"description": "Holy Trinity Cathedral is an Ethiopian Orthodox Tewahedo church located in Addis Ababa. It is the final resting place of Emperor Haile Selassie and other members of the imperial family.",
 		"location_id": 1,
-		"image": "/images/hotels/hyatt-regency.jpg",
+		"image": "/images/activity/trinity.jpeg",
 		"rating": 4.1,
 		"price": 50
 	}

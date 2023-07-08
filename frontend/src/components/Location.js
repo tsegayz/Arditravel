@@ -1,5 +1,6 @@
 import { useLocation } from "react-router-dom";
 import { useRef } from "react";
+import { useHistory } from "react-router-dom";
 
 import { AiFillLike, AiOutlineLike } from "react-icons/ai";
 import { FiBookmark } from "react-icons/fi";
@@ -8,6 +9,17 @@ import { MdOutlineFavoriteBorder } from "react-icons/md";
 function Location({ locations, activities, restaurants, hotels }) {
 	const location = useLocation();
 	const { itemData } = location.state;
+
+	const history = useHistory();
+	const handleRestaurantClick = (item) => {
+		// Navigate to the restaurant page and pass the selected item's data
+		history.push(`/restaurant/${item._id}`, { itemData: item });
+	};
+
+	const handleHotelClick = (item) => {
+		// Navigate to the hotel page and pass the selected item's data
+		history.push(`/eachhotel/${item._id}`, { itemData: item });
+	};
 
 	const cityLocationData = locations.filter(
 		(item) => item.location_type_id === itemData._id
@@ -203,7 +215,7 @@ function Location({ locations, activities, restaurants, hotels }) {
 				<div className='city-hotels-list'>
 					<ul className='city-hotels-content'>
 						{cityHotelData.map((item) => (
-							<li key={item._id}>
+							<a key={item._id} onClick={() => handleHotelClick(item)}>
 								<div
 									className='city-hotels-card'
 									style={{ backgroundImage: `url(${item.image})` }}
@@ -222,7 +234,7 @@ function Location({ locations, activities, restaurants, hotels }) {
 										</h3>
 									</ul>
 								</div>
-							</li>
+							</a>
 						))}
 					</ul>
 				</div>
@@ -238,7 +250,7 @@ function Location({ locations, activities, restaurants, hotels }) {
 				<div className='city-restaurants-list'>
 					<ul className='city-restaurants-content'>
 						{cityRestaurantData.map((item) => (
-							<li key={item._id}>
+							<a key={item._id} onClick={() => handleRestaurantClick(item)}>
 								<div
 									className='city-restaurants-card'
 									style={{ backgroundImage: `url(${item.image})` }}
@@ -250,7 +262,7 @@ function Location({ locations, activities, restaurants, hotels }) {
 										<h2 className='city-restaurants-item'>{item.name}</h2>
 									</ul>
 								</div>
-							</li>
+							</a>
 						))}
 					</ul>
 				</div>

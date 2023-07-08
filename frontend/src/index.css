@@ -83,8 +83,8 @@ body {
 }
 .search-bar {
 	width: 100%;
-	max-width: 650px;
-	background-color: rgba(250, 235, 215, 0.411);
+	max-width: 700px;
+	background-color: rgb(252, 252, 252);
 	display: flex;
 	align-items: center;
 	border-radius: 40px;
@@ -100,8 +100,8 @@ body {
 	border: 0;
 }
 ::placeholder {
-	color: rgb(63, 61, 61);
-	font-size: 24px;
+	color: rgb(44, 42, 42);
+	font-size: 22px;
 }
 
 .search-bar button {
@@ -114,19 +114,25 @@ body {
 }
 
 .search-results {
-	margin-top: 88px;
-	width: 600px;
-	height: 150px;
-	background-color: rgba(250, 235, 215, 0.719);
+	width: 650px;
+	height: 260px;
+	background-color: rgb(250, 250, 250);
 	overflow: hidden;
 	overflow-y: auto;
 	position: absolute;
-	top: 285px;
-	left: 665px;
+	top: 23.3em;
+	left: 40em;
 	border-radius: 6px;
-	padding-top: 20px;
 }
-
+.result-name {
+	margin-left: 3.5em;
+}
+.result-name p {
+	margin: 0;
+	padding: 0;
+	color: grey;
+	font-size: 18px;
+}
 .search-results::-webkit-scrollbar {
 	display: none;
 }
@@ -138,11 +144,30 @@ body {
 	align-items: center;
 	text-decoration: none;
 	color: rgb(0, 0, 0);
-	padding-left: 20px;
-	padding-top: 25px;
-	font-size: 24px;
-	padding-bottom: 30px;
-	border-bottom: rgba(250, 235, 215, 0.932) 0.1em solid;
+	font-size: 21px;
+	padding: 40px 0 45px 20px;
+	border-bottom: rgba(14, 12, 10, 0.932) 0.1em solid;
+}
+
+.region-flag {
+	position: absolute;
+	margin-bottom: 50px;
+	padding: 20px 0;
+	height: 20px;
+	width: 20px;
+}
+
+.flag-image {
+	height: 60px;
+	width: 60px;
+	border: #999691 1px solid;
+	border-radius: 50%;
+}
+.region-arrow {
+	color: grey;
+	position: absolute;
+	margin-left: 35em;
+	font-size: 17px;
 }
 
 /* //////////////responsive */
@@ -207,56 +232,95 @@ body {
 }
 
 /* //////////////////// */
-.activity {
+.plan {
 	margin: 10px 200px;
 	margin-bottom: 0px;
 }
-.activity h1 {
+.plan h1 {
 	color: #25434d;
-	padding-top: 30px;
-	margin-left: 0px;
+	margin-top: 70px;
+	margin-left: 16.5em;
 	font-family: "Lobster", cursive;
-	font-size: 40px;
+	font-size: 34px;
 	font-weight: 100;
 	margin-bottom: 0px;
 }
-.activity p {
+
+.plan p {
 	font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-	padding: 10px 70px;
+	padding: 0px 70px;
 	padding-right: 120px;
 	font-size: 17px;
 }
-.activity .container-grid {
-	margin-top: 20px;
+
+.plan .container-grid {
+	padding: 0 100px;
+	margin-top: 45px;
+	display: grid;
+	grid-template-rows: auto auto;
+	gap: 20px;
 }
 
-.activity .container-grid .container {
-	background-color: #102830;
-	margin-left: 150px;
-	float: left;
-	margin-top: 20px;
-	box-shadow: 4px 0 10px #23424da1;
+.plan .container-item {
+	box-shadow: 4px 0 10px #23424d7e;
 	position: relative;
 	overflow: hidden;
-	width: 300px; /* Adjust the width as needed */
-	height: 200px; /* Adjust the height as needed */
+	height: 300px;
 }
 
-.activity .container-grid .container:hover .text-overlay {
+.plan-container {
+	position: relative;
+	height: 100%;
+	width: 100%;
+	overflow: hidden;
+}
+
+.plan-container::after {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.356);
+}
+
+.plan .first-row {
+	grid-row: 1;
+	grid-column: span 2;
+}
+
+.plan .second-row {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	grid-gap: 10px;
+}
+.plan .card-image {
+	position: relative;
+	height: 100%;
+	object-fit: cover;
+	object-position: center;
+	transition: transform 0.9s;
+	height: 100%;
+	width: 100%;
+}
+
+.plan .card-image::before {
+	content: "";
+	position: absolute;
+	width: 100%;
+	height: 100%;
+}
+
+.plan .container-grid .container-item:hover .card-image {
+	transform: scale(1.1);
+}
+
+.plan .container-grid .container-item:hover .text-overlay {
 	opacity: 1;
 }
 
-.activity .container-grid .container img {
-	width: 100%;
-	height: auto;
-	transition: transform 0.5s; /* Add transition property */
-}
-
-.activity .container-grid .container:hover img {
-	transform: scale(1.1); /* Apply scaling effect on hover */
-}
-
-.activity .container-grid .container .text-overlay {
+.plan .container-grid .container-item .text-overlay {
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -265,159 +329,162 @@ body {
 	display: flex;
 	flex-direction: column;
 	justify-content: end;
-	align-items: end;
 	opacity: 0;
 	transition: opacity 0.5s;
-	text-align: center;
 	color: white;
-	background-color: rgba(0, 0, 0, 0.582);
+	padding-bottom: 200px;
+	background-color: rgba(0, 0, 0, 0.459);
 }
 
-.activity .container-grid .container .text-overlay h2 {
-	background-color: #1a37415d;
+.plan .plan-container .card-title {
+	color: white;
+	position: absolute;
+	z-index: 2;
+	top: 10px;
+	left: 10px;
 	margin: 0;
-	padding: 10px;
-	padding-top: 0;
+	padding-left: 10px;
 	width: 100%;
-	margin-top: 120px;
-	font-size: 18px;
+	font-size: 23px;
+	font-weight: 100;
 }
 
-.activity .container-grid .container .text-overlay p {
-	background-color: #1a37415d;
+.plan .container-grid .text-overlay p {
 	margin: 0;
 	padding: 10px;
-	padding-top: 0;
-	width: 100%;
+	padding-left: 20px;
+	width: 300px;
 	font-size: 14px;
-}
-.activity .container-grid .item1 {
-	width: 430px;
-	height: 220px;
-}
-
-.activity .container-grid .item2 {
-	width: 375px;
-	height: 250px;
-}
-
-.activity .container-grid .item3 {
-	width: 500px;
-	height: 260px;
-}
-
-.activity .container-grid .item4 {
-	width: 450px;
-	height: 300px;
-}
-
-.activity .container-grid .item5 {
-	width: 400px;
-	height: 275px;
-}
-
-.activity .container-grid .item6 {
-	width: 390px;
-	height: 250px;
 }
 
 /* ////////////// */
-.explore {
+.trend {
 	background-color: rgba(230, 229, 229, 0.096);
 	margin: 0;
 	margin-bottom: 50px;
 }
-.explore .title-container {
-	display: flex;
-	align-items: center;
-	margin-bottom: -20px;
-}
 
-.explore .title-container h1 {
+.trend .title-container h1 {
 	margin: 0;
 	color: #25434d;
-	margin-left: 5em;
+	margin-left: 23.5em;
+	margin-top: 100px;
 	width: 100%;
 	font-family: "Lobster", cursive;
-	font-size: 42px;
+	font-size: 34px;
 	font-weight: 100;
 }
-.explore .title-container p {
+.trend .title-container p {
 	width: 100%;
+	font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 	font-size: 19px;
-	padding-top: 45px;
-	margin-right: 7em;
+	margin-left: 38.5em;
+	margin-top: 10px;
 	color: #1a3741;
 }
 
-.explore .main-container {
+.trend .main-container {
+	padding: 20px 15em;
 	display: flex;
-	align-items: center;
 	justify-content: center;
 }
 
-.explore .container {
-	position: relative;
-	margin: 80px;
+.trend .grid-container {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr); /* Creates four columns */
+	grid-gap: 15px;
 }
-.explore .main-container .box {
-	width: 260px;
-	height: 400px;
+
+.trend .grid-item {
+	color: #174749;
+	display: flex;
+}
+
+.trend .grid-items {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	justify-content: center;
+	text-align: center;
+	background-color: #f2f2f2;
+	padding: 14px;
 }
-.explore .main-container .box1 {
-	background: linear-gradient(90deg, #85918a11, #c99b7d09);
-	z-index: 2;
+.trend .grid-items .tour-icon {
+	/* margin-top: 40px; */
+	display: flex;
+	align-items: center;
+}
+.trend .cagridrd-image {
+	width: 100%;
+	height: 15em;
 }
 
-.explore .main-container .box2 {
-	background: linear-gradient(120deg, #7c888117, #b9aaa010);
-	position: absolute;
-	top: 50px;
-	left: 50px;
-	z-index: 1;
-	padding: 0px 30px;
+.trend .grid-item-one {
+	text-align: start;
 }
-.explore .main-container .box2 h2 {
-	font-family: "Lobster", cursive;
-	font-size: 28px;
-	font-weight: 100;
+.trend .grid-item-one h3 {
+	margin-bottom: -10px;
 }
-.explore .main-container .box2 p {
-	font-size: 22px;
+.star {
+	color: gold;
+	font-size: 18px;
 }
 
 /* //////////// */
 
 .popular-places h1 {
-	font-size: 35px;
+	margin-top: 70px;
+	margin-bottom: 0;
 	color: #25434d;
-	margin-left: 220px;
+	margin-left: 23.5em;
 	font-family: "Lobster", cursive;
-	font-size: 40px;
+	font-size: 34px;
 	font-weight: 100;
 }
 .popular-descr {
+	text-align: center;
 	padding: 10px 19em;
 	padding-left: 14.5em;
 	font-size: 17px;
 	font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
-
-.card-items {
-	display: inline-block;
-	width: 300px;
-	height: 360px;
+.category-card {
+	padding: 20px 10px;
 	position: relative;
-	border: 1px solid #167c80;
+	padding-top: 40px;
+	overflow: hidden; /* Hide the default scrollbar */
 }
 
-.card-image {
+.card-items {
+	transition: transform 0.5s;
+	display: inline-block;
+	width: 280px;
+	height: 360px;
+	position: relative;
+	background-color: rgba(236, 236, 236, 0.74);
+}
+.card-items:hover {
+	transform: scale(0.93);
+	border: solid 1px #143f41f6;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+	background-color: #143f41f6;
+	color: white;
+}
+.card-item-one {
+	padding: 10px;
+	text-align: start;
+}
+.card-item-one h3 {
+	font-weight: 500;
+	font-size: 20px;
+	margin: 0;
+}
+.card-item-one p {
+	font-size: 16px;
+	margin-top: 10px;
+}
+.card-items .card-image {
 	width: 100%;
-	height: 200px;
+	height: 240px;
 	object-fit: cover;
 }
 
@@ -443,34 +510,21 @@ body {
 	right: 0px; /* Adjust the value to move the button to the right */
 }
 
-.category-card {
-	position: relative;
-	padding: 60px 35px;
-	margin-left: 100px;
-	overflow: hidden; /* Hide the default scrollbar */
-}
-
 /* ////////////////// */
-.footer {
-	margin: 0;
-	padding: 0;
-	background-color: rgba(128, 128, 128, 0.397);
-	color: rgb(255, 255, 255);
-	font-size: 23px;
-	display: flex;
-	align-items: center;
-	padding-left: 35%;
+.home footer{
+	margin-top:150px;
+	background-color: #072224e1;
 }
 
 .logo-bottom {
 	display: flex;
 	justify-content: space-around;
-	margin: 0 400px 0 240px;
+	margin: 0 400px 0 350px;
 	font-size: 25px;
-	color: #25434d;
+	color: #ffffff;
 }
 .logo-bottom h6 {
-	color: #25434d;
+	color: #ffffff;
 	font-family: "Lobster", cursive;
 	font-size: 22px;
 	font-weight: 100;
@@ -478,7 +532,6 @@ body {
 }
 .logo-bottom-one p {
 	font-family: "Lobster", cursive;
-	color: #25434d;
 }
 .logo-bottom-one h1 {
 	font-family: "Lobster", cursive;
@@ -491,17 +544,17 @@ body {
 }
 
 .logo-bottom p {
-	font-size: 20px;
+	font-size: 16px;
 }
 
 .line {
 	height: 1px;
 	background-color: #ccc;
-	margin: 70px 270px 0 270px;
+	margin: 10px 270px 0 270px;
 }
 
 .socials {
-	margin-top: 100px;
+	margin-top: 50px;
 	margin-left: 710px;
 }
 .social-items {
@@ -509,7 +562,7 @@ body {
 	display: inline-block;
 	margin-right: 35px;
 	border-radius: 50%;
-	border: solid 2px #25434d;
+	border: solid 2px #ffffff;
 	padding-top: 10px;
 	width: 50px;
 	text-align: center;
@@ -518,7 +571,7 @@ body {
 
 .social-items:hover {
 	border: #25434d;
-	background-color: #25434d;
+	background-color: #ffffff;
 }
 .social-items li {
 	background-color: aqua;
@@ -526,20 +579,21 @@ body {
 }
 .social-items a {
 	font-size: 24px;
-	color: #25434d;
+	color: #ffffff;
 }
 .social-items a:hover {
-	color: white;
+	color: #25434d;
 }
 .center-text {
+	color: white;
 	text-align: center;
 	font-size: 15px;
-	margin-bottom: 80px;
+	margin: 20px 0;
 }
 
 /* //////////    hotels page  //////////////*/
 .hotels {
-	margin: 50px 150px;
+	margin: 100px 150px;
 	background-image: url("./assets/hotelsback.jpg");
 	background-size: cover;
 	background-repeat: no-repeat;
@@ -553,8 +607,8 @@ body {
 	font-weight: 300;
 	margin-left: -30px;
 	color: #25434d;
-	margin-bottom: -7em;
-	margin-top: 7.5em;
+	margin-bottom: -9em;
+	margin-top: 10em;
 }
 .hotels::before {
 	content: "";
@@ -565,11 +619,26 @@ body {
 	height: 46em;
 	background-color: rgb(0, 0, 0);
 	opacity: 0.5;
-	margin: 50px 150px;
+	margin: 100px 150px;
 	border-radius: 20px;
 }
 
-.hotels-nav {
+.hotels .hotels-nav {
+	position: absolute;
+	z-index: 1;
+	display: flex;
+	overflow: hidden; 
+	width: 100%;
+	align-items: center;
+	margin-top: -107px;
+	justify-content: space-between;
+	padding-right: 20em;
+	font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+		"Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+	color: rgb(255, 255, 255);
+}
+
+.city .hotels-nav {
 	position: relative;
 	z-index: 1;
 	display: flex;
@@ -577,19 +646,19 @@ body {
 	width: 100%;
 	align-items: center;
 	justify-content: space-between;
-	padding: 10px 80px 20px 80px;
+	padding: 0px 80em 0px 80px; 
 	font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
 		"Lucida Sans Unicode", Geneva, Verdana, sans-serif;
-	color: white;
+	color: rgb(255, 255, 255);
 }
 
 .hotels-nav h1 {
 	font-family: "Lobster", cursive;
-	font-size: 70px;
+	font-size: 55px;
 	font-weight: 300;
-	margin-left: 50px;
+	margin-left: 40px;
 	color: #25434d;
-	margin-top: 20px;
+	margin-top: 25px;
 }
 
 .hotels-nav .hotel-list {
@@ -597,19 +666,12 @@ body {
 	display: flex;
 }
 .hotel-list li {
-	margin: 0 2px;
 	padding: 25px;
 	font-size: 22px;
 }
-.hotel-list a {
-	color: white;
-	text-decoration: none;
-	text-align: center;
-}
-
 .hotel-list li a {
-	font-size: 22px;
-	color: #ffffff;
+	font-size: 20px;
+	color: #25434d;
 	text-decoration: none;
 	position: relative;
 }
@@ -621,7 +683,7 @@ body {
 	height: 2px;
 	bottom: -2px;
 	left: 0;
-	background-color: #ffffff;
+	background-color: #25434d;
 	visibility: hidden;
 	transform: scaleX(0);
 	transition: all 0.3s ease-in-out;
@@ -652,6 +714,7 @@ body {
 	color: rgb(255, 255, 255);
 	height: 5em;
 	width: 60em;
+	top: 10em;
 	margin-left: 20em;
 	display: flex;
 	align-items: center;
@@ -683,10 +746,10 @@ body {
 	font-size: 20px;
 }
 .hotels .search-results {
-	width: 34em;
+	width: 40em;
 	background-color: #ffffff;
 	position: absolute;
-	top: 26.4em;
+	top: 31.9em;
 	left: 42em;
 }
 .hotels .search-results .search-item {
@@ -730,7 +793,7 @@ body {
 	flex-wrap: wrap;
 	margin-top: 500px;
 	padding: 60px;
-	margin: 500px -150px 0 -150px;
+	margin: 40em -150px 0 -150px;
 }
 
 .hotels .hotel-card-wrapper .hotel-card {
@@ -786,14 +849,15 @@ body {
 	padding-left: 100px;
 	margin-bottom: 0;
 }
-.hotel-card .h2arrow span{
+.hotel-card .h2arrow span {
 	font-size: 60px;
 }
 .hotel-rooms {
-	margin: 0 -60px;
 	overflow-x: auto;
 	-ms-overflow-style: none;
 	scrollbar-width: none;
+	border-bottom: 2px rgb(19, 77, 72) solid;
+	margin: 0 50px;
 }
 
 .hotel-rooms::-webkit-scrollbar {
@@ -805,9 +869,8 @@ body {
 	display: flex;
 }
 .hotel-card-wrapper p {
-	font-size: 20px;
+	font-size: 17px;
 	text-align: start;
-
 }
 
 .room-card-scroll {
@@ -828,7 +891,7 @@ body {
 .hotels-footer {
 	margin-top: -100px;
 	display: flex;
-	background-color: rgba(0, 0, 0, 0.938);
+	background-color: #072224e1;
 	width: calc(100% + 300px);
 	margin-left: -150px;
 	color: white;
@@ -900,14 +963,14 @@ body {
 	padding: 14px 20px;
 	font-size: 16px;
 	border: none;
-	background-color: #143f41;
+	background-color: #091c1d;
 	color: white;
 	transition: background-color 0.3s ease;
 	cursor: pointer;
 }
 
 .hotels-footer .contact .input-container button:hover {
-	background-color: #1a797cb6;
+	background-color: #091c1d6e;
 }
 .hotels-footer .footer-nav-socials {
 	margin: 30px 0;
@@ -921,8 +984,8 @@ body {
 	padding: 7px 20px 20px 8px;
 }
 .hotel-social:hover {
-	background-color: #1a797cb6;
-	border-color: #1a797cb6;
+	background-color: #0a2829b6;
+	border-color: #0a2829b6 ;
 }
 .hotel-social:hover a svg {
 	fill: white !important;
@@ -937,8 +1000,22 @@ body {
 	height: 100vh;
 	width: 89em;
 }
+.each-hotel .hotels-nav {
+	position: absolute;
+	z-index: 1;
+	display: flex;
+	overflow: hidden; 
+	width: 100%;
+	align-items: center;
+	margin-top: 0px;
+	justify-content: space-between;
+	padding-right: 35em;
+	font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+		"Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+	color: rgb(255, 255, 255);
+}
+
 .each-hotel .hotels-nav h1 {
-	margin-left: -20px;
 	color: #276263;
 }
 .each-hotel .hotel-list li a {
@@ -999,7 +1076,7 @@ body {
 	font-size: 20px;
 	background-color: #25434de7;
 	margin: 0 8em;
-	margin-top: 15.6em;
+	margin-top: 23.6em;
 }
 .each-hotel .hotel-book-form {
 	font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
@@ -1113,7 +1190,7 @@ body {
 	font-size: 30px;
 	top: 0;
 	margin-left: 30em;
-	margin-top: 170px;
+	margin-top: 50px;
 	margin-right: 40px;
 	display: flex;
 	justify-content: space-around;
@@ -2137,6 +2214,7 @@ body {
 
 .trip-content h1 {
 	color: white;
+	margin-right: 5em;
 	margin-top: 0px;
 	font-size: 7.4em;
 	margin-bottom: 20px;
@@ -2179,7 +2257,6 @@ body {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 	margin: 40px 230px 0 140px;
 }
 .trips .category .category-one p,
@@ -2289,7 +2366,7 @@ body {
 
 .trips .image-container .hotel-image {
 	width: 100%;
-	height: 150px;
+	height: 180px;
 	object-fit: cover;
 	border-radius: 8px;
 }
@@ -2308,7 +2385,6 @@ body {
 }
 
 .trips .hotel-card .card .title-container {
-	font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
@@ -2358,6 +2434,7 @@ body {
 }
 
 .trips .hotel-card .card .room-info h4 {
+	font-size: 20px;
 	margin-top: -10px;
 }
 .trips .hotel-card .card .room-info p {
@@ -2384,8 +2461,8 @@ body {
 }
 .trips .restaurants .search-results {
 	background-color: #102830a1;
-	margin-top: 88em;
-	margin-left: -23.9em;
+	margin-top: 80.7em;
+	margin-left: -29.8em;
 	padding-top: 12px;
 	height: 5em;
 	z-index: 3;
@@ -2730,13 +2807,27 @@ body {
 	z-index: 1;
 }
 
+.restaurants  .hotels-nav {
+	position: absolute;
+	z-index: 1;
+	display: flex;
+	overflow: hidden; 
+	width: 100%;
+	align-items: center;
+	margin-top: 0px;
+	justify-content: space-between;
+	padding-right: 5em;
+	font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+		"Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
 .restaurants .hotels-nav h1 {
-	color: #1c2f35;
+	color: #16414e;
+	padding-left: 70px;
 	font-size: 52px;
 }
 
-.restaurants .hotels-nav .hotel-nav a {
-	color: #007e7e17;
+.restaurants .hotels-nav .hotel-list a {
+	color: #ffffff;
 }
 
 .restaurants .hotels-nav button {

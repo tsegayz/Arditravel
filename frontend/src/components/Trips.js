@@ -22,7 +22,7 @@ import { useHistory } from "react-router-dom";
 
 function Trips({ data, hotels, hotelRooms, restaurants, travels, tourGuides }) {
 	const dataSlice = data.slice(3, 11);
-
+	const topHotel = hotels.filter((item) => item.rating > 4.6);
 	const [filteredRestaurants, setfilteredRestaurants] = useState([]);
 
 	const filterHandler = (e) => {
@@ -40,11 +40,19 @@ function Trips({ data, hotels, hotelRooms, restaurants, travels, tourGuides }) {
 
 	const history = useHistory();
 
-	const handleItemClick = (item) => {
+	const handleLocationClick = (item) => {
 		// Navigate to the location page and pass the selected item's data
+		history.push(`/location/${item._id}`, { itemData: item });
+	};
+	const handleRestaurantClick = (item) => {
+		// Navigate to the restaurant page and pass the selected item's data
 		history.push(`/restaurant/${item._id}`, { itemData: item });
 	};
 
+	const handleHotelClick = (item) => {
+		// Navigate to the hotel page and pass the selected item's data
+		history.push(`/eachhotel/${item._id}`, { itemData: item });
+	};
 	const hotelsSectionRef = useRef(null);
 	const activitiesSectionRef = useRef(null);
 	const restaurantsSectionRef = useRef(null);
@@ -183,14 +191,18 @@ function Trips({ data, hotels, hotelRooms, restaurants, travels, tourGuides }) {
 						<div className='trip-image-container'>
 							<img className='trip-image' src={value.image} alt='Trip' />
 							<div className='trip-content'>
-								<div className='trip-content-text'>
-									<div className='horizontal-line'></div>
-									<p>
-										The variety of cities and destinations in Ethiopia that
-										await for you
-									</p>
-								</div>
-								<h1> {value.woreda} </h1>
+								<a onClick={() => handleLocationClick(value)}>
+									<div className='trip-content-text'>
+										<div className='horizontal-line'></div>
+										<p>
+											The variety of cities and destinations in Ethiopia that
+											await for you
+										</p>
+									</div>
+									<h1> {value.zone} </h1>
+									{/* <h1> {value.woreda} </h1> */}
+								</a>
+
 								<div className='trip-content-second'>
 									<div className='scroll-icons left-content'>
 										<BsArrowLeftCircle
@@ -302,12 +314,12 @@ function Trips({ data, hotels, hotelRooms, restaurants, travels, tourGuides }) {
 
 				<div className='hotel-card-container'>
 					<div className='hotel-card'>
-						{hotels.map((hotel) => {
+						{topHotel.map((hotel) => {
 							const hotelRoom = hotelRooms.filter(
 								(room) => room.hotel_id === hotel._id
 							);
 							return (
-								<div key={hotel._id} className='card'>
+								<a key={hotel._id} className='card' onClick={() => handleHotelClick(hotel)}>
 									<div className='image-container'>
 										<img
 											src={hotel.image}
@@ -361,7 +373,7 @@ function Trips({ data, hotels, hotelRooms, restaurants, travels, tourGuides }) {
 											</div>
 										</div>
 									)}
-								</div>
+								</a>
 							);
 						})}
 					</div>
@@ -395,7 +407,7 @@ function Trips({ data, hotels, hotelRooms, restaurants, travels, tourGuides }) {
 											className='search-item'
 											target=''
 											key={value._id}
-											onClick={() => handleItemClick(value)} // Call the handleItemClick function when the item is clicked
+											onClick={() => handleRestaurantClick(value)} // Call the handleRestaurantClick function when the item is clicked
 										>
 											{value.name}
 										</a>
@@ -431,7 +443,7 @@ function Trips({ data, hotels, hotelRooms, restaurants, travels, tourGuides }) {
 					{restaurants.map((restaurant, index) => {
 						if (index % 6 === 0) {
 							return (
-								<div className='single-column-container' key={restaurant._id}>
+								<a className='single-column-container' key={restaurant._id} onClick={() => handleRestaurantClick(restaurant)} >
 									<div className='restaurant-card'>
 										<div className='label'>Label</div>
 										<img src={restaurant.image} alt={restaurant.name} />
@@ -447,21 +459,21 @@ function Trips({ data, hotels, hotelRooms, restaurants, travels, tourGuides }) {
 											<p>{restaurants[index + 1].name}</p>
 										</div>
 									)}
-								</div>
+								</a>
 							);
 						} else if (index % 6 === 2) {
 							return (
-								<div className='column-container' key={restaurant._id}>
+								<a className='column-container' key={restaurant._id} onClick={() => handleRestaurantClick(restaurant)}>
 									<div className='restaurant-card third-card'>
 										<div className='label'>Label</div>
 										<img src={restaurant.image} alt={restaurant.name} />
 										<p>{restaurant.name}</p>
 									</div>
-								</div>
+								</a>
 							);
 						} else if (index % 6 === 5) {
 							return (
-								<div className='column-container' key={restaurant._id}>
+								<a className='column-container' key={restaurant._id} onClick={() => handleRestaurantClick(restaurant)}>
 									<div className='restaurant-card fourth-card'>
 										<div className='label'>Label</div>
 										<img src={restaurant.image} alt={restaurant.name} />
@@ -487,7 +499,7 @@ function Trips({ data, hotels, hotelRooms, restaurants, travels, tourGuides }) {
 											</div>
 										</div>
 									)}
-								</div>
+								</a>
 							);
 						} else {
 							return null;

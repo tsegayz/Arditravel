@@ -3,6 +3,7 @@ import { useHistory } from "react-router-dom";
 
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { MdTour } from "react-icons/md";
 
 import {
 	RiSearch2Line,
@@ -14,11 +15,11 @@ import { SiTwitter } from "react-icons/si";
 import { IoShieldCheckmarkSharp } from "react-icons/io5";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
-function Home({ data, explore, popular, footer }) {
-	const exploreSlice = popular.slice(0, 4);
-	const activitySlice = explore.slice(5, 11);
-
+function Home({ data, explore, activities, footer }) {
+	const planSlice = explore.slice(3, 9);
+	const trendSlice = activities.filter((item) => item.rating > 4.2);
 	const filterExplore = explore.filter((item) => item.review.rating > 4.2);
+
 	// filter method for the search bar
 	const [filteredPlaces, setFilteredPlaces] = useState([]);
 	const filterHandler = (e) => {
@@ -52,9 +53,7 @@ function Home({ data, explore, popular, footer }) {
 						onChange={filterHandler}
 					/>
 					<button className='search-icon'>
-						<RiSearch2Line
-							style={{ color: "rgb(247, 235, 221)", fontSize: "37px" }}
-						/>
+						<RiSearch2Line style={{ color: "black", fontSize: "37px" }} />
 					</button>
 				</div>
 			</div>
@@ -68,52 +67,64 @@ function Home({ data, explore, popular, footer }) {
 								key={value._id}
 								onClick={() => handleItemClick(value)} // Call the handleItemClick function when the item is clicked
 							>
-								{value.region}, {value.zone}
+								<div className='region-flag'>
+									<img className='flag-image' src={value.image} alt='' />
+								</div>
+								<div className='result-name'>
+									{value.region} <p> {value.zone} </p>
+								</div>
+								<div className='region-arrow'>
+									<FaChevronRight />
+								</div>
 							</a>
 						))}
 					</div>
 				)}
 			</div>
 
-			<div className='activity'>
-				<h1> Planing your next trip? </h1>
-				<p>
-					"Lorem dolor sit amet, consectetur adipiscing elit. Pellentesque vel
-					mi ut elit tempor aliquam eget eget enim . Proin cursus eleifend
-					pretium. Aliquam cursus " "Lorem dolor sit amet, consectetur
-					adipiscing elit. Pellentesque vel mi ut elit tempor aliquam eget eget
-					enim . Proin cursus eleifend pretium. Aliquam cursus " "Lorem dolor
-					sit amet, consectetur adipiscing elit. Pellentesque vel mi ut elit
-					tempor aliquam eget eget enim . Proin cursus eleifend pretium. Aliquam
-					cursus "
-				</p>
-				<div className='container-grid'>
-					{activitySlice.map((value, index) => {
-						const itemClassName = `item${index + 1}`; // Generate the CSS class name based on the index
-						return (
-							<div key={value._id} className={`container ${itemClassName}`}>
-								<div className='overlay'>
-									<img src={value.image} alt='Image' />
-									<div className='text-overlay'>
-										<h2>{value.name}</h2>
-										<p>{value.description}</p>
+			<div className='trend'>
+				<div className='title-container'>
+					<h1> Trending activities </h1>
+					<p> Explore the beauty of the country Ethiopia </p>
+				</div>
+
+				<div className='main-container'>
+					<div className='grid-container'>
+						{trendSlice.map((item) => (
+							<div className='grid-item' key={item._id}>
+								<a className='grid-items'>
+									<img className='cagridrd-image' src={item.image} alt='' />
+									<div className='grid-item-one'>
+										<p className='tour-icon'>
+											{" "}
+											<MdTour size={24} /> enjoyable activites{" "}
+										</p>
+										<h3>{item.name}</h3>
+										<p>{item.description}</p>
+										<div className='rating'>
+											{Array.from({ length: 5 }, (_, index) => {
+												const starRating = index + 0.5;
+												return (
+													<span key={index} className='star'>
+														{item.rating >= starRating ? "\u2605" : "\u2606"}
+													</span>
+												);
+											})}{" "}
+											{item.rating} Likes
+										</div>
 									</div>
-								</div>
+								</a>
 							</div>
-						);
-					})}
+						))}
+					</div>
 				</div>
 			</div>
+
 			<div className='popular-places'>
-				<h1>Most popular places to visit</h1>
+				<h1>Top destinations </h1>
 				<div className='popular-descr'>
 					"Lorem dolor sit amet, consectetur adipiscing elit. Pellentesque vel
-					mi ut elit tempor aliquam eget eget enim. Proin cursus eleifend
-					pretium. Aliquam cursus " "Lorem dolor sit amet, consectetur
-					adipiscing elit. Pellentesque vel mi ut elit tempor aliquam eget eget
-					enim. Proin cursus eleifend pretium. Aliquam cursus " Pellentesque vel
-					mi ut elit tempor aliquam eget eget enim. Proin cursus eleifend
-					pretium. Aliquam cursus "
+					mi ut elit tempor
 				</div>
 				<div className='category-card'>
 					<Carousel
@@ -125,7 +136,7 @@ function Home({ data, explore, popular, footer }) {
 						swipeable={true}
 						emulateTouch={true}
 						centerMode={true}
-						centerSlidePercentage={20}
+						centerSlidePercentage={16}
 						renderArrowPrev={(onClickHandler, hasPrev, label) =>
 							hasPrev && (
 								<button
@@ -152,34 +163,41 @@ function Home({ data, explore, popular, footer }) {
 						}
 					>
 						{filterExplore.map((value) => (
-							<div className='card-items' key={value._id}>
+							<a className='card-items' key={value._id}>
 								<img className='card-image' src={value.image} alt='' />
 								<div className='card-item-one'>
-									<h2>{value.name}</h2>
-									<p>{value.description}</p>
+									<h3>{value.name}</h3>
+									<p> Reviews: {value.review.description}</p>
 								</div>
-							</div>
+							</a>
 						))}
 					</Carousel>
 				</div>
 			</div>
-			<div className='explore'>
-				<div className='title-container'>
-					<h1>Explore the beauty of Ethiopia</h1>
-					<p>
-						"Lorem dolor sit amet, consectetur adipiscing elit. Pellentesque vel
-						mi ut elit tempor aliquam eget eget enim. Proin cursus eleifend
-						pretium. Aliquam cursus " Aliquam cursus " Aliquam
-					</p>
-				</div>
 
-				<div className='main-container'>
-					{exploreSlice.map((item) => (
-						<div className='container' key={item._id}>
-							<div className='box box1'></div>
-							<div className='box box2'>
-								<h2>{item.name}</h2>
-								<p>{item.description}</p>
+			<div className='plan'>
+				<h1> Planing your next trip? </h1>
+				<p>
+					Lorem dolor sit amet, consectetur adipiscing elit. Pellentesque vel mi
+					ut elit tempor aliquam eget eget enim . Proin cursus eleifend pretium.
+					Aliquam cursus
+				</p>
+				<div className='container-grid'>
+					{planSlice.map((item, index) => (
+						<div
+							className={`container-item ${
+								index < 2 ? "first-row" : "second-row"
+							}`}
+							key={item._id}
+						>
+							<div className='overlay'>
+								<div className='plan-container'>
+									<img className='card-image' src={item.image} />
+									<h2 className='card-title'>{item.name}</h2>
+								</div>
+								<div className='text-overlay'>
+									<p className='card-description'>{item.description}</p>
+								</div>
 							</div>
 						</div>
 					))}
