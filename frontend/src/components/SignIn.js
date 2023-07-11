@@ -1,9 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
 import Modal from "react-modal";
-
 import { useHistory } from "react-router-dom";
-
 import { HiChevronLeft } from "react-icons/hi";
 import { FaLock } from "react-icons/fa";
 
@@ -12,17 +10,22 @@ function SignIn() {
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 	const [showModal, setShowModal] = useState(false);
-
 	const [responseMessage, setResponseMessage] = useState("");
+	const [error, setError] = useState("");
 
 	const submit = async (e) => {
 		e.preventDefault();
 
+		// Clear previous error messages
+		setError("");
+		setResponseMessage("");
+
 		// Basic validation
 		if (!email || !password) {
-			setResponseMessage("Please fill in all the fields");
+			setError("Please fill in all the fields");
 			return;
 		}
+
 		try {
 			const response = await axios.post(
 				"http://localhost:5000/api/v1/users/login",
@@ -37,8 +40,14 @@ function SignIn() {
 			localStorage.setItem("token", response.data.token);
 			setShowModal(true);
 		} catch (error) {
-			console.log(error);
-			setResponseMessage("An error occurred");
+			if (error.response && error.response.status === 401) {
+				// Unauthorized: Incorrect username or password
+				setError("Incorrect username or password!");
+			} else {
+				// Other error
+				console.log(error);
+				setError("An error occurred");
+			}
 		}
 	};
 
@@ -69,6 +78,13 @@ function SignIn() {
 					</h1>
 				</div>
 				<form className='form'>
+					<span
+						className='error-message'
+						style={{ color: "white", fontSize: "14px", marginBottom: "20px", fontSize: '20px' }}
+					>
+						{error}
+					</span>
+
 					<div className='email-input-container'>
 						<label className='input-label' htmlFor='email-input'>
 							Email Address
@@ -77,10 +93,12 @@ function SignIn() {
 							<input
 								id='email-input'
 								type='email'
-								autocomplete='off'
+								autoComplete='off'
 								placeholder='Enter your email'
+								value={email}
 								onChange={(e) => {
 									setEmail(e.target.value);
+									setError(""); // Clear error on input change
 								}}
 							/>
 						</div>
@@ -93,10 +111,12 @@ function SignIn() {
 							<input
 								id='password-input'
 								type='password'
-								autocomplete='off'
+								autoComplete='off'
 								placeholder='Enter your password'
+								value={password}
 								onChange={(e) => {
 									setPassword(e.target.value);
+									setError(""); // Clear error on input change
 								}}
 							/>
 							<FaLock className='lock-icon' />

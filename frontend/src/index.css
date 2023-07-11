@@ -1400,7 +1400,6 @@ body {
 	border-radius: 30px;
 	z-index: 1;
 }
-
 .city-card-attraction .city-card-icon a {
 	font-size: 30px;
 	margin-left: -49px;
@@ -1408,10 +1407,8 @@ body {
 	position: relative;
 	z-index: 2;
 }
-
 .city-card-attraction .city-attraction {
 	list-style: none;
-	font-size: 23px;
 	display: flex;
 	flex-direction: column;
 	align-items: start;
@@ -1423,32 +1420,27 @@ body {
 	font-size: 30px;
 	margin-left: 8.5em;
 }
-
-.city-card-attraction .city-attraction {
-	list-style: none;
-	font-size: 23px;
-	display: flex;
-	flex-direction: column;
-	align-items: start;
-}
 .city-attraction-item {
 	margin-top: -20px;
 }
 .city-attraction-item h2 {
-	font-size: 20px;
+	font-size: 18px;
+	font-weight: 100;
 	margin-bottom: 0px;
 	color: white;
 }
 .city-attraction-item p {
-	font-size: 22px;
+	font-size: 18px;
 	margin-left: 10px;
+	margin-bottom: 15px;
 }
 .city-attraction .city-attraction-icon {
 	display: flex;
 	align-items: center;
-	font-size: 17px;
 }
-
+.scroll-loca {
+	margin-top: 30px;
+}
 /* ///////////////////// */
 
 .about-city {
@@ -1486,12 +1478,8 @@ body {
 	padding-left: 4.7em;
 	font-weight: 100;
 }
-
-.city-things-list {
-	height: 100%;
-}
 .city-things-container {
-	height: 60%;
+	height:550px;
 	width: 115em;
 	padding-right: 60px;
 }
@@ -1520,7 +1508,9 @@ body {
 	padding: 10px;
 	padding-left: 0px;
 	margin-right: 3em;
+	background-size: cover; /* Add this line */
 }
+
 
 .city-things-card::before {
 	content: "";
@@ -1563,7 +1553,7 @@ body {
 
 .city-things-desc h2 {
 	padding: 0;
-	font-size: 25px;
+	font-size: 20px;
 	margin-bottom: 10px;
 	margin-left: 14px;
 }
@@ -1615,6 +1605,7 @@ body {
 }
 
 .city-hotels-card {
+	position: relative;
 	border-radius: 20px;
 	display: inline-block;
 	height: 380px;
@@ -1624,7 +1615,7 @@ body {
 	padding: 10px;
 	padding-left: 0px;
 	margin-right: 3em;
-	position: relative;
+	background-size: cover; /* Add this line */
 }
 
 .city-hotels-card::before {
@@ -1668,7 +1659,7 @@ body {
 }
 .city-hotels-desc h2 {
 	padding: 0;
-	font-size: 25px;
+	font-size: 20px;
 	margin-bottom: 0;
 	margin-left: 14px;
 }
@@ -1730,6 +1721,7 @@ body {
 	padding: 10px;
 	padding-left: 0px;
 	margin-right: 3em;
+	background-size: cover; /* Add this line */
 }
 
 .city-restaurants-card::before {
@@ -1773,7 +1765,7 @@ body {
 
 .city-restaurants-desc h2 {
 	padding: 0;
-	font-size: 25px;
+	font-size: 20px;
 	margin-bottom: 10px;
 	margin-left: 14px;
 }

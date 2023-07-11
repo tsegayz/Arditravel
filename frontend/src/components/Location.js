@@ -1,14 +1,34 @@
 import { useLocation } from "react-router-dom";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { useHistory } from "react-router-dom";
 
 import { AiFillLike, AiOutlineLike } from "react-icons/ai";
-import { FiBookmark } from "react-icons/fi";
+import { FiBookmark, FiChevronLeft, FiChevronRight } from "react-icons/fi";
 import { MdOutlineFavoriteBorder } from "react-icons/md";
 
 function Location({ locations, activities, restaurants, hotels }) {
 	const location = useLocation();
 	const { itemData } = location.state;
+
+	const containerRef = useRef(null);
+
+	const scrollLeft = (sliderId) => {
+		const slider = document.getElementById(sliderId);
+		const scrollAmount = slider.scrollLeft - 200; // Adjust the scroll amount as needed
+		slider.scrollTo({
+			left: scrollAmount,
+			behavior: "smooth",
+		});
+	};
+
+	const scrollRight = (sliderId) => {
+		const slider = document.getElementById(sliderId);
+		const scrollAmount = slider.scrollLeft + 200; // Adjust the scroll amount as needed
+		slider.scrollTo({
+			left: scrollAmount,
+			behavior: "smooth",
+		});
+	};
 
 	const history = useHistory();
 	const handleRestaurantClick = (item) => {
@@ -101,7 +121,6 @@ function Location({ locations, activities, restaurants, hotels }) {
 						<li className='hotel-nav'>
 							<a onClick={handleHotelsClick}>Hotels</a>
 						</li>
-
 						<li className='hotel-nav'>
 							<a onClick={handleActivitiesClick}>Activities</a>
 						</li>
@@ -122,10 +141,10 @@ function Location({ locations, activities, restaurants, hotels }) {
 					</div>
 
 					<div className='city-card-list-container'>
-						<div className='city-card-list'>
-							<ul className='city-card-list-content'>
+						<div className='city-card-list' ref={containerRef}>
+							<div className='city-card-list-content' id='slider'>
 								{cityLocationData.map((item) => (
-									<li className='city-card-item'>
+									<div className='city-card-item'>
 										<div
 											className='city-card'
 											style={{
@@ -136,10 +155,9 @@ function Location({ locations, activities, restaurants, hotels }) {
 											<div className='city-card-attraction'>
 												<div className='city-card-icon'>
 													<a>
-														<FiBookmark />
+														<MdOutlineFavoriteBorder />
 													</a>
 												</div>
-
 												<div className='city-card-detail'>
 													<ul className='city-attraction'>
 														<li className='city-attraction-item'>
@@ -155,9 +173,37 @@ function Location({ locations, activities, restaurants, hotels }) {
 												</div>
 											</div>
 										</div>
-									</li>
+									</div>
 								))}
-							</ul>
+							</div>
+							<button
+								className='scroll-loca'
+								style={{
+									fontSize: "40px",
+									color: "green",
+									marginLeft: "10px",
+									borderRadius: "50%",
+								}}
+								onClick={() => scrollLeft("slider")}
+							>
+								<FiChevronLeft
+									style={{ fontSize: "40px", paddingTop: "5px" }}
+								/>
+							</button>
+							<button
+								className='scroll-loca'
+								style={{
+									fontSize: "40px",
+									color: "green",
+									marginLeft: "10px",
+									borderRadius: "50%",
+								}}
+								onClick={() => scrollRight("slider")}
+							>
+								<FiChevronRight
+									style={{ fontSize: "40px", paddingTop: "5px" }}
+								/>
+							</button>
 						</div>
 					</div>
 				</div>
@@ -178,41 +224,64 @@ function Location({ locations, activities, restaurants, hotels }) {
 				id='activities'
 			>
 				<h2>Things to do</h2>
-				<div className='city-things-list'>
-					<ul className='city-things-content'>
+
+				<div className='city-things-list' id='slider2'>
+					
+					<div className='city-things-content'>
 						{cityActivityData.map((newData) => (
-							<li key={newData._id}>
-								<div
-									className='city-things-card'
-									style={{ backgroundImage: `url(${newData.image})` }}
-								>
-									<button>
-										<MdOutlineFavoriteBorder style={{ color: "white" }} />
-									</button>
-									<ul className='city-things-desc'>
-										<h2 className='city-things-item'>{newData.name}</h2>
-										<h3 className='city-things-item'>
-											Price: $ {newData.price}
-										</h3>
-										<h3 className='city-things-item'>
-											<AiOutlineLike
-												fontSize={25}
-												style={{ marginRight: "8px" }}
-											/>
-											{newData.rating} likes
-										</h3>
-									</ul>
-								</div>
-							</li>
+							<div
+								key={newData._id}
+								className='city-things-card'
+								style={{ backgroundImage: `url(${newData.image})` }}
+							>
+								<button>
+									<MdOutlineFavoriteBorder style={{ color: "white" }} />
+								</button>
+								<ul className='city-things-desc'>
+									<h2 className='city-things-item'>{newData.name}</h2>
+									<h3 className='city-things-item'>Price: $ {newData.price}</h3>
+									<h3 className='city-things-item'>
+										<AiOutlineLike
+											fontSize={25}
+											style={{ marginRight: "8px" }}
+										/>
+										{newData.rating} likes
+									</h3>
+								</ul>
+							</div>
 						))}
-					</ul>
+					</div>
 				</div>
+				<button
+						className='scroll-thin scroll'
+						style={{
+							fontSize: "20px",
+							color: "green",
+							marginLeft: "10px",
+							borderRadius: "50%",
+						}}
+						onClick={() => scrollLeft("slider2")}
+					>
+						<FiChevronLeft style={{ fontSize: "40px", paddingTop: "5px" }} />
+					</button>
+					<button
+						className='scroll-thin scroll'
+						style={{
+							fontSize: "20px",
+							color: "green",
+							marginLeft: "10px",
+							borderRadius: "50%",
+						}}
+						onClick={() => scrollRight("slider2")}
+					>
+						<FiChevronRight style={{ fontSize: "40px", paddingTop: "5px" }} />
+					</button>
 			</div>
 
 			<div className='city-hotels-container' ref={hotelsSectionRef} id='hotels'>
 				<h2> Hotels </h2>
 				<h3> home of luxury </h3>
-				<div className='city-hotels-list'>
+				<div className='city-hotels-list' id='slider3'>
 					<ul className='city-hotels-content'>
 						{cityHotelData.map((item) => (
 							<a key={item._id} onClick={() => handleHotelClick(item)}>
@@ -237,6 +306,30 @@ function Location({ locations, activities, restaurants, hotels }) {
 							</a>
 						))}
 					</ul>
+					<button
+						className='scroll-hote'
+						style={{
+							fontSize: "20px",
+							color: "green",
+							marginLeft: "10px",
+							borderRadius: "50%",
+						}}
+						onClick={() => scrollLeft("slider3")}
+					>
+						<FiChevronLeft style={{ fontSize: "40px", paddingTop: "5px" }} />
+					</button>
+					<button
+						className='scroll-hote'
+						style={{
+							fontSize: "20px",
+							color: "green",
+							marginLeft: "10px",
+							borderRadius: "50%",
+						}}
+						onClick={() => scrollRight("slider3")}
+					>
+						<FiChevronRight style={{ fontSize: "40px", paddingTop: "5px" }} />
+					</button>
 				</div>
 			</div>
 
@@ -247,7 +340,7 @@ function Location({ locations, activities, restaurants, hotels }) {
 			>
 				<h2> Resturants </h2>
 				<h3> Enjoy your meals </h3>
-				<div className='city-restaurants-list'>
+				<div className='city-restaurants-list' id='slider4'>
 					<ul className='city-restaurants-content'>
 						{cityRestaurantData.map((item) => (
 							<a key={item._id} onClick={() => handleRestaurantClick(item)}>
@@ -265,6 +358,30 @@ function Location({ locations, activities, restaurants, hotels }) {
 							</a>
 						))}
 					</ul>
+					<button
+						className='scroll-rest'
+						style={{
+							fontSize: "20px",
+							color: "green",
+							marginLeft: "10px",
+							borderRadius: "50%",
+						}}
+						onClick={() => scrollLeft("slider4")}
+					>
+						<FiChevronLeft style={{ fontSize: "40px", paddingTop: "5px" }} />
+					</button>
+					<button
+						className='scroll-rest'
+						style={{
+							fontSize: "20px",
+							color: "green",
+							marginLeft: "10px",
+							borderRadius: "50%",
+						}}
+						onClick={() => scrollRight("slider4")}
+					>
+						<FiChevronRight style={{ fontSize: "40px", paddingTop: "5px" }} />
+					</button>
 				</div>
 			</div>
 
