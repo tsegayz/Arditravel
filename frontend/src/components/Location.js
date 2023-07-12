@@ -14,7 +14,7 @@ function Location({ locations, activities, restaurants, hotels }) {
 
 	const containerRef = useRef(null);
 
-	////////////////////////////
+	//////////////////b//////////
 	const [isLoggedIn, setIsLoggedIn] = useState(false);
 	const [isFavorite, setIsFavorite] = useState(false);
 	const [showLoginModal, setShowLoginModal] = useState(false);
