@@ -1,10 +1,12 @@
 import { useLocation } from "react-router-dom";
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
+import Modal from "react-modal";
 
 import { AiFillLike, AiOutlineLike } from "react-icons/ai";
-import { FiBookmark, FiChevronLeft, FiChevronRight } from "react-icons/fi";
+import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 import { MdOutlineFavoriteBorder } from "react-icons/md";
+import { MdFavorite, MdFavoriteBorder } from "react-icons/md";
 
 function Location({ locations, activities, restaurants, hotels }) {
 	const location = useLocation();
@@ -12,6 +14,29 @@ function Location({ locations, activities, restaurants, hotels }) {
 
 	const containerRef = useRef(null);
 
+	////////////////////////////
+	const [isLoggedIn, setIsLoggedIn] = useState(false);
+	const [isFavorite, setIsFavorite] = useState(false);
+	const [showLoginModal, setShowLoginModal] = useState(false);
+
+	const handleFavoriteClick = () => {
+		if (isLoggedIn) {
+			setIsFavorite((prevIsFavorite) => !prevIsFavorite);
+		} else {
+			setShowLoginModal(true);
+		}
+	};
+
+	const handleLogin = () => {
+		history.push(`/signin`);
+		setShowLoginModal(false);
+	};
+
+	const closeModal = () => {
+		setShowLoginModal(false);
+		history.push(`/location/:itemId`); // Redirect to the home page after the modal is closed
+	};
+	// //////////////////////////////////////////////
 	const scrollLeft = (sliderId) => {
 		const slider = document.getElementById(sliderId);
 		const scrollAmount = slider.scrollLeft - 200; // Adjust the scroll amount as needed
@@ -139,7 +164,6 @@ function Location({ locations, activities, restaurants, hotels }) {
 							<p>Splendid weekend on splendid city</p>
 						</div>
 					</div>
-
 					<div className='city-card-list-container'>
 						<div className='city-card-list' ref={containerRef}>
 							<div className='city-card-list-content' id='slider'>
@@ -154,9 +178,31 @@ function Location({ locations, activities, restaurants, hotels }) {
 										>
 											<div className='city-card-attraction'>
 												<div className='city-card-icon'>
-													<a>
-														<MdOutlineFavoriteBorder />
-													</a>
+													<button onClick={handleFavoriteClick}>
+														{isFavorite ? (
+															<MdFavorite style={{ color: "red" }} />
+														) : (
+															<MdFavoriteBorder style={{ color: "white" }} />
+														)}
+													</button>
+													<Modal
+														isOpen={showLoginModal}
+														onRequestClose={closeModal}
+														contentLabel='Login Modal'
+														className='modal'
+														overlayClassName='modal-overlay'
+													>
+														<div className='modal-content'>
+															<h2>Login Required</h2>
+															<p>Please log in to favorite this card.</p>
+															<button
+																className='modal-button'
+																onClick={handleLogin}
+															>
+																Log In
+															</button>
+														</div>
+													</Modal>
 												</div>
 												<div className='city-card-detail'>
 													<ul className='city-attraction'>
@@ -226,7 +272,6 @@ function Location({ locations, activities, restaurants, hotels }) {
 				<h2>Things to do</h2>
 
 				<div className='city-things-list' id='slider2'>
-					
 					<div className='city-things-content'>
 						{cityActivityData.map((newData) => (
 							<div
@@ -252,30 +297,6 @@ function Location({ locations, activities, restaurants, hotels }) {
 						))}
 					</div>
 				</div>
-				<button
-						className='scroll-thin scroll'
-						style={{
-							fontSize: "20px",
-							color: "green",
-							marginLeft: "10px",
-							borderRadius: "50%",
-						}}
-						onClick={() => scrollLeft("slider2")}
-					>
-						<FiChevronLeft style={{ fontSize: "40px", paddingTop: "5px" }} />
-					</button>
-					<button
-						className='scroll-thin scroll'
-						style={{
-							fontSize: "20px",
-							color: "green",
-							marginLeft: "10px",
-							borderRadius: "50%",
-						}}
-						onClick={() => scrollRight("slider2")}
-					>
-						<FiChevronRight style={{ fontSize: "40px", paddingTop: "5px" }} />
-					</button>
 			</div>
 
 			<div className='city-hotels-container' ref={hotelsSectionRef} id='hotels'>
@@ -306,30 +327,6 @@ function Location({ locations, activities, restaurants, hotels }) {
 							</a>
 						))}
 					</ul>
-					<button
-						className='scroll-hote'
-						style={{
-							fontSize: "20px",
-							color: "green",
-							marginLeft: "10px",
-							borderRadius: "50%",
-						}}
-						onClick={() => scrollLeft("slider3")}
-					>
-						<FiChevronLeft style={{ fontSize: "40px", paddingTop: "5px" }} />
-					</button>
-					<button
-						className='scroll-hote'
-						style={{
-							fontSize: "20px",
-							color: "green",
-							marginLeft: "10px",
-							borderRadius: "50%",
-						}}
-						onClick={() => scrollRight("slider3")}
-					>
-						<FiChevronRight style={{ fontSize: "40px", paddingTop: "5px" }} />
-					</button>
 				</div>
 			</div>
 
@@ -358,30 +355,6 @@ function Location({ locations, activities, restaurants, hotels }) {
 							</a>
 						))}
 					</ul>
-					<button
-						className='scroll-rest'
-						style={{
-							fontSize: "20px",
-							color: "green",
-							marginLeft: "10px",
-							borderRadius: "50%",
-						}}
-						onClick={() => scrollLeft("slider4")}
-					>
-						<FiChevronLeft style={{ fontSize: "40px", paddingTop: "5px" }} />
-					</button>
-					<button
-						className='scroll-rest'
-						style={{
-							fontSize: "20px",
-							color: "green",
-							marginLeft: "10px",
-							borderRadius: "50%",
-						}}
-						onClick={() => scrollRight("slider4")}
-					>
-						<FiChevronRight style={{ fontSize: "40px", paddingTop: "5px" }} />
-					</button>
 				</div>
 			</div>
 
