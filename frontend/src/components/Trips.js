@@ -165,7 +165,11 @@ function Trips({ data, hotels, hotelRooms, restaurants, travels, tourGuides }) {
 	const toggleDropdown = () => {
 		setIsDropdownOpen(!isDropdownOpen);
 	};
-
+	const handleLogout = () => {
+		localStorage.removeItem("user");
+		window.location.href = "/";
+	  };
+	
 	useEffect(() => {
 		const storedUser = localStorage.getItem("user");
 		if (storedUser) {
@@ -192,9 +196,31 @@ function Trips({ data, hotels, hotelRooms, restaurants, travels, tourGuides }) {
 				</ul>
 				{user ? (
 					<div className='dropdown'>
-						<button className='dropdown-toggle' onClick={toggleDropdown}>
-							{user.name} <FaChevronDown style={{ paddingLeft: "8px" }} />
-						</button>
+						<button
+								className='dropdown-toggle'
+								onClick={toggleDropdown}
+								style={{ display: "flex", alignItems: "center" }}
+							>
+								<div
+									style={{
+										width: "50px",
+										height: "50px",
+										borderRadius: "50%",
+										background: "#1e3942",
+										marginRight: "8px",
+										marginBottom: '5px',
+										padding: '20px',
+										display: "flex",
+										alignItems: "center",
+										justifyContent: "center",
+									}}
+								>
+									<span style={{ fontWeight: "bold", fontSize: '30px', color: 'white' }}>
+										{user.name.charAt(0)}
+									</span>
+								</div>
+								<FaChevronDown style={{ marginLeft: "auto", fontSize: '20px' }} />
+							</button>
 						{isDropdownOpen && (
 							<ul className='dropdown-menu'>
 								<li>

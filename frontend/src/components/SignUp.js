@@ -39,12 +39,13 @@ function SignUp() {
 				}
 			);
 
-			// Set responseMessage with the desired string value
-			setResponseMessage(response.data.status);
+			const userData = response.data.data.user;
+			localStorage.setItem("user", JSON.stringify(userData));
 
+			setResponseMessage(response.data.status);
 			setShowModal(true);
+
 		} catch (error) {
-			console.log(error);
 			setResponseMessage("An error occurred");
 		}
 	};

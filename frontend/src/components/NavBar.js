@@ -17,15 +17,14 @@ function NavBar({ userName }) {
 				setUser(parsedUser);
 			} catch (error) {
 				console.error("Error parsing user data from local storage:", error);
-   			}
+			}
 		}
 	}, []);
 
 	const handleLogout = () => {
 		localStorage.removeItem("user");
 		window.location.href = "/";
-	  };
-	  
+	};
 
 	return (
 		<div className='navbar'>
@@ -43,10 +42,34 @@ function NavBar({ userName }) {
 						<a href='/trips'>Trips</a>
 					</li>
 					{user ? (
-						<li className='dropdown'>
-							<button className='dropdown-toggle' onClick={toggleDropdown}>
-								{user.name} <FaChevronDown style={{ paddingLeft: "8px" }} />
+						<div className='dropdown'>
+							<button
+								className='dropdown-toggle'
+								onClick={toggleDropdown}
+								style={{ display: "flex", alignItems: "center" }}
+							>
+								<div
+									style={{
+										width: "50px",
+										height: "50px",
+										borderRadius: "50%",
+										background: "#1e3942",
+										marginRight: "8px",
+										marginLeft: '10px',
+										marginTop: '10px',
+										padding: '20px',
+										display: "flex",
+										alignItems: "center",
+										justifyContent: "center",
+									}}
+								>
+									<span style={{ fontWeight: "bold", fontSize: '30px', color: 'white' }}>
+										{user.name.charAt(0)}
+									</span>
+								</div>
+								<FaChevronDown style={{ marginTop: "15px", fontSize: '20px' }} />
 							</button>
+
 							{isDropdownOpen && (
 								<ul className='dropdown-menu'>
 									<li>
@@ -57,7 +80,7 @@ function NavBar({ userName }) {
 									</li>
 								</ul>
 							)}
-						</li>
+						</div>
 					) : (
 						<li>
 							<a href='/signin'>
