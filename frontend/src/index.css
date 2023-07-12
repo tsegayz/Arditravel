@@ -32,7 +32,7 @@ body {
 }
 .menu li {
 	margin: 0 20px;
-	padding: 25px 10px;
+	padding: 25px 0px;
 	padding-top: 20px;
 }
 .menu li a {
@@ -54,6 +54,55 @@ body {
 	transition: all 0.4s;
 	background-color: #25434dc7;
 }
+.dropdown {
+	position: relative;
+}
+.dropdown-toggle {
+	display: flex;
+	align-items: center;
+	background: none;
+	border: none;
+	cursor: pointer;
+	padding: 0;
+	color: #25434d;
+	font-size: 24px;
+	font-family: 'Times New Roman', Times, serif;
+}
+.dropdown-toggle:focus {
+	outline: none;
+}
+.dropdown-menu {
+	position: absolute;
+	top: 100%;
+	left: 0;
+	width: 8.5em;
+	background-color: #fff;
+	border: 1px solid #ccc;
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+	margin-top: -20px;
+	display: flex;
+	flex-direction: column;
+}
+.dropdown-menu li {
+	padding: 10px;
+}
+.dropdown-menu li a {
+	color: #25434d;
+	font-size: 20px;
+	font-family: 'Times New Roman', Times, serif;
+	text-decoration: none;
+}
+.dropdown-menu li button{
+	background-color: transparent;
+	border: none;
+	color: #25434d;
+	font-size: 20px;
+	font-family: 'Times New Roman', Times, serif;
+	text-decoration: none;
+	padding: 0;
+}
 .logo {
 	display: flex;
 	align-items: center;
@@ -69,6 +118,66 @@ body {
 .logo h1 span {
 	font-size: 73px;
 }
+
+
+/* profile */
+.profile-page {
+	background-color: #1d252c;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+  }
+  
+  .profile-card {
+	position: relative;
+	text-align: center;
+	padding: 30px;
+	border-radius: 8px;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .profile-image {
+	width: 250px;
+	height: 250px;
+	background-color: #ccc;
+	border: 10px rgb(61, 61, 61) solid;
+	border-radius: 50%;
+	margin: 0 auto 20px;
+  }
+  
+  .profile-name {
+	margin: 0;
+	color: #ffffff;
+	font-size: 45px;
+  }
+  
+  .profile-email {
+	margin: 0;
+	color: #ffffff;
+	font-size: 26px;
+  }
+  
+  .logout-button {
+	position: absolute;
+	bottom: -20px;
+	left: 50%;
+	transform: translateX(-50%);
+	padding: 10px 20px;
+	background-color: #df554b;
+	color: #fff;
+	border: none;
+	border-radius: 4px;
+	font-size: 16px;
+	cursor: pointer;
+  }
+  
+  .logout-button:hover {
+	background-color: #d32f2f;
+  }
+
+
+/* ////////// */
 
 .home .background {
 	width: 94em;
@@ -511,8 +620,8 @@ body {
 }
 
 /* ////////////////// */
-.home footer{
-	margin-top:150px;
+.home footer {
+	margin-top: 150px;
 	background-color: #072224e1;
 }
 
@@ -627,7 +736,7 @@ body {
 	position: absolute;
 	z-index: 1;
 	display: flex;
-	overflow: hidden; 
+	overflow: hidden;
 	width: 100%;
 	align-items: center;
 	margin-top: -107px;
@@ -646,7 +755,7 @@ body {
 	width: 100%;
 	align-items: center;
 	justify-content: space-between;
-	padding: 0px 80em 0px 80px; 
+	padding: 0px 80em 0px 80px;
 	font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
 		"Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 	color: rgb(255, 255, 255);
@@ -985,7 +1094,7 @@ body {
 }
 .hotel-social:hover {
 	background-color: #0a2829b6;
-	border-color: #0a2829b6 ;
+	border-color: #0a2829b6;
 }
 .hotel-social:hover a svg {
 	fill: white !important;
@@ -1004,7 +1113,7 @@ body {
 	position: absolute;
 	z-index: 1;
 	display: flex;
-	overflow: hidden; 
+	overflow: hidden;
 	width: 100%;
 	align-items: center;
 	margin-top: 0px;
@@ -1220,7 +1329,7 @@ body {
 	left: 0;
 	right: 0;
 	bottom: 0;
-	background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+	background-color: rgba(0, 0, 0, 0.185); /* Semi-transparent background */
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -1255,6 +1364,15 @@ body {
 
 .modal button:hover {
 	background-color: #2a6c6d;
+}
+
+.modal-overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 2;
 }
 
 /* ////////////////////////////////// */
@@ -1400,11 +1518,12 @@ body {
 	border-radius: 30px;
 	z-index: 1;
 }
-.city-card-attraction .city-card-icon a {
+.city-card-attraction .city-card-icon button {
 	font-size: 30px;
 	margin-left: -49px;
-	color: white;
+	background-color: transparent;
 	position: relative;
+	border: none;
 	z-index: 2;
 }
 .city-card-attraction .city-attraction {
@@ -1479,7 +1598,7 @@ body {
 	font-weight: 100;
 }
 .city-things-container {
-	height:550px;
+	height: 550px;
 	width: 115em;
 	padding-right: 60px;
 }
@@ -1510,7 +1629,6 @@ body {
 	margin-right: 3em;
 	background-size: cover; /* Add this line */
 }
-
 
 .city-things-card::before {
 	content: "";
@@ -1817,7 +1935,7 @@ body {
 /* signin page */
 .sign {
 	background: linear-gradient(to right bottom, #072224, #1d47499a);
-	height: 60em;
+	height: 62em;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -2799,11 +2917,11 @@ body {
 	z-index: 1;
 }
 
-.restaurants  .hotels-nav {
+.restaurants .hotels-nav {
 	position: absolute;
 	z-index: 1;
 	display: flex;
-	overflow: hidden; 
+	overflow: hidden;
 	width: 100%;
 	align-items: center;
 	margin-top: 0px;

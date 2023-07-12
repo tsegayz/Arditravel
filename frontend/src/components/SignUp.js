@@ -1,9 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
 import Modal from "react-modal";
-
 import { useHistory } from "react-router-dom";
-
 import { HiChevronLeft } from "react-icons/hi";
 import { FaLock } from "react-icons/fa";
 
@@ -12,9 +10,8 @@ function SignUp() {
 	const [name, setName] = useState("");
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
-	const [passwordConfirm, setpasswordConfirm] = useState("");
+	const [passwordConfirm, setPasswordConfirm] = useState("");
 	const [showModal, setShowModal] = useState(false);
-
 	const [responseMessage, setResponseMessage] = useState("");
 
 	const submit = async (e) => {
@@ -23,6 +20,11 @@ function SignUp() {
 		// Basic validation
 		if (!name || !email || !password || !passwordConfirm) {
 			setResponseMessage("Please fill in all the fields");
+			return;
+		}
+		// Check if passwords match
+		if (password !== passwordConfirm) {
+			setResponseMessage("Password and confirm password do not match!");
 			return;
 		}
 
@@ -37,9 +39,10 @@ function SignUp() {
 				}
 			);
 
-			setResponseMessage(response.data);
-			setShowModal(true);
+			// Set responseMessage with the desired string value
+			setResponseMessage(response.data.status);
 
+			setShowModal(true);
 		} catch (error) {
 			console.log(error);
 			setResponseMessage("An error occurred");
@@ -67,6 +70,13 @@ function SignUp() {
 					</h1>
 				</div>
 				<form className='form'>
+					<span
+						className='error-message'
+						style={{ color: "white", marginBottom: "20px", fontSize: "16px" }}
+					>
+						{responseMessage}
+					</span>
+
 					<div className='name-input-container'>
 						<label className='input-label' htmlFor='name-input'>
 							Full Name
@@ -77,8 +87,10 @@ function SignUp() {
 								type='text'
 								autoComplete='off'
 								placeholder='enter your full name'
+								value={name}
 								onChange={(e) => {
 									setName(e.target.value);
+									setResponseMessage(""); // Clear error message on input change
 								}}
 							/>
 						</div>
@@ -93,8 +105,10 @@ function SignUp() {
 								type='email'
 								autoComplete='off'
 								placeholder='enter your email'
+								value={email}
 								onChange={(e) => {
 									setEmail(e.target.value);
+									setResponseMessage(""); // Clear error message on input change
 								}}
 							/>
 						</div>
@@ -109,24 +123,28 @@ function SignUp() {
 								type='password'
 								autoComplete='off'
 								placeholder='enter your password'
+								value={password}
 								onChange={(e) => {
 									setPassword(e.target.value);
+									setResponseMessage(""); // Clear error message on input change
 								}}
 							/>
 						</div>
 					</div>
 					<div className='password-input-container'>
-						<label className='input-label' htmlFor='password-input'>
+						<label className='input-label' htmlFor='passwordConfirm-input'>
 							Confirm Password
 						</label>
 						<div className='password-input-wrapper'>
 							<input
-								id='passwordConfirm-input' // Make sure the id matches
+								id='passwordConfirm-input'
 								type='password'
 								autoComplete='off'
 								placeholder='confirm your password'
+								value={passwordConfirm}
 								onChange={(e) => {
-									setpasswordConfirm(e.target.value); // Make sure this is correctly assigned
+									setPasswordConfirm(e.target.value);
+									setResponseMessage(""); // Clear error message on input change
 								}}
 							/>
 							<FaLock className='lock-icon' />

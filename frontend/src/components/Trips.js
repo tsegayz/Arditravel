@@ -1,4 +1,4 @@
-import { FaChevronLeft, FaChevronRight, FaBed, FaHotel } from "react-icons/fa";
+import { FaChevronLeft, FaChevronRight, FaBed, FaHotel, FaChevronDown } from "react-icons/fa";
 import {
 	GiBinoculars,
 	GiCampCookingPot,
@@ -17,7 +17,7 @@ import {
 import { RiSearch2Line } from "react-icons/ri";
 import { useRef } from "react";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 
 function Trips({ data, hotels, hotelRooms, restaurants, travels, tourGuides }) {
@@ -159,6 +159,20 @@ function Trips({ data, hotels, hotelRooms, restaurants, travels, tourGuides }) {
 		});
 	};
 
+	const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+	const [user, setUser] = useState(null);
+
+	const toggleDropdown = () => {
+		setIsDropdownOpen(!isDropdownOpen);
+	};
+
+	useEffect(() => {
+		const storedUser = localStorage.getItem("user");
+		if (storedUser) {
+			setUser(JSON.parse(storedUser));
+		}
+	}, []);
+
 	return (
 		<div className='trips'>
 			<nav class='navbar'>
@@ -176,14 +190,32 @@ function Trips({ data, hotels, hotelRooms, restaurants, travels, tourGuides }) {
 						<a href='/'>Home</a>
 					</li>
 				</ul>
-				<div>
-					<a href='/signin'>
-						<button class='login-btn'>Login</button>
-					</a>
-					<a href='/signup'>
-						<button class='signup-btn'>Sign Up</button>
-					</a>
-				</div>
+				{user ? (
+					<div className='dropdown'>
+						<button className='dropdown-toggle' onClick={toggleDropdown}>
+							{user.name} <FaChevronDown style={{ paddingLeft: "8px" }} />
+						</button>
+						{isDropdownOpen && (
+							<ul className='dropdown-menu'>
+								<li>
+									<a href='/profile'>Profile</a>
+								</li>
+								<li>
+									<button onClick={handleLogout}>Logout</button>
+								</li>
+							</ul>
+						)}
+					</div>
+				) : (
+					<div>
+						<a href='/signin'>
+							<button class='login-btn'>Login</button>
+						</a>
+						<a href='/signup'>
+							<button class='signup-btn'>Sign Up</button>
+						</a>
+					</div>
+				)}
 			</nav>
 			<div className='country-trips' id='slider'>
 				{dataSlice.map((value) => (
@@ -319,7 +351,11 @@ function Trips({ data, hotels, hotelRooms, restaurants, travels, tourGuides }) {
 								(room) => room.hotel_id === hotel._id
 							);
 							return (
-								<a key={hotel._id} className='card' onClick={() => handleHotelClick(hotel)}>
+								<a
+									key={hotel._id}
+									className='card'
+									onClick={() => handleHotelClick(hotel)}
+								>
 									<div className='image-container'>
 										<img
 											src={hotel.image}
@@ -443,7 +479,11 @@ function Trips({ data, hotels, hotelRooms, restaurants, travels, tourGuides }) {
 					{restaurants.map((restaurant, index) => {
 						if (index % 6 === 0) {
 							return (
-								<a className='single-column-container' key={restaurant._id} onClick={() => handleRestaurantClick(restaurant)} >
+								<a
+									className='single-column-container'
+									key={restaurant._id}
+									onClick={() => handleRestaurantClick(restaurant)}
+								>
 									<div className='restaurant-card'>
 										<div className='label'>Label</div>
 										<img src={restaurant.image} alt={restaurant.name} />
@@ -463,7 +503,11 @@ function Trips({ data, hotels, hotelRooms, restaurants, travels, tourGuides }) {
 							);
 						} else if (index % 6 === 2) {
 							return (
-								<a className='column-container' key={restaurant._id} onClick={() => handleRestaurantClick(restaurant)}>
+								<a
+									className='column-container'
+									key={restaurant._id}
+									onClick={() => handleRestaurantClick(restaurant)}
+								>
 									<div className='restaurant-card third-card'>
 										<div className='label'>Label</div>
 										<img src={restaurant.image} alt={restaurant.name} />
@@ -473,7 +517,11 @@ function Trips({ data, hotels, hotelRooms, restaurants, travels, tourGuides }) {
 							);
 						} else if (index % 6 === 5) {
 							return (
-								<a className='column-container' key={restaurant._id} onClick={() => handleRestaurantClick(restaurant)}>
+								<a
+									className='column-container'
+									key={restaurant._id}
+									onClick={() => handleRestaurantClick(restaurant)}
+								>
 									<div className='restaurant-card fourth-card'>
 										<div className='label'>Label</div>
 										<img src={restaurant.image} alt={restaurant.name} />

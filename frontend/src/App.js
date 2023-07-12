@@ -15,6 +15,7 @@ import Location from "./components/Location";
 import Restaurant from "./components/Restaurant";
 
 import footerList from "./db.json";
+import Profile from "./components/Profile";
 
 function App() {
 	const [locationType, setLocationType] = useState([]);
@@ -126,6 +127,9 @@ function App() {
 						</Route>
 						<Route exact path='/restaurant/:itemId'>
 							<Restaurant restaurants={restaurant} meals={meal} />
+						</Route>
+						<Route exact path={'/profile'}>
+							<Profile/>
 						</Route>
 					</Switch>
 				</div>
