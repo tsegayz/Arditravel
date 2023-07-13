@@ -40,7 +40,7 @@ function HotelEach({ hotelRooms }) {
 				return;
 			}
 
-			console.log(location.state.itemData._id);
+			// console.log(location.state.itemData._id);
 			const room_id = filteredRooms[0]._id; // Assuming there's only one room available for the specified criteria
 
 			const axiosConfig = {
