@@ -1,4 +1,10 @@
-import { FaChevronLeft, FaChevronRight, FaBed, FaHotel, FaChevronDown } from "react-icons/fa";
+import {
+	FaChevronLeft,
+	FaChevronRight,
+	FaBed,
+	FaHotel,
+	FaChevronDown,
+} from "react-icons/fa";
 import {
 	GiBinoculars,
 	GiCampCookingPot,
@@ -13,7 +19,8 @@ import {
 	BsArrowLeftCircle,
 	BsInfoCircleFill,
 } from "react-icons/bs";
-
+import Modal from "react-modal";
+import { MdFavorite, MdFavoriteBorder } from "react-icons/md";
 import { RiSearch2Line } from "react-icons/ri";
 import { useRef } from "react";
 
@@ -25,6 +32,50 @@ function Trips({ data, hotels, hotelRooms, restaurants, travels, tourGuides }) {
 	const topHotel = hotels.filter((item) => item.rating > 4.6);
 	const [filteredRestaurants, setfilteredRestaurants] = useState([]);
 
+	// ////////////////////////
+	const [isLoggedIn, setIsLoggedIn] = useState(false);
+	const [showLoginModal, setShowLoginModal] = useState(false);
+	const [likedItems, setLikedItems] = useState(new Set());
+
+	const handleFavoriteClick = (itemId) => {
+		if (isLoggedIn) {
+			setLikedItems((prevLikedItems) => {
+				const updatedLikedItems = new Set(prevLikedItems);
+				if (updatedLikedItems.has(itemId)) {
+					updatedLikedItems.delete(itemId);
+				} else {
+					updatedLikedItems.add(itemId);
+				}
+				return updatedLikedItems;
+			});
+		} else {
+			setShowLoginModal(true);
+		}
+	};
+	useEffect(() => {
+		const storedUser = localStorage.getItem("user");
+		if (storedUser) {
+			try {
+				const parsedUser = JSON.parse(storedUser);
+				setUser(parsedUser);
+				setIsLoggedIn(true);
+			} catch (error) {
+				console.error("Error parsing user data from local storage:", error);
+			}
+		}
+	}, []);
+
+	const handleLogin = () => {
+		history.push(`/signin`);
+		setShowLoginModal(false);
+	};
+
+	const closeModal = () => {
+		setShowLoginModal(false);
+		history.push(`/location/:itemId`); // Redirect to the home page after the modal is closed
+	};
+
+	// ///////////////////////////
 	const filterHandler = (e) => {
 		const searchWord = e.target.value;
 		const newFilter = restaurants.filter((value) => {
@@ -168,14 +219,7 @@ function Trips({ data, hotels, hotelRooms, restaurants, travels, tourGuides }) {
 	const handleLogout = () => {
 		localStorage.removeItem("user");
 		window.location.href = "/";
-	  };
-	
-	useEffect(() => {
-		const storedUser = localStorage.getItem("user");
-		if (storedUser) {
-			setUser(JSON.parse(storedUser));
-		}
-	}, []);
+	};
 
 	return (
 		<div className='trips'>
@@ -197,30 +241,36 @@ function Trips({ data, hotels, hotelRooms, restaurants, travels, tourGuides }) {
 				{user ? (
 					<div className='dropdown'>
 						<button
-								className='dropdown-toggle'
-								onClick={toggleDropdown}
-								style={{ display: "flex", alignItems: "center" }}
+							className='dropdown-toggle'
+							onClick={toggleDropdown}
+							style={{ display: "flex", alignItems: "center" }}
+						>
+							<div
+								style={{
+									width: "50px",
+									height: "50px",
+									borderRadius: "50%",
+									background: "#1e3942",
+									marginRight: "8px",
+									marginBottom: "5px",
+									padding: "20px",
+									display: "flex",
+									alignItems: "center",
+									justifyContent: "center",
+								}}
 							>
-								<div
+								<span
 									style={{
-										width: "50px",
-										height: "50px",
-										borderRadius: "50%",
-										background: "#1e3942",
-										marginRight: "8px",
-										marginBottom: '5px',
-										padding: '20px',
-										display: "flex",
-										alignItems: "center",
-										justifyContent: "center",
+										fontWeight: "bold",
+										fontSize: "30px",
+										color: "white",
 									}}
 								>
-									<span style={{ fontWeight: "bold", fontSize: '30px', color: 'white' }}>
-										{user.name.charAt(0)}
-									</span>
-								</div>
-								<FaChevronDown style={{ marginLeft: "auto", fontSize: '20px' }} />
-							</button>
+									{user.name.charAt(0)}
+								</span>
+							</div>
+							<FaChevronDown style={{ marginLeft: "auto", fontSize: "20px" }} />
+						</button>
 						{isDropdownOpen && (
 							<ul className='dropdown-menu'>
 								<li>
@@ -377,11 +427,7 @@ function Trips({ data, hotels, hotelRooms, restaurants, travels, tourGuides }) {
 								(room) => room.hotel_id === hotel._id
 							);
 							return (
-								<a
-									key={hotel._id}
-									className='card'
-									onClick={() => handleHotelClick(hotel)}
-								>
+								<div key={hotel._id} className='card'>
 									<div className='image-container'>
 										<img
 											src={hotel.image}
@@ -394,48 +440,72 @@ function Trips({ data, hotels, hotelRooms, restaurants, travels, tourGuides }) {
 									</div>
 									<div className='title-container'>
 										<h3 className='title'>{hotel.name} </h3>
-										<GrFavorite className='favorite-icon' />
+										<button onClick={() => handleFavoriteClick(hotel._id)}>
+											{likedItems.has(hotel._id) ? (
+												<MdFavorite style={{ color: "red" }} />
+											) : (
+												<MdFavoriteBorder style={{ color: "red" }} />
+											)}
+										</button>
+										<Modal
+											isOpen={showLoginModal}
+											onRequestClose={closeModal}
+											contentLabel='Login Modal'
+											className='modal'
+											overlayClassName='modal-overlay'
+										>
+											<div className='modal-content'>
+												<h2>Login Required</h2>
+												<p>Please log in to favorite this card.</p>
+												<button className='modal-button' onClick={handleLogin}>
+													Log In
+												</button>
+											</div>
+										</Modal>
 									</div>
-									{hotelRoom.length > 0 && (
-										<div className='room-info'>
-											<div className='room-info-one'>
-												<div>
-													<p>Room type: {hotelRoom[0].type}</p>
-													<h4>${hotelRoom[0].price}.00</h4>
+
+									<a onClick={() => handleHotelClick(hotel)}>
+										{hotelRoom.length > 0 && (
+											<div className='room-info'>
+												<div className='room-info-one'>
+													<div>
+														<p>Room type: {hotelRoom[0].type}</p>
+														<h4>${hotelRoom[0].price}.00</h4>
+													</div>
+													<p className='room-info-p'>
+														<GrLike
+															style={{
+																fontSize: "22px",
+																marginRight: "4px",
+															}}
+														/>
+														{hotel.rating} likes
+													</p>
 												</div>
-												<p className='room-info-p'>
-													<GrLike
+												<div className='room-number'>
+													<FaBed
 														style={{
-															fontSize: "22px",
-															marginRight: "4px",
+															color: "#3ba0a3",
+															fontSize: "18px",
+															marginTop: "15px",
+														}}
+													/>{" "}
+													<p> {hotelRoom.length} Rooms </p>
+												</div>
+												<div className='room-bottom'>
+													<FaHotel
+														style={{
+															color: "#3ba0a3",
+															fontSize: "18px",
+															marginTop: "15px",
 														}}
 													/>
-													{hotel.rating} likes
-												</p>
+													<p>Luxury hotels to enjoy</p>
+												</div>
 											</div>
-											<div className='room-number'>
-												<FaBed
-													style={{
-														color: "#3ba0a3",
-														fontSize: "18px",
-														marginTop: "15px",
-													}}
-												/>{" "}
-												<p> {hotelRoom.length} Rooms </p>
-											</div>
-											<div className='room-bottom'>
-												<FaHotel
-													style={{
-														color: "#3ba0a3",
-														fontSize: "18px",
-														marginTop: "15px",
-													}}
-												/>
-												<p>Luxury hotels to enjoy</p>
-											</div>
-										</div>
-									)}
-								</a>
+										)}
+									</a>
+								</div>
 							);
 						})}
 					</div>

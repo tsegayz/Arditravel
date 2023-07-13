@@ -2507,7 +2507,11 @@ body {
 	margin-bottom: 20px;
 	padding: 10px;
 }
-
+.trips .hotel-card .card .title-container button {
+	border: none;
+	background-color: transparent;
+	font-size: 25px;
+}
 .trips .hotel-card .card h3 {
 	padding-top: 10px;
 	font-size: 20px;
