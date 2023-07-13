@@ -11,21 +11,43 @@ import { MdFavorite, MdFavoriteBorder } from "react-icons/md";
 function Location({ locations, activities, restaurants, hotels }) {
 	const location = useLocation();
 	const { itemData } = location.state;
+	const [user, setUser] = useState(null);
 
 	const containerRef = useRef(null);
 
 	//////////////////b//////////
 	const [isLoggedIn, setIsLoggedIn] = useState(false);
-	const [isFavorite, setIsFavorite] = useState(false);
 	const [showLoginModal, setShowLoginModal] = useState(false);
+	const [likedItems, setLikedItems] = useState(new Set());
 
-	const handleFavoriteClick = () => {
+	const handleFavoriteClick = (itemId) => {
 		if (isLoggedIn) {
-			setIsFavorite((prevIsFavorite) => !prevIsFavorite);
+			setLikedItems((prevLikedItems) => {
+				const updatedLikedItems = new Set(prevLikedItems);
+				if (updatedLikedItems.has(itemId)) {
+					updatedLikedItems.delete(itemId);
+				} else {
+					updatedLikedItems.add(itemId);
+				}
+				return updatedLikedItems;
+			});
 		} else {
 			setShowLoginModal(true);
 		}
 	};
+
+	useEffect(() => {
+		const storedUser = localStorage.getItem("user");
+		if (storedUser) {
+			try {
+				const parsedUser = JSON.parse(storedUser);
+				setUser(parsedUser);
+				setIsLoggedIn(true);
+			} catch (error) {
+				console.error("Error parsing user data from local storage:", error);
+			}
+		}
+	}, []);
 
 	const handleLogin = () => {
 		history.push(`/signin`);
@@ -171,6 +193,7 @@ function Location({ locations, activities, restaurants, hotels }) {
 									<div className='city-card-item'>
 										<div
 											className='city-card'
+											key={item._id}
 											style={{
 												backgroundImage: `url(${item.image})`,
 												borderRadius: "30px",
@@ -178,8 +201,8 @@ function Location({ locations, activities, restaurants, hotels }) {
 										>
 											<div className='city-card-attraction'>
 												<div className='city-card-icon'>
-													<button onClick={handleFavoriteClick}>
-														{isFavorite ? (
+													<button onClick={() => handleFavoriteClick(item._id)}>
+														{likedItems.has(item._id) ? (
 															<MdFavorite style={{ color: "red" }} />
 														) : (
 															<MdFavoriteBorder style={{ color: "white" }} />
