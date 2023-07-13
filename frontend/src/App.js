@@ -16,6 +16,9 @@ import Restaurant from "./components/Restaurant";
 
 import footerList from "./db.json";
 import Profile from "./components/Profile";
+import Activity from "./components/Activity";
+import Destination from "./components/Destination";
+import TravelMeans from "./components/TravelMeans";
 
 function App() {
 	const [locationType, setLocationType] = useState([]);
@@ -130,6 +133,15 @@ function App() {
 						</Route>
 						<Route exact path={'/profile'}>
 							<Profile/>
+						</Route>
+						<Route exact path={'/activity'}>
+							<Activity/>
+						</Route>
+						<Route exact path={'/destination'}>
+							<Destination/>
+						</Route>
+						<Route exact path={'/travelmeans'}>
+							<TravelMeans/>
 						</Route>
 					</Switch>
 				</div>
