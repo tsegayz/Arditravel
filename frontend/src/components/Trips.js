@@ -122,18 +122,22 @@ function Trips({ data, hotels, hotelRooms, restaurants, travels, tourGuides }) {
 	const history = useHistory();
 
 	const handleLocationClick = (item) => {
-		// Navigate to the location page and pass the selected item's data
 		history.push(`/location/${item._id}`, { itemData: item });
 	};
 	const handleRestaurantClick = (item) => {
-		// Navigate to the restaurant page and pass the selected item's data
 		history.push(`/restaurant/${item._id}`, { itemData: item });
 	};
 
 	const handleHotelClick = (item) => {
-		// Navigate to the hotel page and pass the selected item's data
 		history.push(`/eachhotel/${item._id}`, { itemData: item });
 	};
+	const handleTourguideClick = (item) => {
+		history.push(`/tourGuides/${item._id}`, { itemData: item });
+	};
+	const handleTravelClick = (item) => {
+		history.push(`/travels/${item._id}`, { itemData: item });
+	};
+
 	const hotelsSectionRef = useRef(null);
 	const activitiesSectionRef = useRef(null);
 	const restaurantsSectionRef = useRef(null);
@@ -714,7 +718,11 @@ function Trips({ data, hotels, hotelRooms, restaurants, travels, tourGuides }) {
 
 				<div className='travelmeans-container'>
 					{travels.map((mean) => (
-						<div className='travel-means-card' key={mean.id}>
+						<a
+							className='travel-means-card'
+							key={mean.id}
+							onClick={() => handleTravelClick(mean)}
+						>
 							<div className='card-image'>
 								<img src={mean.image} alt={mean.name} />
 								<div className='price'> ${mean.price}</div>
@@ -723,7 +731,7 @@ function Trips({ data, hotels, hotelRooms, restaurants, travels, tourGuides }) {
 								<h3>{mean.type}</h3>
 								<p>{mean.description}</p>
 							</div>
-						</div>
+						</a>
 					))}
 				</div>
 			</div>
@@ -760,7 +768,8 @@ function Trips({ data, hotels, hotelRooms, restaurants, travels, tourGuides }) {
 
 				<div className='tour-guide-container'>
 					{tourGuides.map((guide, index) => (
-						<div
+						<a
+							onClick={() => handleTourguideClick(guide)}
 							className={`tour-guide-card ${index % 2 === 0 ? "reverse" : ""}`}
 							key={guide.id}
 						>
@@ -775,7 +784,7 @@ function Trips({ data, hotels, hotelRooms, restaurants, travels, tourGuides }) {
 							<div className='image'>
 								<img src={guide.image} alt={guide.name} />
 							</div>
-						</div>
+						</a>
 					))}
 				</div>
 

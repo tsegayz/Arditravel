@@ -104,11 +104,6 @@ body {
 	padding: 0;
 }
 
-
-
-
-
-
 .logo {
 	display: flex;
 	align-items: center;
@@ -2171,7 +2166,7 @@ body {
 .trips .navbar {
 	height: 250px;
 	padding-right: 150px;
-	margin-top:  -60px;
+	margin-top: -60px;
 	z-index: 9999;
 }
 
@@ -3418,3 +3413,200 @@ body {
 	font-size: 14px;
 	color: #ffffff;
 }
+
+/* /////////////////////   activity page //////////// */
+.activity-page {
+	display: flex;
+	flex-direction: column;
+}
+.activity-page .hotels-nav{
+	background-color: #102830;
+	display: flex;
+	padding-left: 50px;
+	align-items: center;
+}
+.activity-page .hotels-nav h1{
+	color: white;
+}
+.activity-page .hotels-nav .hotel-list{
+	margin-left: 73em;
+}
+.activity-page .hotels-nav .hotel-list li a{
+	color: white;
+}
+.location-info {
+	position: relative;
+	width: 100%;
+	height: 40em;
+	margin-top: 1px;
+	overflow: hidden;
+}
+
+.location-info .image-overlay {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.5); /* Specify the desired overlay color */
+	z-index: 1;
+}
+
+.location-info img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	z-index: 0;
+}
+.location-details h2 {
+	font-family: "Lobster", cursive;
+	font-size: 44px;
+	margin: 0;
+}
+.location-details {
+	font-size: 25px;
+	position: absolute;
+	bottom: 70px;
+	left: 80px;
+	width: 40em;
+	color: white;
+	z-index: 2;
+	border-left: 10px solid #0c97a1; /* Specify the desired border properties */
+	border-bottom: 10px solid #0c97a1; /* Specify the desired border properties */
+	padding: 10px;
+}
+
+.activity-info {
+	margin-top: 20px;
+	display: flex;
+	align-items: center;
+}
+
+.activity-info img {
+	width: 40em;
+	height: 25em;
+	object-fit: cover;
+	margin-left: 15em;
+}
+
+.activity-details {
+	color: black;
+}
+.activity-section {
+	text-align: center;
+	padding: 20px;
+}
+
+.activity-heading {
+	font-family: "Lobster", cursive;
+	font-size: 44px;
+	color: #072224e1;
+}
+
+.activity-info {
+	display: flex;
+	justify-content: space-between;
+}
+
+.activity-details {
+	font-size: 18px;
+	height: 22em;
+	width: 10px;
+	margin: 0 300px 0 350px;
+	text-align: start;
+	flex: 1;
+	padding-left: 50px;
+	padding-top: 60px;
+	border-top: 10px solid #0c97a1 ;
+	border-right: 10px solid #0c97a1 ;
+	border-bottom: 10px solid #0c97a1;
+}
+.activity-details h2{
+	margin-left: -10em;
+}
+.activity-details p{
+	width: 27em;
+	margin-left: -14em;
+}
+
+.activity-page footer {
+	margin-top: 150px;
+	background-color: #072224e1;
+}
+
+.activity-page .logo-bottom {
+	display: flex;
+	justify-content: space-around;
+	margin: 0 400px 0 350px;
+	font-size: 25px;
+	color: #ffffff;
+}
+.activity-page .logo-bottom h6 {
+	color: #ffffff;
+	font-family: "Lobster", cursive;
+	font-size: 22px;
+	font-weight: 100;
+	margin-bottom: 0;
+}
+.activity-page .logo-bottom-one p {
+	font-family: "Lobster", cursive;
+}
+.activity-page .logo-bottom-one h1 {
+	font-family: "Lobster", cursive;
+	font-size: 60px;
+	padding-left: 20px;
+	margin-bottom: 0;
+}
+.activity-page .logo-bottom-one h1 span {
+	font-size: 35px;
+}
+
+.activity-page .logo-bottom p {
+	font-size: 16px;
+}
+
+.activity-page .line {
+	height: 1px;
+	background-color: #ccc;
+	margin: 10px 270px 0 270px;
+}
+
+.activity-page .socials {
+	margin-top: 50px;
+	margin-left: 710px;
+}
+.activity-page .social-items {
+	list-style: none;
+	display: inline-block;
+	margin-right: 35px;
+	border-radius: 50%;
+	border: solid 2px #ffffff;
+	padding-top: 10px;
+	width: 50px;
+	text-align: center;
+	line-height: 26px;
+}
+
+.activity-page .social-items:hover {
+	border: #25434d;
+	background-color: #ffffff;
+}
+.activity-page .social-items li {
+	background-color: aqua;
+	border-radius: 20px;
+}
+.activity-page .social-items a {
+	font-size: 24px;
+	color: #ffffff;
+}
+.activity-page .social-items a:hover {
+	color: #25434d;
+}
+.activity-page .center-text {
+	color: white;
+	text-align: center;
+	font-size: 15px;
+	margin: 20px 0;
+}
+
+/* ////////////////////////////////////////////////// */

@@ -5,7 +5,6 @@ import "./App.css";
 
 import Home from "./components/Home";
 import Trips from "./components/Trips";
-import TourGuide from "./components/TourGuide";
 import SignIn from "./components/SignIn";
 import SignUp from "./components/SignUp";
 import NavBar from "./components/NavBar";
@@ -18,7 +17,6 @@ import footerList from "./db.json";
 import Profile from "./components/Profile";
 import Activity from "./components/Activity";
 import Destination from "./components/Destination";
-import TravelMeans from "./components/TravelMeans";
 
 function App() {
 	const [locationType, setLocationType] = useState([]);
@@ -66,7 +64,6 @@ function App() {
 			const { tourGuides } = response8.data.data;
 			setTourGuide(tourGuides);
 
-
 			const response12 = await axios.get("/api/v1/meals/");
 			const { meals } = response12.data.data;
 			setMeal(meals);
@@ -113,14 +110,14 @@ function App() {
 								tourGuides={tourGuide}
 							/>
 						</Route>
-						<Route exact path='/tourGuides'>
-							<TourGuide />
-						</Route>
 						<Route exact path='/signin'>
 							<SignIn />
 						</Route>
 						<Route exact path='/signup'>
 							<SignUp />
+						</Route>
+						<Route exact path={"/profile"}>
+							<Profile />
 						</Route>
 						<Route exact path='/hotels'>
 							<Hotels hotels={hotel} hotelRooms={hotelRoom} />
@@ -131,17 +128,16 @@ function App() {
 						<Route exact path='/restaurant/:itemId'>
 							<Restaurant restaurants={restaurant} meals={meal} />
 						</Route>
-						<Route exact path={'/profile'}>
-							<Profile/>
+
+						<Route exact path={"/activity/:itemId"}>
+							<Activity
+								locations={location}
+								activities={activity}
+								footer={footerList}
+							/>
 						</Route>
-						<Route exact path={'/activity'}>
-							<Activity/>
-						</Route>
-						<Route exact path={'/destination'}>
-							<Destination/>
-						</Route>
-						<Route exact path={'/travelmeans'}>
-							<TravelMeans/>
+						<Route exact path={"/destination/:itemId"}>
+							<Destination data={locationType} explore={location} />
 						</Route>
 					</Switch>
 				</div>

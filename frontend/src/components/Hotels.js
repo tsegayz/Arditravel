@@ -1,12 +1,7 @@
 import { useState, useRef } from "react";
 import { useHistory } from "react-router-dom";
 
-import {
-	RiSearch2Line,
-	RiFacebookFill,
-	RiLinkedinFill,
-	RiInstagramFill,
-} from "react-icons/ri";
+import { RiSearch2Line, RiFacebookFill, RiInstagramFill } from "react-icons/ri";
 import { SiTwitter } from "react-icons/si";
 import { MdEmail } from "react-icons/md";
 
@@ -15,10 +10,9 @@ function Hotels({ hotels, hotelRooms }) {
 
 	const footerSectionRef = useRef(null);
 	const roomSectionRef = useRef(null);
-
+	const history = useHistory();
 
 	const handleHotelClick = (item) => {
-		// Navigate to the hotel page and pass the selected item's data
 		history.push(`/eachhotel/${item._id}`, { itemData: item });
 	};
 	const handleFooterClick = () => {
@@ -42,8 +36,6 @@ function Hotels({ hotels, hotelRooms }) {
 			setfilteredHotels(newFilter);
 		}
 	};
-
-	const history = useHistory();
 
 	const handleItemClick = (item) => {
 		// Navigate to the location page and pass the selected item's data
@@ -107,7 +99,11 @@ function Hotels({ hotels, hotelRooms }) {
 
 			<div className='hotel-card-wrapper' ref={roomSectionRef}>
 				{hotelsSlice.map((hotel, index) => (
-					<a className='hotel-card' key={hotel._id} onClick={() => handleHotelClick(hotel)}>
+					<a
+						className='hotel-card'
+						key={hotel._id}
+						onClick={() => handleHotelClick(hotel)}
+					>
 						<div
 							className={`hotel-details ${index % 2 === 0 ? "reverse" : ""}`}
 						>
@@ -123,8 +119,12 @@ function Hotels({ hotels, hotelRooms }) {
 									"Lorem dolor sit amet, consectetur adipiscing elit.
 								</p>
 							</div>
-						</div> 
-						<h2 className="h2arrow"> The Splended rooms of the hotels  <span className='arrow'>&rarr;</span></h2>
+						</div>
+						<h2 className='h2arrow'>
+							{" "}
+							The Splended rooms of the hotels{" "}
+							<span className='arrow'>&rarr;</span>
+						</h2>
 						<div className='hotel-rooms'>
 							<div className='rooms-container'>
 								{hotelRooms

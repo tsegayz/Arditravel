@@ -19,7 +19,15 @@ function Home({ data, explore, activities, footer }) {
 	const planSlice = explore.slice(3, 9);
 	const trendSlice = activities.filter((item) => item.rating > 4.2);
 	const filterExplore = explore.filter((item) => item.review.rating > 4.2);
+	const history = useHistory();
 
+	const handleActivityClick = (item) => {
+		history.push(`/activity/${item._id}`, { itemData: item });
+	};
+
+	const handleDestinationClick = (item) => {
+		history.push(`/destination/${item._id}`, { itemData: item });
+	};
 	// filter method for the search bar
 	const [filteredPlaces, setFilteredPlaces] = useState([]);
 	const filterHandler = (e) => {
@@ -34,8 +42,6 @@ function Home({ data, explore, activities, footer }) {
 			setFilteredPlaces(newFilter);
 		}
 	};
-
-	const history = useHistory();
 
 	const handleItemClick = (item) => {
 		// Navigate to the location page and pass the selected item's data
@@ -91,8 +97,12 @@ function Home({ data, explore, activities, footer }) {
 				<div className='main-container'>
 					<div className='grid-container'>
 						{trendSlice.map((item) => (
-							<div className='grid-item' key={item._id}>
-								<a className='grid-items'>
+							<a
+								className='grid-item'
+								key={item._id}
+								onClick={() => handleActivityClick(item)}
+							>
+								<div className='grid-items'>
 									<img className='cagridrd-image' src={item.image} alt='' />
 									<div className='grid-item-one'>
 										<p className='tour-icon'>
@@ -113,8 +123,8 @@ function Home({ data, explore, activities, footer }) {
 											{item.rating} Likes
 										</div>
 									</div>
-								</a>
-							</div>
+								</div>
+							</a>
 						))}
 					</div>
 				</div>
@@ -163,7 +173,11 @@ function Home({ data, explore, activities, footer }) {
 						}
 					>
 						{filterExplore.map((value) => (
-							<a className='card-items' key={value._id}>
+							<a
+								className='card-items'
+								key={value._id}
+								onClick={() => handleDestinationClick(value)}
+							>
 								<img className='card-image' src={value.image} alt='' />
 								<div className='card-item-one'>
 									<h3>{value.name}</h3>
@@ -184,7 +198,8 @@ function Home({ data, explore, activities, footer }) {
 				</p>
 				<div className='container-grid'>
 					{planSlice.map((item, index) => (
-						<div
+						<a
+							onClick={() => handleDestinationClick(item)}
 							className={`container-item ${
 								index < 2 ? "first-row" : "second-row"
 							}`}
@@ -199,7 +214,7 @@ function Home({ data, explore, activities, footer }) {
 									<p className='card-description'>{item.description}</p>
 								</div>
 							</div>
-						</div>
+						</a>
 					))}
 				</div>
 			</div>
