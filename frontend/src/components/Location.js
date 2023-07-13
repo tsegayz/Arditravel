@@ -5,60 +5,107 @@ import Modal from "react-modal";
 
 import { AiFillLike, AiOutlineLike } from "react-icons/ai";
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
-import { MdOutlineFavoriteBorder } from "react-icons/md";
-import { MdFavorite, MdFavoriteBorder } from "react-icons/md";
+import {
+	MdFavorite,
+	MdFavoriteBorder,
+	MdOutlineFavoriteBorder,
+} from "react-icons/md";
 
 function Location({ locations, activities, restaurants, hotels }) {
 	const location = useLocation();
 	const { itemData } = location.state;
-	const [user, setUser] = useState(null);
 
 	const containerRef = useRef(null);
 
 	//////////////////b//////////
-	const [isLoggedIn, setIsLoggedIn] = useState(false);
-	const [showLoginModal, setShowLoginModal] = useState(false);
-	const [likedItems, setLikedItems] = useState(new Set());
+	const useFavoriteItems = (datasetName) => {
+		const [isLoggedIn, setIsLoggedIn] = useState(false);
+		const [likedItems, setLikedItems] = useState(new Set());
+		const [showLoginModal, setShowLoginModal] = useState(false);
 
-	const handleFavoriteClick = (itemId) => {
-		if (isLoggedIn) {
-			setLikedItems((prevLikedItems) => {
-				const updatedLikedItems = new Set(prevLikedItems);
-				if (updatedLikedItems.has(itemId)) {
-					updatedLikedItems.delete(itemId);
-				} else {
-					updatedLikedItems.add(itemId);
-				}
-				return updatedLikedItems;
-			});
-		} else {
-			setShowLoginModal(true);
-		}
-	};
-
-	useEffect(() => {
-		const storedUser = localStorage.getItem("user");
-		if (storedUser) {
-			try {
-				const parsedUser = JSON.parse(storedUser);
-				setUser(parsedUser);
-				setIsLoggedIn(true);
-			} catch (error) {
-				console.error("Error parsing user data from local storage:", error);
+		const handleFavoriteClick = (itemId) => {
+			if (isLoggedIn) {
+				setLikedItems((prevLikedItems) => {
+					const updatedLikedItems = new Set(prevLikedItems);
+					if (updatedLikedItems.has(itemId)) {
+						updatedLikedItems.delete(itemId);
+					} else {
+						updatedLikedItems.add(itemId);
+					}
+					const userLikedItemsKey = `likedItems_${getUserIdentifier()}`;
+					localStorage.setItem(
+						userLikedItemsKey,
+						JSON.stringify([...updatedLikedItems])
+					); // Store user-specific liked items in local storage
+					return updatedLikedItems;
+				});
+			} else {
+				setShowLoginModal(true);
 			}
-		}
-	}, []);
+		};
 
-	const handleLogin = () => {
-		history.push(`/signin`);
-		setShowLoginModal(false);
+		const getUserIdentifier = () => {
+			const user = localStorage.getItem("user");
+			if (user) {
+				try {
+					const parsedUser = JSON.parse(user);
+					return parsedUser._id; // Assuming the user object has an "_id" property for the user ID
+				} catch (error) {
+					console.error("Error parsing user data:", error);
+				}
+			}
+			return ""; // Return an empty string if the user identifier is not available
+		};
+
+		useEffect(() => {
+			const storedUser = localStorage.getItem("user");
+			if (storedUser) {
+				try {
+					const parsedUser = JSON.parse(storedUser);
+					setUser(parsedUser);
+					setIsLoggedIn(true);
+				} catch (error) {
+					console.error("Error parsing user data from local storage:", error);
+				}
+			}
+
+			const userLikedItemsKey = `likedItems_${getUserIdentifier()}`;
+			const storedLikedItems = localStorage.getItem(userLikedItemsKey);
+			if (storedLikedItems) {
+				try {
+					const parsedLikedItems = JSON.parse(storedLikedItems);
+					setLikedItems(new Set(parsedLikedItems));
+				} catch (error) {
+					console.error("Error parsing liked items from local storage:", error);
+				}
+			}
+		}, [datasetName]);
+		const handleLogin = () => {
+			history.push(`/signin`);
+			setShowLoginModal(false);
+		};
+
+		const closeModal = () => {
+			setShowLoginModal(false);
+			history.push(`/location/:itemId`);
+		};
+		return {
+			isLoggedIn,
+			likedItems,
+			handleLogin,
+			closeModal,
+			handleFavoriteClick,
+			showLoginModal,
+			setShowLoginModal,
+		};
 	};
 
-	const closeModal = () => {
-		setShowLoginModal(false);
-		history.push(`/location/:itemId`); // Redirect to the home page after the modal is closed
-	};
-	// //////////////////////////////////////////////
+	const favorites = useFavoriteItems("favorites");
+	const thingFavorites = useFavoriteItems("thingFavorites");
+	const hotelFavorites = useFavoriteItems("hotelFavorites");
+	const restaurantFavorites = useFavoriteItems("restaurantFavorites");
+
+	//////////////////////////////////////////////
 	const scrollLeft = (sliderId) => {
 		const slider = document.getElementById(sliderId);
 		const scrollAmount = slider.scrollLeft - 200; // Adjust the scroll amount as needed
@@ -197,20 +244,25 @@ function Location({ locations, activities, restaurants, hotels }) {
 											style={{
 												backgroundImage: `url(${item.image})`,
 												borderRadius: "30px",
+												boxShadow: "10px 10px 24px rgba(0, 0, 0, 0.4)", // Add the boxShadow property
 											}}
 										>
 											<div className='city-card-attraction'>
 												<div className='city-card-icon'>
-													<button onClick={() => handleFavoriteClick(item._id)}>
-														{likedItems.has(item._id) ? (
+													<button
+														onClick={() =>
+															favorites.handleFavoriteClick(item._id)
+														}
+													>
+														{favorites.likedItems.has(item._id) ? (
 															<MdFavorite style={{ color: "red" }} />
 														) : (
 															<MdFavoriteBorder style={{ color: "white" }} />
 														)}
 													</button>
 													<Modal
-														isOpen={showLoginModal}
-														onRequestClose={closeModal}
+														isOpen={favorites.showLoginModal}
+														onRequestClose={favorites.closeModal}
 														contentLabel='Login Modal'
 														className='modal'
 														overlayClassName='modal-overlay'
@@ -220,7 +272,7 @@ function Location({ locations, activities, restaurants, hotels }) {
 															<p>Please log in to favorite this card.</p>
 															<button
 																className='modal-button'
-																onClick={handleLogin}
+																onClick={favorites.handleLogin}
 															>
 																Log In
 															</button>
@@ -302,9 +354,35 @@ function Location({ locations, activities, restaurants, hotels }) {
 								className='city-things-card'
 								style={{ backgroundImage: `url(${newData.image})` }}
 							>
-								<button>
-									<MdOutlineFavoriteBorder style={{ color: "white" }} />
+								<button
+									onClick={() =>
+										thingFavorites.handleFavoriteClick(newData._id)
+									}
+								>
+									{thingFavorites.likedItems.has(newData._id) ? (
+										<MdFavorite style={{ color: "red" }} />
+									) : (
+										<MdFavoriteBorder style={{ color: "white" }} />
+									)}
 								</button>
+								<Modal
+									isOpen={thingFavorites.showLoginModal}
+									onRequestClose={thingFavorites.closeModal}
+									contentLabel='Login Modal'
+									className='modal'
+									overlayClassName='modal-overlay'
+								>
+									<div className='modal-content'>
+										<h2>Login Required</h2>
+										<p>Please log in to favorite this card.</p>
+										<button
+											className='modal-button'
+											onClick={thingFavorites.handleLogin}
+										>
+											Log In
+										</button>
+									</div>
+								</Modal>
 								<ul className='city-things-desc'>
 									<h2 className='city-things-item'>{newData.name}</h2>
 									<h3 className='city-things-item'>Price: $ {newData.price}</h3>
@@ -327,27 +405,51 @@ function Location({ locations, activities, restaurants, hotels }) {
 				<h3> home of luxury </h3>
 				<div className='city-hotels-list' id='slider3'>
 					<ul className='city-hotels-content'>
-						{cityHotelData.map((item) => (
-							<a key={item._id} onClick={() => handleHotelClick(item)}>
-								<div
-									className='city-hotels-card'
-									style={{ backgroundImage: `url(${item.image})` }}
+						{cityHotelData.map((hotel) => (
+							<div
+								className='city-hotels-card'
+								style={{ backgroundImage: `url(${hotel.image})` }}
+							>
+								<button
+									onClick={() => hotelFavorites.handleFavoriteClick(hotel._id)}
 								>
-									<button>
-										<MdOutlineFavoriteBorder style={{ color: "white" }} />
-									</button>
+									{hotelFavorites.likedItems.has(hotel._id) ? (
+										<MdFavorite style={{ color: "red" }} />
+									) : (
+										<MdFavoriteBorder style={{ color: "white" }} />
+									)}
+								</button>
+								<Modal
+									isOpen={hotelFavorites.showLoginModal}
+									onRequestClose={thingFavorites.closeModal}
+									contentLabel='Login Modal'
+									className='modal'
+									overlayClassName='modal-overlay'
+								>
+									<div className='modal-content'>
+										<h2>Login Required</h2>
+										<p>Please log in to favorite this card.</p>
+										<button
+											className='modal-button'
+											onClick={hotelFavorites.handleLogin}
+										>
+											Log In
+										</button>
+									</div>
+								</Modal>
+								<a key={hotel._id} onClick={() => handleHotelClick(hotel)}>
 									<ul className='city-hotels-desc'>
-										<h2 className='city-hotels-item'> {item.name} </h2>
+										<h2 className='city-hotels-item'> {hotel.name} </h2>
 										<h3 className='city-hotels-item'>
 											<AiOutlineLike
 												fontSize={25}
 												style={{ marginRight: "8px" }}
 											/>{" "}
-											{item.rating} likes
+											{hotel.rating} likes
 										</h3>
 									</ul>
-								</div>
-							</a>
+								</a>
+							</div>
 						))}
 					</ul>
 				</div>
@@ -363,19 +465,45 @@ function Location({ locations, activities, restaurants, hotels }) {
 				<div className='city-restaurants-list' id='slider4'>
 					<ul className='city-restaurants-content'>
 						{cityRestaurantData.map((item) => (
-							<a key={item._id} onClick={() => handleRestaurantClick(item)}>
-								<div
-									className='city-restaurants-card'
-									style={{ backgroundImage: `url(${item.image})` }}
+							<div
+								className='city-restaurants-card'
+								style={{ backgroundImage: `url(${item.image})` }}
+							>
+								<button
+									onClick={() =>
+										restaurantFavorites.handleFavoriteClick(item._id)
+									}
 								>
-									<button>
-										<MdOutlineFavoriteBorder style={{ color: "white" }} />
-									</button>
+									{restaurantFavorites.likedItems.has(item._id) ? (
+										<MdFavorite style={{ color: "red" }} />
+									) : (
+										<MdFavoriteBorder style={{ color: "white" }} />
+									)}
+								</button>
+								<Modal
+									isOpen={restaurantFavorites.showLoginModal}
+									onRequestClose={thingFavorites.closeModal}
+									contentLabel='Login Modal'
+									className='modal'
+									overlayClassName='modal-overlay'
+								>
+									<div className='modal-content'>
+										<h2>Login Required</h2>
+										<p>Please log in to favorite this card.</p>
+										<button
+											className='modal-button'
+											onClick={restaurantFavorites.handleLogin}
+										>
+											Log In
+										</button>
+									</div>
+								</Modal>
+								<a key={item._id} onClick={() => handleRestaurantClick(item)}>
 									<ul className='city-restaurants-desc'>
 										<h2 className='city-restaurants-item'>{item.name}</h2>
 									</ul>
-								</div>
-							</a>
+								</a>
+							</div>
 						))}
 					</ul>
 				</div>

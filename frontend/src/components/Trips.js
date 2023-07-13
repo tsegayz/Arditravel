@@ -37,21 +37,6 @@ function Trips({ data, hotels, hotelRooms, restaurants, travels, tourGuides }) {
 	const [showLoginModal, setShowLoginModal] = useState(false);
 	const [likedItems, setLikedItems] = useState(new Set());
 
-	const handleFavoriteClick = (itemId) => {
-		if (isLoggedIn) {
-			setLikedItems((prevLikedItems) => {
-				const updatedLikedItems = new Set(prevLikedItems);
-				if (updatedLikedItems.has(itemId)) {
-					updatedLikedItems.delete(itemId);
-				} else {
-					updatedLikedItems.add(itemId);
-				}
-				return updatedLikedItems;
-			});
-		} else {
-			setShowLoginModal(true);
-		}
-	};
 	useEffect(() => {
 		const storedUser = localStorage.getItem("user");
 		if (storedUser) {
@@ -63,7 +48,52 @@ function Trips({ data, hotels, hotelRooms, restaurants, travels, tourGuides }) {
 				console.error("Error parsing user data from local storage:", error);
 			}
 		}
+
+		const userLikedItemsKey = `likedItems_${getUserIdentifier()}`;
+		const storedLikedItems = localStorage.getItem(userLikedItemsKey);
+		if (storedLikedItems) {
+			try {
+				const parsedLikedItems = JSON.parse(storedLikedItems);
+				setLikedItems(new Set(parsedLikedItems));
+			} catch (error) {
+				console.error("Error parsing liked items from local storage:", error);
+			}
+		}
 	}, []);
+
+	const handleFavoriteClick = (itemId) => {
+		if (isLoggedIn) {
+			setLikedItems((prevLikedItems) => {
+				const updatedLikedItems = new Set(prevLikedItems);
+				if (updatedLikedItems.has(itemId)) {
+					updatedLikedItems.delete(itemId);
+				} else {
+					updatedLikedItems.add(itemId);
+				}
+				const userLikedItemsKey = `likedItems_${getUserIdentifier()}`;
+				localStorage.setItem(
+					userLikedItemsKey,
+					JSON.stringify([...updatedLikedItems])
+				); // Store user-specific liked items in local storage
+				return updatedLikedItems;
+			});
+		} else {
+			setShowLoginModal(true);
+		}
+	};
+
+	const getUserIdentifier = () => {
+		const user = localStorage.getItem("user");
+		if (user) {
+			try {
+				const parsedUser = JSON.parse(user);
+				return parsedUser._id; // Assuming the user object has an "_id" property for the user ID
+			} catch (error) {
+				console.error("Error parsing user data:", error);
+			}
+		}
+		return ""; // Return an empty string if the user identifier is not available
+	};
 
 	const handleLogin = () => {
 		history.push(`/signin`);
