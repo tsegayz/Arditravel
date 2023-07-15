@@ -137,7 +137,9 @@ function App() {
 							/>
 						</Route>
 						<Route exact path={"/destination/:itemId"}>
-							<Destination data={locationType} explore={location} />
+							<Destination
+								data={locationType}
+							/>
 						</Route>
 					</Switch>
 				</div>

@@ -40,7 +40,7 @@ function Activity({ locations, footer }) {
 		<div className='activity-page'>
 			<nav className='hotels-nav'>
 				<h1> Ardi Travel </h1>
-				<ul className='hotel-list'>
+				<ul className='menu'>
 					<li>
 						<a href='/'>Home</a>
 					</li>
