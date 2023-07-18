@@ -1,31 +1,35 @@
 const mongoose = require("mongoose");
+const AutoIncrement = require("mongoose-sequence")(mongoose);
 
-const resturantBookingSchema = new mongoose.Schema({
-	_id: { type: Number, unique: true },
-	name: String,
-	date: {
-		type: Date,
-		required: true,
+const resturantBookingSchema = new mongoose.Schema(
+	{
+		_id: { type: Number, unique: true },
+		name: String,
+		date: {
+			type: Date,
+			required: true,
+		},
+		checkin: {
+			type: String,
+			required: true,
+		},
+		checkout: {
+			type: String,
+			required: true,
+		},
+		user_id: {
+			type: Number,
+			required: [true, "the userId must be provided"],
+		},
+		restaurant_id: {
+			type: Number,
+			required: [true, "the restaurantId must be provided"],
+		},
+		phonenumber: Number,
+		review: Object,
 	},
-	checkin: {
-		type: String,
-		required: true,
-	},
-	checkout: {
-		type: String,
-		required: true,
-	},
-	user_id: {
-		type: Number,
-		required: [true, "the userId must be provided"],
-	},
-	restaurant_id: {
-		type: Number,
-		required: [true, "the restaurantId must be provided"],
-	},
-	phonenumber: Number,
-	review: Object,
-}, { _id: false, autoCreate: false } );
+	{ _id: false, autoCreate: false }
+);
 
 resturantBookingSchema.pre("save", async function (next) {
 	if (this.isNew) {
@@ -49,6 +53,9 @@ resturantBookingSchema.pre("save", async function (next) {
 	next();
 });
 // THE MODEL
-const ResturantBooking = mongoose.model("ResturantBooking", resturantBookingSchema);
+const ResturantBooking = mongoose.model(
+	"ResturantBooking",
+	resturantBookingSchema
+);
 
 module.exports = ResturantBooking;

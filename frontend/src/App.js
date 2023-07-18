@@ -17,6 +17,7 @@ import footerList from "./db.json";
 import Profile from "./components/Profile";
 import Activity from "./components/Activity";
 import Destination from "./components/Destination";
+import Dashboard from "./components/Dashboard";
 
 function App() {
 	const [locationType, setLocationType] = useState([]);
@@ -28,6 +29,12 @@ function App() {
 	const [hotelRoom, setHotelRoom] = useState([]);
 	const [travel, setTravel] = useState([]);
 	const [tourGuide, setTourGuide] = useState([]);
+	const [user, setUser] = useState([]);
+	const [roomBooking, setRoomBooking] = useState([]);
+	const [restBooking, setRestBooking] = useState([]);
+	
+	
+	
 
 	// Fetching data from the database
 	const fetchData = async () => {
@@ -68,7 +75,19 @@ function App() {
 			const { meals } = response12.data.data;
 			setMeal(meals);
 
-			// console.log(restaurants)
+			const response13 = await axios.get("/api/v1/users/");
+			const { users } = response13.data.data;
+			setUser( users);
+
+			const response14 = await axios.get("/api/v1/hotelBooking");
+			const { roomBookings } = response14.data.data;
+			setRoomBooking(roomBookings);
+
+			const response15 = await axios.get("/api/v1/restaurantBooking");
+			const { restBookings } = response15.data.data;
+			setRestBooking(restBookings);
+
+			// console.log(users)
 		} catch (error) {
 			console.error("Error fetching location types:", error);
 		}
@@ -137,8 +156,21 @@ function App() {
 							/>
 						</Route>
 						<Route exact path={"/destination/:itemId"}>
-							<Destination
-								data={locationType}
+							<Destination data={locationType} />
+						</Route>
+						<Route exact path={"/dashboard"}>
+							<Dashboard
+								locations={location}
+								activities={activity}
+								hotels={hotel}
+								hotelRooms={hotelRoom}
+								restaurants={restaurant}
+								meals={meal}
+								travels={travel}
+								guides={tourGuide}
+								users={user}
+								roomBookings={roomBooking}
+								restBookings={restBooking}
 							/>
 						</Route>
 					</Switch>

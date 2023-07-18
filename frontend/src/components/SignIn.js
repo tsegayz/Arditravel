@@ -25,30 +25,37 @@ function SignIn() {
 		if (!email || !password) {
 			setError("Please fill in all the fields");
 			return;
-		}
-		try {
+		  }
+		  try {
 			const response = await axios.post(
-				"http://localhost:5000/api/v1/users/login",
-				{
-					email,
-					password,
-				}
+			  "http://localhost:5000/api/v1/users/login",
+			  {
+				email,
+				password,
+			  }
 			);
-
+		
 			const userData = response.data.user;
-			localStorage.setItem("user", JSON.stringify(userData));
+			const role_id = response.data.user.role_id; // Correct
 
+			localStorage.setItem("user", JSON.stringify(userData));
+		
 			setResponseMessage(response.data.status);
-			setShowModal(true);
-		} catch (error) {
-			if (error.response && error.response.status === 401) {
-				// Unauthorized: Incorrect username or password
-				setError("Incorrect username or password!");
+			if (userData.role_id === 1) {
+			  history.push("/dashboard");
 			} else {
-				setError("An error occurred");
+			  setShowModal(true);
 			}
-		}
-	};
+
+		  } catch (error) {
+			if (error.response && error.response.status === 401) {
+			  // Unauthorized: Incorrect username or password
+			  setError("Incorrect username or password!");
+			} else {
+			  setError("An error occurred");
+			}
+		  }
+		};
 
 	const closeModal = () => {
 		setShowModal(false);

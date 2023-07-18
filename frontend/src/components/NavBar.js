@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { FaChevronDown } from "react-icons/fa";
 
-function NavBar({ userName }) {
+function NavBar() {
 	const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 	const [user, setUser] = useState(null);
 
@@ -55,19 +55,27 @@ function NavBar({ userName }) {
 										borderRadius: "50%",
 										background: "#1e3942",
 										marginRight: "8px",
-										marginLeft: '10px',
-										marginTop: '10px',
-										padding: '20px',
+										marginLeft: "10px",
+										marginTop: "10px",
+										padding: "20px",
 										display: "flex",
 										alignItems: "center",
 										justifyContent: "center",
 									}}
 								>
-									<span style={{ fontWeight: "bold", fontSize: '30px', color: 'white' }}>
+									<span
+										style={{
+											fontWeight: "bold",
+											fontSize: "30px",
+											color: "white",
+										}}
+									>
 										{user.name.charAt(0)}
 									</span>
 								</div>
-								<FaChevronDown style={{ marginTop: "15px", fontSize: '20px' }} />
+								
+							<h5> {user.name}</h5>
+							<FaChevronDown style={{ marginTop: "8px", fontSize: "18px" }} />
 							</button>
 
 							{isDropdownOpen && (

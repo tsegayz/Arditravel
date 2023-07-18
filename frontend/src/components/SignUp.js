@@ -42,9 +42,9 @@ function SignUp() {
 			const userData = response.data.data.user;
 			localStorage.setItem("user", JSON.stringify(userData));
 
+			console.log(userData);
 			setResponseMessage(response.data.status);
 			setShowModal(true);
-
 		} catch (error) {
 			setResponseMessage("An error occurred");
 		}

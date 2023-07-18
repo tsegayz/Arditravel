@@ -3,48 +3,54 @@ const validator = require("validator");
 const bcrypt = require("bcryptjs");
 const AutoIncrement = require("mongoose-sequence")(mongoose);
 
-const userSchema = new mongoose.Schema({
-	_id: {
-		type: Number,
-		unique: true,
-	  },
-	name: {
-		type: String,
-		required: [true, "Please provide your name"],
-		trim: true,
-	},
-	password: {
-		type: String,
-		required: [true, "Please provide a password"],
-		minlength: 8,
-		select: false,
-	},
-	email: {
-		type: String,
-		required: [true, "Please provide your email"],
-		unique: true,
-		lowercase: true,
-		validate: [validator.isEmail, "Please provide a valid email"],
-	},
-	imageCover: String,
-	passwordConfirm: {
-		type: String,
-		required: [true, "Please provide matching password"],
-		validate: {
-			validator: function (el) {
-				return el === this.password;
-			},
-			message: "The password doesn't match",
-		},
-	},
-	passwordChangedAt: Date,
-	active: Boolean,
-	role_id: {
-		type: Number,
-		default:2,
-		required: [true, "Please provide a role_id"],
-	},
-},   { _id: false, autoCreate: false });
+const userSchema = new mongoose.Schema(
+  {
+    _id: {
+      type: Number,
+	  required: true
+    },
+    name: {
+      type: String,
+      required: [true, "Please provide your name"],
+      trim: true,
+    },
+    password: {
+      type: String,
+      required: [true, "Please provide a password"],
+      minlength: 8,
+      select: false,
+    },
+    email: {
+      type: String,
+      required: [true, "Please provide your email"],
+      unique: true,
+      lowercase: true,
+      validate: [validator.isEmail, "Please provide a valid email"],
+    },
+    imageCover: String,
+    passwordConfirm: {
+      type: String,
+      required: [true, "Please provide matching password"],
+      validate: {
+        validator: function (el) {
+          return el === this.password;
+        },
+        message: "The password doesn't match",
+      },
+    },
+    passwordChangedAt: Date,
+    active: Boolean,
+    role_id: {
+      type: Number,
+      default: 2,
+      required: [true, "Please provide a role_id"],
+    },
+  },
+  { _id: false, autoCreate: false }
+);
+
+// Apply the AutoIncrement plugin to the schema
+userSchema.plugin(AutoIncrement, { id: "user_id", inc_field: "_id", start_seq: 1000 });
 
 
 // password encryption

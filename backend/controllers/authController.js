@@ -72,10 +72,14 @@ exports.login = async (req, res, next) => {
 	const token = signinToken(user._id);
 	res.status(200).json({
 		status: "sucess",
-		user,
-		token,
-	});
-	next();
+		user: {
+			_id: user._id,
+			name: user.name,
+			email: user.email,
+			role_id: user.role_id, // Include the role_id in the response
+		  },
+		  token,
+		});
 };
 
 // a middleware to protect the resources that are accessed by users
