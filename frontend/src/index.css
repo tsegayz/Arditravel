@@ -3826,7 +3826,10 @@ body {
 	border-bottom-right-radius: 5px;
 	background-color: rgb(255, 255, 255);
 }
-
+.dashboard  .listed-item.active-two {
+	border-bottom: 2px solid #072224; 
+  }
+  
 .dashboard .sidebar-item .arrow-icon {
 	position: absolute;
 	right: 0;
@@ -3853,6 +3856,7 @@ body {
 .dashboard .main-content h2 {
 	font-size: 50px;
 	margin: 0;
+	margin-top: 20px;
 	font-family: "Lobster", cursive;
 }
 
@@ -3904,7 +3908,7 @@ body {
 }
 .dashboard .main-content .listed-next .listed-item-nextsix {
 	width: 60px;
-	text-align: end;
+	text-align: center;
 }
 
 .dashboard .dropdown {
@@ -3914,4 +3918,28 @@ body {
 }
 .dashboard .dropdown-menu {
 	margin-left: 150px;
+	background-color: #65a2a7;
+	border-radius: 20px;
+	padding: 0px 0px 0 10px;
+	height: 50px;
+}
+.dashboard .dropdown-menu button{
+	font-size: 25px;
+}
+
+.dashboard .add-delete{
+	position: absolute;
+	right:80px;
+	list-style: none;
+	border-radius: 5px;
+	background-color: #174346;
+	margin-top: -15px;
+	margin-right: -35px;
+	padding: 5px 10px;
+}
+.dashboard .add-delete .click-item button{
+	background: none;
+	border: none;
+	color: white;
+	font-size: 17px;
 }

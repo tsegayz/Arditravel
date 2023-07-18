@@ -1,8 +1,7 @@
 import { useState, useEffect } from "react";
-import { FaChevronDown, FaChevronRight } from "react-icons/fa";
+import { FaChevronDown, FaChevronRight, FaMapMarkerAlt } from "react-icons/fa";
 import { IoIosBook, IoIosSettings, IoIosNotifications } from "react-icons/io";
-import { BsPersonCircle } from "react-icons/bs";
-import { FaMapMarkerAlt } from "react-icons/fa";
+import { BsPersonCircle, BsThreeDotsVertical } from "react-icons/bs";
 
 function Dashboard({
 	locations,
@@ -19,13 +18,62 @@ function Dashboard({
 }) {
 	const [user, setUser] = useState(null);
 	const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+	const [dotsVisibility, setDotsVisibility] = useState({});
+	const [locationsDotsVisibility, setLocationsDotsVisibility] = useState({});
+	const [activitiesDotsVisibility, setActivitiesDotsVisibility] = useState({});	
 	const [activeItem, setActiveItem] = useState("Destinations");
 	const [activelink, setActivelink] = useState("Location");
 
 	const toggleDropdown = () => {
 		setIsDropdownOpen(!isDropdownOpen);
 	};
-	// console.log(locations)
+
+	const toggleDots = (itemId, type) => {
+		if (type === "locations") {
+		  setLocationsDotsVisibility((prevVisibility) => ({
+			...prevVisibility,
+			[itemId]: !prevVisibility[itemId],
+		  }));
+		} else if (type === "activities") {
+		  setActivitiesDotsVisibility((prevVisibility) => ({
+			...prevVisibility,
+			[itemId]: !prevVisibility[itemId],
+		  }));
+		}
+	  };
+
+	const handleDelete = (itemId) => {
+		// Remove the item from the locations array based on the itemId
+		const updatedLocations = locations.filter((item) => item._id !== itemId);
+		setLocations(updatedLocations);
+	};
+
+	const handleAdd = () => {
+		// Create a new item object with empty values
+		const newItem = {
+			_id: generateUniqueID(), // Generate a unique ID for the new item
+			name: "",
+			description: "",
+			latitude: "",
+			longitude: "",
+		};
+		setLocations((prevLocations) => [...prevLocations, newItem]);
+	};
+
+	const handleChange = (e, itemId, field) => {
+		// Update the corresponding field value for the item
+		const updatedLocations = locations.map((item) => {
+			if (item._id === itemId) {
+				return {
+					...item,
+					[field]: e.target.value,
+				};
+			}
+			return item;
+		});
+		setLocations(updatedLocations);
+	};
+
 	useEffect(() => {
 		const storedUser = localStorage.getItem("user");
 		if (storedUser) {
@@ -244,21 +292,30 @@ function Dashboard({
 									<li className='listed-item-nextsix'> actions </li>
 								</ul>
 								{locations.map((item) => {
+									const itemId = item._id;
+									const isDotsVisible = locationsDotsVisibility[itemId] || false;
+
 									return (
-										<ul className='listed-next location' key={item._id}>
-											<li className='listed-item-next'> {item._id} </li>
-											<li className='listed-item-nextsec'> {item.name} </li>
-											<li className='listed-item-nexthi'>
-												{" "}
-												{item.description}{" "}
-											</li>
-											<li className='listed-item-nextfor'> {item.latitude} </li>
-											<li className='listed-item-nextfiv'>
-												{" "}
-												{item.longitude}{" "}
-											</li>
+										<ul className='listed-next location' key={itemId}>
+											<li className='listed-item-next'>{item._id}</li>
+											<li className='listed-item-nextsec'>{item.name}</li>
+											<li className='listed-item-nexthi'>{item.description}</li>
+											<li className='listed-item-nextfor'>{item.latitude}</li>
+											<li className='listed-item-nextfiv'>{item.longitude}</li>
 											<li className='listed-item-nextsix'>
-												<FaChevronRight />{" "}
+												<BsThreeDotsVertical
+													onClick={() => toggleDots(itemId, "locations")}
+												/>
+												{isDotsVisible && (
+													<ul className='add-delete'>
+														<li className="click-item">
+															<button onClick={handleAdd}>Add</button>
+														</li>
+														<li className="click-item">
+															<button onClick={handleDelete}>Delete</button>
+														</li>
+													</ul>
+												)}
 											</li>
 										</ul>
 									);
@@ -274,22 +331,32 @@ function Dashboard({
 									<li className='listed-item-nextfiv'> price </li>
 									<li className='listed-item-nextsix'> actions </li>
 								</ul>
-								{activities.map((item) => {
+								{activities.map((activity) => {
+									const itemId = activity._id;
+									const isDotsVisible = activitiesDotsVisibility[itemId] || false;
 									return (
-										<ul className='listed-next location' key={item._id}>
-											<li className='listed-item-next'> {item._id} </li>
-											<li className='listed-item-nextsec'> {item.name} </li>
-											<li className='listed-item-nexthi'>
-												{" "}
-												{item.description}{" "}
-											</li>
+										<ul className='listed-next location' key={activity._id}>
+											<li className='listed-item-next'> {activity._id} </li>
+											<li className='listed-item-nextsec'> {activity.name} </li>
+											<li className='listed-item-nexthi'>{activity.description}</li>
 											<li className='listed-item-nextfor'>
-												{" "}
-												{item.location_id}{" "}
+												{activity.location_id}
 											</li>
-											<li className='listed-item-nextfiv'> {item.price} </li>
+											<li className='listed-item-nextfiv'> {activity.price} </li>
 											<li className='listed-item-nextsix'>
-												<FaChevronRight />{" "}
+												<BsThreeDotsVertical
+													onClick={() => toggleDots(itemId, "activities")}
+												/>
+												{isDotsVisible && (
+													<ul className='add-delete'>
+														<li className="click-item">
+															<button onClick={handleAdd}>Add</button>
+														</li>
+														<li className="click-item">
+															<button onClick={handleDelete}>Delete</button>
+														</li>
+													</ul>
+												)}
 											</li>
 										</ul>
 									);
@@ -309,16 +376,12 @@ function Dashboard({
 										<ul className='listed-next location' key={item._id}>
 											<li className='listed-item-next'> {item._id} </li>
 											<li className='listed-item-nextsec'> {item.name} </li>
-											<li className='listed-item-nexthi'>
-												{" "}
-												{item.description}{" "}
-											</li>
+											<li className='listed-item-nexthi'>{item.description}</li>
 											<li className='listed-item-nextfor'>
-												{" "}
-												{item.location_id}{" "}
+												{item.location_id}
 											</li>
 											<li className='listed-item-nextsix'>
-												<FaChevronRight />{" "}
+												<BsThreeDotsVertical />
 											</li>
 										</ul>
 									);
@@ -341,7 +404,7 @@ function Dashboard({
 											<li className='listed-item-nexthi'> {item.price} </li>
 											<li className='listed-item-nextfor'> {item.hotel_id} </li>
 											<li className='listed-item-nextsix'>
-												<FaChevronRight />{" "}
+												<BsThreeDotsVertical />
 											</li>
 										</ul>
 									);
@@ -377,7 +440,7 @@ function Dashboard({
 												{item.longitude}{" "}
 											</li>
 											<li className='listed-item-nextsix'>
-												<FaChevronRight />{" "}
+												<BsThreeDotsVertical />{" "}
 											</li>
 										</ul>
 									);
@@ -408,7 +471,7 @@ function Dashboard({
 											</li>
 											<li className='listed-item-nextfiv'> {item.price} </li>
 											<li className='listed-item-nextsix'>
-												<FaChevronRight />{" "}
+												<BsThreeDotsVertical />{" "}
 											</li>
 										</ul>
 									);
@@ -437,7 +500,7 @@ function Dashboard({
 												{item.location_id}{" "}
 											</li>
 											<li className='listed-item-nextsix'>
-												<FaChevronRight />{" "}
+												<BsThreeDotsVertical />{" "}
 											</li>
 										</ul>
 									);
@@ -463,7 +526,7 @@ function Dashboard({
 												{item.location_id}{" "}
 											</li>
 											<li className='listed-item-nextsix'>
-												<FaChevronRight />{" "}
+												<BsThreeDotsVertical />{" "}
 											</li>
 										</ul>
 									);
@@ -520,7 +583,7 @@ function Dashboard({
 												{item.checkout_date}{" "}
 											</li>
 											<li className='listed-item-nextsix'>
-												<FaChevronRight />
+												<BsThreeDotsVertical />
 											</li>
 										</ul>
 									);
@@ -554,7 +617,7 @@ function Dashboard({
 												{item.checkout_date}{" "}
 											</li>
 											<li className='listed-item-nextsix'>
-												<FaChevronRight />{" "}
+												<BsThreeDotsVertical />{" "}
 											</li>
 										</ul>
 									);
@@ -581,7 +644,7 @@ function Dashboard({
 									<li className='listed-item-nexthi'> {item.role_id} </li>
 									<li className='listed-item-nextsec'> {item.email} </li>
 									<li className='listed-item-nextsix'>
-										<FaChevronRight />
+										<BsThreeDotsVertical />
 									</li>
 								</ul>
 							);
