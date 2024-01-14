@@ -1110,8 +1110,8 @@ body {
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: center;
-	height: 100vh;
-	width: 89em;
+	height: 67vh;
+	width: 100%;
 }
 .each-hotel .hotels-nav {
 	position: absolute;
@@ -1120,22 +1120,22 @@ body {
 	overflow: hidden;
 	width: 100%;
 	align-items: center;
-	margin-top: 0px;
+	margin-left: 120px;
 	justify-content: space-between;
 	padding-right: 35em;
 	font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
 		"Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 	color: rgb(255, 255, 255);
 }
-
 .each-hotel .hotels-nav h1 {
-	color: #276263;
+	color: #ffffff;
+}
+.each-hotel .hotel-list {
+	margin-right: -180px;
 }
 .each-hotel .hotel-list li a {
-	font-size: 22px;
 	color: #ffffff;
 	text-decoration: none;
-	position: relative;
 }
 
 .each-hotel .hotel-list li a::after {
@@ -1161,17 +1161,18 @@ body {
 	position: absolute;
 	top: 0;
 	left: 0;
-	width: 74.2%;
-	height: 100%;
-	background-color: rgba(0, 0, 0, 0.973);
+	width: 100%;
+	height: 67%;
+	background-color: rgb(0, 0, 0);
 	opacity: 0.5;
 }
 .each-hotel .hotel-descr-item {
 	border-radius: 20px;
 	display: flex;
 	flex-direction: column;
-	margin-right: 8em;
-	margin-top: 5em;
+	text-align: center;
+	margin-right: -3em;
+	margin-top: 3em;
 	font-size: 4.9em;
 }
 
@@ -1181,6 +1182,100 @@ body {
 	margin: -10px;
 	font-size: 80px;
 	padding-left: 10px;
+}
+
+.each-hotel .room-list {
+	position: absolute;
+	top: 46em;
+	left: 15em;
+	text-align: center;
+	margin-top: 20px;
+}
+.each-hotel .room-list h2 {
+	margin-left: -6em;
+	font-family: "Lobster", cursive;
+	color: #25434de7;
+	font-size: 50px;
+}
+.each-hotel .room-list p {
+	font-family: "Lobster", cursive;
+	font-size: 20px;
+	color: #25434de7;
+	margin: 0;
+	margin-left: -15em;
+}
+.each-hotel .rooms {
+	display: flex;
+	flex-wrap: wrap;
+	margin-top: 80px;
+	margin-bottom: 20em;
+}
+.each-hotel .room-container {
+	margin-right: 20px;
+	position: relative;
+	width: calc(33.3333% - 20px);
+	margin-bottom: 80px;
+}
+.each-hotel .room-container:nth-last-child(-n + 2) {
+	margin-left: 10em; /* Add some margin between the last two items */
+}
+.each-hotel .room-img {
+	position: relative;
+	width: 25em;
+	height: 280px;
+	overflow: hidden;
+	z-index: 1;
+	border-radius: 15px;
+}
+
+.each-hotel .room-img::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(61, 61, 61, 0.466);
+	z-index: 2;
+}
+
+.each-hotel .room-img img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.each-hotel .detail {
+	position: absolute;
+	bottom: -10%;
+	left: 50%;
+	transform: translateX(-50%);
+	background-color: #25434db9; /* Light background color, adjust as needed */
+	padding: 0 15px;
+	margin-left: 30px;
+	border-radius: 0 0 8px 8px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+	width: 55%;
+	z-index: 5;
+}
+.each-hotel .room-list h2 {
+	margin-bottom: 10px;
+}
+
+.each-hotel .room-list .detail p {
+	margin: 0;
+	margin-bottom: 10px;
+	font-size: 18px;
+	color: white;
+}
+
+.each-hotel .room-list h3 {
+	margin-bottom: 10px;
+	color: white;
+}
+
+.each-hotel .room-list p {
+	margin-bottom: 0;
 }
 
 .each-hotel .hotel-form {
@@ -1232,71 +1327,12 @@ body {
 .each-hotel .hotel-book button:hover {
 	background-color: rgba(250, 235, 215, 0.39);
 }
-
-.sidebar {
-	width: 24%;
-	height: 100%;
-	position: fixed;
-	top: 0;
-	right: 0;
-	overflow-y: scroll;
-	-ms-overflow-style: none; /* IE and Edge */
-	scrollbar-width: none; /* Firefox */
-}
-.sidebar h2 {
-	font-family: "Lobster", cursive;
-	font-weight: 100;
-	font-size: 30px;
-	padding: 0 40px;
-	padding-left: 10px;
-}
-.sidebar::-webkit-scrollbar {
-	display: none;
-}
-.sidebar .container-list {
-	list-style: none;
-	margin: 0;
-	padding: 0;
-}
-
-.sidebar .container {
-	display: flex;
-	flex-direction: column;
-	align-items: start;
-	margin: 0px 35px 0px 0px;
-}
-.sidebar .container img {
+.each-hotel footer{ 
+	position: absolute;
+	top: 115em;
 	width: 100%;
-	height: auto;
-	object-fit: cover;
+	background-color: #25434dd2;
 }
-
-.sidebar-box {
-	backface-visibility: hidden;
-	background-color: #fff;
-}
-.sidebar li:hover img {
-	transform: scale(1.15);
-}
-.sidebar-img {
-	display: block;
-	overflow: hidden;
-}
-.sidebar-img img {
-	transition: all 1s;
-}
-.sidebar .container h3 {
-	margin-top: 10px;
-	margin-bottom: 0px;
-	font-size: 20px;
-	font-weight: bold;
-}
-
-.sidebar .container p {
-	margin-top: 5px;
-	font-size: 16px;
-}
-
 .each-hotel .footer-nav-socials {
 	position: relative;
 	z-index: 1;
@@ -2999,7 +3035,7 @@ body {
 	font-size: 44px;
 }
 .restaurant-foods {
-	margin-top: 100px;
+	margin-top: 150px;
 	margin-bottom: 140px;
 }
 .restaurant-title {
@@ -3008,7 +3044,8 @@ body {
 }
 
 .restaurant-title h2 {
-	font-size: 24px;
+	font-size: 34px;
+	margin: 0;
 }
 
 .restaurant-title p {
@@ -3097,8 +3134,8 @@ body {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	margin: 60px 350px;
-	margin-bottom: 140px;
+	margin: 200px 350px;
+	margin-bottom: 240px;
 }
 
 .reserve-one,
@@ -3425,24 +3462,26 @@ body {
 	flex-direction: column;
 }
 .activity-page .hotels-nav {
-	background-color: #102830;
+	background-color: #ffffff;
 	display: flex;
 	align-items: center;
 }
 .activity-page .hotels-nav h1 {
-	color: white;
+	color: #102830;
+	padding-top: 20px;
+	padding-left: 30px;
 }
 .activity-page .hotels-nav .menu {
 	margin-left: 73em;
 }
 .activity-page .hotels-nav .menu li a {
-	color: white;
+	color: #102830;
 }
 .location-info {
 	position: relative;
 	width: 100%;
 	height: 40em;
-	margin-top: 1px;
+	margin-top: 10px;
 	overflow: hidden;
 }
 
@@ -3450,13 +3489,20 @@ body {
 	position: absolute;
 	top: 0;
 	left: 0;
-	width: 100%;
+	width: 97.9%;
 	height: 100%;
-	background-color: rgba(0, 0, 0, 0.5); /* Specify the desired overlay color */
+	background-color: rgba(
+		0,
+		0,
+		0,
+		0.589
+	); /* Specify the desired overlay color */
 	z-index: 1;
+	margin: 0 20px;
 }
 
 .location-info img {
+	padding: 0 20px;
 	width: 100%;
 	height: 100%;
 	object-fit: cover;
@@ -3479,13 +3525,11 @@ body {
 	border-bottom: 10px solid #0c97a1; /* Specify the desired border properties */
 	padding: 10px;
 }
-
 .activity-info {
 	margin-top: 20px;
 	display: flex;
 	align-items: center;
 }
-
 .activity-info img {
 	width: 40em;
 	height: 25em;
@@ -3497,6 +3541,7 @@ body {
 	color: black;
 }
 .activity-section {
+	margin: 180px 0 180px 0;
 	text-align: center;
 	padding: 20px;
 }
@@ -3504,6 +3549,7 @@ body {
 .activity-heading {
 	font-family: "Lobster", cursive;
 	font-size: 44px;
+	margin-bottom: 50px;
 	color: #072224e1;
 }
 
@@ -3826,10 +3872,10 @@ body {
 	border-bottom-right-radius: 5px;
 	background-color: rgb(255, 255, 255);
 }
-.dashboard  .listed-item.active-two {
-	border-bottom: 2px solid #072224; 
-  }
-  
+.dashboard .listed-item.active-two {
+	border-bottom: 2px solid #072224;
+}
+
 .dashboard .sidebar-item .arrow-icon {
 	position: absolute;
 	right: 0;
@@ -3923,13 +3969,13 @@ body {
 	padding: 0px 0px 0 10px;
 	height: 50px;
 }
-.dashboard .dropdown-menu button{
+.dashboard .dropdown-menu button {
 	font-size: 25px;
 }
 
-.dashboard .add-delete{
+.dashboard .add-delete {
 	position: absolute;
-	right:80px;
+	right: 80px;
 	list-style: none;
 	border-radius: 5px;
 	background-color: #174346;
@@ -3937,7 +3983,7 @@ body {
 	margin-right: -35px;
 	padding: 5px 10px;
 }
-.dashboard .add-delete .click-item button{
+.dashboard .add-delete .click-item button {
 	background: none;
 	border: none;
 	color: white;

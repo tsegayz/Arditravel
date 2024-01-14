@@ -2,11 +2,11 @@ import { useState } from "react";
 import { useLocation, useHistory } from "react-router-dom";
 import axios from "axios";
 import Modal from "react-modal";
-
-import { RiFacebookFill, RiLinkedinFill } from "react-icons/ri";
+import { RiFacebookFill, RiLinkedinFill, RiWifiFill } from "react-icons/ri";
 import { SiTwitter } from "react-icons/si";
+import { IoShieldCheckmarkSharp } from "react-icons/io5";
 
-function HotelEach({ hotelRooms }) {
+function HotelEach({ hotelRooms, footer }) {
 	const location = useLocation();
 	const history = useHistory();
 	const [checkin, setCheckin] = useState("");
@@ -18,61 +18,6 @@ function HotelEach({ hotelRooms }) {
 	const { _id: hotel_id } = itemData; // Access the hotel ID from itemData
 
 	const hotelRoomData = hotelRooms.filter((item) => item.hotel_id === hotel_id);
-	const submit = async (e) => {
-		e.preventDefault();
-
-		// Basic validation
-		if (!checkin || !checkout || !roomtype) {
-			setResponseMessage("Please fill in all the fields");
-			return;
-		}
-
-		try {
-			const user_id = localStorage.getItem("user_id");
-			const token = localStorage.getItem("token"); // Retrieve the token from local storage
-
-			// Filter the rooms based on the specified room_type
-			const filteredRooms = hotelRoomData.filter(
-				(item) => item.type === roomtype
-			);
-			if (filteredRooms.length === 0) {
-				setResponseMessage("No rooms available for the specified criteria");
-				return;
-			}
-
-			// console.log(location.state.itemData._id);
-			const room_id = filteredRooms[0]._id; // Assuming there's only one room available for the specified criteria
-
-			const axiosConfig = {
-				headers: {
-					Authorization: `Bearer ${token}`, // Include the token in the Authorization header
-				},
-			};
-
-			const response = await axios.post(
-				"http://localhost:5000/api/v1/hotelBooking",
-				{
-					hotel_id: location.state.itemData._id,
-					user_id: user_id,
-					room_id: room_id,
-					checkin_date: checkin,
-					checkout_date: checkout,
-				},
-				axiosConfig // Pass the axiosConfig object as the third parameter
-			);
-
-			setResponseMessage(response.data);
-			setShowModal(true);
-		} catch (error) {
-			console.log(error);
-			setResponseMessage("An error occurred");
-		}
-	};
-
-	const closeModal = () => {
-		setShowModal(false);
-		history.push(`/hotels`); // Redirect to the home page after the modal is closed
-	};
 
 	return (
 		<div
@@ -101,105 +46,72 @@ function HotelEach({ hotelRooms }) {
 				</div>
 			</div>
 
-			<form className='hotel-form'>
-				<ul className='hotel-book-form'>
-					<li className='hotel-book'>
-						<p>Check-in date</p>
-						<input
-							id='date-input'
-							type='date'
-							autoComplete='off'
-							onChange={(e) => {
-								setCheckin(e.target.value);
-							}}
-						/>
-					</li>
-					<li className='hotel-book'>
-						<p>Check-out date</p>
-						<input
-							id='date-input'
-							type='date'
-							autoComplete='off'
-							onChange={(e) => {
-								setCheckout(e.target.value);
-							}}
-						/>
-					</li>
-
-					<li className='hotel-book'>
-						<p>Room Type</p>
-						<input
-							id='name-input'
-							type='text'
-							autoComplete='off'
-							placeholder='Executive'
-							onChange={(e) => {
-								setRoomtype(e.target.value); // Update the roomtype state instead of checkout
-							}}
-						/>
-					</li>
-
-					<li className='hotel-book'>
-						<button type='submit' onClick={submit}>
-							Book Now
-						</button>
-					</li>
-				</ul>
-			</form>
-
-			<div className='sidebar'>
-				<h2>Choose the Rooms of your choice</h2>
-				<ul className='container-list'>
-					{hotelRoomData.map((item) => (
-						<li className='container' key={item._id}>
-							<div className='sidebar-box'>
-								<div className='sidebar-img'>
-									<img src={item.image} alt='' className='img-fluid' />
-								</div>
-							</div>
-							<h3>Room type: {item.type}</h3>
-							<p>Price: ${item.price}</p>
-						</li>
-					))}
-				</ul>
-			</div>
-			<div>
-				<ul className='footer-nav-socials'>
-					<li className='hotel-social'>
-						<a href='#in'>
-							<i>
-								<RiFacebookFill style={{ color: "white" }} />{" "}
-							</i>{" "}
-						</a>
-					</li>
-					<li className='hotel-social'>
-						<a href='#in'>
-							<SiTwitter style={{ color: "white" }} />
-						</a>
-					</li>
-					<li className='hotel-social'>
-						<a href='#in'>
-							<RiLinkedinFill style={{ color: "white" }} />
-						</a>
-					</li>
-				</ul>
-			</div>
-
-			<Modal
-				isOpen={showModal}
-				onRequestClose={closeModal}
-				contentLabel='Booking Confirmation'
-				className='modal'
-				overlayClassName='modal-overlay'
-			>
-				<div className='modal-content'>
-					<h2>Booking Confirmation</h2>
-					<p>You have booked a room.</p>
-					<button className='modal-button' onClick={closeModal}>
-						Close
-					</button>
+			<div className='room-list'>
+				<div>
+					<h2> List of avaliable rooms </h2>
+					<p>
+						"Lorem dolor sit amet, consectetur adipiscing elit. Pellentesque vel
+					</p>
 				</div>
-			</Modal>
+				<div className="rooms">
+					{hotelRoomData.slice(1, 6).map((item, index) => (
+						<div key={index} className='room-container'>
+							<div className='room-img'>
+								<img src={item.image} alt='' className='img-fluid' />
+							</div>
+							<div className='detail'>
+								<h3>Room type: {item.type}</h3>
+								<p>Price: ${item.price}</p>
+							</div>
+						</div>
+					))}
+				</div>
+			</div>
+
+			<footer>
+				<div className='logo-bottom'>
+					<div className='logo-bottom-one'>
+						<h1>
+							A<span>rdi travel</span>
+						</h1>
+						<p> Land of origin, Ethiopia </p>
+					</div>
+				</div>
+				<div class='line'></div>
+				<div class='socials'>
+					<ul>
+						<li class='social-items'>
+							<a href='#in'>
+								{" "}
+								<RiFacebookFill />
+							</a>
+						</li>
+						<li class='social-items'>
+							<a href='#in'>
+								<SiTwitter />
+							</a>
+						</li>
+						<li class='social-items'>
+							<a href='#in'>
+								<RiLinkedinFill />
+							</a>
+						</li>
+						<li class='social-items'>
+							<a href='#in'>
+								<RiWifiFill />
+							</a>
+						</li>
+						<li class='social-items'>
+							<a href='#in'>
+								<IoShieldCheckmarkSharp />
+							</a>
+						</li>
+					</ul>
+				</div>
+				<div class='center-text'>
+					Copyright &copy; Web Coding Pro. All Rights Reserved
+				</div>
+			</footer>
 		</div>
 	);
 }

@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import "./App.css";
 
 import Home from "./components/Home";
 import Trips from "./components/Trips";
@@ -18,6 +17,7 @@ import Profile from "./components/Profile";
 import Activity from "./components/Activity";
 import Destination from "./components/Destination";
 import Dashboard from "./components/Dashboard";
+import HotelRoom from "./components/HotelRoom";
 
 function App() {
 	const [locationType, setLocationType] = useState([]);
@@ -32,9 +32,6 @@ function App() {
 	const [user, setUser] = useState([]);
 	const [roomBooking, setRoomBooking] = useState([]);
 	const [restBooking, setRestBooking] = useState([]);
-	
-	
-	
 
 	// Fetching data from the database
 	const fetchData = async () => {
@@ -77,7 +74,7 @@ function App() {
 
 			const response13 = await axios.get("/api/v1/users/");
 			const { users } = response13.data.data;
-			setUser( users);
+			setUser(users);
 
 			const response14 = await axios.get("/api/v1/hotelBooking");
 			const { roomBookings } = response14.data.data;
@@ -172,6 +169,9 @@ function App() {
 								roomBookings={roomBooking}
 								restBookings={restBooking}
 							/>
+						</Route>
+						<Route exact path='room'>
+							<HotelRoom />
 						</Route>
 					</Switch>
 				</div>
