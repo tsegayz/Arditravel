@@ -1,6 +1,6 @@
 # Ardi Travel
 
-Ardi travel is a webapp that is created for the purpose of helping toursists. 
+Ardi travel is a webapp that is created for the purpose of helping tourists. 
 It helps make tourists journey easier and enjoyable by taking care of most of the necessities before making a journey.
 
 # Features in the webapp
