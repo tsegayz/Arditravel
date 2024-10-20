@@ -2,33 +2,35 @@ const mongoose = require("mongoose");
 const AutoIncrement = require("mongoose-sequence")(mongoose);
 
 const hotelBookingSchema = new mongoose.Schema(
-	{
-		_id: { type: Number, unique: true },
-		user_id: {
-			type: Number,
-			required: [true, "the userId must be provided"],
-		},
-		hotel_id: {
-			type: Number,
-			required: [true, "the hotelId must be provided"],
-		},
-		room_id: {
-			type: Number,
-			required: [true, "the hotelRoomId must be provided"],
-		},
-		checkin_date: {
-			type: Date,
-			required: true,
-		},
-		checkout_date: {
-			type: Date,
-			required: true,
-		},
-		status: Boolean,
-		review: Object,
-	},
-	{ _id: false, autoCreate: false }
+  {
+    booking_id: { type: Number, unique: true }, // Custom integer ID field
+    user_id: {
+      type: Number,
+      required: [true, "the userId must be provided"],
+    },
+    hotel_id: {
+      type: Number,
+      required: [true, "the hotelId must be provided"],
+    },
+    room_id: {
+      type: Number,
+      required: [true, "the hotelRoomId must be provided"],
+    },
+    checkin_date: {
+      type: Date,
+      required: true,
+    },
+    checkout_date: {
+      type: Date,
+      required: true,
+    },
+    status: Boolean,
+    review: Object,
+  },
+  { autoCreate: false }
 );
+
+// hotelBookingSchema.plugin(AutoIncrement, { inc_field: "booking_id" });
 
 hotelBookingSchema.pre("save", async function (next) {
 	if (this.isNew) {

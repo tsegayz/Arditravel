@@ -31,12 +31,12 @@ function Restaurants({ meals }) {
 			setResponseMessage("Please fill in all the fields");
 			return;
 		}
-
+		// console.log(location.state.itemData);
 		try {
 			const user_id = localStorage.getItem("user_id");
 			const token = localStorage.getItem("token"); // Retrieve the token from local storage
 
-			console.log(user_id);
+			// console.log(user_id);
 			// const restaurant_id = location.state.itemData._id; // Assuming there's only one room available for the specified criteria
 
 			const axiosConfig = {
@@ -58,6 +58,7 @@ function Restaurants({ meals }) {
 				},
 				axiosConfig // Pass the axiosConfig object as the third parameter
 			);
+			console.log(response);
 
 			setResponseMessage(response.data);
 			setShowModal(true);

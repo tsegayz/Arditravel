@@ -49,35 +49,26 @@ function NavBar() {
 								style={{ display: "flex", alignItems: "center" }}
 							>
 								<div
+								className="char-holder"
 									style={{
-										width: "50px",
-										height: "50px",
+										width: "40px",
+										height: "40px",
 										borderRadius: "50%",
 										background: "#1e3942",
 										marginRight: "8px",
 										marginLeft: "10px",
-										marginTop: "10px",
 										padding: "20px",
 										display: "flex",
 										alignItems: "center",
 										justifyContent: "center",
 									}}
 								>
-									<span
-										style={{
-											fontWeight: "bold",
-											fontSize: "30px",
-											color: "white",
-										}}
-									>
-										{user.name.charAt(0)}
-									</span>
+									<span>{user.name.charAt(0)}</span>
 								</div>
-								
-							<h5> {user.name}</h5>
-							<FaChevronDown style={{ marginTop: "8px", fontSize: "18px" }} />
-							</button>
 
+								<h5> {user.name}</h5>
+								<FaChevronDown style={{ marginTop: "8px", fontSize: "17px" }} />
+							</button>
 							{isDropdownOpen && (
 								<ul className='dropdown-menu'>
 									<li>

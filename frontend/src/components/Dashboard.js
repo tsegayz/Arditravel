@@ -20,7 +20,7 @@ function Dashboard({
 	const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 	const [dotsVisibility, setDotsVisibility] = useState({});
 	const [locationsDotsVisibility, setLocationsDotsVisibility] = useState({});
-	const [activitiesDotsVisibility, setActivitiesDotsVisibility] = useState({});	
+	const [activitiesDotsVisibility, setActivitiesDotsVisibility] = useState({});
 	const [activeItem, setActiveItem] = useState("Destinations");
 	const [activelink, setActivelink] = useState("Location");
 
@@ -30,17 +30,17 @@ function Dashboard({
 
 	const toggleDots = (itemId, type) => {
 		if (type === "locations") {
-		  setLocationsDotsVisibility((prevVisibility) => ({
-			...prevVisibility,
-			[itemId]: !prevVisibility[itemId],
-		  }));
+			setLocationsDotsVisibility((prevVisibility) => ({
+				...prevVisibility,
+				[itemId]: !prevVisibility[itemId],
+			}));
 		} else if (type === "activities") {
-		  setActivitiesDotsVisibility((prevVisibility) => ({
-			...prevVisibility,
-			[itemId]: !prevVisibility[itemId],
-		  }));
+			setActivitiesDotsVisibility((prevVisibility) => ({
+				...prevVisibility,
+				[itemId]: !prevVisibility[itemId],
+			}));
 		}
-	  };
+	};
 
 	const handleDelete = (itemId) => {
 		// Remove the item from the locations array based on the itemId
@@ -165,7 +165,8 @@ function Dashboard({
 						}`}
 						onClick={() => handleSidebarItemClick("Destinations")}
 					>
-						<FaMapMarkerAlt style={{ marginRight: "10px", fontSize: "32px" }} />{" "}
+						7{" "}
+						<FaMapMarkerAlt style={{ marginRight: "10px", fontSize: "32px" }} />
 						Destinations
 						<span className='arrow-icon'></span>
 					</li>
@@ -175,7 +176,7 @@ function Dashboard({
 						}`}
 						onClick={() => handleSidebarItemClick("Booking")}
 					>
-						<IoIosBook style={{ marginRight: "10px", fontSize: "32px" }} />{" "}
+						<IoIosBook style={{ marginRight: "10px", fontSize: "32px" }} />
 						Booking
 						<span className='arrow-icon'></span>
 					</li>
@@ -183,7 +184,7 @@ function Dashboard({
 						className={`sidebar-item ${activeItem === "Users" ? "active" : ""}`}
 						onClick={() => handleSidebarItemClick("Users")}
 					>
-						<BsPersonCircle style={{ marginRight: "10px", fontSize: "32px" }} />{" "}
+						<BsPersonCircle style={{ marginRight: "10px", fontSize: "32px" }} />
 						Account
 						<span className='arrow-icon'></span>
 					</li>
@@ -193,7 +194,7 @@ function Dashboard({
 						}`}
 						onClick={() => handleSidebarItemClick("Setting")}
 					>
-						<IoIosSettings style={{ marginRight: "10px", fontSize: "32px" }} />{" "}
+						<IoIosSettings style={{ marginRight: "10px", fontSize: "32px" }} />
 						Setting
 						<span className='arrow-icon'></span>
 					</li>
@@ -205,7 +206,7 @@ function Dashboard({
 					>
 						<IoIosNotifications
 							style={{ marginRight: "10px", fontSize: "32px" }}
-						/>{" "}
+						/>
 						Notification
 						<span className='arrow-icon'></span>
 					</li>
@@ -293,7 +294,8 @@ function Dashboard({
 								</ul>
 								{locations.map((item) => {
 									const itemId = item._id;
-									const isDotsVisible = locationsDotsVisibility[itemId] || false;
+									const isDotsVisible =
+										locationsDotsVisibility[itemId] || false;
 
 									return (
 										<ul className='listed-next location' key={itemId}>
@@ -308,10 +310,10 @@ function Dashboard({
 												/>
 												{isDotsVisible && (
 													<ul className='add-delete'>
-														<li className="click-item">
+														<li className='click-item'>
 															<button onClick={handleAdd}>Add</button>
 														</li>
-														<li className="click-item">
+														<li className='click-item'>
 															<button onClick={handleDelete}>Delete</button>
 														</li>
 													</ul>
@@ -333,26 +335,32 @@ function Dashboard({
 								</ul>
 								{activities.map((activity) => {
 									const itemId = activity._id;
-									const isDotsVisible = activitiesDotsVisibility[itemId] || false;
+									const isDotsVisible =
+										activitiesDotsVisibility[itemId] || false;
 									return (
 										<ul className='listed-next location' key={activity._id}>
 											<li className='listed-item-next'> {activity._id} </li>
 											<li className='listed-item-nextsec'> {activity.name} </li>
-											<li className='listed-item-nexthi'>{activity.description}</li>
+											<li className='listed-item-nexthi'>
+												{activity.description}
+											</li>
 											<li className='listed-item-nextfor'>
 												{activity.location_id}
 											</li>
-											<li className='listed-item-nextfiv'> {activity.price} </li>
+											<li className='listed-item-nextfiv'>
+												{" "}
+												{activity.price}{" "}
+											</li>
 											<li className='listed-item-nextsix'>
 												<BsThreeDotsVertical
 													onClick={() => toggleDots(itemId, "activities")}
 												/>
 												{isDotsVisible && (
 													<ul className='add-delete'>
-														<li className="click-item">
+														<li className='click-item'>
 															<button onClick={handleAdd}>Add</button>
 														</li>
-														<li className="click-item">
+														<li className='click-item'>
 															<button onClick={handleDelete}>Delete</button>
 														</li>
 													</ul>
@@ -426,21 +434,14 @@ function Dashboard({
 										<ul className='listed-next location' key={item._id}>
 											<li className='listed-item-next'> {item._id} </li>
 											<li className='listed-item-nextsec'> {item.name} </li>
-											<li className='listed-item-nexthi'>
-												{" "}
-												{item.description}{" "}
-											</li>
+											<li className='listed-item-nexthi'>{item.description}</li>
 											<li className='listed-item-nextfor'>
-												{" "}
-												{item.locationtype_id}{" "}
+												{item.locationtype_id}
 											</li>
 											<li className='listed-item-nextfiv'> {item.latitude} </li>
-											<li className='listed-item-nextfiv'>
-												{" "}
-												{item.longitude}{" "}
-											</li>
+											<li className='listed-item-nextfiv'>{item.longitude}</li>
 											<li className='listed-item-nextsix'>
-												<BsThreeDotsVertical />{" "}
+												<BsThreeDotsVertical />
 											</li>
 										</ul>
 									);
@@ -461,17 +462,13 @@ function Dashboard({
 										<ul className='listed-next location' key={item._id}>
 											<li className='listed-item-next'> {item._id} </li>
 											<li className='listed-item-nextsec'> {item.name} </li>
-											<li className='listed-item-nexthi'>
-												{" "}
-												{item.description}{" "}
-											</li>
+											<li className='listed-item-nexthi'>{item.description}</li>
 											<li className='listed-item-nextfor'>
-												{" "}
-												{item.restaurant_id}{" "}
+												{item.restaurant_id}
 											</li>
 											<li className='listed-item-nextfiv'> {item.price} </li>
 											<li className='listed-item-nextsix'>
-												<BsThreeDotsVertical />{" "}
+												<BsThreeDotsVertical />
 											</li>
 										</ul>
 									);
@@ -491,16 +488,12 @@ function Dashboard({
 										<ul className='listed-next location' key={item._id}>
 											<li className='listed-item-next'> {item._id} </li>
 											<li className='listed-item-nextsec'> {item.type} </li>
-											<li className='listed-item-nexthi'>
-												{" "}
-												{item.description}{" "}
-											</li>
+											<li className='listed-item-nexthi'>{item.description}</li>
 											<li className='listed-item-nextfor'>
-												{" "}
-												{item.location_id}{" "}
+												{item.location_id}
 											</li>
 											<li className='listed-item-nextsix'>
-												<BsThreeDotsVertical />{" "}
+												<BsThreeDotsVertical />
 											</li>
 										</ul>
 									);
@@ -522,11 +515,10 @@ function Dashboard({
 											<li className='listed-item-nextsec'> {item.name} </li>
 											<li className='listed-item-nexthi'> {item.featuring} </li>
 											<li className='listed-item-nextfor'>
-												{" "}
-												{item.location_id}{" "}
+												{item.location_id}
 											</li>
 											<li className='listed-item-nextsix'>
-												<BsThreeDotsVertical />{" "}
+												<BsThreeDotsVertical />
 											</li>
 										</ul>
 									);
@@ -575,12 +567,10 @@ function Dashboard({
 											<li className='listed-item-nextsec'> {item.hotel_id} </li>
 											<li className='listed-item-nextsec'> {item.room_id} </li>
 											<li className='listed-item-nextsec'>
-												{" "}
-												{item.checkin_date}{" "}
+												{item.checkin_date}
 											</li>
 											<li className='listed-item-nextsec'>
-												{" "}
-												{item.checkout_date}{" "}
+												{item.checkout_date}
 											</li>
 											<li className='listed-item-nextsix'>
 												<BsThreeDotsVertical />
@@ -605,19 +595,16 @@ function Dashboard({
 											<li className='listed-item-next'> {item._id} </li>
 											<li className='listed-item-nextsec'> {item.user_id} </li>
 											<li className='listed-item-nexthi'>
-												{" "}
-												{item.restaurant_id}{" "}
+												{item.restaurant_id}
 											</li>
 											<li className='listed-item-nextsec'>
-												{" "}
-												{item.checkin_date}{" "}
+												{item.checkin_date}
 											</li>
 											<li className='listed-item-nextsec'>
-												{" "}
-												{item.checkout_date}{" "}
+												{item.checkout_date}
 											</li>
 											<li className='listed-item-nextsix'>
-												<BsThreeDotsVertical />{" "}
+												<BsThreeDotsVertical />
 											</li>
 										</ul>
 									);

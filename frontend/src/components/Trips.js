@@ -344,13 +344,12 @@ function Trips({ data, hotels, hotelRooms, restaurants, travels, tourGuides }) {
 									<h1> {value.zone} </h1>
 									{/* <h1> {value.woreda} </h1> */}
 								</a>
-
 								<div className='trip-content-second'>
 									<div className='scroll-icons left-content'>
 										<BsArrowLeftCircle
 											className='scroll-trip scroll-icon-left'
 											style={{
-												fontSize: "40px",
+												fontSize: "30px",
 												color: "white",
 												marginRight: "20px",
 											}}
@@ -359,7 +358,7 @@ function Trips({ data, hotels, hotelRooms, restaurants, travels, tourGuides }) {
 										<BsArrowRightCircle
 											className='scroll-trip scroll-icon-right'
 											style={{
-												fontSize: "40px",
+												fontSize: "30px",
 												color: "white",
 												marginLeft: "10px",
 											}}
@@ -369,7 +368,7 @@ function Trips({ data, hotels, hotelRooms, restaurants, travels, tourGuides }) {
 									<div className='right-content'>
 										<BsInfoCircleFill
 											style={{
-												fontSize: "120px",
+												fontSize: "6em",
 												color: "white",
 												marginLeft: "10px",
 											}}
@@ -382,7 +381,6 @@ function Trips({ data, hotels, hotelRooms, restaurants, travels, tourGuides }) {
 					</div>
 				))}
 			</div>
-
 			<div className='category' id='slider2'>
 				<div className='category-one'>
 					<div className='description'>
@@ -509,8 +507,8 @@ function Trips({ data, hotels, hotelRooms, restaurants, travels, tourGuides }) {
 													<p className='room-info-p'>
 														<GrLike
 															style={{
-																fontSize: "22px",
-																marginRight: "4px",
+																fontSize: "18px",
+																marginRight: "3px",
 															}}
 														/>
 														{hotel.rating} likes
@@ -521,7 +519,6 @@ function Trips({ data, hotels, hotelRooms, restaurants, travels, tourGuides }) {
 														style={{
 															color: "#3ba0a3",
 															fontSize: "18px",
-															marginTop: "15px",
 														}}
 													/>{" "}
 													<p> {hotelRoom.length} Rooms </p>
@@ -531,7 +528,6 @@ function Trips({ data, hotels, hotelRooms, restaurants, travels, tourGuides }) {
 														style={{
 															color: "#3ba0a3",
 															fontSize: "18px",
-															marginTop: "15px",
 														}}
 													/>
 													<p>Luxury hotels to enjoy</p>
@@ -560,7 +556,7 @@ function Trips({ data, hotels, hotelRooms, restaurants, travels, tourGuides }) {
 							onChange={filterHandler}
 						/>
 						<button className='search-icon'>
-							<RiSearch2Line style={{ color: "#16494b", fontSize: "37px" }} />
+							<RiSearch2Line />
 						</button>
 					</div>
 
@@ -777,7 +773,6 @@ function Trips({ data, hotels, hotelRooms, restaurants, travels, tourGuides }) {
 								<h3>{guide.name}</h3>
 								<p>{guide.featuring}</p>
 								<span>
-									{" "}
 									<GrLike /> Rating {guide.rating}
 								</span>
 							</div>
@@ -793,7 +788,6 @@ function Trips({ data, hotels, hotelRooms, restaurants, travels, tourGuides }) {
 						<h3>Adventure Calling You Guys!</h3>
 						<hr className='title-line' />
 					</div>
-
 					<div className='footer-columns'>
 						{columnsData.map((column, index) => (
 							<div className='footer-column' key={index}>

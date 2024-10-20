@@ -21,7 +21,7 @@ exports.signup = async (req, res, next) => {
 
 		// automatically logging in when the user opens the page by sending the token to the user
 		const token = signinToken(newUser._id);
-
+		console.log(`toke${token}`);
 		res.status(201).json({
 			status: "success",
 			token,
@@ -77,9 +77,9 @@ exports.login = async (req, res, next) => {
 			name: user.name,
 			email: user.email,
 			role_id: user.role_id, // Include the role_id in the response
-		  },
-		  token,
-		});
+		},
+		token,
+	});
 };
 
 // a middleware to protect the resources that are accessed by users

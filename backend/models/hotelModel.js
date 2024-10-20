@@ -4,7 +4,7 @@ const hotelSchema = new mongoose.Schema({
 	_id: { type: Number, required: true },
 	name: {
 		type: String,
-		required: [true, "a role must have a name"],
+		required: [true, "a role hotel have a name"],
 	},
 	description: String,
 	location_id: {

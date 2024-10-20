@@ -44,7 +44,6 @@ function Home({ data, explore, activities, footer }) {
 	};
 
 	const handleItemClick = (item) => {
-		// Navigate to the location page and pass the selected item's data
 		history.push(`/location/${item._id}`, { itemData: item });
 	};
 
@@ -59,7 +58,7 @@ function Home({ data, explore, activities, footer }) {
 						onChange={filterHandler}
 					/>
 					<button className='search-icon'>
-						<RiSearch2Line style={{ color: "black", fontSize: "37px" }} />
+						<RiSearch2Line style={{ color: "black", fontSize: "22px" }} />
 					</button>
 				</div>
 			</div>
@@ -93,7 +92,6 @@ function Home({ data, explore, activities, footer }) {
 					<h1> Trending activities </h1>
 					<p> Explore the beauty of the country Ethiopia </p>
 				</div>
-
 				<div className='main-container'>
 					<div className='grid-container'>
 						{trendSlice.map((item) => (
@@ -106,12 +104,11 @@ function Home({ data, explore, activities, footer }) {
 									<img className='cagridrd-image' src={item.image} alt='' />
 									<div className='grid-item-one'>
 										<p className='tour-icon'>
-											{" "}
-											<MdTour size={24} /> enjoyable activites{" "}
+											<MdTour size={20} /> enjoyable activites
 										</p>
 										<h3>{item.name}</h3>
-										<p>{item.description}</p>
-										<div className='rating'>
+										<p >{item.description}</p>
+										<div className='rating' style={{ fontSize: "13px" }}>
 											{Array.from({ length: 5 }, (_, index) => {
 												const starRating = index + 0.5;
 												return (
@@ -119,7 +116,7 @@ function Home({ data, explore, activities, footer }) {
 														{item.rating >= starRating ? "\u2605" : "\u2606"}
 													</span>
 												);
-											})}{" "}
+											})}
 											{item.rating} Likes
 										</div>
 									</div>
@@ -133,8 +130,7 @@ function Home({ data, explore, activities, footer }) {
 			<div className='popular-places'>
 				<h1>Top destinations </h1>
 				<div className='popular-descr'>
-					"Lorem dolor sit amet, consectetur adipiscing elit. Pellentesque vel
-					mi ut elit tempor
+					Lorem dolor sit amet, consectetur adipiscing elit. Pellentesque 
 				</div>
 				<div className='category-card'>
 					<Carousel
@@ -146,7 +142,7 @@ function Home({ data, explore, activities, footer }) {
 						swipeable={true}
 						emulateTouch={true}
 						centerMode={true}
-						centerSlidePercentage={16}
+						centerSlidePercentage={34}
 						renderArrowPrev={(onClickHandler, hasPrev, label) =>
 							hasPrev && (
 								<button
@@ -244,7 +240,6 @@ function Home({ data, explore, activities, footer }) {
 					<ul>
 						<li class='social-items'>
 							<a href='#in'>
-								{" "}
 								<RiFacebookFill />
 							</a>
 						</li>

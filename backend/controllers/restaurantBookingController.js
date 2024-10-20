@@ -73,10 +73,14 @@ exports.createRestaurantBooking = async (req, res) => {
 // Updating RestaurantBooking
 exports.updateRestaurantBooking = async (req, res) => {
 	try {
-		const newRestaurantBooking = await RestaurantBooking.findByIdAndUpdate(req.params.id, req.body, {
-			new: true,
-			runValidators: true,
-		});
+		const newRestaurantBooking = await RestaurantBooking.findByIdAndUpdate(
+			req.params.id,
+			req.body,
+			{
+				new: true,
+				runValidators: true,
+			}
+		);
 		res.status(200).json({
 			status: "success",
 			data: {
@@ -96,7 +100,9 @@ exports.updateRestaurantBooking = async (req, res) => {
 // Delete RestaurantBooking
 exports.deleteRestaurantBooking = async (req, res) => {
 	try {
-		const newRestaurantBooking = await RestaurantBooking.findByIdAndDelete(req.params.id);
+		const newRestaurantBooking = await RestaurantBooking.findByIdAndDelete(
+			req.params.id
+		);
 		res.status(204).json({
 			status: "success",
 			data: null,

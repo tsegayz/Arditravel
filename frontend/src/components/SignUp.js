@@ -16,7 +16,7 @@ function SignUp() {
 
 	const submit = async (e) => {
 		e.preventDefault();
-
+	
 		// Basic validation
 		if (!name || !email || !password || !passwordConfirm) {
 			setResponseMessage("Please fill in all the fields");
@@ -27,7 +27,7 @@ function SignUp() {
 			setResponseMessage("Password and confirm password do not match!");
 			return;
 		}
-
+	
 		try {
 			const response = await axios.post(
 				"http://localhost:5000/api/v1/users/signup",
@@ -38,17 +38,19 @@ function SignUp() {
 					passwordConfirm,
 				}
 			);
-
+	
 			const userData = response.data.data.user;
+			const token = response.data.token; // Extract the JWT token from the response
+			localStorage.setItem("token", token); // Store the token in local storage
 			localStorage.setItem("user", JSON.stringify(userData));
-
-			console.log(userData);
+	
 			setResponseMessage(response.data.status);
 			setShowModal(true);
 		} catch (error) {
 			setResponseMessage("An error occurred");
 		}
 	};
+	
 
 	const closeModal = () => {
 		setShowModal(false);

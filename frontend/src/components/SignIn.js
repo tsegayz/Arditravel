@@ -37,7 +37,8 @@ function SignIn() {
 		
 			const userData = response.data.user;
 			const role_id = response.data.user.role_id; // Correct
-
+			const token = response.data.token; // Extract the JWT token from the response
+			localStorage.setItem("token", token); // Store the token in local storage
 			localStorage.setItem("user", JSON.stringify(userData));
 		
 			setResponseMessage(response.data.status);

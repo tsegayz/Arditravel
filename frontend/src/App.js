@@ -17,7 +17,6 @@ import Profile from "./components/Profile";
 import Activity from "./components/Activity";
 import Destination from "./components/Destination";
 import Dashboard from "./components/Dashboard";
-import HotelRoom from "./components/HotelRoom";
 
 function App() {
 	const [locationType, setLocationType] = useState([]);
@@ -170,9 +169,7 @@ function App() {
 								restBookings={restBooking}
 							/>
 						</Route>
-						<Route exact path='room'>
-							<HotelRoom />
-						</Route>
+						
 					</Switch>
 				</div>
 			</Router>

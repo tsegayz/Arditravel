@@ -7,7 +7,6 @@ const userSchema = new mongoose.Schema(
   {
     _id: {
       type: Number,
-	  required: true
     },
     name: {
       type: String,
@@ -50,7 +49,7 @@ const userSchema = new mongoose.Schema(
 );
 
 // Apply the AutoIncrement plugin to the schema
-userSchema.plugin(AutoIncrement, { id: "user_id", inc_field: "_id", start_seq: 1000 });
+userSchema.plugin(AutoIncrement, { id: "user_id", inc_field: "_id", start_seq: 100 });
 
 
 // password encryption
