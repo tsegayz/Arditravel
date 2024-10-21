@@ -3177,7 +3177,7 @@ body {
 }
 .trips .restaurants .search-results {
 	background-color: #102830da;
-	margin-top: 90.6em;
+	margin-top: 92em;
 	margin-left: -23.5em;
 	padding-top: 10px;
 	height: 5em;
@@ -3660,7 +3660,7 @@ body {
 		padding-left: 15px;
 	}
 	.trips .restaurants .search-results {
-		margin-top: 87.7em;
+		margin-top: 89.7em;
 		margin-left: -3em;
 		padding-top: 5px;
 		height: 8em;
@@ -3857,16 +3857,13 @@ body {
 	text-align: center;
 	margin-bottom: 0px;
 }
-
 .restaurant-title h2 {
 	font-size: 34px;
 	margin: 0;
 }
-
 .restaurant-title p {
 	font-size: 16px;
 }
-
 .restaurant-card-container {
 	position: relative;
 	margin: 40px 120px;
@@ -3875,7 +3872,6 @@ body {
 	scrollbar-width: none;
 	-ms-overflow-style: none;
 }
-
 .restaurant-card-container::-webkit-scrollbar {
 	display: none;
 }
@@ -3883,14 +3879,12 @@ body {
 .restaurant-card-container::-webkit-scrollbar {
 	display: none;
 }
-
 .card-scroll-wrapper {
 	display: inline-flex;
 	overflow-x: auto;
 	scroll-behavior: smooth;
 	scroll-snap-type: x mandatory;
 }
-
 .card-scroll-wrapper .restaurant-card {
 	width: 310px;
 	/* margin-right: 0 50px; */
@@ -3900,7 +3894,6 @@ body {
 	align-items: center;
 	padding: 0 25px;
 }
-
 .card-image {
 	width: 100%;
 	height: 200px; /* Adjust the height as desired */
@@ -3944,7 +3937,6 @@ body {
 .restaurant-card-content p {
 	font-size: 16px;
 }
-
 .reservation {
 	display: flex;
 	justify-content: center;
@@ -3952,7 +3944,6 @@ body {
 	margin: 200px 350px;
 	margin-bottom: 240px;
 }
-
 .reserve-one,
 .reserve-two {
 	flex: 1;
@@ -3993,7 +3984,6 @@ body {
 	color: rgb(68, 68, 68);
 	font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
-
 .reserve-two p {
 	color: rgb(134, 134, 134);
 	font-family: "Lobster", cursive;
@@ -4006,18 +3996,15 @@ body {
 .reserve-two .number {
 	margin-left: 170px;
 }
-
 .reserve-two .input-container {
 	display: flex;
 	align-items: center;
 }
-
 .reserve-two .input-container label {
 	font-size: 20px;
 	padding-right: 20px;
 	padding-top: 30px;
 }
-
 .reserve-two .input-container input {
 	flex-grow: 1;
 	padding: 12px;
@@ -4046,11 +4033,9 @@ body {
 	border-bottom-color: transparent;
 	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
-
 .reserve-two .input-container input::placeholder {
 	font-size: 17px;
 }
-
 .reserve-two button {
 	padding: 15px 180px;
 	font-size: 16px;
@@ -4063,29 +4048,24 @@ body {
 	margin-top: 50px;
 	margin-left: 100px;
 }
-
 .reserve-two button:hover {
 	background-color: #2a4244;
 }
-
 .restaurant-footer {
 	width: 100%;
 	height: 33em;
 	position: relative;
 }
-
 .restaurant-footer .image-overlay {
 	position: relative;
 	width: 100%;
 	height: 100%;
 }
-
 .restaurant-footer .footer-image {
 	width: 100%;
 	height: 100%;
 	object-fit: cover;
 }
-
 .restaurant-footer .overlay {
 	position: absolute;
 	top: 0;
@@ -4229,7 +4209,6 @@ body {
 }
 
 .restaurant-footer .footer-links {
-	/* background-color: #102830; */
 	position: absolute;
 	bottom: 0;
 	left: 0;
@@ -4270,7 +4249,236 @@ body {
 	font-size: 14px;
 	color: #ffffff;
 }
-
+@media screen and (max-width: 480px) {
+	.restaurants .hotels-nav {
+		padding: 0 15px;
+	}
+	.restaurants .hotels-nav h1 {
+		padding: 0;
+		margin: 0;
+		font-size: 22px;
+	}
+	.restaurants .hotels-nav .hotel-list{
+		margin: 0;
+	}
+	.restaurants .hotels-nav .hotel-list li{
+		padding: 10px;
+	}
+	.restaurants .hotels-nav .hotel-list a {
+		font-size: 11px;
+	}
+	.restaurants .hotels-nav button {
+		font-size: 10px;
+		margin: 0;
+		margin-top: 10px;
+		border-radius: 10px;
+		padding: 0 10px;
+	}
+	.restaurant-home {
+		height: 20em;
+	}	
+	.restaurant-home > div h2 {
+		font-size: 30px;
+	}
+	.restaurant-home > div h3 {
+		margin-top: 0;
+		font-size: 17px;
+	}
+	.restaurant-foods {
+		margin-top: 50px;
+		margin-bottom: 0px;
+	}
+	.restaurant-title {
+		text-align: center;
+		margin-bottom: 0px;
+	}
+	.restaurant-title h2 {
+		font-size: 22px;
+	}
+	.restaurant-title p {
+		font-size: 12px;
+		margin: 0;
+		padding: 0 20px;
+	}
+	.restaurant-card-container {
+		margin: 20px 10px;
+	}
+	.card-scroll-wrapper .restaurant-card {
+		width: 210px;
+	}
+	.card-image {
+		height: 150px;
+	}
+	.restaurant-card-content {
+		padding: 0 9px;
+		width: 100%;
+	}
+	.restaurant-card-content h3 {
+		font-size: 12px;
+	}
+	.restaurant-card-content p {
+		font-size: 10px;
+	}
+	.reservation {
+		margin: 70px 0;
+		margin-bottom: 60px;
+		flex-direction: column;
+	}
+	.reserve-image {
+		width: 90%;
+		height: 200px;
+	}
+	.reserve-one h2 {
+		font-size: 18px;
+		margin: 4px;
+	}
+	.reserve-one p {
+		font-size: 10px;
+		padding: 0 50px;
+		margin-bottom: 0;
+	}
+	.reserve-two {
+		border-top-right-radius: 0;
+		border-bottom-left-radius: 25px;
+		border-bottom-right-radius: 25px;
+		padding: 0 20px;
+		width: 25.4em;
+	}
+	.reserve-two h2 {
+		font-size: 16px;
+		margin-bottom: 5px;
+	}
+	.reserve-two p {
+		font-size: 12px;
+		padding: 2px;
+		margin-left: 130px;
+	}
+	.reserve-two .number {
+		margin-left: 150px;
+	}
+	.reserve-two .two{
+		display: flex;
+		flex-direction: column;
+		align-items: start;
+	}
+	.reserve-two .input-container label {
+		font-size: 14px;
+	}
+	.reserve-two .input-container .checkout-label{
+		padding: 0;
+		padding-right: 10px;
+	}
+	.reserve-two .input-container input {
+		padding: 8px;
+		font-size: 14px;
+		margin-top: 15px;
+	}
+	.reserve-two .input-container input::placeholder {
+		font-size: 12px;
+	}
+	.reserve-two button {
+		padding: 15px 80px;
+		font-size: 14px;
+		margin: 30px 20px;
+		margin-left: 5em;
+	}
+	.restaurant-footer {
+		height: 45em;
+	}
+	.restaurant-footer .main-container {
+		position: relative;
+		flex-direction: column;
+		padding: 0px 10px;
+		margin-top: -40.5em;
+	}
+	.main-container .container-one .container-about h3 {
+		font-size: 15px;
+		margin: 0;
+	}
+	.main-container .container-one .container-about p {
+		font-size: 10px;
+		margin: 8px 0;
+		width: 21em;
+	}
+	.main-container .container-one {
+		margin-top: 0px;
+		display: flex;
+		align-items: center;
+	}
+	.main-container .container-one h2 {
+		font-size: 20px;
+		margin: 0;
+		width: 100px;
+	}
+	.main-container .container-two {
+		margin-top: 0px;
+	}
+	.main-container .container-two h3 {
+		font-size: 16px;
+	}
+	.main-container .container-two p {
+		font-size: 12px;
+	}
+	.weeks {
+		margin-top:10px;
+		margin-left: 10px;
+		font-size: 12px;
+	}
+	.day-hours {
+		padding-bottom: 8px;
+	}
+	.main-container .container-three {
+		flex-direction: column;
+	}
+	.main-container .container-three h3 {
+		font-size: 14px;
+	}
+	.main-container .container-three h4 {
+		font-size: 12px;
+		margin: 0;
+	}
+	.main-container .container-three p {
+		font-size: 10px;
+		margin: 5px;
+	}
+	.main-container .container-three .contact-two h2 {
+		font-size: 14px;
+	}
+	.main-container .container-three .contact-two p {
+		font-size: 12px;
+	}
+	.contact-two .input-container input,
+	.contact-two .input-container button {
+		margin-top: 10px;
+	}
+	.contact-two .input-container {
+		display: flex;
+		align-items: center;
+	}
+	
+	.contact-two .input-container input {
+		padding: 8px;
+		font-size: 17px;
+	}
+	.contact-two .input-container input::placeholder {
+		font-size: 14px;
+	}
+	.contact-two .input-container button {
+		padding: 11px 20px;
+		font-size: 14px;
+	}
+	.restaurant-footer .footer-links ul li {
+		margin-bottom: 20px;
+	}	
+	.restaurant-footer .footer-links ul li a {
+		font-size: 12px;
+		padding: 5px 15px;
+	}
+	.restaurant-footer .footer-links p {
+		font-size: 10px;
+	}
+	
+}
 /* /////////////////////   activity page //////////// */
 .activity-page {
 	display: flex;

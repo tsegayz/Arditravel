@@ -165,26 +165,30 @@ function Restaurants({ meals }) {
 						/>
 					</div>
 					<div className='input-container two'>
-						<label className='checkin-label'> Time: Checkin </label>
-						<input
-							type='time'
-							className='checkin'
-							id='date-input'
-							autoComplete='off'
-							onChange={(e) => {
-								setCheckin(e.target.value);
-							}}
-						/>
-						<label className='checkout-label'> Checkout:</label>
-						<input
-							className='checkout'
-							id='date-input'
-							type='time'
-							autoComplete='off'
-							onChange={(e) => {
-								setCheckout(e.target.value);
-							}}
-						/>
+						<div>
+							<label className='checkin-label'> Time: Checkin </label>
+							<input
+								type='time'
+								className='checkin'
+								id='date-input'
+								autoComplete='off'
+								onChange={(e) => {
+									setCheckin(e.target.value);
+								}}
+							/>
+						</div>
+						<div>
+							<label className='checkout-label'> Time: Checkout:</label>
+							<input
+								className='checkout'
+								id='date-input'
+								type='time'
+								autoComplete='off'
+								onChange={(e) => {
+									setCheckout(e.target.value);
+								}}
+							/>
+						</div>
 					</div>
 					<div className='input-container one'>
 						<label> Name :</label>
