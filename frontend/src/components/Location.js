@@ -243,7 +243,7 @@ function Location({ locations, activities, restaurants, hotels }) {
 											key={item._id}
 											style={{
 												backgroundImage: `url(${item.image})`,
-												borderRadius: "30px",
+												borderRadius: "20px",
 												boxShadow: "10px 10px 24px rgba(0, 0, 0, 0.4)", // Add the boxShadow property
 											}}
 										>
@@ -286,7 +286,7 @@ function Location({ locations, activities, restaurants, hotels }) {
 														</li>
 														<li className='city-attraction-item'>
 															<div className='city-attraction-icon'>
-																<AiOutlineLike style={{ fontSize: "23px" }} />
+																<AiOutlineLike style={{ fontSize: "16px" }} />
 																<p>{item.review.rating} likes</p>
 															</div>
 														</li>
@@ -299,31 +299,15 @@ function Location({ locations, activities, restaurants, hotels }) {
 							</div>
 							<button
 								className='scroll-loca'
-								style={{
-									fontSize: "40px",
-									color: "green",
-									marginLeft: "10px",
-									borderRadius: "50%",
-								}}
 								onClick={() => scrollLeft("slider")}
 							>
-								<FiChevronLeft
-									style={{ fontSize: "40px", paddingTop: "5px" }}
-								/>
+								<FiChevronLeft className='icon' />
 							</button>
 							<button
 								className='scroll-loca'
-								style={{
-									fontSize: "40px",
-									color: "green",
-									marginLeft: "10px",
-									borderRadius: "50%",
-								}}
 								onClick={() => scrollRight("slider")}
 							>
-								<FiChevronRight
-									style={{ fontSize: "40px", paddingTop: "5px" }}
-								/>
+								<FiChevronRight className='icon' />
 							</button>
 						</div>
 					</div>
@@ -388,7 +372,7 @@ function Location({ locations, activities, restaurants, hotels }) {
 									<h3 className='city-things-item'>Price: $ {newData.price}</h3>
 									<h3 className='city-things-item'>
 										<AiOutlineLike
-											fontSize={25}
+											fontSize={18}
 											style={{ marginRight: "8px" }}
 										/>
 										{newData.rating} likes
@@ -440,13 +424,13 @@ function Location({ locations, activities, restaurants, hotels }) {
 								<a key={hotel._id} onClick={() => handleHotelClick(hotel)}>
 									<ul className='city-hotels-desc'>
 										<h2 className='city-hotels-item'> {hotel.name} </h2>
-										<h3 className='city-hotels-item'>
+										<h4 className='city-hotels-item'>
 											<AiOutlineLike
-												fontSize={25}
+												fontSize={18}
 												style={{ marginRight: "8px" }}
 											/>{" "}
 											{hotel.rating} likes
-										</h3>
+										</h4>
 									</ul>
 								</a>
 							</div>

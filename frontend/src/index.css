@@ -1830,31 +1830,25 @@ body {
 	z-index: 2;
 }
 
-/* ////////////////////////////////// */
-
-/* //////////// city style ///////// */
-
+/* //////////// city style //////////////////////////////////////////////////// */
 .city {
 	height: 100vh;
 }
-
 .city .hotels-nav {
-	padding-right: 150px;
+	padding: 0 10px;
 }
 .city .hotels-nav h1 {
 	margin-bottom: 20px;
 	padding-top: 0px;
-	font-size: 55px;
+	font-size: 45px;
 	color: #25434d;
 }
-
 .city .hotels-nav li a {
 	color: #1f343b;
-	font-size: 20px;
+	font-size: 17px;
 	text-decoration: none;
 	position: relative;
 }
-
 .city .hotels-nav li a::after {
 	content: "";
 	position: absolute;
@@ -1865,21 +1859,22 @@ body {
 	background-color: #25434d;
 	transition: width 0.3s ease;
 }
-
 .city .hotels-nav a:hover::after {
 	width: 100%;
 }
-
 .city-homepage {
 	display: flex;
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
-	justify-content: space-between;
-	margin: 0 190px;
-	padding: 100px 0;
+	justify-content: center;
+	align-items: center;
+	margin: 0 5%;
 	border-radius: 20px;
 	position: relative;
+	width: 90%;
+	height: 70vh;
+	max-width: 120em;
 }
 .overlay {
 	border-radius: 20px;
@@ -1891,24 +1886,20 @@ body {
 	background-color: rgba(0, 0, 0, 0.39);
 	z-index: 1;
 }
-
 .city-name {
 	z-index: 2;
 	flex: 1.1;
 }
-
 .city-name-descr {
 	color: white;
 	margin-top: 4em;
 	margin-left: 100px;
 }
-
 .city-name-descr h2 {
 	margin-bottom: 0px;
 	font-size: 90px;
 	font-family: "Lobster", cursive;
 }
-
 .city-name-descr p {
 	font-size: 40px;
 	margin-top: 0px;
@@ -1916,7 +1907,6 @@ body {
 	font-family: "Pacifico", cursive;
 	color: rgb(255, 255, 255);
 }
-
 .city-card-list-container {
 	z-index: 2;
 	flex: 1;
@@ -1925,29 +1915,23 @@ body {
 	overflow-y: auto;
 	padding-right: 0px;
 }
-
 .city-card-list {
 	height: 100%;
 }
-
 .city-card-list-content {
 	list-style: none;
 	display: flex;
 	overflow-x: scroll;
 	-ms-overflow-style: none;
 	scrollbar-width: none;
-	margin-right: 100px;
-	margin-left: 60px;
+	margin: 0 40px;
 }
-
 .city-card-list-content::-webkit-scrollbar {
 	display: none;
 }
-
 .city-card-list-content .city-card-item {
 	padding-right: 60px;
 }
-
 .city-card-attraction {
 	position: relative;
 	margin-top: 4em;
@@ -1961,7 +1945,6 @@ body {
 	flex-direction: column;
 	justify-content: space-between;
 }
-
 .city-card-attraction::before {
 	content: "";
 	position: absolute;
@@ -1970,7 +1953,7 @@ body {
 	width: 100%;
 	height: 100%;
 	background-color: rgba(0, 0, 0, 0.384);
-	border-radius: 30px;
+	border-radius: 20px;
 	z-index: 1;
 }
 .city-card-attraction .city-card-icon button {
@@ -2014,60 +1997,61 @@ body {
 }
 .scroll-loca {
 	margin-top: 30px;
+	font-size: 40px;
+	color: green;
+	margin-left:10px ;
+	border-radius: 50%;
+}
+.scroll-loca .icon{
+	font-size: 40px;
+	padding-top: 5px;
 }
 /* ///////////////////// */
-
 .about-city {
 	display: flex;
-	margin: 150px 220px 50px 220px;
-	width: 90em;
+	justify-content: space-between;
+	margin: 60px;
+	max-width: 100%;
 }
 .about-city h2 {
 	font-family: "Lobster", cursive;
-	font-size: 45px;
+	font-size: 2.5rem;
 	font-weight: 100;
-	width: 9em;
-	padding-left: 0px;
+	padding-left: 0;
 }
-
 .about-city h3 {
 	font-family: "Lobster", cursive;
 	font-weight: 100;
-	font-size: 30px;
-	width: 9em;
-	padding-left: 45px;
-	margin-top: -20px;
+	font-size: 1.8rem;
+	padding-left: 20px;
+	margin-top: -10px;
 }
 .about-city p {
-	padding: 50px 50px 40px 50px;
+	padding: 40px;
 	background-color: rgba(216, 215, 215, 0.308);
 	border-radius: 20px;
-	margin-left: 10em;
+	width: 100%;
+	max-width: 800px;
+	box-sizing: border-box;
 }
-
 .city-things-container h2 {
 	font-family: "Lobster", cursive;
 	font-weight: 100;
 	font-size: 45px;
-	padding-left: 4.7em;
+	padding-left: 50px;
 	font-weight: 100;
 }
 .city-things-container {
 	height: 550px;
-	width: 115em;
-	padding-right: 60px;
 }
-
 .city-things-content {
 	list-style: none;
 	display: flex;
 	overflow-x: scroll;
 	-ms-overflow-style: none;
 	scrollbar-width: none;
-	margin-right: 100px;
-	margin-left: 14em;
+	margin: 0 3em 0 6em;
 }
-
 .city-things-content::-webkit-scrollbar {
 	display: none;
 }
@@ -2082,9 +2066,8 @@ body {
 	padding: 10px;
 	padding-left: 0px;
 	margin-right: 3em;
-	background-size: cover; /* Add this line */
+	background-size: cover;
 }
-
 .city-things-card::before {
 	content: "";
 	position: absolute;
@@ -2095,7 +2078,6 @@ body {
 	background-color: rgba(0, 0, 0, 0.5);
 	border-radius: 20px;
 }
-
 .city-things-card button {
 	border: solid transparent;
 	font-size: 31px;
@@ -2104,7 +2086,6 @@ body {
 	position: relative;
 	z-index: 2;
 }
-
 .city-things-desc {
 	color: white;
 	list-style: none;
@@ -2119,27 +2100,22 @@ body {
 	padding-left: 0px;
 	z-index: 2;
 }
-
 .city-things-item {
 	padding: 3px;
 }
-
 .city-things-desc h2 {
 	padding: 0;
 	font-size: 20px;
 	margin-bottom: 10px;
 	margin-left: 14px;
 }
-
 .city-things-desc h3 {
 	display: flex;
 	align-items: center;
 	margin: 0;
 	margin-left: 14px;
 }
-
 /* // */
-
 .city-hotels-list {
 	height: 100%;
 }
@@ -2147,36 +2123,30 @@ body {
 	font-weight: 100;
 	font-family: "Lobster", cursive;
 	font-size: 45px;
-	padding-left: 4.6em;
+	padding-left: 50px;
 	margin-bottom: 0px;
 }
 .city-hotels-container h3 {
 	font-family: "Lobster", cursive;
-	font-size: 27px;
-	padding-left: 9em;
+	font-size: 24px;
+	margin: 0;
+	padding-left: 70px;
 	font-weight: 100;
 }
-
 .city-hotels-container {
 	height: 60%;
-	width: 115em;
-	padding-right: 60px;
 }
-
 .city-hotels-content {
 	list-style: none;
 	display: flex;
 	overflow-x: scroll;
 	-ms-overflow-style: none;
 	scrollbar-width: none;
-	margin-right: 100px;
-	margin-left: 14em;
+	margin: 2em 3em 0 4em;
 }
-
 .city-hotels-content::-webkit-scrollbar {
 	display: none;
 }
-
 .city-hotels-card {
 	position: relative;
 	border-radius: 20px;
@@ -2188,9 +2158,8 @@ body {
 	padding: 10px;
 	padding-left: 0px;
 	margin-right: 3em;
-	background-size: cover; /* Add this line */
+	background-size: cover;
 }
-
 .city-hotels-card::before {
 	content: "";
 	position: absolute;
@@ -2202,7 +2171,6 @@ body {
 	border-radius: 20px;
 	z-index: 1;
 }
-
 .city-hotels-card button {
 	border: solid transparent;
 	font-size: 31px;
@@ -2236,7 +2204,6 @@ body {
 	margin-bottom: 0;
 	margin-left: 14px;
 }
-
 .city-hotels-desc h3 {
 	font-weight: bold;
 	font-family: "Times New Roman", Times, serif;
@@ -2244,42 +2211,41 @@ body {
 	margin-left: -180px;
 	font-size: 22px;
 }
-
+.city-hotels-desc h4 {
+	margin: 8px 0;
+	font-size: 18px;
+}
 /* ////// city restaurant /// */
-
 .city-restaurants-container h2 {
 	font-family: "Lobster", cursive;
 	font-weight: 100;
 	font-size: 45px;
-	padding-left: 4.7em;
+	padding-left: 60px;
 	font-weight: 100;
+	margin-bottom: 0;
 }
 .city-restaurants-container h3 {
 	font-family: "Lobster", cursive;
 	font-size: 27px;
-	padding-left: 9em;
+	margin: 10px;
+	padding-left: 70px;
 	font-weight: 100;
 }
-
 .city-restaurants-list {
 	height: 100%;
 }
 .city-restaurants-container {
 	height: 60%;
-	width: 115em;
 	padding-right: 60px;
 }
-
 .city-restaurants-content {
 	list-style: none;
 	display: flex;
 	overflow-x: scroll;
 	-ms-overflow-style: none;
 	scrollbar-width: none;
-	margin-right: 100px;
-	margin-left: 14em;
+	margin: 2em 4em 0 4em;
 }
-
 .city-restaurants-content::-webkit-scrollbar {
 	display: none;
 }
@@ -2384,6 +2350,225 @@ body {
 	font-size: 18px;
 	margin-left: 30%;
 	margin-top: 70px;
+}
+@media screen and (max-width: 480px) {
+	.city .hotels-nav {
+		padding: 0;
+	}
+	.city .hotels-nav h1 {
+		font-size: 20px;
+		margin: 10px;
+	}
+	.city .hotels-nav li {
+		padding: 10px;
+		margin: 0;
+	}
+	.city .hotels-nav li a {
+		font-size: 10px;
+	}
+	.city-homepage {
+		height: 30vh;
+	}
+	.city-name-descr {
+		margin: 0;
+		margin-left: 15px;
+	}
+	.city-name-descr h2 {
+		margin-bottom: 10px;
+		font-size: 20px;
+	}
+	.city-name-descr p {
+		font-size: 10px;
+		margin-top: 0px;
+		margin-left: 20px;
+	}
+	.city-card-list-container {
+		width: 200px;
+		padding-right: 0px;
+	}
+	.city-card-list {
+		height: 10%;
+	}
+	.city-card-list-content {
+		margin: 0 15px;
+	}
+	.city-card-attraction {
+		margin-top: 2em;
+		width: 7em;
+		height:10em;
+	}
+	.city-card-list-content .city-card-item {
+		padding-right: 15px;
+	}
+	.city-card-attraction .city-card-icon button {
+		font-size: 14px;
+		margin-left: -49px;
+	}
+	.city-card-attraction .city-card-icon {
+		font-size: 10px;
+		margin-left: 12.5em;
+	}
+	.city-attraction-item {
+		margin-top: 0px;
+	}
+	.city-attraction-item h2 {
+		font-size: 9px;
+	}
+	.city-attraction-item p {
+		font-size: 8px;
+	}
+	.city-attraction .city-attraction-icon {
+		display: flex;
+		align-items: center;
+	}
+	.scroll-loca {
+		margin-top: 10px;
+	}
+	.city-attraction .city-attraction-icon p{
+		margin: 0;
+	}
+	.scroll-loca {
+		margin-top: 10px;
+		font-size: 15px;
+	}
+	.scroll-loca .icon{
+		font-size: 15px;
+		padding-top: 5px;
+	}
+	.about-city {
+		margin: 30px 25px;
+	}
+	.about-city h2 {
+		font-size: 16px;
+	}
+	.about-city h3 {
+		font-size: 10px;
+		padding-left: 5px;
+	}
+	.about-city p {
+		padding: 10px;
+		width: 75%;
+		font-size: 9px;
+		border-radius: 10px;
+	}
+	.city-things-container h2 {
+		font-size: 16px;
+		padding-left: 20px;
+	}
+	.city-things-container {
+		height: 250px;
+	}
+	.city-things-content {
+		margin: 0 2em;
+	}
+	.city-things-card {
+		border-radius: 15px;
+		margin-right: 14px;
+		height: 180px;
+		width: 10em;
+	}
+	.city-things-card::before {
+		border-radius: 15px;
+	}
+	.city-things-card button {
+		font-size: 12px;
+	}
+	.city-things-desc {
+		margin: 0;
+		margin-bottom: -10px;
+	}
+	.city-things-item {
+		padding: 3px;
+	}
+	.city-things-desc h2 {
+		padding: 0;
+		font-size: 12px;
+		margin: 0;
+		margin-left: 7px;
+	}
+	.city-things-desc h3 {
+		font-size: 10px;
+		margin-left: 4px;
+	}
+	.city-hotels-container h2 {
+		font-size: 16px;
+		padding-left: 25px;
+	}
+	.city-hotels-container h3 {
+		font-size: 14px;
+		padding-left: 40px;
+	}
+	.city-hotels-container {
+		height: 34%;
+	}
+	.city-hotels-content {
+		margin: 15px 2em;
+		padding-left: 0;
+	}
+	.city-hotels-card {
+		border-radius: 15px;
+		margin-right: 14px;
+		height: 180px;
+		width: 10em;
+	}
+	.city-hotels-card::before {
+		border-radius: 15px;
+	}
+	.city-hotels-card button {
+		font-size: 12px;
+	}
+	.city-hotels-desc {
+		margin: 0;
+		margin-bottom: 10px;
+	}
+	.city-hotels-item {
+		padding: 3px;
+	}
+	.city-hotels-desc h2 {
+		font-size: 10px;
+		margin: 0px;
+		padding-left: 10px;
+	}
+	.city-hotels-desc h4 {
+		font-size: 12px;
+		margin: 0;
+		padding-left: 10px;
+	}
+	.city-restaurants-container h2 {
+		font-size: 16px;
+		padding-left: 25px;
+	}
+	.city-restaurants-container h3 {
+			font-size: 12px;
+			margin: 0;
+			padding-left: 40px;
+	}
+	.city-restaurants-container {
+		height: 28%;
+		padding-right: 60px;
+	}
+	.city-restaurants-content {
+		margin: 15px 2em;
+		padding-left: 0;
+	}
+	.city-restaurants-card {
+		border-radius: 15px;
+		margin-right: 14px;
+		height: 180px;
+		width: 10em;
+	}	
+	.city-restaurants-card::before {
+		border-radius: 15px;
+	}
+	.city-restaurants-card button {
+		font-size: 12px;
+		margin-left: 10em;
+	}
+	.city-restaurants-desc h2 {
+		font-size: 10px;
+		margin: 0px;
+		padding-left: 10px;
+	}
 }
 
 /* signin page */
@@ -2823,14 +3008,14 @@ body {
 }
 .trips .category-card {
 	display: flex;
-	overflow-x: auto; 
+	overflow-x: auto;
 	padding-left: 6em;
 }
 
 .trips .card-list {
 	display: flex;
 	flex-direction: column;
-	align-items: center; 
+	align-items: center;
 	justify-content: center;
 	width: 280px;
 	padding: 22px;
@@ -2839,7 +3024,7 @@ body {
 	border-radius: 10px;
 	margin-right: 20px;
 	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-	flex-shrink: 0; 
+	flex-shrink: 0;
 	scroll-snap-align: start;
 }
 
@@ -3300,7 +3485,6 @@ body {
 	width: auto;
 	margin-bottom: 1px;
 	padding: 8px 0;
-	
 }
 
 /* //////////reposnsive trip   ////////////////// */
@@ -3399,7 +3583,7 @@ body {
 		width: 20px;
 		padding: 5px;
 	}
-	.trips .category-card{
+	.trips .category-card {
 		padding-left: 1em;
 		padding-top: 10px;
 	}
@@ -3522,7 +3706,7 @@ body {
 	.travelmeans-container .content h3 {
 		font-size: 14px;
 	}
-	.travelmeans-container .content p{
+	.travelmeans-container .content p {
 		font-size: 10px;
 	}
 	.tour-guide-container {
@@ -3564,7 +3748,7 @@ body {
 	.trips-footer .footer-column li {
 		font-size: 10px;
 	}
-	.trips-footer .footer-column{
+	.trips-footer .footer-column {
 		margin: 0;
 	}
 	.trips-footer .footer-column h4 {
@@ -3583,7 +3767,6 @@ body {
 	.trips-footer .contact-column {
 		margin-left: -2em;
 	}
-	
 }
 /* ///////// restaurants page */
 .restaurants .hotels-nav {

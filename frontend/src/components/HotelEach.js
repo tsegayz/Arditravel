@@ -1,10 +1,6 @@
 import { useState } from "react";
 import { useLocation, useHistory } from "react-router-dom";
 import axios from "axios";
-import Modal from "react-modal";
-import { useState } from "react";
-
-import { useLocation, useHistory } from "react-router-dom";
 import { RiFacebookFill, RiLinkedinFill, RiWifiFill } from "react-icons/ri";
 import { SiTwitter } from "react-icons/si";
 import { IoShieldCheckmarkSharp } from "react-icons/io5";
