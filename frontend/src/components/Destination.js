@@ -35,7 +35,7 @@ function Destination({ data }) {
 	};
 
 	return (
-		<div className='destionation'>
+		<div className='destination'>
 			<nav className='hotels-nav'>
 				<h1> Ardi Travel </h1>
 				<ul className='menu'>

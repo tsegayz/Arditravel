@@ -58,45 +58,45 @@ function Hotels({ hotels, hotelRooms }) {
 					</li>
 				</ul>
 			</nav>
+			<div className="hotel-background">
+				<div className='hotel-descr'>
+					<div className='hotel-descr-item'>
+						<h6> All your needs in one place </h6>
+						<p> All of the top hotel in the city </p>
+					</div>
+				</div>
+				<div className='search-bar'>
+					<input
+						className='input-field'
+						type='text'
+						placeholder='Search for hotels ....'
+						onChange={filterHandler}
+					/>
+					<button className='search-icon'>
+						<RiSearch2Line style={{ color: "#16494b", fontSize: "25px" }} />
+					</button>
+				</div>
 
-			<div className='hotel-descr'>
-				<div className='hotel-descr-item'>
-					<h6> All your needs in one place </h6>
-					<p> All of the top hotel in the city </p>
+				<div>
+					{filteredHotels.length !== 0 && (
+						<div className='search-results'>
+							{filteredHotels.map((value) => {
+								return (
+									<a
+										className='search-item'
+										target=''
+										key={value._id}
+										onClick={() => handleItemClick(value)} // Call the handleItemClick function when the item is clicked
+									>
+										{value.name}
+									</a>
+								);
+							})}
+						</div>
+					)}
 				</div>
 			</div>
-			<div className='search-bar'>
-				<input
-					className='input-field'
-					type='text'
-					placeholder='Search for hotels ....'
-					onChange={filterHandler}
-				/>
-				<button className='search-icon'>
-					<RiSearch2Line style={{ color: "#16494b", fontSize: "37px" }} />
-				</button>
-			</div>
-
-			<div>
-				{filteredHotels.length !== 0 && (
-					<div className='search-results'>
-						{filteredHotels.map((value) => {
-							return (
-								<a
-									className='search-item'
-									target=''
-									key={value._id}
-									onClick={() => handleItemClick(value)} // Call the handleItemClick function when the item is clicked
-								>
-									{value.name}
-								</a>
-							);
-						})}
-					</div>
-				)}
-			</div>
-			<h5> explore the hotels of your choice</h5>
-
+			<h5> Explore the hotels of your choice</h5>
 			<div className='hotel-card-wrapper' ref={roomSectionRef}>
 				{hotelsSlice.map((hotel, index) => (
 					<a
@@ -168,15 +168,15 @@ function Hotels({ hotels, hotelRooms }) {
 					<div className='contact-one'>
 						<h3>Find us on:</h3>
 						<div className='first'>
-							<h4>Address</h4>
+							<h3>Address</h3>
 							<p>"Lorem dolor Aliquam cursus</p>
 						</div>
 						<div className='second'>
-							<h4>Phone</h4>
+							<h3>Phone</h3>
 							<p>+1 (555) 123-4567</p>
 						</div>
 						<div className='third'>
-							<h4>Email</h4>
+							<h3>Email</h3>
 							<p>resto67@gmail.com</p>
 						</div>
 					</div>

@@ -77,56 +77,32 @@ function HotelEach({ hotelRooms, footer }) {
 	};
 
 	return (
-		<div
-			className='each-hotel'
-			style={{ backgroundImage: `url(${itemData.image})` }}
-		>
-			<nav className='hotels-nav'>
-				<h1>Ardi Travel</h1>
-				<ul className='hotel-list'>
-					<li className='hotel-nav-list'>
-						<a>Contact us</a>
-					</li>
-					<li className='hotel-nav-list'>
-						<a>Room</a>
-					</li>
-					<li className='hotel-nav-list'>
-						<a>Gallery</a>
-					</li>
-				</ul>
-			</nav>
-
-			<div className='hotel-descr'>
-				<div className='hotel-descr-item'>
-					<h4>{itemData.name}</h4>
-					<h4>One of the top hotels in the city</h4>
+		<div className='each-hotel'>
+			<div
+				className='hotel-image'
+				style={{ backgroundImage: `url(${itemData.image})` }}
+			>
+				<nav className='hotels-nav'>
+					<h1>Ardi Travel</h1>
+					<ul className='hotel-list'>
+						<li className='hotel-nav-list'>
+							<a>Contact us</a>
+						</li>
+						<li className='hotel-nav-list'>
+							<a>Room</a>
+						</li>
+						<li className='hotel-nav-list'>
+							<a>Gallery</a>
+						</li>
+					</ul>
+				</nav>
+				<div className='hotel-descr'>
+					<div className='hotel-descr-item'>
+						<h4>{itemData.name}</h4>
+						<h4>One of the top hotels in the city</h4>
+					</div>
 				</div>
 			</div>
-
-			<div className='room-list'>
-				<div>
-					<h2> List of avaliable rooms </h2>
-					<p>
-						"Lorem dolor sit amet, consectetur adipiscing elit. Pellentesque vel
-					</p>
-				</div>
-				<div className='rooms'>
-					{hotelRooms.slice(1, 6).map((item, index) => (
-						<div className='hotel-card' key={item._id}>
-							<div key={index} className='room-container'>
-								<div className='room-img'>
-									<img src={item.image} alt='' className='img-fluid' />
-								</div>
-								<div className='detail'>
-									<h3>Room type: {item.type}</h3>
-									<p>Price: ${item.price}</p>
-								</div>
-							</div>
-						</div>
-					))}
-				</div>
-			</div>
-
 			<form className='hotel-form'>
 				<ul className='hotel-book-form'>
 					<li className='hotel-book'>
@@ -172,6 +148,29 @@ function HotelEach({ hotelRooms, footer }) {
 					</li>
 				</ul>
 			</form>
+			<div className='room-list'>
+				<div className="title">
+					<h2> List of avaliable rooms </h2>
+					<p>
+						"Lorem dolor sit amet, consectetur adipiscing elit. Pellentesque vel
+					</p>
+				</div>
+				<div className='rooms'>
+					{hotelRooms.slice(1, 6).map((item, index) => (
+						<div className='hotel-card' key={item._id}>
+							<div key={index} className='room-container'>
+								<div className='room-img'>
+									<img src={item.image} alt='' className='img-fluid' />
+								</div>
+								<div className='detail'>
+									<h3>Room type: {item.type}</h3>
+									<p>Price: ${item.price}</p>
+								</div>
+							</div>
+						</div>
+					))}
+				</div>
+			</div>
 			<footer>
 				<div className='logo-bottom'>
 					<div className='logo-bottom-one'>
